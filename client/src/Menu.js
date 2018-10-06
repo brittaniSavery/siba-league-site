@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Nav,Navbar,NavItem,NavDropdown,MenuItem} from 'react-bootstrap'
-import logo from './logo.svg';
 import './App.css';
 
 class Menu extends Component {
