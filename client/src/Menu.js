@@ -1,45 +1,135 @@
-import React, { Component } from 'react';
-import { Nav, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap'
+import React from 'react';
+import { Nav, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
 
-class Menu extends Component {
-    render() {
-        return (
+const Menu = () => (
+    <Router>
+        <div>
             <Navbar>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <a href="#home">[img here]</a>
+                        <Link to="/">[img here]</Link>
                     </Navbar.Brand>
                     <Navbar.Toggle />
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav>
                         <NavDropdown eventKey={1} title="Information">
-                            <MenuItem eventKey={1.1}>Creators</MenuItem>
-                            <MenuItem eventKey={1.2}>Rules</MenuItem>
-                            <MenuItem eventKey={1.3}>Rewards</MenuItem>
-                            <MenuItem eventKey={1.3}>Join</MenuItem>
+                            <MenuItem eventKey={1.1}>
+                                <Link to="/info/creators">Creators</Link>
+                            </MenuItem>
+                            <MenuItem eventKey={1.2}>
+                                <Link to="/info/rules">Rules</Link>
+                            </MenuItem>
+                            <MenuItem eventKey={1.3}>
+                                <Link to="/info/rewards">Rewards</Link>
+                            </MenuItem>
+                            <MenuItem eventKey={1.4}>
+                                <Link to="/info/join">Join</Link>
+                            </MenuItem>
                         </NavDropdown>
                         <NavDropdown eventKey={2} title="SIBA">
-                            <MenuItem eventKey={2.1}>League Standings</MenuItem>
-                            <MenuItem eventKey={2.2}>League Leaders</MenuItem>
-                            <MenuItem eventKey={2.2}>Owners</MenuItem>
+                            <MenuItem eventKey={2.1}>
+                                <Link to="/siba/standings">League Standings</Link>
+                            </MenuItem>
+                            <MenuItem eventKey={2.2}>
+                                <Link to="/siba/leaders">League Leaders</Link>
+                            </MenuItem>
+                            <MenuItem eventKey={2.3}>
+                                <Link to="/siba/owners">Owners</Link>
+                            </MenuItem>
                         </NavDropdown>
                         <NavDropdown eventKey={3} title="DBL">
-                            <MenuItem eventKey={3.1}>League Standings</MenuItem>
-                            <MenuItem eventKey={3.2}>League Leaders</MenuItem>
+                            <MenuItem eventKey={3.1}>
+                                <Link to="/dbl/standings">League Standings</Link>
+                            </MenuItem>
+                            <MenuItem eventKey={3.2}>
+                                <Link to="/dbl/leaders">League Leaders</Link>
+                            </MenuItem>
                         </NavDropdown>
-                        <NavItem eventKey={4} href="#">Transactions</NavItem>
+                        <NavItem eventKey={4}>
+                            <Link to="/transactions">Transactions</Link>
+                        </NavItem>
                         <NavDropdown eventKey={5} title="Free Agents">
-                            <MenuItem eventKey={5.1}>Players</MenuItem>
-                            <MenuItem eventKey={54.2}>Coaches</MenuItem>
+                            <MenuItem eventKey={5.1}>
+                            <Link to="/fa/players">Players</Link>
+                            </MenuItem>
+                            <MenuItem eventKey={5.2}>
+                            <Link to="/fa/coaches">Coaches</Link>
+                            </MenuItem>
                         </NavDropdown>
-                        <NavItem eventKey={6} href="#">Upload</NavItem>
+                        <NavItem eventKey={6}>
+                            <Link to="/upload">Upload</Link>
+                        </NavItem>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
-        );
-    }
-}
+            <Route exact path="/" component={Home} />
+            <Route path="/info/creators" component={Creators} />
+            <Route path="/info/rules" component={Rules} />
+            <Route path="/info/rewards" component={Rewards} />
+            <Route path="/info/join" component={Join} />
+            <Route path="/siba/standings" component={SibaStandings} />
+            <Route path="/siba/leaders" component={SibaLeaders} />
+            <Route path="/siba/owners" component={Owners} />
+            <Route path="/dbl/standings" component={DblStandings} />
+            <Route path="/dbl/leaders" component={DblLeaders} />
+            <Route path="/transactions" component={Transactions} />
+            <Route path="/fa/players" component={FaPlayers} />
+            <Route path="/fa/coaches" component={FaCoaches} />
+            <Route path="/upload" component={Upload} />
+        </div>
+    </Router>
+);
+
+const Home = () => (
+    <div><h2>Welcome</h2></div>
+);
+
+const Creators = () => (
+    <div><h2>Creators</h2></div>
+);
+const Owners = () => (
+    <div><h2>Owners</h2></div>
+);
+
+const Rules = () => (
+    <div><h2>Rules</h2></div>
+);
+
+const Rewards = () => (
+    <div><h2>Rewards</h2></div>
+);
+
+const Join = () => (
+    <div><h2>Join</h2></div>
+);
+const DblStandings = () => (
+    <div><h2>DBL Standings</h2></div>
+);
+const DblLeaders = () => (
+    <div><h2>DBL Leaders</h2></div>
+);
+const SibaLeaders = () => (
+    <div><h2>SIBA Leaders</h2></div>
+);
+
+const SibaStandings = () => (
+    <div><h2>SIBA Standings</h2></div>
+);
+const Transactions = () => (
+    <div><h2>Transactions</h2></div>
+);
+const FaPlayers = () => (
+    <div><h2>Free Agents - Players</h2></div>
+);
+const FaCoaches = () => (
+    <div><h2>Free Agents - Coaches</h2></div>
+);
+const Upload = () => (
+    <div><h2>Upload</h2></div>
+);
+
 
 export default Menu;
