@@ -1,18 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Menu from './Menu.js'
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
+const App = () => (
       <div>
         <div className="header">
-          <p>Simulation International Basketball Assoication</p>
+          <h2>Simulation International Basketball Assoication</h2>
         </div>
         <Menu />
       </div>
     );
-  }
-}
 
 export default App;
