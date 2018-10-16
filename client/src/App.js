@@ -3,12 +3,12 @@ import Menu from './Menu.js'
 import './App.css';
 
 const App = () => (
-      <div>
-        <div className="siteHeader">
+      <main>
+        <header className="siteHeader">
           <h2>Simulation International Basketball Assoication</h2>
-        </div>
+        </header>
         <Menu />
-      </div>
+      </main>
     );
 
 export default App;

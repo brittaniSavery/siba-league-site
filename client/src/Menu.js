@@ -1,6 +1,7 @@
 import React from 'react';
 import { Nav, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import Upload from './Upload.js'
 import './App.css';
 
 const Menu = () => (
@@ -53,10 +54,10 @@ const Menu = () => (
                         </NavItem>
                         <NavDropdown eventKey={5} title="Free Agents">
                             <MenuItem eventKey={5.1}>
-                            <Link to="/fa/players">Players</Link>
+                                <Link to="/fa/players">Players</Link>
                             </MenuItem>
                             <MenuItem eventKey={5.2}>
-                            <Link to="/fa/coaches">Coaches</Link>
+                                <Link to="/fa/coaches">Coaches</Link>
                             </MenuItem>
                         </NavDropdown>
                         <NavItem eventKey={6}>
@@ -84,48 +85,100 @@ const Menu = () => (
 );
 
 const Home = () => (
-    <div className="pageHeader"><h2>Welcome</h2></div>
+    <section>
+        <header>
+            <h2>Welcome</h2>
+        </header>
+    </section>
 );
 
 const Creators = () => (
-    <div className="pageHeader"><h2>Creators</h2></div>
+    <section>
+        <header>
+            <h2>Creators</h2>
+        </header>
+    </section>
 );
 const Owners = () => (
-    <div className="pageHeader"><h2>Owners</h2></div>
+    <section>
+        <header>
+            <h2>SIBA Owners</h2>
+        </header>
+    </section>
 );
 
 const Rules = () => (
-    <div className="pageHeader"><h2>Rules</h2></div>
+    <section>
+        <header>
+            <h2>Rules</h2>
+        </header>
+    </section>
 );
 
 const Rewards = () => (
-    <div className="pageHeader"><h2>Rewards</h2></div>
+    <section>
+        <header>
+            <h2>Rewards</h2>
+        </header>
+    </section>
 );
 
 const Join = () => (
-    <div className="pageHeader"><h2>Join</h2></div>
+    <section>
+        <header>
+            <h2>Join</h2>
+        </header>
+    </section>
 );
 const DblStandings = () => (
-    <div className="pageHeader"><h2>DBL Standings</h2></div>
+    <section>
+        <header>
+            <h2>DBL Standings</h2>
+        </header>
+    </section>
 );
 const DblLeaders = () => (
-    <div className="pageHeader"><h2>DBL Leaders</h2></div>
+    <section>
+        <header>
+            <h2>DBL Leaders</h2>
+        </header>
+    </section>
 );
 const SibaLeaders = () => (
-    <div className="pageHeader"><h2>SIBA Leaders</h2></div>
+    <section>
+        <header>
+            <h2>SIBA Leaders</h2>
+        </header>
+    </section>
 );
 
 const SibaStandings = () => (
-    <div className="pageHeader"><h2>SIBA Standings</h2></div>
+    <section>
+        <header>
+            <h2>SIBA Standings</h2>
+        </header>
+    </section>
 );
 const Transactions = () => (
-    <div className="pageHeader"><h2>Transactions</h2></div>
+    <section>
+        <header>
+            <h2>Transactions</h2>
+        </header>
+    </section>
 );
 const FaPlayers = () => (
-    <div className="pageHeader"><h2>Free Agents - Players</h2></div>
+    <section>
+        <header>
+            <h2>Free Agents: Players</h2>
+        </header>
+    </section>
 );
 const FaCoaches = () => (
-    <div className="pageHeader"><h2>Free Agents - Coaches</h2></div>
+    <section>
+        <header>
+            <h2>Free Agents: Coaches</h2>
+        </header>
+    </section>
 );
 
 
