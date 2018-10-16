@@ -1,8 +1,12 @@
-.header {
+.siteHeader {
   background-color: #3c659c;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: white;
+}
+
+.pageHeader {
+  padding: 0vmin 3vmin;
 }

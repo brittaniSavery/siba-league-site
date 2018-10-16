@@ -84,51 +84,48 @@ const Menu = () => (
 );
 
 const Home = () => (
-    <div><h2>Welcome</h2></div>
+    <div className="pageHeader"><h2>Welcome</h2></div>
 );
 
 const Creators = () => (
-    <div><h2>Creators</h2></div>
+    <div className="pageHeader"><h2>Creators</h2></div>
 );
 const Owners = () => (
-    <div><h2>Owners</h2></div>
+    <div className="pageHeader"><h2>Owners</h2></div>
 );
 
 const Rules = () => (
-    <div><h2>Rules</h2></div>
+    <div className="pageHeader"><h2>Rules</h2></div>
 );
 
 const Rewards = () => (
-    <div><h2>Rewards</h2></div>
+    <div className="pageHeader"><h2>Rewards</h2></div>
 );
 
 const Join = () => (
-    <div><h2>Join</h2></div>
+    <div className="pageHeader"><h2>Join</h2></div>
 );
 const DblStandings = () => (
-    <div><h2>DBL Standings</h2></div>
+    <div className="pageHeader"><h2>DBL Standings</h2></div>
 );
 const DblLeaders = () => (
-    <div><h2>DBL Leaders</h2></div>
+    <div className="pageHeader"><h2>DBL Leaders</h2></div>
 );
 const SibaLeaders = () => (
-    <div><h2>SIBA Leaders</h2></div>
+    <div className="pageHeader"><h2>SIBA Leaders</h2></div>
 );
 
 const SibaStandings = () => (
-    <div><h2>SIBA Standings</h2></div>
+    <div className="pageHeader"><h2>SIBA Standings</h2></div>
 );
 const Transactions = () => (
-    <div><h2>Transactions</h2></div>
+    <div className="pageHeader"><h2>Transactions</h2></div>
 );
 const FaPlayers = () => (
-    <div><h2>Free Agents - Players</h2></div>
+    <div className="pageHeader"><h2>Free Agents - Players</h2></div>
 );
 const FaCoaches = () => (
-    <div><h2>Free Agents - Coaches</h2></div>
-);
-const Upload = () => (
-    <div><h2>Upload</h2></div>
+    <div className="pageHeader"><h2>Free Agents - Coaches</h2></div>
 );
 
 
