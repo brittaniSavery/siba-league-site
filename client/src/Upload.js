@@ -9,7 +9,7 @@ const Upload = () => (
             <h2>Upload</h2>
         </header>
 
-        <p>Using the form below, select a valid DDSPB team save file, league password, team password.</p>
+        <p>Using the form below, select a valid DDSPB team save file and enter the league password and your team's password.</p>
 
         <form>
             <FieldGroup
