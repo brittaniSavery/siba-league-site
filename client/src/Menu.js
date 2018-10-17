@@ -118,20 +118,9 @@ const Rules = () => (
                 <h4>League Setup</h4>
             </header>
             <ul>
-            <li>
-                    <span>Salary Cap</span>
-                    <p>[Insert defintion of salary cap]</p>
-                    <p>Current Salary Cap is $68,680,000.</p>
-                </li>
-                <li>
-                    <span>Luxury Cap</span>
-                    <p>[Insert defintion of luxury cap]</p>
-                    <p>Current Luxury Cap is $81,150,000</p>
-                </li>
-                <li>
-                    <span>Rating Scale</span>
-                    <p>Players are rated on a 1-100 Point scale.</p>
-                </li>
+                <li>Salary Cap: $68,680,000</li>
+                <li>Luxury Cap: $81,150,000</li>
+                <li>Rating Scale: 1-100 Point</li>
             </ul>
         </section>
 
