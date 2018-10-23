@@ -112,6 +112,57 @@ const Rules = () => (
         <header>
             <h2>Rules</h2>
         </header>
+
+        <section>
+            <header>
+                <h4>League Setup</h4>
+            </header>
+            <ul>
+                <li>Salary Cap: $68,680,000</li>
+                <li>Luxury Cap: $81,150,000</li>
+                <li>Rating Scale: 1-100 Point</li>
+            </ul>
+        </section>
+
+        <section>
+            <header>
+                <h4>Defintions</h4>
+            </header>
+            <ul>
+                <li>
+                    <span>Bird Rights</span>
+                    <p>The Larry Bird exception allows a team over the salary cap to re-sign their 
+                        free agent provided the player has not been waived or changed teams as a 
+                        free agent in 3 years. Bird Rights allow for 6 year contracts. Other teams
+                        competing for a player in free agency may only offer a maximum 5 year length
+                        contract. Bird Rights allow for maximum salary contracts with 10.5% raises each year. 
+                        Bird Rights can be traded with a player, as was the case with Rasheed Wallace. 
+                        Consequently Bird Rights were not available for Mehmet Okur as he was originally
+                        signed only to a 2 year contract as a second round draft pick.</p>
+                </li>
+                <li>
+                    <span>Raises</span>
+                    <p>All raises are calculated as a % of the first year of a contract. For instance, 
+                        a 4 year contract starting at $10 million dollars with 8% raises would be $10
+                        million in year 1, $10.8 million in year 2, $11.6 million in year 3 and $12.4
+                        million in year 4. $800,000 per year.</p>
+                </li>
+                <li>
+                    <span>Renoucing Players</span>
+                    <p>When a player becomes a free agent, because of the bird rule, he is automatically
+                        assigned a contract raise that counts on your books until a) you resign him b) 
+                        you renounce him or c) he signs with someone else. The reason for this is that lets
+                        say you have a star player who is a free agent - without his contract maybe you
+                        are 10 million under the cap. If he didn't have a cap number assigned to you while
+                        you had his bird rights then you could go out and sign a big time FA for 10 million
+                        and then go over the cap to resign your own guy. So in order to prevent this your
+                        FA is assigned a temporary salary basically. By renouncing his contract that salary
+                        will be taken off the books BUT you also lose all bird rights to the player meaning
+                        from that point on you could resign him but only to the amount of cap space you have left.</p>
+                </li>
+                
+            </ul>
+        </section>
     </section>
 );
 
