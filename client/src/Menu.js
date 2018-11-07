@@ -67,7 +67,7 @@ const Menu = () => (
                 </Navbar.Collapse>
             </Navbar>
             <Route exact path="/" component={Home} />
-            <Route path="/info/creators" component={Creators} />
+            <Route path="/info/about" component={About} />
             <Route path="/info/rules" component={Rules} />
             <Route path="/info/rewards" component={Rewards} />
             <Route path="/info/join" component={Join} />
@@ -92,11 +92,50 @@ const Home = () => (
     </section>
 );
 
-const Creators = () => (
+const About = () => (
     <section>
         <header>
-            <h2>Creators</h2>
+            <h2>About</h2>
         </header>
+
+        <section>
+            <h4>The SIBA</h4>
+            <p>
+                The Simulation International Basketball Assoication (SIBA for short) was the combined efforts of
+                Kelley and Brittani Avery, a father and daughter team. Sharing a love of basketball and statistics,
+                they worked together to create the league as a way to spend quality time together. Kelley
+                created the teams, logos, and rules of the league while Brittani provided her technical expertise
+                to build the website and other important tools to support it.
+            </p>
+        </section>
+
+        <section>
+            <h4>Kelley Avery</h4>
+            <p>[Insert little bio here]</p>
+            <p>Fun Facts:</p>
+            <ul>
+                <li>Dream Job as Kid: Pro Basketball Player</li>
+                <li>Favorite Color: Blue</li>
+                <li>Favorite Animal: Polar Bear</li>
+                <li>Favorite Food: Any Chinese Dish</li>
+            </ul>
+        </section>
+
+        <section>
+            <h4>Brittani Avery</h4>
+            <p>
+                When not leading her fictional basketball team, Brittani enjoys a variety of hobbies, such as reading,
+                writing, and playing video games. Recently, her hobby of writing has turned into a venture with the 
+                publication of her first novel, <i><a href="https://www.amazon.com/Element-Brittani-S-Avery-ebook/dp/B074FGZB6W">Element Unknown</a></i>.
+            </p>
+            <p>Fun Facts:</p>
+            <ul>
+                <li>Dream Job as Kid: Veterinarian</li>
+                <li>Favorite Color: Blackish purple</li>
+                <li>Favorite Animal: Black Panther</li>
+                <li>Favorite Food: Shrimp Etouffee</li>
+            </ul>
+        </section>
     </section>
 );
 const Owners = () => (
