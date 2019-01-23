@@ -146,6 +146,8 @@ const Owners = () => (
         <header>
             <h2>SIBA Owners</h2>
         </header>
+
+        <h4>Coming soon!</h4>
     </section>
 );
 
@@ -213,6 +215,8 @@ const Rewards = () => (
         <header>
             <h2>Rewards</h2>
         </header>
+
+        <h4>Coming soon!</h4>
     </section>
 );
 
@@ -228,6 +232,8 @@ const DblStandings = () => (
         <header>
             <h2>DBL Standings</h2>
         </header>
+
+        <h4>Coming soon!</h4>
     </section>
 );
 const DblLeaders = () => (
@@ -235,6 +241,8 @@ const DblLeaders = () => (
         <header>
             <h2>DBL Leaders</h2>
         </header>
+
+        <h4>Coming soon!</h4>
     </section>
 );
 const SibaLeaders = () => (
@@ -242,6 +250,8 @@ const SibaLeaders = () => (
         <header>
             <h2>SIBA Leaders</h2>
         </header>
+
+        <h4>Coming soon!</h4>
     </section>
 );
 
@@ -250,6 +260,8 @@ const SibaStandings = () => (
         <header>
             <h2>SIBA Standings</h2>
         </header>
+
+        <h4>Coming soon!</h4>
     </section>
 );
 const Transactions = () => (
@@ -257,6 +269,8 @@ const Transactions = () => (
         <header>
             <h2>Transactions</h2>
         </header>
+
+        <h4>Coming soon!</h4>
     </section>
 );
 const FaPlayers = () => (
@@ -264,6 +278,8 @@ const FaPlayers = () => (
         <header>
             <h2>Free Agents: Players</h2>
         </header>
+        
+        <h4>Coming soon!</h4>
     </section>
 );
 const FaCoaches = () => (
@@ -271,6 +287,8 @@ const FaCoaches = () => (
         <header>
             <h2>Free Agents: Coaches</h2>
         </header>
+
+        <h4>Coming soon!</h4>
     </section>
 );
 
