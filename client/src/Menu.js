@@ -6,7 +6,7 @@ import Upload from './Upload.js'
 import './App.css';
 
 const Menu = () => (
-    <Router>
+    <Router basename="/newsite">
         <div>
             <Navbar>
                 <Navbar.Header>
@@ -93,8 +93,12 @@ const Home = () => (
         </header>
 
         <section>
-            <h4>The Simulation International Basketball Assoication (SIBA) is the home of </h4>
+            <p>The Simulation International Basketball Assoication (SIBA) is a fictional basketball simulation league using the Draft Day Sports: Pro Basketball program by Wolverine Studios. 30 teams and 30 GM all plan, recruit, trade, train, and play in order to take home the coveted prize of the SIBA Championship.
+                 Will you be king of the league? <Link to="/info/join">Join SIBA</Link> to claim your spot in the playoffs!
+            </p>
         </section>
+        <h4>Updates</h4>
+        <p><b>January 22, 2019</b> - Things are slowly coming together to start the latest season of the SIBA. Keep on the lookout for more updates and information soon.</p>
     </section>
 );
 
