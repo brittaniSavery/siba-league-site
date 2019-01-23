@@ -111,7 +111,10 @@ const About = () => (
 
         <section>
             <h4>Kelley Avery</h4>
-            <p>[Insert little bio here]</p>
+            <p>Basketball has always been a majority portion of Kelly's life. He played the game throughout his childhood and in his high school years
+                and shared the love of the game with fifth and sixth grades when he coached little league. However, he has always been a family man at heart 
+                and his favorite hobby is spending time with his wife and children.
+            </p>
             <p>Fun Facts:</p>
             <ul>
                 <li>Dream Job as Kid: Pro Basketball Player</li>
@@ -126,7 +129,7 @@ const About = () => (
             <p>
                 When not leading her fictional basketball team, Brittani enjoys a variety of hobbies, such as reading,
                 writing, and playing video games. Recently, her hobby of writing has turned into a venture with the 
-                publication of her first novel, <i><a href="https://www.amazon.com/Element-Brittani-S-Avery-ebook/dp/B074FGZB6W">Element Unknown</a></i>.
+                publication of her first novel, <i><a href="http://amzn.to/2vSpcxR">Element Unknown</a></i>.
             </p>
             <p>Fun Facts:</p>
             <ul>
