@@ -1,6 +1,7 @@
 import React from 'react';
 import { Nav, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap'
 import Upload from './Upload.js'
 import './App.css';
 
@@ -17,52 +18,53 @@ const Menu = () => (
                 <Navbar.Collapse>
                     <Nav>
                         <NavDropdown eventKey={1} title="Information">
-                            <MenuItem eventKey={1.1}>
-                                <Link to="/info/creators">Creators</Link>
-                            </MenuItem>
-                            <MenuItem eventKey={1.2}>
-                                <Link to="/info/rules">Rules</Link>
-                            </MenuItem>
-                            <MenuItem eventKey={1.3}>
-                                <Link to="/info/rewards">Rewards</Link>
-                            </MenuItem>
-                            <MenuItem eventKey={1.4}>
-                                <Link to="/info/join">Join</Link>
-                            </MenuItem>
+                            <LinkContainer to="/info/about">
+                                <MenuItem eventKey={1.1}>About</MenuItem>
+                            </LinkContainer>
+                            <LinkContainer to="/info/rules">
+                                <MenuItem eventKey={1.2}>Rules</MenuItem>
+                            </LinkContainer>
+                            <LinkContainer to="/info/rewards">
+                                <MenuItem eventKey={1.3}>Rewards</MenuItem>
+                            </LinkContainer>
+                            <LinkContainer to="/info/join">
+                                <MenuItem eventKey={1.4}>Join</MenuItem>
+                            </LinkContainer>
                         </NavDropdown>
                         <NavDropdown eventKey={2} title="SIBA">
-                            <MenuItem eventKey={2.1}>
-                                <Link to="/siba/standings">League Standings</Link>
-                            </MenuItem>
-                            <MenuItem eventKey={2.2}>
-                                <Link to="/siba/leaders">League Leaders</Link>
-                            </MenuItem>
-                            <MenuItem eventKey={2.3}>
-                                <Link to="/siba/owners">Owners</Link>
-                            </MenuItem>
+                            <LinkContainer to="/siba/standings">
+                                <MenuItem eventKey={2.1}>League Standings</MenuItem>
+                            </LinkContainer>
+                            <LinkContainer to="/siba/leaders">
+                                <MenuItem eventKey={2.2}>League Leaders</MenuItem>
+                            </LinkContainer>
+                            <LinkContainer to="/siba/owners">
+                                <MenuItem eventKey={2.3}>Owners</MenuItem>
+                            </LinkContainer>
                         </NavDropdown>
                         <NavDropdown eventKey={3} title="DBL">
-                            <MenuItem eventKey={3.1}>
-                                <Link to="/dbl/standings">League Standings</Link>
-                            </MenuItem>
-                            <MenuItem eventKey={3.2}>
-                                <Link to="/dbl/leaders">League Leaders</Link>
-                            </MenuItem>
+                            <LinkContainer to="/dbl/standings">
+                                <MenuItem eventKey={3.1}>League Standings</MenuItem>
+                            </LinkContainer>
+                            <LinkContainer to="/dbl/leaders">
+                                <MenuItem eventKey={3.2}>League Leaders</MenuItem>
+                            </LinkContainer>
                         </NavDropdown>
-                        <NavItem eventKey={4}>
-                            <Link to="/transactions">Transactions</Link>
-                        </NavItem>
+                        <LinkContainer to="/transactions">
+                            <NavItem eventKey={4}>Transactions</NavItem>
+                        </LinkContainer>
                         <NavDropdown eventKey={5} title="Free Agents">
-                            <MenuItem eventKey={5.1}>
-                                <Link to="/fa/players">Players</Link>
-                            </MenuItem>
-                            <MenuItem eventKey={5.2}>
-                                <Link to="/fa/coaches">Coaches</Link>
-                            </MenuItem>
+                            <LinkContainer to="/fa/players">
+                                <MenuItem eventKey={5.1}>Players</MenuItem>
+                            </LinkContainer>
+                            <LinkContainer to="/fa/coaches">
+                                <MenuItem eventKey={5.2}>Coaches</MenuItem>
+                            </LinkContainer>
                         </NavDropdown>
-                        <NavItem eventKey={6}>
-                            <Link to="/upload">Upload</Link>
-                        </NavItem>
+                        <LinkContainer to="/upload">
+                            <NavItem eventKey={6}>Upload</NavItem>
+                        </LinkContainer>
+                        
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
@@ -89,6 +91,10 @@ const Home = () => (
         <header>
             <h2>Welcome</h2>
         </header>
+
+        <section>
+            <h4>The Simulation International Basketball Assoication (SIBA) is the home of </h4>
+        </section>
     </section>
 );
 
@@ -111,8 +117,8 @@ const About = () => (
 
         <section>
             <h4>Kelley Avery</h4>
-            <p>Basketball has always been a majority portion of Kelly's life. He played the game throughout his childhood and in his high school years
-                and shared the love of the game with fifth and sixth grades when he coached little league. However, he has always been a family man at heart 
+            <p>Basketball has always been a major portion of Kelly's life. He played the game throughout his childhood and in his high school years
+                and shared the love of the game with fifth and sixth grades when he coached little league. However, he has always been a family man at heart
                 and his favorite hobby is spending time with his wife and children.
             </p>
             <p>Fun Facts:</p>
@@ -128,7 +134,7 @@ const About = () => (
             <h4>Brittani Avery</h4>
             <p>
                 When not leading her fictional basketball team, Brittani enjoys a variety of hobbies, such as reading,
-                writing, and playing video games. Recently, her hobby of writing has turned into a venture with the 
+                writing, and playing video games. Recently, her hobby of writing has turned into a venture with the
                 publication of her first novel, <i><a href="http://amzn.to/2vSpcxR">Element Unknown</a></i>.
             </p>
             <p>Fun Facts:</p>
@@ -175,18 +181,18 @@ const Rules = () => (
             <ul>
                 <li>
                     <span>Bird Rights</span>
-                    <p>The Larry Bird exception allows a team over the salary cap to re-sign their 
-                        free agent provided the player has not been waived or changed teams as a 
+                    <p>The Larry Bird exception allows a team over the salary cap to re-sign their
+                        free agent provided the player has not been waived or changed teams as a
                         free agent in 3 years. Bird Rights allow for 6 year contracts. Other teams
                         competing for a player in free agency may only offer a maximum 5 year length
-                        contract. Bird Rights allow for maximum salary contracts with 10.5% raises each year. 
-                        Bird Rights can be traded with a player, as was the case with Rasheed Wallace. 
+                        contract. Bird Rights allow for maximum salary contracts with 10.5% raises each year.
+                        Bird Rights can be traded with a player, as was the case with Rasheed Wallace.
                         Consequently Bird Rights were not available for Mehmet Okur as he was originally
                         signed only to a 2 year contract as a second round draft pick.</p>
                 </li>
                 <li>
                     <span>Raises</span>
-                    <p>All raises are calculated as a % of the first year of a contract. For instance, 
+                    <p>All raises are calculated as a % of the first year of a contract. For instance,
                         a 4 year contract starting at $10 million dollars with 8% raises would be $10
                         million in year 1, $10.8 million in year 2, $11.6 million in year 3 and $12.4
                         million in year 4. $800,000 per year.</p>
@@ -194,7 +200,7 @@ const Rules = () => (
                 <li>
                     <span>Renoucing Players</span>
                     <p>When a player becomes a free agent, because of the bird rule, he is automatically
-                        assigned a contract raise that counts on your books until a) you resign him b) 
+                        assigned a contract raise that counts on your books until a) you resign him b)
                         you renounce him or c) he signs with someone else. The reason for this is that lets
                         say you have a star player who is a free agent - without his contract maybe you
                         are 10 million under the cap. If he didn't have a cap number assigned to you while
@@ -204,7 +210,7 @@ const Rules = () => (
                         will be taken off the books BUT you also lose all bird rights to the player meaning
                         from that point on you could resign him but only to the amount of cap space you have left.</p>
                 </li>
-                
+
             </ul>
         </section>
     </section>
@@ -278,7 +284,7 @@ const FaPlayers = () => (
         <header>
             <h2>Free Agents: Players</h2>
         </header>
-        
+
         <h4>Coming soon!</h4>
     </section>
 );
