@@ -26,9 +26,20 @@ const Join = () => (
                 label="Email:"
             />
 
+            <FormGroup controlId="formControlsSelect">
+            <ControlLabel>Found SIBA by:</ControlLabel>
+            <FormControl componentClass="select" placeholder="select">
+                <option value="referral">Friend/Family</option>
+                <option value="google">Google</option>
+                <option value="fb">Facebook</option>
+                <option value="twitter">Twitter</option>
+                <option value="other">Other</option>
+            </FormControl>
+            </FormGroup>
+
             <FormGroup controlId="join-reason">
                 <ControlLabel>Reason for Joining:</ControlLabel>
-                <FormControl componentClass="textarea" placeholder="" />
+                <FormControl componentClass="textarea" placeholder="Optional" />
             </FormGroup>
 
             <Button type="submit">Submit</Button>
