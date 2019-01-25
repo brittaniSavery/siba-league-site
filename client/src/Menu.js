@@ -2,6 +2,7 @@ import React from 'react';
 import { Nav, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Upload from './Upload.js';
 import Join from './Join.js';
 import './App.css';
@@ -12,7 +13,7 @@ const Menu = () => (
             <Navbar>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <Link to="/">[img here]</Link>
+                        <Link to="/"><FontAwesomeIcon icon="basketball-ball"/></Link>
                     </Navbar.Brand>
                     <Navbar.Toggle />
                 </Navbar.Header>
