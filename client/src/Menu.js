@@ -19,7 +19,7 @@ const Menu = () => (
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav>
-                        <NavDropdown eventKey={1} title="Information">
+                        <NavDropdown eventKey={1} title="Information" id="info">
                             <LinkContainer to="/info/about">
                                 <MenuItem eventKey={1.1}>About</MenuItem>
                             </LinkContainer>
@@ -33,7 +33,7 @@ const Menu = () => (
                                 <MenuItem eventKey={1.4}>Join</MenuItem>
                             </LinkContainer>
                         </NavDropdown>
-                        <NavDropdown eventKey={2} title="SIBA">
+                        <NavDropdown eventKey={2} title="SIBA" id="siba">
                             <LinkContainer to="/siba/standings">
                                 <MenuItem eventKey={2.1}>League Standings</MenuItem>
                             </LinkContainer>
@@ -44,7 +44,7 @@ const Menu = () => (
                                 <MenuItem eventKey={2.3}>Owners</MenuItem>
                             </LinkContainer>
                         </NavDropdown>
-                        <NavDropdown eventKey={3} title="DBL">
+                        <NavDropdown eventKey={3} title="DBL" id="dbl">
                             <LinkContainer to="/dbl/standings">
                                 <MenuItem eventKey={3.1}>League Standings</MenuItem>
                             </LinkContainer>
@@ -55,7 +55,7 @@ const Menu = () => (
                         <LinkContainer to="/transactions">
                             <NavItem eventKey={4}>Transactions</NavItem>
                         </LinkContainer>
-                        <NavDropdown eventKey={5} title="Free Agents">
+                        <NavDropdown eventKey={5} title="Free Agents" id="fa">
                             <LinkContainer to="/fa/players">
                                 <MenuItem eventKey={5.1}>Players</MenuItem>
                             </LinkContainer>
@@ -89,18 +89,17 @@ const Menu = () => (
 );
 
 const Home = () => (
-    <section>
+    <section className="container">
         <header>
-            <h2>Welcome</h2>
+            <h1>Welcome</h1>
         </header>
-
-        <section>
-            <p>The Simulation International Basketball Assoication (SIBA) is a fictional basketball simulation league using the Draft Day Sports: Pro Basketball program by Wolverine Studios. 30 teams and 30 GM all plan, recruit, trade, train, and play in order to take home the coveted prize of the SIBA Championship.
-                 Will you be king of the league? <Link to="/info/join">Join SIBA</Link> to claim your spot in the playoffs!
-            </p>
-        </section>
-        <h4>Updates</h4>
-        <p><b>January 22, 2019</b> - Things are slowly coming together to start the latest season of the SIBA. Keep on the lookout for more updates and information soon.</p>
+        <p>The Simulation International Basketball Assoication (SIBA) is a fictional basketball simulation league using the Draft Day Sports: Pro Basketball program by Wolverine Studios. 30 teams and 30 GM all plan, recruit, trade, train, and play in order to take home the coveted prize of the SIBA Championship.
+            Will you be king of the league? <Link to="/info/join">Join SIBA</Link> to claim your spot in the playoffs!
+        </p>
+        <h2>Updates</h2>
+        <ul>
+            <li><b>January 22, 2019</b> - Things are slowly coming together to start the latest season of the SIBA. Keep on the lookout for more updates and information soon.</li>
+        </ul>
     </section>
 );
 
