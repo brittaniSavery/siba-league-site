@@ -1,13 +1,11 @@
 import React from 'react';
-import { FieldGroup } from './Utilities.js';
+import { FieldGroup, BasicHeader } from './Utilities.js';
 import { Button } from 'react-bootstrap';
 import './App.css';
 
 const Upload = () => (
-    <section>
-        <header>
-            <h2>Upload</h2>
-        </header>
+    <section className="container">
+        <BasicHeader title="Upload" />
 
         <p>Using the form below, select a valid DDSPB team save file and enter the league password and your team's password.</p>
 

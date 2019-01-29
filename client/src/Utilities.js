@@ -11,4 +11,17 @@ function FieldGroup({ id, label, help, ...props }) {
     );
 }
 
-export {FieldGroup}
+const BasicHeader = (props) => (
+    <header>
+        <h1>{props.title}</h1>
+    </header>
+);
+
+const CommingSoon = (props) => (
+    <section className="container">
+        <BasicHeader title={props.header} />
+        <h4>Coming soon!</h4>
+    </section>
+);
+
+export {FieldGroup, BasicHeader, CommingSoon}

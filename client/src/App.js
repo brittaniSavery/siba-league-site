@@ -10,7 +10,7 @@ library.add(faBasketballBall)
 const App = () => (
       <main>
         <header className="header" id="siteHeader">
-          <h2>Simulation International Basketball Assoication</h2>
+          <h1>Simulation International Basketball Assoication</h1>
         </header>
         <Menu />
         <Footer />

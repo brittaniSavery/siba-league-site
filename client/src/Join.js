@@ -1,14 +1,11 @@
 import React from 'react';
-import { FieldGroup } from './Utilities.js';
+import { FieldGroup, BasicHeader } from './Utilities.js';
 import { Button, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import './App.css';
 
 const Join = () => (
-    <section>
-        <header>
-            <h2>Join</h2>
-        </header>
-
+    <section className="container">
+        <BasicHeader title="Join" />
         <p>Intersting in joining the SIBA as the general manager of your own basketball team? Fill out the form below and the commissioner
             will contact you with more information on the available teams and other important steps.
         </p>
