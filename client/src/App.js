@@ -14,7 +14,7 @@ import './App.css';
 library.add(faBasketballBall)
 
 const App = () => (
-  <Router basename="/newsite">
+  <Router basename="/">
     <main>
       <header id="siteHeader">
         <div className="center hidden-xs">
