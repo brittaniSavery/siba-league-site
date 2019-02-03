@@ -1,0 +1,44 @@
+service: siba-api
+
+
+custom:
+  vars: ${file(vars.json)}
+  defaultStage: dev
+  profiles:
+    dev: default
+    prod: sibaHelper
+
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: us-west-2
+  stage: ${self:custom.vars.NODE_ENV, self:custom.defaultStage}
+  profile: ${self:custom.profiles.${self:provider.stage}}
+  environment:
+    NODE_ENV: ${self:custom.vars.NODE_ENV}
+    COMMIS_EMAIL: ${self:custom.vars.COMMIS_EMAIL}
+    SIBA_EMAIL: ${self:custom.vars.SIBA_EMAIL}
+    DOMAIN: ${self:custom.vars.DOMAIN}
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "ses:SendEmail"
+      Resource: "*"
+
+
+functions:
+  join:
+    handler: handler.join
+    events:
+      - http:
+          path: siba/join
+          method: post
+          cors: true
+  upload:  #TODO
+    handler: handler.upload
+    events:
+      - http:
+          path: siba/upload
+          method: get
+          cors: true
