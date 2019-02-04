@@ -5,16 +5,15 @@ custom:
   vars: ${file(vars.json)}
   defaultStage: dev
   profiles:
-    dev: default
-    prod: sibaHelper
+    dev: ${self:custom.vars.DEV_PROFILE}
+    prod: ${self:custom.vars.PROD_PROFILE}
 
 
 provider:
   name: aws
   runtime: nodejs8.10
   region: us-west-2
-  stage: ${self:custom.vars.NODE_ENV, self:custom.defaultStage}
-  profile: ${self:custom.profiles.${self:provider.stage}}
+  stage: ${opt:stage, self:custom.defaultStage}
   environment:
     NODE_ENV: ${self:custom.vars.NODE_ENV}
     COMMIS_EMAIL: ${self:custom.vars.COMMIS_EMAIL}
