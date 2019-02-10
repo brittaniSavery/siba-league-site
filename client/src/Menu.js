@@ -59,10 +59,6 @@ const Menu = () => (
                         <MenuItem eventKey={5.2}>Coaches</MenuItem>
                     </LinkContainer>
                 </NavDropdown>
-                <LinkContainer to="/upload">
-                    <NavItem eventKey={6}>Upload</NavItem>
-                </LinkContainer>
-                
             </Nav>
         </Navbar.Collapse>
     </Navbar>

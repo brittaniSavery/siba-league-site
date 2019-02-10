@@ -5,10 +5,9 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faBasketballBall } from '@fortawesome/free-solid-svg-icons';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import * as DisplayPages from './DisplayPages.jsx';
-import Upload from './Upload.js';
 import Join from './Join.js';
-import sibaLogo from './temp-logo.svg'
-import sibaLogoMini from './temp-logo-mini.svg'
+import sibaLogo from './images/logo.svg'
+import sibaLogoMini from './images/logo-mini.svg'
 import './App.css';
 
 library.add(faBasketballBall)
@@ -41,7 +40,6 @@ const App = () => (
         <Route path="/transactions" component={DisplayPages.Transactions} />
         <Route path="/fa/players" component={DisplayPages.FaPlayers} />
         <Route path="/fa/coaches" component={DisplayPages.FaCoaches} />
-        <Route path="/upload" component={Upload} />
       </section>
       <Footer />
     </main>
