@@ -111,9 +111,13 @@ export const Home = () => (
             Will you be king of the league? <Link to="/info/join">Join SIBA</Link> to claim your spot in the playoffs!
         </p>
         <h2>Updates</h2>
-        <ul>
-            <li><b>January 22, 2019</b> - Things are slowly coming together to start the latest season of the SIBA. Keep on the lookout for more updates and information soon.</li>
-        </ul>
+        <h4>February 10, 2019</h4>
+        <p>The SIBA is officially open! Feel free to contact the commissioner with the <Link to="/info/join">Join</Link> form as well as check out the Rules to get a 
+        better idea on how the league will work. Also, remember to purcahse your copy of <a href="https://www.wolverinestudios.com/draft-day-sports-pro-basketball-simulation/"><b>Draft Day Sports: Pro Basketball 2019</b></a>. 
+        More information will come as GMs and teams are finalized.</p>
+            
+        <h4>January 22, 2019</h4>    
+        <p>Things are slowly coming together to start the latest season of the SIBA. Keep on the lookout for more updates and information soon.</p>
     </section>
 );
 
@@ -126,4 +130,3 @@ export const SibaStandings = () => <CommingSoon header="SIBA Standings" />
 export const Transactions = () => <CommingSoon header="Transactions" />
 export const FaCoaches = () => <CommingSoon header="Free Agents: Coaches" />
 export const FaPlayers = () => <CommingSoon header="Free Agents: Players" />
-
