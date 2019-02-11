@@ -12,6 +12,7 @@ class Join extends React.PureComponent {
             email: '',
             foundBy: '',
             reason: '',
+            site: 'pro',
             emailSent: false,
             emailSending: false
         };
