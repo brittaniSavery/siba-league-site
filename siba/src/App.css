@@ -14,10 +14,16 @@
   justify-content: center;
 }
 
-#content {
-  padding-bottom: 5em;
+.navbar {
+  margin-bottom: 0em;
 }
 
-h1 {
-  margin-top: 0em;
+#content {
+  padding-bottom: 5em;
+  background-color: white;
+}
+
+.decor {
+  background-image: url("images/decorated-bg.png");
+  background-repeat: repeat;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Menu from './Menu.js';
 import Footer from './Footer.jsx'
+import { Grid, Row, Col } from 'react-bootstrap'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faBasketballBall } from '@fortawesome/free-solid-svg-icons';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
