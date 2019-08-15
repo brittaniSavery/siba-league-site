@@ -1,13 +1,13 @@
 service: siba-api
 
-
 custom:
   vars: ${file(vars.json)}
-  defaultStage: dev
+  defaultStage: DEV
   profiles:
     dev: ${self:custom.vars.DEV_PROFILE}
     prod: ${self:custom.vars.PROD_PROFILE}
-
+  serverless-offline:
+    port: 4000
 
 provider:
   name: aws
@@ -15,8 +15,8 @@ provider:
   region: us-west-2
   stage: ${opt:stage, self:custom.defaultStage}
   environment:
-    NODE_ENV: ${self:custom.vars.NODE_ENV}
-    COMMIS_EMAIL: ${self:custom.vars.COMMIS_EMAIL}
+    NODE_ENV: ${self:provider.stage}
+    COMMIS_EMAIL: ${self:custom.vars.${self:provider.stage}_COMMIS_EMAIL}
     SIBA_EMAIL: ${self:custom.vars.SIBA_EMAIL}
     DOMAIN: ${self:custom.vars.DOMAIN}
   iamRoleStatements:
@@ -25,6 +25,8 @@ provider:
         - "ses:SendEmail"
       Resource: "*"
 
+plugins:
+  - serverless-offline      
 
 functions:
   join:
@@ -34,10 +36,4 @@ functions:
           path: siba/join
           method: post
           cors: true
-  upload:  #TODO
-    handler: handler.upload
-    events:
-      - http:
-          path: siba/upload
-          method: get
-          cors: true
+

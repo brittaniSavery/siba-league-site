@@ -1,0 +1,10 @@
+{
+    "name": "siba-aws-functions",
+    "version": "1.0.0",
+    "description": "All AWS API calls for the SIBA league sites",
+    "author": "Brittani S. Avery <brittani.s.avery@gmail.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "serverless-offline": "^5.10.1"
+    }
+}

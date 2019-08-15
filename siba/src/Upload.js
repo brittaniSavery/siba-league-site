@@ -32,7 +32,7 @@ class Upload extends React.PureComponent {
           unique team password.
         </p>
 
-        <form onSubmit={e => this.handleSubmit(e)}>
+        <form encType="multipart/form-data" onSubmit={e => this.handleSubmit(e)}>
           <FieldGroup
             id="league"
             type="password"
