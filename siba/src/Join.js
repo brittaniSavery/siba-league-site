@@ -66,10 +66,9 @@ class Join extends React.PureComponent {
         <BasicHeader title="Join" />
 
         <p>
-          Intersting in joining the SIBA as the general manager of your own
+          Intersted in joining the SIBA as the general manager of your own
           basketball team? Fill out the form below and the commissioner will
-          contact you with more information on the available teams and other
-          important steps.
+          contact you with more information on available teams and follow-up steps.
         </p>
 
         <form onSubmit={e => this.handleSubmit(e)}>
