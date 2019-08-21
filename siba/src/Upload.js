@@ -1,7 +1,6 @@
 import React from "react";
-import { Button, Modal, Glyphicon } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import { FieldGroup, BasicHeader } from "./Utilities.js";
-import { UPLOAD_URL } from "./constants.js";
 
 class Upload extends React.PureComponent {
   constructor(props) {
@@ -33,7 +32,7 @@ class Upload extends React.PureComponent {
     formData.append("teamPass", this.state.teamPass);
     formData.append("teamFile", this.state.teamFile);
 
-    var url = UPLOAD_URL;
+    var url = process.env.REACT_APP_UPLOAD_URL;
     fetch(url, {
       method: "POST",
       body: formData
@@ -45,25 +44,18 @@ class Upload extends React.PureComponent {
       })
       .then(json => {
         this.setState({ uploadOK: json.completed });
+        this.setState({ response: json.message });
+        this.setState({ formSending: false });
+        this.setState({ formSent: true });
 
         if (json.completed) {
           this.setState({
             teamName: "",
             teamPass: "",
             teamFile: null,
-            formSent: true,
-            formSending: false,
-            response: json.message
           });
 
           document.getElementById("teamFile").value = null;
-        } else {
-          this.setState({
-            uploadOK: false,
-            response: json.message,
-            formSent: false,
-            formSending: false
-          });
         }
       })
       .catch(error => {
@@ -71,7 +63,7 @@ class Upload extends React.PureComponent {
         this.setState({
           uploadOK: false,
           response: "There was an error uploading the file. Please try again.",
-          formSent: false,
+          formSent: true,
           formSending: false
         });
       });

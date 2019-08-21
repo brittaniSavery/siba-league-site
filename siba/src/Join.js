@@ -8,7 +8,6 @@ import {
   Modal,
   Glyphicon
 } from "react-bootstrap";
-import { PROD_JOIN } from "./constants.js";
 import "./App.css";
 class Join extends React.PureComponent {
   constructor(props) {
@@ -28,7 +27,7 @@ class Join extends React.PureComponent {
     event.preventDefault();
     this.setState({ emailSending: true });
 
-    var url = PROD_JOIN;
+    var url = process.env.REACT_APP_JOIN_URL;
     fetch(url, {
       method: "POST",
       body: JSON.stringify(this.state),
