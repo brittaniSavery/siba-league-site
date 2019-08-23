@@ -7,6 +7,11 @@
   align-items: center;
 }
 
+#content {
+  padding-bottom: 6.5em;
+  background-color: white;
+}
+
 .center {
   display: flex;
   flex-direction: column;
@@ -18,12 +23,6 @@
   margin-bottom: 0em;
 }
 
-#content {
-  padding-bottom: 5em;
-  background-color: white;
-}
-
-.decor {
-  background-image: url("images/decorated-bg.png");
-  background-repeat: repeat;
+h4 {
+  margin: 1.5em 0em 0.25em;
 }

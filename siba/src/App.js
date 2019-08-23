@@ -1,12 +1,13 @@
 import React from "react";
-import Menu from "./Menu.js";
-import Footer from "./Footer.jsx";
-import Upload from "./Upload.js";
+import Menu from "./Menu";
+import Footer from "./Footer";
+import Upload from "./Upload";
+import Rules from "./Rules";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faBasketballBall } from "@fortawesome/free-solid-svg-icons";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import * as DisplayPages from "./DisplayPages.jsx";
-import Join from "./Join.js";
+import * as DisplayPages from "./DisplayPages";
+import Join from "./Join";
 import sibaLogo from "./images/logo.svg";
 import sibaLogoMini from "./images/logo-mini.svg";
 import "./App.css";
@@ -30,7 +31,7 @@ const App = () => (
       <section id="content">
         <Route exact path="/" component={DisplayPages.Home} />
         <Route path="/info/about" component={DisplayPages.About} />
-        <Route path="/info/rules" component={DisplayPages.Rules} />
+        <Route path="/info/rules" component={Rules} />
         <Route path="/info/rewards" component={DisplayPages.Rewards} />
         <Route path="/info/join" component={Join} />
         <Route path="/siba/standings" component={DisplayPages.SibaStandings} />
