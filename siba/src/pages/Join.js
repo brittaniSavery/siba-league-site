@@ -1,5 +1,5 @@
 import React from "react";
-import { FieldGroup, BasicHeader } from "./Utilities.js";
+import { FieldGroup, BasicHeader } from "../Utilities.js";
 import {
   Button,
   FormGroup,
@@ -8,7 +8,8 @@ import {
   Modal,
   Glyphicon
 } from "react-bootstrap";
-import "./App.css";
+import "../App.css";
+
 class Join extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -67,7 +68,8 @@ class Join extends React.PureComponent {
         <p>
           Intersted in joining the SIBA as the general manager of your own
           basketball team? Fill out the form below and the commissioner will
-          contact you with more information on available teams and follow-up steps.
+          contact you with more information on available teams and follow-up
+          steps.
         </p>
 
         <form onSubmit={e => this.handleSubmit(e)}>

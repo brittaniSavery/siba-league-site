@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Modal } from "react-bootstrap";
-import { FieldGroup, BasicHeader } from "./Utilities.js";
+import { FieldGroup, BasicHeader } from "../Utilities.js";
 
 class Upload extends React.PureComponent {
   constructor(props) {
@@ -52,7 +52,7 @@ class Upload extends React.PureComponent {
           this.setState({
             teamName: "",
             teamPass: "",
-            teamFile: null,
+            teamFile: null
           });
 
           document.getElementById("teamFile").value = null;

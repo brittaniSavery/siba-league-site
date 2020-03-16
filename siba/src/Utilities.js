@@ -3,8 +3,10 @@ import {
   FormGroup,
   FormControl,
   ControlLabel,
-  HelpBlock
+  HelpBlock,
+  Media
 } from "react-bootstrap";
+import tmpLogo from "./images/sample-logo.png";
 
 const BasicHeader = ({ title }) => (
   <header>
@@ -34,4 +36,23 @@ const FieldGroup = ({ id, label, help, ...props }) => (
   </FormGroup>
 );
 
-export { FieldGroup, BasicHeader, SubHeader, CommingSoon };
+const OwnerBio = ({ team, name, email }) => (
+  <Media>
+    <Media.Left>
+      <img
+        src={tmpLogo}
+        alt={`${team || "sample team"} logo`}
+      />
+    </Media.Left>
+    <Media.Body>
+      <Media.Heading>{team || "Sample Name"}</Media.Heading>
+      <p>
+        {name}
+        <br />
+        <a href={email}>Email</a>
+      </p>
+    </Media.Body>
+  </Media>
+);
+
+export { FieldGroup, BasicHeader, SubHeader, CommingSoon, OwnerBio };

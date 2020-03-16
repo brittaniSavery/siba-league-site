@@ -1,6 +1,6 @@
 import React from "react";
-import { BasicHeader, SubHeader } from "./Utilities";
-import scheduleIMG from "./images/schedule.png";
+import { BasicHeader, SubHeader } from "../Utilities";
+import scheduleIMG from "../images/schedule.png";
 
 const Rules = () => (
   <section className="container">

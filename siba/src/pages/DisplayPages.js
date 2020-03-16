@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { BasicHeader, CommingSoon } from "./Utilities.js";
+import { BasicHeader, CommingSoon, OwnerBio } from "../Utilities.js";
+import Grid from "react-bootstrap/lib/Grid";
+import Col from "react-bootstrap/lib/Col";
+import Row from "react-bootstrap/lib/Row";
 
 export const About = () => (
   <section className="container">
@@ -83,7 +86,23 @@ export const Home = () => (
   </section>
 );
 
-export const Owners = () => <CommingSoon header="SIBA Owners" />;
+export const Owners = () => (
+  <Grid>
+    <BasicHeader title="Owners" />
+    <Row>
+      <Col xs={12} md={4}>
+        <OwnerBio name="Kelley Avery" email="genie2369@gmail.com" />
+      </Col>
+      <Col xs={12} md={4}>
+        <OwnerBio name="Brittani Avery" email="mone.a.soul@gmail.com" />
+      </Col>
+      <Col xs={12} md={4}>
+        <OwnerBio name="Robby Arnold" />
+      </Col>
+    </Row>
+  </Grid>
+);
+
 export const Rewards = () => <CommingSoon header="Rewards" />;
 export const DblLeaders = () => <CommingSoon header="DBL Leaders" />;
 export const DblStandings = () => <CommingSoon header="DBL Standings" />;
