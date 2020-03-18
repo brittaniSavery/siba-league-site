@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Modal } from "react-bootstrap";
-import { FieldGroup, BasicHeader } from "../Utilities.js";
+import { FieldGroup, BasicHeader } from "../utilities/PageComponents";
 
 class Upload extends React.PureComponent {
   constructor(props) {

@@ -1,6 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { BasicHeader, CommingSoon, OwnerBio } from "../Utilities.js";
+import {
+  BasicHeader,
+  CommingSoon,
+  OwnerBio
+} from "../utilities/PageComponents";
 import Grid from "react-bootstrap/lib/Grid";
 import Col from "react-bootstrap/lib/Col";
 import Row from "react-bootstrap/lib/Row";
@@ -87,17 +91,25 @@ export const Home = () => (
 );
 
 export const Owners = () => (
-  <Grid>
+  <Grid className="owner-bio">
     <BasicHeader title="Owners" />
     <Row>
       <Col xs={12} md={4}>
-        <OwnerBio name="Kelley Avery" email="genie2369@gmail.com" />
+        <OwnerBio
+          name="Kelley Avery"
+          email="genie2369@gmail.com"
+          team="Kansas City Koyotes"
+        />
       </Col>
       <Col xs={12} md={4}>
-        <OwnerBio name="Brittani Avery" email="mone.a.soul@gmail.com" />
+        <OwnerBio
+          name="Brittani Avery"
+          email="mone.a.soul@gmail.com"
+          team="Montreal Argonauts"
+        />
       </Col>
       <Col xs={12} md={4}>
-        <OwnerBio name="Robby Arnold" />
+        <OwnerBio name="Robby Arnold" team="Columbus Barons" />
       </Col>
     </Row>
   </Grid>
