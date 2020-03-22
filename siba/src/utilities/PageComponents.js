@@ -6,7 +6,6 @@ import {
   HelpBlock,
   Media
 } from "react-bootstrap";
-import tmpLogo from "../images/teams/sample-logo.png";
 
 const BasicHeader = ({ title }) => (
   <header>
@@ -36,13 +35,13 @@ const FieldGroup = ({ id, label, help, ...props }) => (
   </FormGroup>
 );
 
-const OwnerBio = ({ team, name, email }) => (
+const OwnerBio = ({ team, name, email, logo, alt }) => (
   <Media>
     <Media.Left>
-      <img src={tmpLogo} alt={`${team || "sample team"} logo`} />
+      <img src={logo} alt={alt} />
     </Media.Left>
     <Media.Body>
-      <Media.Heading>{team || "Sample Name"}</Media.Heading>
+      <Media.Heading>{team}</Media.Heading>
       <p>
         {name}
         <br />

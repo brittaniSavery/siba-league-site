@@ -5,6 +5,7 @@ import {
   CommingSoon,
   OwnerBio
 } from "../utilities/PageComponents";
+import { kansasCity, montreal, columbus } from "../utilities/Teams";
 import Grid from "react-bootstrap/lib/Grid";
 import Col from "react-bootstrap/lib/Col";
 import Row from "react-bootstrap/lib/Row";
@@ -98,18 +99,27 @@ export const Owners = () => (
         <OwnerBio
           name="Kelley Avery"
           email="genie2369@gmail.com"
-          team="Kansas City Koyotes"
+          team={kansasCity.name}
+          logo={kansasCity.logo}
+          alt={kansasCity.alt}
         />
       </Col>
       <Col xs={12} md={4}>
         <OwnerBio
           name="Brittani Avery"
           email="mone.a.soul@gmail.com"
-          team="Montreal Argonauts"
+          team={montreal.name}
+          logo={montreal.logo}
+          alt={montreal.alt}
         />
       </Col>
       <Col xs={12} md={4}>
-        <OwnerBio name="Robby Arnold" team="Columbus Barons" />
+        <OwnerBio
+          name="Robby Arnold"
+          team={columbus.name}
+          logo={columbus.logo}
+          alt={columbus.alt}
+        />
       </Col>
     </Row>
   </Grid>
