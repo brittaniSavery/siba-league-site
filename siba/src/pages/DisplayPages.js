@@ -82,7 +82,7 @@ export const Home = () => (
       The SIBA is officially open! Feel free to contact the commissioner with
       the <Link to="/info/join">Join</Link> form as well as check out the Rules
       to get a better idea on how the league will work. Also, remember to
-      purcahse your copy of
+      purcahse your copy of&nbsp;
       <a href="https://www.wolverinestudios.com/draft-day-sports-pro-basketball-simulation/">
         <b>Draft Day Sports: Pro Basketball 2019</b>
       </a>

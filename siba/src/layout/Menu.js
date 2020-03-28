@@ -64,6 +64,9 @@ const Menu = () => (
         <LinkContainer to="/upload">
           <NavItem eventKey={6}>Upload</NavItem>
         </LinkContainer>
+        <LinkContainer to="/download">
+          <NavItem eventKey={7}>League File</NavItem>
+        </LinkContainer>
       </Nav>
     </Navbar.Collapse>
   </Navbar>

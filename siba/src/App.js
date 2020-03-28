@@ -3,6 +3,7 @@ import Menu from "./layout/Menu";
 import Footer from "./layout/Footer";
 import Upload from "./pages/Upload";
 import Rules from "./pages/Rules";
+import Download from "./pages/Download";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faBasketballBall } from "@fortawesome/free-solid-svg-icons";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -43,6 +44,7 @@ const App = () => (
         <Route path="/fa/players" component={DisplayPages.FaPlayers} />
         <Route path="/fa/coaches" component={DisplayPages.FaCoaches} />
         <Route path="/upload" component={Upload} />
+        <Route path="/download" component={Download} />
       </section>
       <Footer />
     </main>
