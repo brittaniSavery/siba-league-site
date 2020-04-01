@@ -41,8 +41,7 @@ const App = () => (
         <Route path="/dbl/standings" component={DisplayPages.DblStandings} />
         <Route path="/dbl/leaders" component={DisplayPages.DblLeaders} />
         <Route path="/transactions" component={DisplayPages.Transactions} />
-        <Route path="/fa/players" component={DisplayPages.FaPlayers} />
-        <Route path="/fa/coaches" component={DisplayPages.FaCoaches} />
+        <Route path="/freeagents/" component={DisplayPages.FreeAgents} />
         <Route path="/upload" component={Upload} />
         <Route path="/download" component={Download} />
       </section>

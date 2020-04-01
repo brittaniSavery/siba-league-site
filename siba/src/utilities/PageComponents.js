@@ -20,11 +20,17 @@ const SubHeader = ({ title, children }) => (
   </section>
 );
 
-const CommingSoon = ({ header }) => (
+const Content = ({ header, children }) => (
   <section className="container">
     <BasicHeader title={header} />
-    <h4>Coming soon!</h4>
+    {children}
   </section>
+);
+
+const CommingSoon = ({ header }) => (
+  <Content header={header}>
+    <h4>Coming soon!</h4>
+  </Content>
 );
 
 const FieldGroup = ({ id, label, help, ...props }) => (
@@ -51,4 +57,4 @@ const OwnerBio = ({ team, name, email, logo, alt }) => (
   </Media>
 );
 
-export { FieldGroup, BasicHeader, SubHeader, CommingSoon, OwnerBio };
+export { FieldGroup, BasicHeader, SubHeader, CommingSoon, OwnerBio, Content };

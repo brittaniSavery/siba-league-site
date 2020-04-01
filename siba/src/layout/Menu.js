@@ -53,14 +53,9 @@ const Menu = () => (
         <LinkContainer to="/transactions">
           <NavItem eventKey={4}>Transactions</NavItem>
         </LinkContainer>
-        <NavDropdown eventKey={5} title="Free Agents" id="fa">
-          <LinkContainer to="/fa/players">
-            <MenuItem eventKey={5.1}>Players</MenuItem>
-          </LinkContainer>
-          <LinkContainer to="/fa/coaches">
-            <MenuItem eventKey={5.2}>Coaches</MenuItem>
-          </LinkContainer>
-        </NavDropdown>
+        <LinkContainer to="/freeagents">
+          <NavItem eventKey={5}>Free Agents</NavItem>
+        </LinkContainer>
         <LinkContainer to="/upload">
           <NavItem eventKey={6}>Upload</NavItem>
         </LinkContainer>

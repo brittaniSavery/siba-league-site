@@ -22,8 +22,6 @@ export default function Download() {
         The latest League File can be downloaded here. Be sure to upload the
         file into your own game to simulate the games throughout the league.
       </p>
-      <p>Last Update: [Insert here]</p>
-
       <Button type="submit" disabled={downloading} onClick={handleDownload}>
         {!downloading ? "Download" : "Loading..."}
       </Button>

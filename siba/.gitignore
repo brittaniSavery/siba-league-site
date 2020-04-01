@@ -8,7 +8,7 @@
 
 # production
 /build
-/Website
+/public/files
 
 # misc
 .DS_Store

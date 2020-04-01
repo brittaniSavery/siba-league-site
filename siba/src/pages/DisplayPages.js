@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import {
   BasicHeader,
   CommingSoon,
-  OwnerBio
+  OwnerBio,
+  Content
 } from "../utilities/PageComponents";
 import { kansasCity, montreal, columbus } from "../utilities/Teams";
 import Grid from "react-bootstrap/lib/Grid";
@@ -11,9 +12,7 @@ import Col from "react-bootstrap/lib/Col";
 import Row from "react-bootstrap/lib/Row";
 
 export const About = () => (
-  <section className="container">
-    <BasicHeader title="About" />
-
+  <Content header="About">
     <h2>The SIBA</h2>
     <p>
       The Simulation International Basketball Assoication (SIBA for short) was
@@ -60,7 +59,7 @@ export const About = () => (
       <li>Favorite Animal: Black Panther</li>
       <li>Favorite Food: Shrimp Etouffee</li>
     </ul>
-  </section>
+  </Content>
 );
 
 export const Home = () => (
@@ -125,11 +124,47 @@ export const Owners = () => (
   </Grid>
 );
 
+export const Transactions = () => (
+  <Content header="Transactions">
+    <p>
+      <a
+        href={process.env.PUBLIC_URL + "/files/generated/transactions.html"}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Click here
+      </a>{" "}
+      for the transaction for the current year. If you have any questions or
+      concerns, please contact the commissioner.
+    </p>
+  </Content>
+);
+
+export const FreeAgents = () => (
+  <Content header="Free Agents">
+    <p>
+      Here are the current free agents available. Free Agency starts the end of
+      every season.
+    </p>
+    <a
+      href={process.env.PUBLIC_URL + "/files/generated/fa.html"}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <h4>Players</h4>
+    </a>
+    <a
+      href={process.env.PUBLIC_URL + "/files/generated/facoach.html"}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <h4>Coaches</h4>
+    </a>
+  </Content>
+);
+
 export const Rewards = () => <CommingSoon header="Rewards" />;
 export const DblLeaders = () => <CommingSoon header="DBL Leaders" />;
 export const DblStandings = () => <CommingSoon header="DBL Standings" />;
 export const SibaLeaders = () => <CommingSoon header="SIBA Leaders" />;
 export const SibaStandings = () => <CommingSoon header="SIBA Standings" />;
-export const Transactions = () => <CommingSoon header="Transactions" />;
-export const FaCoaches = () => <CommingSoon header="Free Agents: Coaches" />;
-export const FaPlayers = () => <CommingSoon header="Free Agents: Players" />;
