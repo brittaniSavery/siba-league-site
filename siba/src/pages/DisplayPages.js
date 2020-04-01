@@ -63,10 +63,7 @@ export const About = () => (
 );
 
 export const Home = () => (
-  <section className="container">
-    <header>
-      <h1>Welcome</h1>
-    </header>
+  <Content header="Welcome">
     <p>
       The Simulation International Basketball Assoication (SIBA) is a fictional
       basketball simulation league using the Draft Day Sports: Pro Basketball
@@ -76,7 +73,7 @@ export const Home = () => (
       <Link to="/info/join">Join SIBA</Link> to claim your spot in the playoffs!
     </p>
     <h2>Updates</h2>
-    <h4>August [dd], 2019</h4>
+    <h4>April [dd], 2020</h4>
     <p>
       The SIBA is officially open! Feel free to contact the commissioner with
       the <Link to="/info/join">Join</Link> form as well as check out the Rules
@@ -87,7 +84,7 @@ export const Home = () => (
       </a>
       . More information will come as GMs and teams are finalized.
     </p>
-  </section>
+  </Content>
 );
 
 export const Owners = () => (
