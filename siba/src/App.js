@@ -36,10 +36,8 @@ const App = () => (
         <Route path="/info/rewards" component={DisplayPages.Rewards} />
         <Route path="/info/join" component={Join} />
         <Route path="/siba/standings" component={DisplayPages.SibaStandings} />
-        <Route path="/siba/leaders" component={DisplayPages.SibaLeaders} />
         <Route path="/siba/owners" component={DisplayPages.Owners} />
-        <Route path="/dbl/standings" component={DisplayPages.DblStandings} />
-        <Route path="/dbl/leaders" component={DisplayPages.DblLeaders} />
+        <Route path="/dbl" component={DisplayPages.Dbl} />
         <Route path="/transactions" component={DisplayPages.Transactions} />
         <Route path="/freeagents/" component={DisplayPages.FreeAgents} />
         <Route path="/upload" component={Upload} />

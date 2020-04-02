@@ -161,7 +161,52 @@ export const FreeAgents = () => (
 );
 
 export const Rewards = () => <CommingSoon header="Rewards" />;
-export const DblLeaders = () => <CommingSoon header="DBL Leaders" />;
-export const DblStandings = () => <CommingSoon header="DBL Standings" />;
-export const SibaLeaders = () => <CommingSoon header="SIBA Leaders" />;
-export const SibaStandings = () => <CommingSoon header="SIBA Standings" />;
+export const Dbl = () => (
+  <Content header="DBL Standings">
+    <p>
+      The Simulation International Development Basketball League, SIDBL, is
+      where the young and upcoming players hone their skills and gain the
+      maturity needed to succeed in the main league, SIBA. The current standings
+      and leaders of the league are found here.
+    </p>
+    <a
+      href={process.env.PUBLIC_URL + "/files/generated/SIDBLStandings.html"}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <h4>Standings</h4>
+    </a>
+    <a
+      href={process.env.PUBLIC_URL + "/files/generated/SIDBLLeagueLeaders.html"}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <h4>Leaders</h4>
+    </a>
+  </Content>
+);
+export const SibaStandings = () => (
+  <Content header="SIBA Standings">
+    <p>
+      The Simulation International Basketball Association, SIBA, is the home of
+      the most talented basketball players from around the world. Thirty teams
+      fight through a grueling regular season for a spot in the playoffs and a
+      chance to win the grand title of SIBA Champions. The current standings and
+      leaders of the league are found here.
+    </p>
+    <a
+      href={process.env.PUBLIC_URL + "/files/generated/SIDBLStandings.html"}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <h4>Standings</h4>
+    </a>
+    <a
+      href={process.env.PUBLIC_URL + "/files/generated/SIDBLLeagueLeaders.html"}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <h4>Leaders</h4>
+    </a>
+  </Content>
+);

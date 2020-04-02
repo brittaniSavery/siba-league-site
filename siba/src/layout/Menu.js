@@ -35,21 +35,13 @@ const Menu = () => (
           <LinkContainer to="/siba/standings">
             <MenuItem eventKey={2.1}>League Standings</MenuItem>
           </LinkContainer>
-          <LinkContainer to="/siba/leaders">
-            <MenuItem eventKey={2.2}>League Leaders</MenuItem>
-          </LinkContainer>
           <LinkContainer to="/siba/owners">
-            <MenuItem eventKey={2.3}>Owners</MenuItem>
+            <MenuItem eventKey={2.2}>Owners</MenuItem>
           </LinkContainer>
         </NavDropdown>
-        <NavDropdown eventKey={3} title="DBL" id="dbl">
-          <LinkContainer to="/dbl/standings">
-            <MenuItem eventKey={3.1}>League Standings</MenuItem>
-          </LinkContainer>
-          <LinkContainer to="/dbl/leaders">
-            <MenuItem eventKey={3.2}>League Leaders</MenuItem>
-          </LinkContainer>
-        </NavDropdown>
+        <LinkContainer to="/dbl">
+          <NavItem eventKey={3}>DBL</NavItem>
+        </LinkContainer>
         <LinkContainer to="/transactions">
           <NavItem eventKey={4}>Transactions</NavItem>
         </LinkContainer>
