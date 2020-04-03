@@ -125,7 +125,7 @@ export const Transactions = () => (
   <Content header="Transactions">
     <p>
       <a
-        href={process.env.PUBLIC_URL + "/files/generated/transactions.html"}
+        href={process.env.PUBLIC_URL + "/files/generated/Transactions.html"}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -144,14 +144,14 @@ export const FreeAgents = () => (
       every season.
     </p>
     <a
-      href={process.env.PUBLIC_URL + "/files/generated/fa.html"}
+      href={process.env.PUBLIC_URL + "/files/generated/FA.html"}
       target="_blank"
       rel="noopener noreferrer"
     >
       <h4>Players</h4>
     </a>
     <a
-      href={process.env.PUBLIC_URL + "/files/generated/facoach.html"}
+      href={process.env.PUBLIC_URL + "/files/generated/FACoach.html"}
       target="_blank"
       rel="noopener noreferrer"
     >
