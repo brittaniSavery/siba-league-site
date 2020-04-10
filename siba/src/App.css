@@ -32,3 +32,18 @@
 h4 {
   margin: 1.5em 0em 0.25em;
 }
+
+.generatedContainer {
+  overflow: hidden;
+  padding-top: 56.25%;
+  position: relative;
+}
+
+.generatedContainer iframe {
+  border: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
