@@ -6,7 +6,7 @@ import {
   ControlLabel,
   FormControl,
   Modal,
-  Glyphicon
+  Glyphicon,
 } from "react-bootstrap";
 import "../App.css";
 
@@ -20,11 +20,11 @@ class Join extends React.PureComponent {
       reason: "",
       site: "pro",
       emailSent: false,
-      emailSending: false
+      emailSending: false,
     };
   }
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     this.setState({ emailSending: true });
 
@@ -33,13 +33,13 @@ class Join extends React.PureComponent {
       method: "POST",
       body: JSON.stringify(this.state),
       headers: {
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+      },
     })
-      .then(response => {
+      .then((response) => {
         if (response.ok) return response.json();
       })
-      .then(message => {
+      .then((message) => {
         console.log(`Email sent! ${message}`);
         this.setState({
           name: "",
@@ -47,12 +47,12 @@ class Join extends React.PureComponent {
           foundBy: "",
           reason: "",
           emailSent: true,
-          emailSending: false
+          emailSending: false,
         });
       });
   };
 
-  handleOnChange = event => {
+  handleOnChange = (event) => {
     this.setState({ [event.target.id]: event.target.value });
   };
 
@@ -66,19 +66,19 @@ class Join extends React.PureComponent {
         <BasicHeader title="Join" />
 
         <p>
-          Intersted in joining the SIBA as the general manager of your own
+          Interested in joining the SIBA as the general manager of your own
           basketball team? Fill out the form below and the commissioner will
           contact you with more information on available teams and follow-up
           steps.
         </p>
 
-        <form onSubmit={e => this.handleSubmit(e)}>
+        <form onSubmit={(e) => this.handleSubmit(e)}>
           <FieldGroup
             id="name"
             type="text"
             label="Name:"
             value={this.state.name}
-            onChange={e => this.handleOnChange(e)}
+            onChange={(e) => this.handleOnChange(e)}
             required
           />
 
@@ -87,7 +87,7 @@ class Join extends React.PureComponent {
             type="email"
             label="Email:"
             value={this.state.email}
-            onChange={e => this.handleOnChange(e)}
+            onChange={(e) => this.handleOnChange(e)}
             required
           />
 
@@ -96,7 +96,7 @@ class Join extends React.PureComponent {
             <FormControl
               required
               value={this.state.foundBy}
-              onChange={e => this.handleOnChange(e)}
+              onChange={(e) => this.handleOnChange(e)}
               componentClass="select"
               placeholder="Choose one"
             >
@@ -115,7 +115,7 @@ class Join extends React.PureComponent {
               componentClass="textarea"
               placeholder="Optional"
               value={this.state.reason}
-              onChange={e => this.handleOnChange(e)}
+              onChange={(e) => this.handleOnChange(e)}
             />
           </FormGroup>
 
