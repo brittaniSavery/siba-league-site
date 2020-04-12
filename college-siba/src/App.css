@@ -23,7 +23,18 @@
   background-color: white;
 }
 
-.decor {
-  background-image: url("images/decorated-bg.png");
-  background-repeat: repeat;
+.division {
+  padding: 10px 0px;
+}
+
+.division .col-md-3,
+.division .col-sm-6,
+.division .col-xs-12 {
+  padding-bottom: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .division .col-xs-12 {
+    margin-left: 5px;
+  }
 }
