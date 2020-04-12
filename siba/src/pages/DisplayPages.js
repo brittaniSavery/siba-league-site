@@ -4,7 +4,7 @@ import {
   BasicHeader,
   CommingSoon,
   OwnerBio,
-  Content
+  Content,
 } from "../utilities/PageComponents";
 import { kansasCity, montreal, columbus } from "../utilities/Teams";
 import Grid from "react-bootstrap/lib/Grid";
@@ -195,14 +195,14 @@ export const SibaStandings = () => (
       leaders of the league are found here.
     </p>
     <a
-      href={process.env.PUBLIC_URL + "/files/generated/SIDBLStandings.html"}
+      href={process.env.PUBLIC_URL + "/files/generated/SIBAStandings.html"}
       target="_blank"
       rel="noopener noreferrer"
     >
       <h4>Standings</h4>
     </a>
     <a
-      href={process.env.PUBLIC_URL + "/files/generated/SIDBLLeagueLeaders.html"}
+      href={process.env.PUBLIC_URL + "/files/generated/SIBALeagueLeaders.html"}
       target="_blank"
       rel="noopener noreferrer"
     >
