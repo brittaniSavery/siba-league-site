@@ -73,7 +73,7 @@ export const Home = () => (
       <Link to="/info/join">Join SIBA</Link> to claim your spot in the playoffs!
     </p>
     <h2>Updates</h2>
-    <h4>April [dd], 2020</h4>
+    <h4>April 12, 2020</h4>
     <p>
       The SIBA is officially open! Feel free to contact the commissioner with
       the <Link to="/info/join">Join</Link> form as well as check out the Rules
