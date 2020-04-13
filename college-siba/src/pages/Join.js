@@ -1,14 +1,14 @@
 import React from "react";
-import { FieldGroup, BasicHeader } from "../utilities/PageComponents";
+import { FieldGroup, BasicHeader } from "../utilities/PageComponents.js";
 import {
   Button,
   FormGroup,
   ControlLabel,
   FormControl,
   Modal,
-  Glyphicon,
+  Glyphicon
 } from "react-bootstrap";
-import "../App.css";
+import { PROD_URL } from "../constants.js";
 
 class Join extends React.PureComponent {
   constructor(props) {
@@ -18,28 +18,28 @@ class Join extends React.PureComponent {
       email: "",
       foundBy: "",
       reason: "",
-      site: "pro",
+      site: "college",
       emailSent: false,
-      emailSending: false,
+      emailSending: false
     };
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault();
     this.setState({ emailSending: true });
 
-    var url = process.env.REACT_APP_JOIN_URL;
+    var url = PROD_URL;
     fetch(url, {
       method: "POST",
       body: JSON.stringify(this.state),
       headers: {
-        "Content-Type": "application/json",
-      },
+        "Content-Type": "application/json"
+      }
     })
-      .then((response) => {
+      .then(response => {
         if (response.ok) return response.json();
       })
-      .then((message) => {
+      .then(message => {
         console.log(`Email sent! ${message}`);
         this.setState({
           name: "",
@@ -47,12 +47,12 @@ class Join extends React.PureComponent {
           foundBy: "",
           reason: "",
           emailSent: true,
-          emailSending: false,
+          emailSending: false
         });
       });
   };
 
-  handleOnChange = (event) => {
+  handleOnChange = event => {
     this.setState({ [event.target.id]: event.target.value });
   };
 
@@ -66,19 +66,19 @@ class Join extends React.PureComponent {
         <BasicHeader title="Join" />
 
         <p>
-          Interested in joining the SIBA as the general manager of your own
+          Intersting in joining the SIBA as the coach of your own college
           basketball team? Fill out the form below and the commissioner will
-          contact you with more information on available teams and follow-up
-          steps.
+          contact you with more information on the available teams and other
+          important steps.
         </p>
 
-        <form onSubmit={(e) => this.handleSubmit(e)}>
+        <form onSubmit={e => this.handleSubmit(e)}>
           <FieldGroup
             id="name"
             type="text"
             label="Name:"
             value={this.state.name}
-            onChange={(e) => this.handleOnChange(e)}
+            onChange={e => this.handleOnChange(e)}
             required
           />
 
@@ -87,16 +87,16 @@ class Join extends React.PureComponent {
             type="email"
             label="Email:"
             value={this.state.email}
-            onChange={(e) => this.handleOnChange(e)}
+            onChange={e => this.handleOnChange(e)}
             required
           />
 
           <FormGroup controlId="foundBy">
-            <ControlLabel>Found SIBA by:</ControlLabel>
+            <ControlLabel>Found SICBA by:</ControlLabel>
             <FormControl
               required
               value={this.state.foundBy}
-              onChange={(e) => this.handleOnChange(e)}
+              onChange={e => this.handleOnChange(e)}
               componentClass="select"
               placeholder="Choose one"
             >
@@ -115,7 +115,7 @@ class Join extends React.PureComponent {
               componentClass="textarea"
               placeholder="Optional"
               value={this.state.reason}
-              onChange={(e) => this.handleOnChange(e)}
+              onChange={e => this.handleOnChange(e)}
             />
           </FormGroup>
 
@@ -133,7 +133,7 @@ class Join extends React.PureComponent {
           </Modal.Header>
           <Modal.Body>
             <p>
-              We greatly appreciate your interst in the SIBA. An email has been
+              We greatly appreciate your interst in the SICBA. An email has been
               sent to the commissioner and you should be hearing a response
               within a couple of days.
             </p>

@@ -1,16 +1,17 @@
-import React from 'react';
-import Menu from './Menu.js';
-import Footer from './Footer.jsx'
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faBasketballBall } from '@fortawesome/free-solid-svg-icons';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import * as DisplayPages from './DisplayPages.jsx';
-import Join from './Join.js';
-import sibaLogo from './images/logo.svg'
-import sibaLogoMini from './images/logo-mini.svg'
-import './App.css';
+import React from "react";
+import Menu from "./layout/Menu.js";
+import Footer from "./layout/Footer.js";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faBasketballBall } from "@fortawesome/free-solid-svg-icons";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import * as DisplayPages from "./pages/DisplayPages.js";
+import Join from "./pages/Join.js";
+import Standings from "./pages/Standings";
+import sibaLogo from "./images/logo.svg";
+import sibaLogoMini from "./images/logo-mini.svg";
+import "./App.css";
 
-library.add(faBasketballBall)
+library.add(faBasketballBall);
 
 const App = () => (
   <Router basename="/">
@@ -31,9 +32,8 @@ const App = () => (
         <Route path="/info/about" component={DisplayPages.About} />
         <Route path="/info/rules" component={DisplayPages.Rules} />
         <Route path="/info/join" component={Join} />
-        <Route path="/sicba/owners" component={DisplayPages.Owners} />
         <Route path="/sicba/rankings" component={DisplayPages.SicbaRanking} />
-        <Route path="/sicba/standings" component={DisplayPages.SicbaStandings} />
+        <Route path="/sicba/standings" component={Standings} />
         <Route path="/sicba/schedule" component={DisplayPages.SicbaSchedule} />
       </section>
       <Footer />
