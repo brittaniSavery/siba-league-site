@@ -11,9 +11,9 @@ function generateResponse(code, payload) {
     headers: {
       "Access-Control-Allow-Origin": process.env.DOMAIN,
       "Access-Control-Allow-Headers": "x-requested-with",
-      "Access-Control-Allow-Credentials": true
+      "Access-Control-Allow-Credentials": true,
     },
-    body: JSON.stringify(payload)
+    body: JSON.stringify(payload),
   };
 }
 
@@ -22,7 +22,7 @@ function generateError(code, error) {
   return generateResponse(code, error.message);
 }
 
-module.exports.join = async event => {
+exports.join = async (event) => {
   try {
     const joinEmail = join.buildEmail(event.body);
     const result = await ses.sendEmail(joinEmail).promise();
