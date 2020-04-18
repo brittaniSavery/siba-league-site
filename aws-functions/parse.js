@@ -1,9 +1,19 @@
 const fetch = require("node-fetch");
 const parser = require("parse5");
 
-exports.retrieve = async (body) => {
+exports.parse = async (page, publicUrl) => {
   try {
-    const response = await fetch(body);
+    const link = publicUrl + "/files/generated/" + PAGES[page];
+    const html = await this.retrieve(link);
+    return this.build(page, html);
+  } catch (error) {
+    return error;
+  }
+};
+
+exports.retrieve = async (link) => {
+  try {
+    const response = await fetch(link);
     if (response.ok) {
       const html = await response.text();
       return html;
@@ -15,7 +25,7 @@ exports.retrieve = async (body) => {
   }
 };
 
-exports.parse = (page, html) => {
+exports.build = (page, html) => {
   const doc = parser.parse(html);
   const body = doc.childNodes[1].childNodes[2];
 

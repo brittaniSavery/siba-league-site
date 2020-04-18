@@ -1,7 +1,7 @@
 const fs = require("fs");
 const chai = require("chai");
 const assert = chai.assert;
-const { retrieve, parse } = require("../parse");
+const { retrieve, build } = require("../parse");
 
 it("should retrieve webpage", async function () {
   const result = await retrieve(
@@ -18,9 +18,9 @@ it("Should throw error for non-existent page", async function () {
   assert.typeOf(result, "error");
 });
 
-it("Should parse college team ranking webpage", function () {
+it("Should create json for college team ranking", function () {
   const html = fs.readFileSync("test/files/teamranking.htm", "utf8");
-  const result = parse("team-ranking", html);
+  const result = build("team-ranking", html);
   assert.typeOf(result, "array");
   assert.lengthOf(result, 352);
   assert.equal(result[0].school, "Duke");
