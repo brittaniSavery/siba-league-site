@@ -10,7 +10,8 @@
     "serverless-offline": "^5.10.1"
   },
   "dependencies": {
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "parse5": "^6.0.0"
   },
   "scripts": {
     "test": "mocha --timeout 5000"

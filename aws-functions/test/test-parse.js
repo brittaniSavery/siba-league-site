@@ -1,15 +1,7 @@
 const fs = require("fs");
 const chai = require("chai");
 const assert = chai.assert;
-const { retrieve } = require("../parse");
-
-//Quick helper function to load html files for testing/parsing
-require.extensions[(".html", ".htm")] = function (module, filename) {
-  exports = fs.readFileSync(filename, "utf8");
-};
-
-//Generated HTML files from the simulation basketball program
-var teamranking = require("../teamranking.htm");
+const { retrieve, parse } = require("../parse");
 
 it("should retrieve webpage", async function () {
   const result = await retrieve(
@@ -24,4 +16,14 @@ it("should retrieve webpage", async function () {
 it("Should throw error for non-existent page", async function () {
   const result = await retrieve("http://localhost:3000/doesNotExist.html");
   assert.typeOf(result, "error");
+});
+
+it("Should parse college team ranking webpage", function () {
+  const html = fs.readFileSync("test/files/teamranking.htm", "utf8");
+  const result = parse("team-ranking", html);
+  assert.typeOf(result, "array");
+  assert.lengthOf(result, 352);
+  assert.equal(result[0].school, "Duke");
+  assert.equal(result[81].school, "Charlotte");
+  assert.equal(result[222].school, "Portland");
 });
