@@ -11,7 +11,7 @@ custom:
 
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs12.x
   region: us-west-2
   stage: ${opt:stage, self:custom.defaultStage}
   environment:
@@ -40,6 +40,11 @@ functions:
     handler: handler.parse
     events:
       - http:
-        path: siba/parse
-        method: get
-        cors: true
+          method: get
+          path: siba/parse
+          cors: true
+          request:
+            parameters:
+              querystrings:
+                url: true
+                page: true

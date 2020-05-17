@@ -1,12 +1,20 @@
 const fetch = require("node-fetch");
 const parser = require("parse5");
 
-exports.parse = async (page, publicUrl) => {
+const PAGES = {
+  teamranking: "teamranking.htm",
+};
+
+exports.parse = async (url, page) => {
   try {
-    const link = publicUrl + "/files/generated/" + PAGES[page];
+    const pageFileName = PAGES[page];
+    if (!pageFileName) throw new Error("Not Found: Page is invalid.");
+
+    const link = url + "/files/generated/" + pageFileName;
     const html = await this.retrieve(link);
     return this.build(page, html);
   } catch (error) {
+    console.log(error);
     return error;
   }
 };
@@ -18,7 +26,7 @@ exports.retrieve = async (link) => {
       const html = await response.text();
       return html;
     } else {
-      throw new Error("Page could not be found.");
+      throw new Error("Not Found: Link is invalid.");
     }
   } catch (error) {
     return error;
@@ -32,14 +40,14 @@ exports.build = (page, html) => {
   const tables = body.childNodes.filter((child) => child.nodeName === "table");
 
   switch (page) {
-    case "team-ranking":
+    case "teamranking":
       return parseTeamRanking(tables[0]);
     default:
-      return new Error("No matching page");
+      return new Error("Not Found: No matching page");
   }
 };
 
-const parseTeamRanking = (teamRanking) => {
+function parseTeamRanking(teamRanking) {
   const rows = teamRanking.childNodes
     .find((child) => child.nodeName === "tbody")
     .childNodes.filter((child) => child.nodeName === "tr");
@@ -57,10 +65,10 @@ const parseTeamRanking = (teamRanking) => {
     });
   }
   return colleges;
-};
+}
 
 //Ranking group depends on the background color in the college table cells
-const getRankingSet = (color) => {
+function getRankingSet(color) {
   switch (color) {
     case "#2F5597":
       return 1;
@@ -69,4 +77,4 @@ const getRankingSet = (color) => {
     case "#548235":
       return 3;
   }
-};
+}
