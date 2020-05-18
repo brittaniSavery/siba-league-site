@@ -4,7 +4,7 @@ import {
   FormControl,
   ControlLabel,
   HelpBlock,
-  Media
+  Media,
 } from "react-bootstrap";
 
 const BasicHeader = ({ title }) => (
@@ -60,7 +60,10 @@ const OwnerBio = ({ team, name, email, logo, alt }) => (
 const GeneratedContainer = ({ file, header }) => (
   <Content header={header}>
     <div className="generatedContainer">
-      <iframe src={`${process.env.PUBLIC_URL}/files/generated/${file}.html`} />
+      <iframe
+        title="test"
+        src={`${process.env.PUBLIC_URL}/files/generated/${file}.html`}
+      />
     </div>
   </Content>
 );
@@ -72,5 +75,5 @@ export {
   CommingSoon,
   OwnerBio,
   Content,
-  GeneratedContainer
+  GeneratedContainer,
 };
