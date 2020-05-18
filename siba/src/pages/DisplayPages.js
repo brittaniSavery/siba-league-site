@@ -5,6 +5,7 @@ import {
   CommingSoon,
   OwnerBio,
   Content,
+  GeneratedContainer,
 } from "../utilities/PageComponents";
 import { kansasCity, montreal, columbus } from "../utilities/Teams";
 import Grid from "react-bootstrap/lib/Grid";
@@ -112,6 +113,7 @@ export const Owners = () => (
       <Col xs={12} md={4}>
         <OwnerBio
           name="Robby Arnold"
+          email="Rxmca1@hotmail.com"
           team={columbus.name}
           logo={columbus.logo}
           alt={columbus.alt}
@@ -138,7 +140,9 @@ export const Transactions = () => (
 );
 
 export const FreeAgents = () => (
-  <Content header="Free Agents">
+  <GeneratedContainer header="Free Agents: Players" file="FA" />
+
+  /* <Content header="Free Agents">
     <p>
       Here are the current free agents available. Free Agency starts the end of
       every season.
@@ -157,7 +161,7 @@ export const FreeAgents = () => (
     >
       <h4>Coaches</h4>
     </a>
-  </Content>
+  </Content> */
 );
 
 export const Rewards = () => <CommingSoon header="Rewards" />;
