@@ -1,7 +1,7 @@
 import React from "react";
 import { Content } from "../utilities/PageComponents";
 import { Link } from "react-router-dom";
-import { Jumbotron } from "react-bootstrap";
+/* import { Jumbotron } from "react-bootstrap"; */
 
 export default function Home() {
   return (

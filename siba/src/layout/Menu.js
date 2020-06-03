@@ -14,6 +14,7 @@ const Menu = () => (
             src={logoBlank}
             className="nav-img"
             style={{ height: "5vh", display: "inline" }}
+            alt=""
           />{" "}
           <span>SIBA</span>
         </Link>
