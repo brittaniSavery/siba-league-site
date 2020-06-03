@@ -1,16 +1,21 @@
 import React from "react";
-import { Nav, Navbar, NavItem, NavDropdown, MenuItem } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { MenuItem, Nav, Navbar, NavDropdown, NavItem } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../App.css";
+import { Link } from "react-router-dom";
+import "./layout.css";
+import logoBlank from "../images/logo-blank.svg";
 
 const Menu = () => (
-  <Navbar>
+  <Navbar id="custom-nav-bar">
     <Navbar.Header>
       <Navbar.Brand>
         <Link to="/">
-          <FontAwesomeIcon icon="basketball-ball" />
+          <img
+            src={logoBlank}
+            className="nav-img"
+            style={{ height: "5vh", display: "inline" }}
+          />{" "}
+          <span>SIBA</span>
         </Link>
       </Navbar.Brand>
       <Navbar.Toggle />

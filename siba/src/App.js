@@ -1,36 +1,25 @@
-import React from "react";
-import Menu from "./layout/Menu";
-import Footer from "./layout/Footer";
-import Upload from "./pages/Upload";
-import Rules from "./pages/Rules";
-import Download from "./pages/Download";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faBasketballBall } from "@fortawesome/free-solid-svg-icons";
+import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import * as DisplayPages from "./pages/DisplayPages";
-import Join from "./pages/Join";
-import sibaLogo from "./images/logo.svg";
-import sibaLogoMini from "./images/logo-mini.svg";
 import "./App.css";
+import Footer from "./layout/Footer";
+import Menu from "./layout/Menu";
+import * as DisplayPages from "./pages/DisplayPages";
+import Download from "./pages/Download";
+import Join from "./pages/Join";
+import Rules from "./pages/Rules";
+import Upload from "./pages/Upload";
+import Home from "./pages/Home";
 
 library.add(faBasketballBall);
 
 const App = () => (
   <Router basename="/">
     <main>
-      <header id="siteHeader">
-        <div className="center hidden-xs">
-          <img src={sibaLogo} alt="SIBA Logo" />
-          <h1>Simulation International Basketball Assoication</h1>
-        </div>
-        <div className="center visible-xs-block hidden-sm hidden-md hidden-lg">
-          <img src={sibaLogoMini} alt="SIBA Logo" />
-          <h1>SIBA</h1>
-        </div>
-      </header>
       <Menu />
       <section id="content">
-        <Route exact path="/" component={DisplayPages.Home} />
+        <Route exact path="/" component={Home} />
         <Route path="/info/about" component={DisplayPages.About} />
         <Route path="/info/rules" component={Rules} />
         <Route path="/info/rewards" component={DisplayPages.Rewards} />
