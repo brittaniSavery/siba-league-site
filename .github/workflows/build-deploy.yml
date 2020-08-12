@@ -3,10 +3,10 @@ name: Build/Deploy
 on:
   push:
     branches: [master]
-    paths: siba/**
+    paths: frontend/**
   pull_request:
     branches: [master]
-    paths: siba/**
+    paths: frontend/**
 
 jobs:
   build-deploy:
@@ -23,7 +23,7 @@ jobs:
         run: |
           npm ci
           npm run build
-        working-directory: ./siba
+        working-directory: ./frontend
         env:
           CI: true
 
