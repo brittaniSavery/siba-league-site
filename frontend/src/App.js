@@ -20,17 +20,20 @@ const App = () => (
       <Menu />
       <section id="content">
         <Route exact path="/" component={Home} />
-        <Route path="/info/about" component={DisplayPages.About} />
-        <Route path="/info/rules" component={Rules} />
-        <Route path="/info/rewards" component={DisplayPages.Rewards} />
-        <Route path="/info/join" component={Join} />
+        <Route path="/about" component={DisplayPages.About} />
+        <Route path="/siba/rules" component={Rules} />
+        <Route path="/siba/rewards" component={DisplayPages.Rewards} />
         <Route path="/siba/standings" component={DisplayPages.SibaStandings} />
+        <Route
+          path="/siba/transactions"
+          component={DisplayPages.Transactions}
+        />
         <Route path="/siba/owners" component={DisplayPages.Owners} />
-        <Route path="/dbl" component={DisplayPages.Dbl} />
-        <Route path="/transactions" component={DisplayPages.Transactions} />
+        <Route path="/dbl/" component={DisplayPages.Dbl} />
         <Route path="/freeagents/" component={DisplayPages.FreeAgents} />
         <Route path="/upload" component={Upload} />
         <Route path="/download" component={Download} />
+        <Route path="/join" component={Join} />
       </section>
       <Footer />
     </main>

@@ -23,26 +23,21 @@ const Menu = () => (
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav>
-        <NavDropdown eventKey={1} title="Information" id="info">
-          <LinkContainer to="/info/about">
-            <MenuItem eventKey={1.1}>About</MenuItem>
-          </LinkContainer>
-          <LinkContainer to="/info/rules">
-            <MenuItem eventKey={1.2}>Rules</MenuItem>
-          </LinkContainer>
-          <LinkContainer to="/info/rewards">
-            <MenuItem eventKey={1.3}>Rewards</MenuItem>
-          </LinkContainer>
-          <LinkContainer to="/info/join">
-            <MenuItem eventKey={1.4}>Join</MenuItem>
-          </LinkContainer>
-        </NavDropdown>
+        <LinkContainer to="/about">
+          <MenuItem eventKey={1}>About</MenuItem>
+        </LinkContainer>
         <NavDropdown eventKey={2} title="SIBA" id="siba">
+          <LinkContainer to="/siba/rules">
+            <MenuItem eventKey={2.1}>Rules</MenuItem>
+          </LinkContainer>
           <LinkContainer to="/siba/standings">
-            <MenuItem eventKey={2.1}>League Standings</MenuItem>
+            <MenuItem eventKey={2.2}>League Standings</MenuItem>
           </LinkContainer>
           <LinkContainer to="/siba/owners">
-            <MenuItem eventKey={2.2}>Owners</MenuItem>
+            <MenuItem eventKey={2.3}>Owners</MenuItem>
+          </LinkContainer>
+          <LinkContainer to="/siba/rewards">
+            <MenuItem eventKey={2.4}>Rewards</MenuItem>
           </LinkContainer>
         </NavDropdown>
         <LinkContainer to="/dbl">
@@ -59,6 +54,9 @@ const Menu = () => (
         </LinkContainer>
         <LinkContainer to="/download">
           <NavItem eventKey={7}>League File</NavItem>
+        </LinkContainer>
+        <LinkContainer to="/join">
+          <NavItem eventKey={8}>Join</NavItem>
         </LinkContainer>
       </Nav>
     </Navbar.Collapse>

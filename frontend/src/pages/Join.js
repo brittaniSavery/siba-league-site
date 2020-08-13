@@ -18,7 +18,7 @@ class Join extends React.PureComponent {
       email: "",
       foundBy: "",
       reason: "",
-      site: "pro",
+      league: "",
       emailSent: false,
       emailSending: false,
     };
@@ -67,9 +67,10 @@ class Join extends React.PureComponent {
 
         <p>
           Interested in joining the SIBA as the general manager of your own
-          basketball team? Fill out the form below and the commissioner will
-          contact you with more information on available teams and follow-up
-          steps.
+          professional basketball team or as the head coach of your own
+          university basketball team? Fill out the form below and the
+          commissioner will contact you with more information on available teams
+          and follow-up steps.
         </p>
 
         <form onSubmit={(e) => this.handleSubmit(e)}>
@@ -91,6 +92,21 @@ class Join extends React.PureComponent {
             required
           />
 
+          <FormGroup controlId="league">
+            <ControlLabel>League Choice:</ControlLabel>
+            <FormControl
+              required
+              value={this.state.foundBy}
+              onChange={(e) => this.handleOnChange(e)}
+              componentClass="select"
+            >
+              <option value=""></option>
+              <option value="pro">Professional (SIBA)</option>
+              <option value="college">College (SICBA)</option>
+              <option value="both">Both</option>
+            </FormControl>
+          </FormGroup>
+
           <FormGroup controlId="foundBy">
             <ControlLabel>Found SIBA by:</ControlLabel>
             <FormControl
@@ -98,9 +114,8 @@ class Join extends React.PureComponent {
               value={this.state.foundBy}
               onChange={(e) => this.handleOnChange(e)}
               componentClass="select"
-              placeholder="Choose one"
             >
-              <option value="">Choose one</option>
+              <option value=""></option>
               <option value="referral">Friend/Family</option>
               <option value="google">Google</option>
               <option value="fb">Facebook</option>
