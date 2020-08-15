@@ -1,20 +1,22 @@
 {
   "name": "siba-aws-functions",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "All AWS API calls for the SIBA league sites",
   "author": "Brittani S. Avery <brittani.s.avery@gmail.com>",
   "license": "MIT",
-  "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^7.1.1",
-    "serverless-offline": "^6.5.0"
-  },
   "dependencies": {
     "aws-sdk": "^2.678.0",
     "node-fetch": "^2.6.0",
     "parse5": "^6.0.0"
   },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.1",
+    "serverless-offline": "^6.5.0"
+  },
   "scripts": {
-    "test": "mocha --timeout 5000"
+    "start": "sls offline",
+    "test": "mocha --timeout 5000",
+    "deploy": "sls deploy --stage"
   }
 }

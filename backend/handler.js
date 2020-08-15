@@ -50,7 +50,7 @@ function generateResponse(code, payload) {
   return {
     statusCode: code,
     headers: {
-      "Access-Control-Allow-Origin": process.env.DOMAIN,
+      "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Headers": "x-requested-with",
       "Access-Control-Allow-Credentials": true,
     },

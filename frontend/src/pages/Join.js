@@ -1,165 +1,171 @@
 import React from "react";
 import { FieldGroup, BasicHeader } from "../utilities/PageComponents";
-import {
-  Button,
-  FormGroup,
-  ControlLabel,
-  FormControl,
-  Modal,
-  Glyphicon,
-} from "react-bootstrap";
+import { Button, Modal, Glyphicon } from "react-bootstrap";
 import "../App.css";
 
-class Join extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      email: "",
-      foundBy: "",
-      reason: "",
-      league: "",
-      emailSent: false,
-      emailSending: false,
-    };
-  }
+function Join() {
+  const [formData, setFormData] = React.useState({
+    name: "",
+    email: "",
+    league: "",
+    teams: "",
+    foundBy: "",
+    reason: "",
+  });
+  const [emailStatus, setEmailStatus] = React.useState("");
+  const SENT = "sent";
+  const SENDING = "sending";
+  const ERROR = "error";
 
-  handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    this.setState({ emailSending: true });
+    setEmailStatus(SENDING);
 
-    var url = process.env.REACT_APP_JOIN_URL;
-    fetch(url, {
+    const response = await fetch(process.env.REACT_APP_JOIN_URL, {
       method: "POST",
-      body: JSON.stringify(this.state),
+      body: JSON.stringify(formData),
       headers: {
         "Content-Type": "application/json",
       },
-    })
-      .then((response) => {
-        if (response.ok) return response.json();
-      })
-      .then((message) => {
-        console.log(`Email sent! ${message}`);
-        this.setState({
-          name: "",
-          email: "",
-          foundBy: "",
-          reason: "",
-          emailSent: true,
-          emailSending: false,
-        });
+    });
+
+    if (response.ok) {
+      const message = await response.json();
+      console.log(`Email sent! ${message}`);
+      setEmailStatus(SENT);
+      setFormData({
+        name: "",
+        email: "",
+        league: "",
+        teams: "",
+        foundBy: "",
+        reason: "",
       });
+    } else {
+      setEmailStatus(ERROR);
+    }
   };
 
-  handleOnChange = (event) => {
-    this.setState({ [event.target.id]: event.target.value });
+  const handleOnChange = (event) => {
+    setFormData({ ...formData, [event.target.id]: event.target.value });
   };
 
-  handleClose = () => {
-    this.setState({ emailSent: false });
+  const handleClose = () => {
+    setEmailStatus("");
   };
 
-  render() {
-    return (
-      <section className="container">
-        <BasicHeader title="Join" />
+  return (
+    <section className="container">
+      <BasicHeader title="Join" />
 
-        <p>
-          Interested in joining the SIBA as the general manager of your own
-          professional basketball team or as the head coach of your own
-          university basketball team? Fill out the form below and the
-          commissioner will contact you with more information on available teams
-          and follow-up steps.
-        </p>
+      <p>
+        Interested in joining the SIBA as the general manager of your own
+        professional basketball team or as the head coach of your own university
+        basketball team? Fill out the form below and the commissioner will
+        contact you with more information on available teams and follow-up
+        steps.
+      </p>
 
-        <form onSubmit={(e) => this.handleSubmit(e)}>
-          <FieldGroup
-            id="name"
-            type="text"
-            label="Name:"
-            value={this.state.name}
-            onChange={(e) => this.handleOnChange(e)}
-            required
-          />
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <FieldGroup
+          id="name"
+          label="Name:"
+          value={formData.name}
+          onChange={(e) => handleOnChange(e)}
+          required
+        />
 
-          <FieldGroup
-            id="email"
-            type="email"
-            label="Email:"
-            value={this.state.email}
-            onChange={(e) => this.handleOnChange(e)}
-            required
-          />
+        <FieldGroup
+          id="email"
+          type="email"
+          label="Email:"
+          value={formData.email}
+          onChange={(e) => handleOnChange(e)}
+          required
+        />
 
-          <FormGroup controlId="league">
-            <ControlLabel>League Choice:</ControlLabel>
-            <FormControl
-              required
-              value={this.state.foundBy}
-              onChange={(e) => this.handleOnChange(e)}
-              componentClass="select"
-            >
-              <option value=""></option>
-              <option value="pro">Professional (SIBA)</option>
-              <option value="college">College (SICBA)</option>
-              <option value="both">Both</option>
-            </FormControl>
-          </FormGroup>
+        <FieldGroup
+          id="league"
+          label="Preferred League:"
+          value={formData.league}
+          onChange={(e) => handleOnChange(e)}
+          componentClass="select"
+          required
+        >
+          <option value=""></option>
+          <option value="pro">Professional (SIBA)</option>
+          <option value="college">College (SICBA)</option>
+          <option value="both">Both</option>
+        </FieldGroup>
 
-          <FormGroup controlId="foundBy">
-            <ControlLabel>Found SIBA by:</ControlLabel>
-            <FormControl
-              required
-              value={this.state.foundBy}
-              onChange={(e) => this.handleOnChange(e)}
-              componentClass="select"
-            >
-              <option value=""></option>
-              <option value="referral">Friend/Family</option>
-              <option value="google">Google</option>
-              <option value="fb">Facebook</option>
-              <option value="twitter">Twitter</option>
-              <option value="other">Other</option>
-            </FormControl>
-          </FormGroup>
+        <FieldGroup
+          id="teams"
+          label="Team Choice(s):"
+          value={formData.teams}
+          onChange={(e) => handleOnChange(e)}
+          componentClass="textarea"
+          required
+        />
 
-          <FormGroup controlId="reason">
-            <ControlLabel>Reason for Joining:</ControlLabel>
-            <FormControl
-              componentClass="textarea"
-              placeholder="Optional"
-              value={this.state.reason}
-              onChange={(e) => this.handleOnChange(e)}
-            />
-          </FormGroup>
+        <FieldGroup
+          id="foundBy"
+          label="Found SIBA By:"
+          value={formData.foundBy}
+          onChange={(e) => handleOnChange(e)}
+          componentClass="select"
+          required
+        >
+          <option value=""></option>
+          <option value="referral">Friend/Family</option>
+          <option value="google">Google</option>
+          <option value="fb">Facebook</option>
+          <option value="twitter">Twitter</option>
+          <option value="other">Other</option>
+        </FieldGroup>
 
-          <Button type="submit" disabled={this.state.emailSending}>
-            Submit
-          </Button>
-          <span style={{ display: !this.state.emailSending ? "none" : null }}>
-            <Glyphicon glyph="hourglass" />
-          </span>
-        </form>
+        <FieldGroup
+          id="reason"
+          label="Reason for Joining:"
+          value={formData.reason}
+          onChange={(e) => handleOnChange(e)}
+          componentClass="textarea"
+          placeholder="Optional"
+        />
 
-        <Modal show={this.state.emailSent}>
-          <Modal.Header>
-            <Modal.Title>Thank you!</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
+        <Button type="submit" disabled={emailStatus === SENDING}>
+          Submit
+        </Button>
+        <span style={{ display: emailStatus !== SENDING ? "none" : null }}>
+          <Glyphicon glyph="hourglass" />
+        </span>
+      </form>
+
+      <Modal show={emailStatus === SENT || emailStatus === ERROR}>
+        <Modal.Header>
+          <Modal.Title>
+            {emailStatus === SENT ? "Thank you!" : "Uh oh!"}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {emailStatus === SENT ? (
             <p>
               We greatly appreciate your interst in the SIBA. An email has been
               sent to the commissioner and you should be hearing a response
               within a couple of days.
             </p>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={() => this.handleClose()}>Close</Button>
-          </Modal.Footer>
-        </Modal>
-      </section>
-    );
-  }
+          ) : (
+            <p>
+              Seems like an error occurred when trying to send the email to the
+              commissioner. Maybe try again?
+            </p>
+          )}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={() => handleClose()}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+    </section>
+  );
 }
 
 export default Join;

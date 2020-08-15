@@ -15,9 +15,10 @@ export const About = () => (
   <Content header="About">
     <h2>The SIBA</h2>
     <p>
-      The Simulation International Basketball Assoication (SIBA for short) was
-      the combined efforts of Kelley and Brittani Avery, a father and daughter
-      team. Sharing a love of basketball and statistics, they worked together to
+      The Simulation International Basketball Assoication (SIBA for short) and
+      its related leagues (the developmental and colleg leagues) was the
+      combined efforts of Kelley and Brittani Avery, a father and daughter team.
+      Sharing a love of basketball and statistics, they worked together to
       create the league as a way to spend quality time together. Kelley created
       the teams, logos, and rules of the league while Brittani provided her
       technical expertise to build the website and other important tools to
