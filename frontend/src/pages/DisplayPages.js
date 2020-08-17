@@ -5,8 +5,8 @@ import {
   OwnerBio,
   Content,
   GeneratedContainer,
-} from "../utilities/PageComponents";
-import { kansasCity, montreal, columbus } from "../utilities/Teams";
+} from "../components/PageComponents";
+import { kansasCity, montreal, columbus } from "../lib/Teams";
 import Grid from "react-bootstrap/lib/Grid";
 import Col from "react-bootstrap/lib/Col";
 import Row from "react-bootstrap/lib/Row";
@@ -70,7 +70,6 @@ export const Owners = () => (
       <Col xs={12} md={4}>
         <OwnerBio
           name="Kelley Avery"
-          email="genie2369@gmail.com"
           team={kansasCity.name}
           logo={kansasCity.logo}
           alt={kansasCity.alt}
@@ -79,7 +78,6 @@ export const Owners = () => (
       <Col xs={12} md={4}>
         <OwnerBio
           name="Brittani Avery"
-          email="mone.a.soul@gmail.com"
           team={montreal.name}
           logo={montreal.logo}
           alt={montreal.alt}
@@ -88,7 +86,6 @@ export const Owners = () => (
       <Col xs={12} md={4}>
         <OwnerBio
           name="Robby Arnold"
-          email="Rxmca1@hotmail.com"
           team={columbus.name}
           logo={columbus.logo}
           alt={columbus.alt}

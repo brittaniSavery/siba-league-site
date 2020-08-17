@@ -33,26 +33,14 @@ const CommingSoon = ({ header }) => (
   </Content>
 );
 
-const FieldGroup = ({ id, label, help, ...props }) => (
-  <FormGroup controlId={id}>
-    <ControlLabel>{label}</ControlLabel>
-    <FormControl {...props} />
-    {help && <HelpBlock>{help}</HelpBlock>}
-  </FormGroup>
-);
-
-const OwnerBio = ({ team, name, email, logo, alt }) => (
+const OwnerBio = ({ team, name, logo, alt }) => (
   <Media>
     <Media.Left>
       <img src={logo} alt={alt} />
     </Media.Left>
     <Media.Body>
       <Media.Heading>{team}</Media.Heading>
-      <p>
-        {name}
-        <br />
-        <a href={email}>Email</a>
-      </p>
+      <p>{name}</p>
     </Media.Body>
   </Media>
 );
@@ -69,7 +57,6 @@ const GeneratedContainer = ({ file, header }) => (
 );
 
 export {
-  FieldGroup,
   BasicHeader,
   SubHeader,
   CommingSoon,

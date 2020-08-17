@@ -1,5 +1,5 @@
 import React from "react";
-import { BasicHeader, SubHeader } from "../utilities/PageComponents";
+import { BasicHeader, SubHeader } from "../components/PageComponents";
 import scheduleIMG from "../images/schedule.png";
 
 const Rules = () => (

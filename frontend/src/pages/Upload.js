@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Modal } from "react-bootstrap";
-import { FieldGroup, BasicHeader } from "../utilities/PageComponents";
+import { BasicHeader } from "../components/PageComponents";
+import InputField from "../components/InputField";
 
 class Upload extends React.PureComponent {
   constructor(props) {
@@ -12,18 +13,18 @@ class Upload extends React.PureComponent {
       formSent: false,
       formSending: false,
       response: "",
-      uploadOK: false
+      uploadOK: false,
     };
   }
 
-  handleOnChange = event => {
+  handleOnChange = (event) => {
     let id = event.target.id;
 
     if (id === "teamFile") this.setState({ [id]: event.target.files[0] });
     else this.setState({ [id]: event.target.value });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     this.setState({ formSending: true });
 
@@ -35,14 +36,14 @@ class Upload extends React.PureComponent {
     var url = process.env.REACT_APP_UPLOAD_URL;
     fetch(url, {
       method: "POST",
-      body: formData
+      body: formData,
     })
-      .then(response => {
+      .then((response) => {
         if (!response.ok) throw Error(response.statusText);
 
         return response.json();
       })
-      .then(json => {
+      .then((json) => {
         this.setState({ uploadOK: json.completed });
         this.setState({ response: json.message });
         this.setState({ formSending: false });
@@ -52,19 +53,19 @@ class Upload extends React.PureComponent {
           this.setState({
             teamName: "",
             teamPass: "",
-            teamFile: null
+            teamFile: null,
           });
 
           document.getElementById("teamFile").value = null;
         }
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
         this.setState({
           uploadOK: false,
           response: "There was an error uploading the file. Please try again.",
           formSent: true,
-          formSending: false
+          formSending: false,
         });
       });
   };
@@ -83,32 +84,32 @@ class Upload extends React.PureComponent {
           your unique team password.
         </p>
 
-        <form onSubmit={e => this.handleSubmit(e)}>
-          <FieldGroup
+        <form onSubmit={(e) => this.handleSubmit(e)}>
+          <InputField
             id="teamName"
             type="text"
             label="Team:"
             value={this.state.teamName}
-            onChange={e => this.handleOnChange(e)}
+            onChange={(e) => this.handleOnChange(e)}
             disabled={this.state.formSending}
             required
           />
 
-          <FieldGroup
+          <InputField
             id="teamPass"
             type="password"
             label="Team Password:"
             value={this.state.teamPass}
-            onChange={e => this.handleOnChange(e)}
+            onChange={(e) => this.handleOnChange(e)}
             disabled={this.state.formSending}
             required
           />
 
-          <FieldGroup
+          <InputField
             id="teamFile"
             type="file"
             label="DDSPB File:"
-            onChange={e => this.handleOnChange(e)}
+            onChange={(e) => this.handleOnChange(e)}
             disabled={this.state.formSending}
             required
           />

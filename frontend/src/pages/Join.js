@@ -1,7 +1,8 @@
 import React from "react";
-import { FieldGroup, BasicHeader } from "../utilities/PageComponents";
+import { BasicHeader } from "../components/PageComponents";
+import InputField from "../components/InputField";
 import { Button, Modal, Glyphicon } from "react-bootstrap";
-import "../App.css";
+import { ERROR, SENDING, SENT } from "../lib/constants";
 
 function Join() {
   const [formData, setFormData] = React.useState({
@@ -13,9 +14,6 @@ function Join() {
     reason: "",
   });
   const [emailStatus, setEmailStatus] = React.useState("");
-  const SENT = "sent";
-  const SENDING = "sending";
-  const ERROR = "error";
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -67,7 +65,7 @@ function Join() {
       </p>
 
       <form onSubmit={(e) => handleSubmit(e)}>
-        <FieldGroup
+        <InputField
           id="name"
           label="Name:"
           value={formData.name}
@@ -75,7 +73,7 @@ function Join() {
           required
         />
 
-        <FieldGroup
+        <InputField
           id="email"
           type="email"
           label="Email:"
@@ -84,7 +82,7 @@ function Join() {
           required
         />
 
-        <FieldGroup
+        <InputField
           id="league"
           label="Preferred League:"
           value={formData.league}
@@ -96,9 +94,9 @@ function Join() {
           <option value="pro">Professional (SIBA)</option>
           <option value="college">College (SICBA)</option>
           <option value="both">Both</option>
-        </FieldGroup>
+        </InputField>
 
-        <FieldGroup
+        <InputField
           id="teams"
           label="Team Choice(s):"
           value={formData.teams}
@@ -107,7 +105,7 @@ function Join() {
           required
         />
 
-        <FieldGroup
+        <InputField
           id="foundBy"
           label="Found SIBA By:"
           value={formData.foundBy}
@@ -121,9 +119,9 @@ function Join() {
           <option value="fb">Facebook</option>
           <option value="twitter">Twitter</option>
           <option value="other">Other</option>
-        </FieldGroup>
+        </InputField>
 
-        <FieldGroup
+        <InputField
           id="reason"
           label="Reason for Joining:"
           value={formData.reason}

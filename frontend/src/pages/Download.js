@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BasicHeader } from "../utilities/PageComponents";
+import { BasicHeader } from "../components/PageComponents";
 import { Button } from "react-bootstrap";
 
 export default function Download() {
@@ -9,7 +9,7 @@ export default function Download() {
     setDownloading(true);
 
     fetch(process.env.PUBLIC_URL + "/files/SIBA.zip")
-      .then(response => {
+      .then((response) => {
         window.location.href = response.url;
       })
       .then(setDownloading(false));
