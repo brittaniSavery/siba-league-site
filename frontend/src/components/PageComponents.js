@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  FormGroup,
-  FormControl,
-  ControlLabel,
-  HelpBlock,
-  Media,
-} from "react-bootstrap";
+import { Media } from "react-bootstrap";
 
 const BasicHeader = ({ title }) => (
   <header>
@@ -45,22 +39,4 @@ const OwnerBio = ({ team, name, logo, alt }) => (
   </Media>
 );
 
-const GeneratedContainer = ({ file, header }) => (
-  <Content header={header}>
-    <div className="generatedContainer">
-      <iframe
-        title="test"
-        src={`${process.env.PUBLIC_URL}/files/generated/${file}.html`}
-      />
-    </div>
-  </Content>
-);
-
-export {
-  BasicHeader,
-  SubHeader,
-  CommingSoon,
-  OwnerBio,
-  Content,
-  GeneratedContainer,
-};
+export { BasicHeader, SubHeader, CommingSoon, OwnerBio, Content };

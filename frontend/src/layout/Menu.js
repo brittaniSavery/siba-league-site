@@ -1,6 +1,5 @@
 import React from "react";
 import { MenuItem, Nav, Navbar, NavDropdown, NavItem } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
 import logoBlank from "../images/logo-blank.svg";
 
@@ -22,66 +21,66 @@ const Menu = () => (
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav>
-        <LinkContainer to="/about">
-          <NavItem eventKey={1}>About</NavItem>
-        </LinkContainer>
+        <NavItem eventKey={1} href="/about">
+          About
+        </NavItem>
         <NavDropdown eventKey={2} title="SIBA" id="siba">
-          <LinkContainer to="/siba/rules">
-            <MenuItem eventKey={2.1}>Rules</MenuItem>
-          </LinkContainer>
-          <LinkContainer to="/siba/standings">
-            <MenuItem eventKey={2.2}>League Standings</MenuItem>
-          </LinkContainer>
-          <LinkContainer to="/siba/leaders">
-            <MenuItem eventKey={2.3}>League Leaders</MenuItem>
-          </LinkContainer>
-          <LinkContainer to="/siba/transactions">
-            <MenuItem eventKey={2.4}>Transactions</MenuItem>
-          </LinkContainer>
-          <LinkContainer to="/siba/free-agents-players">
-            <MenuItem eventKey={2.5}>Player Free Agents</MenuItem>
-          </LinkContainer>
-          <LinkContainer to="/siba/free-agents-coaches">
-            <MenuItem eventKey={2.6}>Coach Free Agents</MenuItem>
-          </LinkContainer>
-          <LinkContainer to="/siba/owners">
-            <MenuItem eventKey={2.7}>Owners</MenuItem>
-          </LinkContainer>
-          <LinkContainer to="/siba/rewards">
-            <MenuItem eventKey={2.8}>Rewards</MenuItem>
-          </LinkContainer>
-          <LinkContainer to="/siba/downloads">
-            <MenuItem eventKey={2.9}>Downloads</MenuItem>
-          </LinkContainer>
+          <MenuItem eventKey={2.1} href="/siba/rules">
+            Rules
+          </MenuItem>
+          <MenuItem eventKey={2.2} href="/siba/standings">
+            League Standings
+          </MenuItem>
+          <MenuItem eventKey={2.3} href="/siba/leaders">
+            League Leaders
+          </MenuItem>
+          <MenuItem eventKey={2.4} href="/siba/transactions">
+            Transactions
+          </MenuItem>
+          <MenuItem eventKey={2.5} href="/siba/free-agents">
+            Free Agents
+          </MenuItem>
+          <MenuItem eventKey={2.6} href="/siba/available-coaches">
+            Available Coaches
+          </MenuItem>
+          <MenuItem eventKey={2.7} href="/siba/owners">
+            Owners
+          </MenuItem>
+          <MenuItem eventKey={2.8} href="/siba/rewards">
+            Rewards
+          </MenuItem>
+          <MenuItem eventKey={2.9} href="/siba/downloads">
+            Downloads
+          </MenuItem>
         </NavDropdown>
         <NavDropdown eventKey={3} title="College" id="college">
-          <LinkContainer to="/college/rules">
-            <MenuItem eventKey={3.1}>Rules</MenuItem>
-          </LinkContainer>
-          <LinkContainer to="/college/standings">
-            <MenuItem eventKey={3.2}>League Standings</MenuItem>
-          </LinkContainer>
-          <LinkContainer to="/college/coaches">
-            <MenuItem eventKey={3.3}>Head Coaches</MenuItem>
-          </LinkContainer>
-          <LinkContainer to="/college/downloads">
-            <MenuItem eventKey={3.4}>Downloads</MenuItem>
-          </LinkContainer>
+          <MenuItem eventKey={3.1} href="/college/rules">
+            Rules
+          </MenuItem>
+          <MenuItem eventKey={3.2} href="/college/standings">
+            League Standings
+          </MenuItem>
+          <MenuItem eventKey={3.3} href="/college/coaches">
+            Head Coaches
+          </MenuItem>
+          <MenuItem eventKey={3.4} href="/college/downloads">
+            Downloads
+          </MenuItem>
         </NavDropdown>
         <NavDropdown eventKey={4} title="DBL" id="dbl">
-          <LinkContainer to="/dbl/standings">
-            <MenuItem eventKey={4.1}>League Standings</MenuItem>
-          </LinkContainer>
-          <LinkContainer to="/dbl/leaders">
-            <MenuItem eventKey={4.2}>League Leaders</MenuItem>
-          </LinkContainer>
+          <MenuItem eventKey={4.1} href="/dbl/standings">
+            League Standings
+          </MenuItem>
+          <MenuItem eventKey={4.2} href="/dbl/leaders">
+            League Leaders
+          </MenuItem>
         </NavDropdown>
-        <LinkContainer to="/upload">
-          <NavItem eventKey={6}>Upload</NavItem>
-        </LinkContainer>
-        <LinkContainer to="/join">
-          <NavItem eventKey={8}>Join</NavItem>
-        </LinkContainer>
+        <NavItem eventKey={5} href="/upload">
+          Upload
+        </NavItem>
+        <NavItem eventKey={6} href="/join">
+          Join
+        </NavItem>
       </Nav>
     </Navbar.Collapse>
   </Navbar>

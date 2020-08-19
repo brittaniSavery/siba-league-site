@@ -1,15 +1,14 @@
 import React from "react";
+import Col from "react-bootstrap/lib/Col";
+import Grid from "react-bootstrap/lib/Grid";
+import Row from "react-bootstrap/lib/Row";
 import {
   BasicHeader,
   CommingSoon,
-  OwnerBio,
   Content,
-  GeneratedContainer,
+  OwnerBio,
 } from "../components/PageComponents";
-import { kansasCity, montreal, columbus } from "../lib/Teams";
-import Grid from "react-bootstrap/lib/Grid";
-import Col from "react-bootstrap/lib/Col";
-import Row from "react-bootstrap/lib/Row";
+import { columbus, kansasCity, montreal } from "../lib/Teams";
 
 export const About = () => (
   <Content header="About">
@@ -95,94 +94,4 @@ export const Owners = () => (
   </Grid>
 );
 
-export const Transactions = () => (
-  <Content header="Transactions">
-    <p>
-      <a
-        href={process.env.PUBLIC_URL + "/files/generated/Transactions.html"}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Click here
-      </a>{" "}
-      for the transaction for the current year. If you have any questions or
-      concerns, please contact the commissioner.
-    </p>
-  </Content>
-);
-
-export const FreeAgents = () => (
-  <GeneratedContainer header="Free Agents: Players" file="FA" />
-
-  /* <Content header="Free Agents">
-    <p>
-      Here are the current free agents available. Free Agency starts the end of
-      every season.
-    </p>
-    <a
-      href={process.env.PUBLIC_URL + "/files/generated/FA.html"}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <h4>Players</h4>
-    </a>
-    <a
-      href={process.env.PUBLIC_URL + "/files/generated/FACoach.html"}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <h4>Coaches</h4>
-    </a>
-  </Content> */
-);
-
 export const Rewards = () => <CommingSoon header="Rewards" />;
-export const Dbl = () => (
-  <Content header="DBL Standings">
-    <p>
-      The Simulation International Development Basketball League, SIDBL, is
-      where the young and upcoming players hone their skills and gain the
-      maturity needed to succeed in the main league, SIBA. The current standings
-      and leaders of the league are found here.
-    </p>
-    <a
-      href={process.env.PUBLIC_URL + "/files/generated/SIDBLStandings.html"}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <h4>Standings</h4>
-    </a>
-    <a
-      href={process.env.PUBLIC_URL + "/files/generated/SIDBLLeagueLeaders.html"}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <h4>Leaders</h4>
-    </a>
-  </Content>
-);
-export const SibaStandings = () => (
-  <Content header="SIBA Standings">
-    <p>
-      The Simulation International Basketball Association, SIBA, is the home of
-      the most talented basketball players from around the world. Thirty teams
-      fight through a grueling regular season for a spot in the playoffs and a
-      chance to win the grand title of SIBA Champions. The current standings and
-      leaders of the league are found here.
-    </p>
-    <a
-      href={process.env.PUBLIC_URL + "/files/generated/SIBAStandings.html"}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <h4>Standings</h4>
-    </a>
-    <a
-      href={process.env.PUBLIC_URL + "/files/generated/SIBALeagueLeaders.html"}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <h4>Leaders</h4>
-    </a>
-  </Content>
-);

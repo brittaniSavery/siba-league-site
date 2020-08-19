@@ -39,15 +39,12 @@ export default function Routes() {
           file="pro/Website/Transactions"
         />
       </Route>
-      <Route path="/siba/free-agents-players">
-        <IframeContainer
-          header="SIBA Player Free Agents"
-          file="pro/Website/FA"
-        />
+      <Route path="/siba/free-agents">
+        <IframeContainer header="SIBA Free Agents" file="pro/Website/FA" />
       </Route>
-      <Route path="/siba/free-agents-coaches">
+      <Route path="/siba/available-coaches">
         <IframeContainer
-          header="SIBA Coach Free Agents"
+          header="SIBA Available Coaches"
           file="pro/Website/FACoach"
         />
       </Route>
@@ -69,9 +66,7 @@ export default function Routes() {
       <Route path="/college/coaches">
         <CommingSoon header="College Head Coaches" />
       </Route>
-      <Route path="/college/downloads">
-        <CommingSoon header="College League Downloads" />
-      </Route>
+      <Route path="/college/downloads" component={Download} />
 
       {/*DBL Links*/}
       <Route path="/dbl/standings">
