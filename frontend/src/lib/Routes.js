@@ -9,6 +9,7 @@ import Home from "../pages/Home";
 import Join from "../pages/Join";
 import Rules from "../pages/Rules";
 import Upload from "../pages/Upload";
+import AllStandings from "../pages/college/AllStandings";
 
 export default function Routes() {
   return (
@@ -57,12 +58,10 @@ export default function Routes() {
         <CommingSoon header="College League Rules" />
       </Route>
       <Route
-        path="/college/standings/:conferenceId"
+        path="/college/standings/:conference"
         component={ConferenceStandings}
       />
-      <Route path="/college/standings">
-        <CommingSoon header="College League Standings" />
-      </Route>
+      <Route path="/college/standings" component={AllStandings} />
       <Route path="/college/coaches">
         <CommingSoon header="College Head Coaches" />
       </Route>

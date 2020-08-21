@@ -1,16 +1,20 @@
 import React from "react";
+import IframeContainer from "../../components/IframeContainer";
 import { CONFERENCES } from "../../lib/constants";
-import { CommingSoon } from "../../components/PageComponents";
 
 export default function ConferenceStandings({ match }) {
   const {
-    params: { conferenceId },
+    params: { conference },
   } = match;
-  console.log(conferenceId);
-  /* const conference = CONFERENCES.find(
-    (con) =>
-      con.file.toLowerCase() === conferenceId.toLowerCase()
-  ); */
 
-  return <CommingSoon header={`Standings`} />;
+  const selected = CONFERENCES.find(
+    (con) => con.file.replace(/\s/, "-").toLowerCase() === conference
+  );
+
+  return (
+    <IframeContainer
+      header={`${selected.title} Standings`}
+      file={`college/Website/${selected.file}Standings`}
+    />
+  );
 }

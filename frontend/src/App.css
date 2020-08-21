@@ -12,6 +12,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  align-content: center;
   justify-content: center;
 }
 
@@ -60,4 +61,18 @@ h4 {
 
 #custom-nav-bar .navbar-toggle {
   margin-top: 12px;
+}
+
+.conference-card {
+  min-height: 200px;
+  width: 175px;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.conference-card h2 {
+  font-weight: 600;
+  font-size: 1.25em;
+  margin: 0em;
+  margin-top: 0.25em;
 }
