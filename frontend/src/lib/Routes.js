@@ -1,27 +1,34 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import IframeContainer from "../components/IframeContainer";
+import MarkdownContainer from "../components/MarkdownContainer";
 import { CommingSoon } from "../components/PageComponents";
+import AllStandings from "../pages/college/AllStandings";
 import ConferenceStandings from "../pages/college/ConferenceStandings";
 import * as DisplayPages from "../pages/DisplayPages";
 import Download from "../pages/Download";
 import Home from "../pages/Home";
 import Join from "../pages/Join";
-import Rules from "../pages/Rules";
 import Upload from "../pages/Upload";
-import AllStandings from "../pages/college/AllStandings";
+import About from "./about.md";
+import CollegeRules from "./college-rules.md";
+import ProRules from "./pro-rules.md";
 
 export default function Routes() {
   return (
     <Switch>
       {/*General Links*/}
       <Route exact path="/" component={Home} />
-      <Route path="/about" component={DisplayPages.About} />
-      <Route path="/siba/rules" component={Rules} />
+      <Route path="/about">
+        <MarkdownContainer file={About} header="About" />
+      </Route>
       <Route path="/upload" component={Upload} />
       <Route path="/join" component={Join} />
 
       {/*SIBA Links*/}
+      <Route path="/siba/rules">
+        <MarkdownContainer file={ProRules} header="SIBA Rules" />
+      </Route>
       <Route path="/siba/standings">
         <IframeContainer
           header="SIBA League Standings"
@@ -50,12 +57,14 @@ export default function Routes() {
         />
       </Route>
       <Route path="/siba/owners" component={DisplayPages.Owners} />
-      <Route path="/siba/rewards" component={DisplayPages.Rewards} />
+      <Route path="/siba/rewards">
+        <CommingSoon header="SIBA Rewards" />
+      </Route>
       <Route path="/siba/downloads" component={Download} />
 
       {/*College Links*/}
       <Route path="/college/rules">
-        <CommingSoon header="College League Rules" />
+        <MarkdownContainer header="SICBA League Rules" file={CollegeRules} />
       </Route>
       <Route
         path="/college/standings/:conference"
@@ -63,7 +72,7 @@ export default function Routes() {
       />
       <Route path="/college/standings" component={AllStandings} />
       <Route path="/college/coaches">
-        <CommingSoon header="College Head Coaches" />
+        <CommingSoon header="SICBA Head Coaches" />
       </Route>
       <Route path="/college/downloads" component={Download} />
 
