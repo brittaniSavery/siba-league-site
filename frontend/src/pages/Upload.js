@@ -88,10 +88,6 @@ function formReducer(state, action) {
   }
 }
 
-/* function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-} */
-
 function Upload() {
   const initialForm = {
     errors: false,
