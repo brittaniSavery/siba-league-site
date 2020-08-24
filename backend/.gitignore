@@ -1,11 +1,10 @@
 # package directories
 node_modules
-jspm_packages
 
 # Serverless directories
 .serverless
 
 #project files
+.vscode
 vars.json
 test/files
-.vscode

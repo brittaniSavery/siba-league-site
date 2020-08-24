@@ -1,5 +1,5 @@
 import React from "react";
-import { Content } from "../utilities/PageComponents";
+import { Content } from "../components/PageComponents";
 import { Link } from "react-router-dom";
 /* import { Jumbotron } from "react-bootstrap"; */
 

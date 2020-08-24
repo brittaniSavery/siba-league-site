@@ -1,12 +1,10 @@
 import React from "react";
 import { MenuItem, Nav, Navbar, NavDropdown, NavItem } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
-import "./layout.css";
 import logoBlank from "../images/logo-blank.svg";
 
 const Menu = () => (
-  <Navbar id="custom-nav-bar">
+  <Navbar fixedTop id="custom-nav-bar">
     <Navbar.Header>
       <Navbar.Brand>
         <Link to="/">
@@ -23,43 +21,66 @@ const Menu = () => (
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav>
-        <NavDropdown eventKey={1} title="Information" id="info">
-          <LinkContainer to="/info/about">
-            <MenuItem eventKey={1.1}>About</MenuItem>
-          </LinkContainer>
-          <LinkContainer to="/info/rules">
-            <MenuItem eventKey={1.2}>Rules</MenuItem>
-          </LinkContainer>
-          <LinkContainer to="/info/rewards">
-            <MenuItem eventKey={1.3}>Rewards</MenuItem>
-          </LinkContainer>
-          <LinkContainer to="/info/join">
-            <MenuItem eventKey={1.4}>Join</MenuItem>
-          </LinkContainer>
-        </NavDropdown>
+        <NavItem eventKey={1} href="/about">
+          About
+        </NavItem>
         <NavDropdown eventKey={2} title="SIBA" id="siba">
-          <LinkContainer to="/siba/standings">
-            <MenuItem eventKey={2.1}>League Standings</MenuItem>
-          </LinkContainer>
-          <LinkContainer to="/siba/owners">
-            <MenuItem eventKey={2.2}>Owners</MenuItem>
-          </LinkContainer>
+          <MenuItem eventKey={2.1} href="/siba/rules">
+            Rules
+          </MenuItem>
+          <MenuItem eventKey={2.2} href="/siba/standings">
+            League Standings
+          </MenuItem>
+          <MenuItem eventKey={2.3} href="/siba/leaders">
+            League Leaders
+          </MenuItem>
+          <MenuItem eventKey={2.4} href="/siba/transactions">
+            Transactions
+          </MenuItem>
+          <MenuItem eventKey={2.5} href="/siba/free-agents">
+            Free Agents
+          </MenuItem>
+          <MenuItem eventKey={2.6} href="/siba/available-coaches">
+            Available Coaches
+          </MenuItem>
+          <MenuItem eventKey={2.7} href="/siba/owners">
+            Owners
+          </MenuItem>
+          <MenuItem eventKey={2.8} href="/siba/rewards">
+            Rewards
+          </MenuItem>
+          <MenuItem eventKey={2.9} href="/siba/downloads">
+            Downloads
+          </MenuItem>
         </NavDropdown>
-        <LinkContainer to="/dbl">
-          <NavItem eventKey={3}>DBL</NavItem>
-        </LinkContainer>
-        <LinkContainer to="/transactions">
-          <NavItem eventKey={4}>Transactions</NavItem>
-        </LinkContainer>
-        <LinkContainer to="/freeagents">
-          <NavItem eventKey={5}>Free Agents</NavItem>
-        </LinkContainer>
-        <LinkContainer to="/upload">
-          <NavItem eventKey={6}>Upload</NavItem>
-        </LinkContainer>
-        <LinkContainer to="/download">
-          <NavItem eventKey={7}>League File</NavItem>
-        </LinkContainer>
+        <NavDropdown eventKey={3} title="College" id="college">
+          <MenuItem eventKey={3.1} href="/college/rules">
+            Rules
+          </MenuItem>
+          <MenuItem eventKey={3.2} href="/college/standings">
+            League Standings
+          </MenuItem>
+          <MenuItem eventKey={3.3} href="/college/coaches">
+            Head Coaches
+          </MenuItem>
+          <MenuItem eventKey={3.4} href="/college/downloads">
+            Downloads
+          </MenuItem>
+        </NavDropdown>
+        <NavDropdown eventKey={4} title="DBL" id="dbl">
+          <MenuItem eventKey={4.1} href="/dbl/standings">
+            League Standings
+          </MenuItem>
+          <MenuItem eventKey={4.2} href="/dbl/leaders">
+            League Leaders
+          </MenuItem>
+        </NavDropdown>
+        <NavItem eventKey={5} href="/upload">
+          Upload
+        </NavItem>
+        <NavItem eventKey={6} href="/join">
+          Join
+        </NavItem>
       </Nav>
     </Navbar.Collapse>
   </Navbar>

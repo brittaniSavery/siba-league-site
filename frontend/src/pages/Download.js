@@ -1,30 +1,57 @@
-import React, { useState } from "react";
-import { BasicHeader } from "../utilities/PageComponents";
-import { Button } from "react-bootstrap";
+import React from "react";
+import { useLocation } from "react-router-dom";
+import { Content } from "../components/PageComponents";
 
 export default function Download() {
-  const [downloading, setDownloading] = useState(false);
+  const { pathname } = useLocation();
+  let [files, setFiles] = React.useState([]);
+  const path = pathname.match(/\/(\w+)\//)[1];
+  const leagueName = path === "college" ? "SICBA" : path.toUpperCase();
+  const leagueType = path === "siba" ? "pro" : path;
+  const mainUrl = `${process.env.PUBLIC_URL}/files/${leagueType}`;
 
-  const handleDownload = () => {
-    setDownloading(true);
-
-    fetch(process.env.PUBLIC_URL + "/files/SIBA.zip")
-      .then(response => {
-        window.location.href = response.url;
-      })
-      .then(setDownloading(false));
-  };
+  React.useEffect(() => {
+    Promise.all([
+      fetch(`${mainUrl}/${leagueName.toUpperCase()}.zip`),
+      fetch(`${mainUrl}/${leagueName.toLowerCase()}graphics.zip`),
+    ]).then(([leagueFile, graphicsFile]) => {
+      setFiles([
+        {
+          url: leagueFile.url,
+          title: "League File",
+          description:
+            "This file runs all the simulation from the league. Add this to your own copy of the program so you have the most updated version of the league.",
+          modifiedDate: leagueFile.headers.get("Last-Modified"),
+        },
+        {
+          url: graphicsFile.url,
+          title: "Graphics File",
+          description:
+            "This file holds all the graphics of the players and coaches of the league. Make sure to add this file to your copy of the program to have a customized experience of the league.",
+          modifiedDate: graphicsFile.headers.get("Last-Modified"),
+        },
+      ]);
+    });
+  }, [mainUrl, leagueName]);
 
   return (
-    <section className="container">
-      <BasicHeader title="Download League File" />
+    <Content header={`Download ${leagueName} Program Files`}>
       <p>
-        The latest League File can be downloaded here. Be sure to upload the
-        file into your own game to simulate the games throughout the league.
+        Below are the necessary files for the {leagueType} league ({leagueName}
+        ). Make sure all your files are up to date.
       </p>
-      <Button type="submit" disabled={downloading} onClick={handleDownload}>
-        {!downloading ? "Download" : "Loading..."}
-      </Button>
-    </section>
+      {files.map((file) => (
+        <p>
+          <b>
+            <a href={file.url} download>
+              {file.title}:&nbsp;
+            </a>
+          </b>
+          {file.description}
+          <br />
+          <i>Last Modified: {file.modifiedDate}</i>
+        </p>
+      ))}
+    </Content>
   );
 }

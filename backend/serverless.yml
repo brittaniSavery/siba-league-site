@@ -4,23 +4,22 @@ service: siba-api
 
 custom:
   vars: ${file(vars.json)}
-  defaultStage: DEV
+  defaultStage: dev
   profiles:
-    dev: ${self:custom.vars.DEV_PROFILE}
-    prod: ${self:custom.vars.PROD_PROFILE}
+    dev: default
+    prod: sibaHelper
   serverless-offline:
-    port: 4000
+    httpPort: 4000
 
 provider:
   name: aws
   runtime: nodejs12.x
   region: us-west-2
   stage: ${opt:stage, self:custom.defaultStage}
+  profile: ${self:custom.profiles.${opt:stage, self:provider.stage}}
   environment:
-    NODE_ENV: ${self:provider.stage}
-    COMMIS_EMAIL: ${self:custom.vars.${self:provider.stage}_COMMIS_EMAIL}
-    SIBA_EMAIL: ${self:custom.vars.SIBA_EMAIL}
-    DOMAIN: ${self:custom.vars.DOMAIN}
+    COMMIS_EMAIL: ${self:custom.vars.${self:provider.stage}_commis_email}
+    SIBA_EMAIL: ${self:custom.vars.siba_email}
   iamRoleStatements:
     - Effect: "Allow"
       Action:

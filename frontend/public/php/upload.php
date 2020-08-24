@@ -7,29 +7,25 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
 
 $response = array();
 
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $target_dir = "uploads/";
-    $target_file = $target_dir . basename($_FILES["teamFile"]["name"]);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $target_file = "uploads/" . $_POST["leagueType"] . "/" . $_POST["teamName"] . "_" . basename($_FILES["teamFile"]["name"]);
     $file_ext = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
     $allowedExtensions = array("ddspb", "pdf");
 
-    if ($_POST["teamPass"] != "11111") {
-        $response["completed"] = false;
-        $response["message"] = "The password is incorrect. Please double-check for typos.";
-    } else if (in_array($file_ext, $allowedExtensions) === false) {
-        $response["completed"] = false;
+    if (in_array($file_ext, $allowedExtensions) === false) {
+        http_response_code(400);
         $response["message"] = "Only files with " . implode(" or ", $allowedExtensions) . " extensions are allowed to be uploaded.";
     } else {
         if (move_uploaded_file($_FILES["teamFile"]["tmp_name"], $target_file)) {
-            $response["completed"] = true;
+            http_response_code(200);
             $response["message"] = "The file has been uploaded sucessfully!";
         } else {
-            $response["completed"] = false;
+            http_response_code(500);
             $response["message"] = "There was an error uploading the file. Please try again.";
         }
     }
 } else {
-    $response["completed"] = false;
+    http_response_code(405);
     $response["message"] = "Only POST requests are allowed.";
 }
 
