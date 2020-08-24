@@ -1,6 +1,15 @@
+//Statuses
 export const SENT = "sent";
 export const SENDING = "sending";
 export const ERROR = "error";
+
+//actions
+export const UPLOAD_VALIDATE = "UPLOAD_VALIDATE";
+export const UPLOAD_CHANGE = "UPLOAD_CHANGE";
+export const UPLOAD_SUBMIT = "UPLOAD_SUBMIT";
+export const UPLOAD_SUBMIT_SUCCESS = "UPLOAD_SUBMIT_SUCCESS";
+export const UPLOAD_SUBMIT_FAIL = "UPLOAD_SUBMIT_FAIL";
+
 export const CONFERENCES = [
   { file: "A-Sun", title: "Atlantic Sun Conference " },
   { file: "A10", title: "Atlantic 10 Conference " },
