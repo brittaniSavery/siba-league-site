@@ -1,6 +1,6 @@
 import React from "react";
+import { Col, Grid, Image, Row } from "react-bootstrap";
 import { Content } from "../../components/PageComponents";
-import { Grid, Row, Col, Image, Button, Clearfix } from "react-bootstrap";
 import { CONFERENCES } from "../../lib/constants";
 
 export default function AllStandings() {
