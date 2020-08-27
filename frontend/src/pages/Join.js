@@ -147,7 +147,7 @@ function Join() {
         <Modal.Body>
           {emailStatus === SENT ? (
             <p>
-              We greatly appreciate your interst in the SIBA. An email has been
+              We greatly appreciate your interest in the SIBA. An email has been
               sent to the commissioner and you should be hearing a response
               within a couple of days.
             </p>

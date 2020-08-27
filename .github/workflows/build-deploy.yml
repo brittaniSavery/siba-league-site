@@ -4,9 +4,6 @@ on:
   push:
     branches: [master]
     paths: frontend/**
-  pull_request:
-    branches: [master]
-    paths: frontend/**
 
 jobs:
   build-deploy:
@@ -30,7 +27,7 @@ jobs:
       - name: FTP-Deploy-Action
         uses: SamKirkland/FTP-Deploy-Action@3.0.0
         with:
-          ftp-server: ftp://ftp.averyincorporated.com/public_html/siba
+          ftp-server: ftp://ftp.averyincorporated.com/
           ftp-username: siba@averyincorporated.com
           ftp-password: ${{ secrets.FTP_PASSWORD }}
           local-dir: frontend/build

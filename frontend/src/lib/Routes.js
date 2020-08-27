@@ -7,7 +7,7 @@ import AllStandings from "../pages/college/AllStandings";
 import ConferenceStandings from "../pages/college/ConferenceStandings";
 import * as DisplayPages from "../pages/DisplayPages";
 import Download from "../pages/Download";
-import Home from "../pages/Home";
+import Home from "./home.md";
 import Join from "../pages/Join";
 import Upload from "../pages/Upload";
 import About from "./about.md";
@@ -18,7 +18,9 @@ export default function Routes() {
   return (
     <Switch>
       {/*General Links*/}
-      <Route exact path="/" component={Home} />
+      <Route exact path="/">
+        <MarkdownContainer header="Welcome to SIBA" file={Home} />
+      </Route>
       <Route path="/about">
         <MarkdownContainer file={About} header="About" />
       </Route>
