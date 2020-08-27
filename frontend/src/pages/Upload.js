@@ -33,9 +33,11 @@ function validate(state, name, value) {
           value !== process.env.REACT_APP_PRO_LEAGUE_PASSWORD) ||
         (state.fields.leagueType.value === "college" &&
           value !== process.env.REACT_APP_COLLEGE_LEAGUE_PASSWORD)
-      )
+      ) {
+        console.log("College", process.env.REACT_APP_COLLEGE_LEAGUE_PASSWORD);
+        console.log("Pro", process.env.REACT_APP_PRO_LEAGUE_PASSWORD);
         return "The league type and league password do not match.";
-      else return null;
+      } else return null;
     default:
       return null;
   }
