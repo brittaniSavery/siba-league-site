@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { Content } from "../components/PageComponents";
+import Content from "../layout/Content";
 
 export default function Download() {
   const { pathname } = useLocation();

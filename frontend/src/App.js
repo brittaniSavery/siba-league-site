@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Footer from "./layout/Footer";
 import Menu from "./layout/Menu";
-import Routes from "./lib/Routes";
+import Routes from "./Routes";
 import "./App.css";
 
 const App = () => (

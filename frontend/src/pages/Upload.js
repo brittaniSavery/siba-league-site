@@ -1,7 +1,6 @@
 import React from "react";
 import { Alert, Button } from "react-bootstrap";
 import InputField from "../components/InputField";
-import { Content } from "../components/PageComponents";
 import useReducerWithThunk from "../hooks/useReducerWithThunk";
 import {
   UPLOAD_CHANGE,
@@ -9,6 +8,7 @@ import {
   UPLOAD_SUBMIT_FAIL,
   UPLOAD_SUBMIT_SUCCESS,
 } from "../lib/constants";
+import Content from "../layout/Content";
 
 function hasErrors(fields) {
   const fieldValueArray = Object.values(fields);

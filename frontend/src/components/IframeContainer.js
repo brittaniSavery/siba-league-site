@@ -1,5 +1,5 @@
 import React from "react";
-import { Content } from "./PageComponents";
+import Content from "../layout/Content";
 
 export default function IframeContainer({ file, header }) {
   return (

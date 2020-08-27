@@ -5,9 +5,6 @@ service: siba-api
 custom:
   vars: ${file(vars.json)}
   defaultStage: dev
-  profiles:
-    dev: default
-    prod: sibaHelper
   serverless-offline:
     httpPort: 4000
 
@@ -16,7 +13,6 @@ provider:
   runtime: nodejs12.x
   region: us-west-2
   stage: ${opt:stage, self:custom.defaultStage}
-  profile: ${self:custom.profiles.${opt:stage, self:provider.stage}}
   environment:
     COMMIS_EMAIL: ${self:custom.vars.${self:provider.stage}_commis_email}
     SIBA_EMAIL: ${self:custom.vars.siba_email}
