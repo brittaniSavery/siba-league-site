@@ -58,10 +58,13 @@ const Menu = () => (
           <MenuItem eventKey={3.2} href="/college/standings">
             League Standings
           </MenuItem>
-          <MenuItem eventKey={3.3} href="/college/coaches">
+          <MenuItem eventKey={3.3} href="/college/rankings">
+            Team Rankings
+          </MenuItem>
+          <MenuItem eventKey={3.4} href="/college/coaches">
             Head Coaches
           </MenuItem>
-          <MenuItem eventKey={3.4} href="/college/downloads">
+          <MenuItem eventKey={3.5} href="/college/downloads">
             Downloads
           </MenuItem>
         </NavDropdown>

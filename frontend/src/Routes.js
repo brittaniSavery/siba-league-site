@@ -76,6 +76,9 @@ export default function Routes() {
         component={ConferenceStandings}
       />
       <Route path="/college/standings" component={AllStandings} />
+      <Route path="/college/rankings">
+        <ComingSoon header="Team Rankings" />
+      </Route>
       <Route path="/college/coaches">
         <OwnersGrid
           data={COLLEGE_OWNERS}
