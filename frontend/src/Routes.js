@@ -1,25 +1,26 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import IframeContainer from "../components/IframeContainer";
-import MarkdownContainer from "../components/MarkdownContainer";
-import { CommingSoon } from "../components/PageComponents";
-import AllStandings from "../pages/college/AllStandings";
-import ConferenceStandings from "../pages/college/ConferenceStandings";
-import * as DisplayPages from "../pages/DisplayPages";
-import Download from "../pages/Download";
-import Home from "./home.md";
-import Join from "../pages/Join";
-import Upload from "../pages/Upload";
-import About from "./about.md";
-import CollegeRules from "./college-rules.md";
-import ProRules from "./pro-rules.md";
+import ComingSoon from "./components/ComingSoon";
+import IframeContainer from "./components/IframeContainer";
+import MarkdownContainer from "./components/MarkdownContainer";
+import OwnersGrid from "./components/OwnersGrid";
+import About from "./lib/about.md";
+import CollegeRules from "./lib/college-rules.md";
+import { COLLEGE_OWNERS, PRO_OWNERS } from "./lib/constants";
+import Home from "./lib/home.md";
+import ProRules from "./lib/pro-rules.md";
+import AllStandings from "./pages/college/AllStandings";
+import ConferenceStandings from "./pages/college/ConferenceStandings";
+import Download from "./pages/Download";
+import Join from "./pages/Join";
+import Upload from "./pages/Upload";
 
 export default function Routes() {
   return (
     <Switch>
       {/*General Links*/}
       <Route exact path="/">
-        <MarkdownContainer header="Welcome to SIBA" file={Home} />
+        <MarkdownContainer header="Welcome" file={Home} />
       </Route>
       <Route path="/about">
         <MarkdownContainer file={About} header="About" />
@@ -58,9 +59,11 @@ export default function Routes() {
           file="pro/Website/FACoach"
         />
       </Route>
-      <Route path="/siba/owners" component={DisplayPages.Owners} />
+      <Route path="/siba/owners">
+        <OwnersGrid data={PRO_OWNERS} header={"SIBA Owners"} league="pro" />
+      </Route>
       <Route path="/siba/rewards">
-        <CommingSoon header="SIBA Rewards" />
+        <ComingSoon header="SIBA Rewards" />
       </Route>
       <Route path="/siba/downloads" component={Download} />
 
@@ -73,8 +76,15 @@ export default function Routes() {
         component={ConferenceStandings}
       />
       <Route path="/college/standings" component={AllStandings} />
+      <Route path="/college/rankings">
+        <ComingSoon header="Team Rankings" />
+      </Route>
       <Route path="/college/coaches">
-        <CommingSoon header="SICBA Head Coaches" />
+        <OwnersGrid
+          data={COLLEGE_OWNERS}
+          header="SICBA Head Coaches"
+          league="college"
+        />
       </Route>
       <Route path="/college/downloads" component={Download} />
 

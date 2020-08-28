@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Grid, Image, Row } from "react-bootstrap";
-import { Content } from "../../components/PageComponents";
 import { CONFERENCES } from "../../lib/constants";
+import Content from "../../layout/Content";
 
 export default function AllStandings() {
   return (

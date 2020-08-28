@@ -1,8 +1,8 @@
 import React from "react";
-import { BasicHeader } from "../components/PageComponents";
 import InputField from "../components/InputField";
 import { Button, Modal, Glyphicon } from "react-bootstrap";
 import { ERROR, SENDING, SENT } from "../lib/constants";
+import Content from "../layout/Content";
 
 function Join() {
   const [formData, setFormData] = React.useState({
@@ -53,9 +53,7 @@ function Join() {
   };
 
   return (
-    <section className="container">
-      <BasicHeader title="Join" />
-
+    <Content header="Join">
       <p>
         Interested in joining the SIBA as the general manager of your own
         professional basketball team or as the head coach of your own university
@@ -162,7 +160,7 @@ function Join() {
           <Button onClick={() => handleClose()}>Close</Button>
         </Modal.Footer>
       </Modal>
-    </section>
+    </Content>
   );
 }
 

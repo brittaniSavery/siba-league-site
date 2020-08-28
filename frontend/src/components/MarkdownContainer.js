@@ -1,10 +1,10 @@
 import React from "react";
-import { Content } from "./PageComponents";
 import ReactMarkdown from "react-markdown";
 import proSchedule from "../images/schedule.png";
 import collegeDates from "../images/college-dates.png";
 import collegeRegions from "../images/college-regions.png";
 import collegeTournaments from "../images/college-tournaments.png";
+import Content from "../layout/Content";
 
 export default function IframeContainer({ file, header }) {
   const [markdown, setMarkdown] = React.useState("");
@@ -18,7 +18,11 @@ export default function IframeContainer({ file, header }) {
 
   return (
     <Content header={header}>
-      <ReactMarkdown source={markdown} renderers={{ image: SibaImage }} />
+      <ReactMarkdown
+        source={markdown}
+        renderers={{ image: SibaImage }}
+        skipHtml
+      />
     </Content>
   );
 }
