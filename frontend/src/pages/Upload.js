@@ -170,11 +170,11 @@ function Upload() {
   return (
     <Content header="Upload">
       <p>
-        Use the form below to upload your .ddspb file that is generated from the
+        Use the form below to upload your .tem file that is generated from the
         Draft Day Sports Program. These files are used by the commission to run
         the simulation. Make sure to select the correct league for your team as
         well as the corresponding league password. Then input your team's name
-        and the latest .ddspb file.
+        and the latest .tem file.
       </p>
 
       {form.submit && (
