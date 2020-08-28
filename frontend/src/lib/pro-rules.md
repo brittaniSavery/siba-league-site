@@ -4,20 +4,22 @@ Sims Time will be Monday, Wednesday, and Friday at 9:00 PM (CST)
 
 ## League Structure
 
-- Salary Cap: \$99,093,000
-- Luxury Cap: \$119,266,000
+<!-- prettier-ignore -->
+- Salary Cap: $99,093,000
+<!-- prettier-ignore -->
+- Luxury Cap: $119,266,000
 - Rating Scale: 1-100 Point
 - Owner's Characteristics: Randomized
 
 ## Trade and Draft Restrictions
 
 - All trades can be veto by the Commissioner.
-- Enforced Consecutive Picks Rule—NO `meaning?`
-- Enforced 30 Day No-Trade Rule—YES (In-Season) `meaning?`
+- A team **cannot** trade consecutive 1st round picks and must have a 1st round pick every other year. This is to keep things fair in a mutliplayer league and prevent teams from taking advantage of others.
+- During the season, a team **cannot** trade a player aquired in free agency or through a trade for 30 days.
 - Players are allowed to enter into the SIBA from the SICBA (college league)
 - High school players **cannot** enter the SIBA directly.
 - Foreign players are allowed to enter the SIBA
-- Allow yourself to be fired—YES/NO `IDK-ask Daddy`
+- A human-controlled GM can be fired for their team in game, but there is an ability to regain control of the team.
 
 ## Calendar of Events
 
@@ -67,7 +69,7 @@ The following are the changes to sign the free agent depending on the number of 
 
 **NOTE:** Only four teams can claim a free agent. After the fourth team has
 claimed him, the claims are finalized. Only the first four teams will
-have the chance of signing him.
+have the chance of signing the player.
 
 ## Definitions
 

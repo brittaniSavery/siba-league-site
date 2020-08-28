@@ -1,11 +1,12 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import ComingSoon from "./components/ComingSoon";
 import IframeContainer from "./components/IframeContainer";
 import MarkdownContainer from "./components/MarkdownContainer";
 import OwnersGrid from "./components/OwnersGrid";
 import About from "./lib/about.md";
 import CollegeRules from "./lib/college-rules.md";
-import { PRO_OWNERS, COLLEGE_OWNERS } from "./lib/constants";
+import { COLLEGE_OWNERS, PRO_OWNERS } from "./lib/constants";
 import Home from "./lib/home.md";
 import ProRules from "./lib/pro-rules.md";
 import AllStandings from "./pages/college/AllStandings";
@@ -13,14 +14,13 @@ import ConferenceStandings from "./pages/college/ConferenceStandings";
 import Download from "./pages/Download";
 import Join from "./pages/Join";
 import Upload from "./pages/Upload";
-import ComingSoon from "./components/ComingSoon";
 
 export default function Routes() {
   return (
     <Switch>
       {/*General Links*/}
       <Route exact path="/">
-        <MarkdownContainer header="Welcome to SIBA" file={Home} />
+        <MarkdownContainer header="Welcome" file={Home} />
       </Route>
       <Route path="/about">
         <MarkdownContainer file={About} header="About" />
