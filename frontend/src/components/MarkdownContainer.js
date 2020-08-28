@@ -18,7 +18,11 @@ export default function IframeContainer({ file, header }) {
 
   return (
     <Content header={header}>
-      <ReactMarkdown source={markdown} renderers={{ image: SibaImage }} />
+      <ReactMarkdown
+        source={markdown}
+        renderers={{ image: SibaImage }}
+        skipHtml
+      />
     </Content>
   );
 }
