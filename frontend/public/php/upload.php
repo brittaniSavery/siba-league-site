@@ -10,7 +10,7 @@ $response = array();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $target_file = "uploads/" . $_POST["leagueType"] . "/" . $_POST["teamName"] . "_" . basename($_FILES["teamFile"]["name"]);
     $file_ext = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-    $allowedExtensions = array("ddspb", "pdf");
+    $allowedExtensions = array("tem", "pdf");
 
     if (in_array($file_ext, $allowedExtensions) === false) {
         http_response_code(400);

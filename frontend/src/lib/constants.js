@@ -66,6 +66,11 @@ export const PRO_OWNERS = [
     teamImg: "philadelphiasiba.png",
     teamOwner: "Maurice Allen",
   },
+  {
+    teamName: "Oklahoma City Twisters",
+    teamImg: "oklahomacitysiba.png",
+    teamOwner: "Jordan Bank",
+  },
 ];
 
 export const COLLEGE_OWNERS = [
@@ -103,5 +108,10 @@ export const COLLEGE_OWNERS = [
     teamName: "Alabama A&M Bulldogs",
     teamImg: "1CM_alabamaam.png",
     teamOwner: "Kelley (W.S.J.) Avery",
+  },
+  {
+    teamName: "Texas Tech Red Raiders",
+    teamImg: "1CM_texastech.png",
+    teamOwner: "Jordan Bank",
   },
 ];

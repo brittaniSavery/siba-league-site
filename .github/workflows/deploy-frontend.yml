@@ -1,4 +1,4 @@
-name: Build/Deploy
+name: Deploy Frontend
 
 on:
   push:
@@ -23,6 +23,8 @@ jobs:
         working-directory: ./frontend
         env:
           CI: true
+          REACT_APP_PRO_LEAGUE_PASSWORD: ${{ secrets.PRO_LEAGUE_PASSWORD }}
+          REACT_APP_COLLEGE_LEAGUE_PASSWORD: ${{ secrets.COLLEGE_LEAGUE_PASSWORD }}
 
       - name: FTP-Deploy-Action
         uses: SamKirkland/FTP-Deploy-Action@3.0.0
