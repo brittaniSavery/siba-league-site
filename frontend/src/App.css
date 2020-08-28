@@ -20,8 +20,12 @@
   margin-bottom: 0em;
 }
 
-h4 {
-  margin: 1.5em 0em 0.25em;
+.navbar-brand img {
+  height: 5vh;
+}
+
+.nav-img {
+  width: 5vh;
 }
 
 .generatedContainer {

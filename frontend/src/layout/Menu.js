@@ -2,19 +2,17 @@ import React from "react";
 import { MenuItem, Nav, Navbar, NavDropdown, NavItem } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logoBlank from "../images/logo-blank.svg";
+import collegeLogo from "../images/sicba-logo-blank.svg";
 
 const Menu = () => (
   <Navbar fixedTop id="custom-nav-bar">
     <Navbar.Header>
       <Navbar.Brand>
         <Link to="/">
-          <img
-            src={logoBlank}
-            className="nav-img"
-            style={{ height: "5vh", display: "inline" }}
-            alt=""
-          />{" "}
-          <span>SIBA</span>
+          <span>
+            <img src={logoBlank} alt="SIBA Logo" />
+            &nbsp;SIBA
+          </span>
         </Link>
       </Navbar.Brand>
       <Navbar.Toggle />
@@ -82,6 +80,11 @@ const Menu = () => (
           Join
         </NavItem>
       </Nav>
+      <Navbar.Text pullRight>
+        Associated Leagues:&nbsp;
+        <img src={collegeLogo} className="nav-img" alt="SICBA Logo" />
+        SICBA
+      </Navbar.Text>
     </Navbar.Collapse>
   </Navbar>
 );
