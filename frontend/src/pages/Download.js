@@ -1,6 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import Content from "../layout/Content";
+import moment from "moment";
 
 export default function Download() {
   const { pathname } = useLocation();
@@ -49,7 +50,7 @@ export default function Download() {
           </b>
           {file.description}
           <br />
-          <i>Last Modified: {file.modifiedDate}</i>
+          <i>Last Modified: {moment(file.modifiedDate).format("LLL")}</i>
         </p>
       ))}
     </Content>

@@ -6,7 +6,6 @@ import MarkdownContainer from "./components/MarkdownContainer";
 import OwnersGrid from "./components/OwnersGrid";
 import About from "./lib/about.md";
 import CollegeRules from "./lib/college-rules.md";
-import { COLLEGE_OWNERS, PRO_OWNERS } from "./lib/constants";
 import Home from "./lib/home.md";
 import ProRules from "./lib/pro-rules.md";
 import AllStandings from "./pages/college/AllStandings";
@@ -14,6 +13,7 @@ import ConferenceStandings from "./pages/college/ConferenceStandings";
 import Download from "./pages/Download";
 import Join from "./pages/Join";
 import Upload from "./pages/Upload";
+import TeamRankings from "./pages/college/TeamRankings";
 
 export default function Routes() {
   return (
@@ -60,7 +60,7 @@ export default function Routes() {
         />
       </Route>
       <Route path="/siba/owners">
-        <OwnersGrid data={PRO_OWNERS} header={"SIBA Owners"} league="pro" />
+        <OwnersGrid header={"SIBA Owners"} league="pro" />
       </Route>
       <Route path="/siba/rewards">
         <ComingSoon header="SIBA Rewards" />
@@ -76,15 +76,9 @@ export default function Routes() {
         component={ConferenceStandings}
       />
       <Route path="/college/standings" component={AllStandings} />
-      <Route path="/college/rankings">
-        <ComingSoon header="Team Rankings" />
-      </Route>
+      <Route path="/college/rankings" component={TeamRankings} />
       <Route path="/college/coaches">
-        <OwnersGrid
-          data={COLLEGE_OWNERS}
-          header="SICBA Head Coaches"
-          league="college"
-        />
+        <OwnersGrid header="SICBA Head Coaches" league="college" />
       </Route>
       <Route path="/college/downloads" component={Download} />
 

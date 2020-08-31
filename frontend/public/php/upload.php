@@ -1,14 +1,17 @@
 <?php
+
 if (isset($_SERVER['HTTP_ORIGIN'])) {
     header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
-    header('Access-Control-Allow-Credentials: true');
-    header('Access-Control-Max-Age: 86400'); // cache for 1 day
 }
+header('Content-Type: application/json');
+header('Access-Control-Allow-Credentials: true');
+header('Access-Control-Max-Age: 86400'); // cache for 1 day
 
+include "databaseFunctions.php";
 $response = array();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $target_file = "uploads/" . $_POST["leagueType"] . "/" . $_POST["teamName"] . "_" . basename($_FILES["teamFile"]["name"]);
+    $target_file = "uploads/" . $_POST["leagueType"] . "/" . basename($_FILES["teamFile"]["name"]);
     $file_ext = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
     $allowedExtensions = array("tem", "pdf");
 
@@ -16,12 +19,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         http_response_code(400);
         $response["message"] = "Only files with " . implode(" or ", $allowedExtensions) . " extensions are allowed to be uploaded.";
     } else {
-        if (move_uploaded_file($_FILES["teamFile"]["tmp_name"], $target_file)) {
+        $fileMove = move_uploaded_file($_FILES["teamFile"]["tmp_name"], $target_file);
+        $uploadSet = setUploadDate($_POST["teamId"], $_POST["leagueType"], $_POST["uploadDate"]);
+
+        if ($fileMove && $uploadSet) {
             http_response_code(200);
-            $response["message"] = "The file has been uploaded sucessfully!";
+            $response["message"] = "Upload successful.";
         } else {
             http_response_code(500);
-            $response["message"] = "There was an error uploading the file. Please try again.";
+            $response["message"] = "An error occurred during the upload.";
         }
     }
 } else {
@@ -30,3 +36,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 echo json_encode($response);
+
+/**
+ * Sets the upload data for the selected team
+ */
+function setUploadDate($teamId, $league, $date)
+{
+    $conn = setupDatabase();
+    return updateUploadDate($conn, $league, $teamId, $date);
+}

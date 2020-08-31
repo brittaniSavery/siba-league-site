@@ -9,102 +9,35 @@ import {
   UPLOAD_SUBMIT_SUCCESS,
 } from "../lib/constants";
 import Content from "../layout/Content";
+import moment from "moment";
 
-function hasErrors(fields) {
-  const fieldValueArray = Object.values(fields);
-  return fieldValueArray.some((v) => v.error !== null);
-}
+export default function Upload() {
+  const [form, dispatch] = useReducerWithThunk(formReducer, undefined, init);
+  const [proTeams, setProTeams] = React.useState([]);
+  const [collegeTeams, setCollegeTeams] = React.useState([]);
 
-function validate(state, name, value) {
-  switch (name) {
-    case "teamName":
-      if (!value) return "Team name is required.";
-      else return null;
-    case "teamFile":
-      if (!value) return "Team file is required.";
-      else return null;
-    case "leagueType":
-      if (!value) return "Select either the pro or college league.";
-      else return null;
-    case "leaguePass":
-      if (!value) return "League password is required.";
-      else if (
-        (state.fields.leagueType.value === "pro" &&
-          value !== process.env.REACT_APP_PRO_LEAGUE_PASSWORD) ||
-        (state.fields.leagueType.value === "college" &&
-          value !== process.env.REACT_APP_COLLEGE_LEAGUE_PASSWORD)
-      ) {
-        console.log("College", process.env.REACT_APP_COLLEGE_LEAGUE_PASSWORD);
-        console.log("Pro", process.env.REACT_APP_PRO_LEAGUE_PASSWORD);
-        return "The league type and league password do not match.";
-      } else return null;
-    default:
-      return null;
-  }
-}
+  React.useEffect(() => {
+    const fetchTeams = async () => {
+      const proResponse = await fetch(
+        `${process.env.REACT_APP_TEAMS_URL}?league=pro`
+      );
+      const collegeResponse = await fetch(
+        `${process.env.REACT_APP_TEAMS_URL}?league=college`
+      );
 
-function formReducer(state, action) {
-  switch (action.type) {
-    case UPLOAD_CHANGE:
-      const newValue = {
-        value: action.payload.value,
-        error: validate(state, action.payload.name, action.payload.value),
-      };
-      const newFields = { ...state.fields, [action.payload.name]: newValue };
+      if (proResponse.ok) {
+        const pro = await proResponse.json();
+        setProTeams(pro);
+      }
 
-      return {
-        ...state,
-        errors: hasErrors(newFields),
-        fields: newFields,
-      };
-    case UPLOAD_SUBMIT:
-      return { ...state, submitting: true };
-    case UPLOAD_SUBMIT_SUCCESS:
-      return {
-        ...state,
-        submit: true,
-        submitting: false,
-        submitSucceeded: true,
-        submitResponse: `Your team file was successfully uploaded to the ${state.fields.leagueType.value} league.`,
-        teamName: { value: "" },
-        teamFile: { value: "" },
-        leaguePass: { value: "" },
-        leagueType: { value: "" },
-      };
-    case UPLOAD_SUBMIT_FAIL:
-      let newState = { ...state };
+      if (collegeResponse.ok) {
+        const college = await collegeResponse.json();
+        setCollegeTeams(college);
+      }
+    };
 
-      if (action.payload.fields)
-        newState = { ...newState, fields: action.payload.fields };
-
-      return {
-        ...newState,
-        errors: action.payload.errors,
-        submit: true,
-        submitting: false,
-        submitSucceeded: false,
-        submitResponse: action.payload.response,
-      };
-    default:
-      return state;
-  }
-}
-
-function Upload() {
-  const initialForm = {
-    errors: false,
-    submit: false,
-    submitSucceeded: false,
-    submitResponse: "",
-    submitting: false,
-    fields: {
-      teamName: { value: "", error: null },
-      teamFile: { value: "", error: null },
-      leaguePass: { value: "", error: null },
-      leagueType: { value: "", error: null },
-    },
-  };
-  const [form, dispatch] = useReducerWithThunk(formReducer, initialForm);
+    fetchTeams();
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -139,6 +72,8 @@ function Upload() {
         for (const [field, { value }] of Object.entries(currentForm.fields)) {
           formData.append(field, value);
         }
+        const uploadDate = moment.utc().format("YYYY-MM-DD HH:mm:ss");
+        formData.append("uploadDate", uploadDate);
 
         const response = await fetch(process.env.REACT_APP_UPLOAD_URL, {
           method: "POST",
@@ -146,7 +81,20 @@ function Upload() {
         });
 
         if (response.ok) {
-          dispatch({ type: UPLOAD_SUBMIT_SUCCESS });
+          let message = "";
+          let currentTeam =
+            currentForm.fields.leagueType.value === "pro"
+              ? proTeams
+              : collegeTeams;
+
+          currentTeam.forEach((team) => {
+            if (team.id === currentForm.fields.teamId.value) {
+              team.uploadDate = uploadDate;
+              message = `Your .tem file for the ${team.name} was successfully uploaded to the ${currentForm.fields.leagueType.value} league.`;
+            }
+          });
+
+          dispatch({ type: UPLOAD_SUBMIT_SUCCESS, payload: message });
           document.getElementById("teamFile").value = null;
         } else {
           const json = await response.json();
@@ -172,9 +120,18 @@ function Upload() {
       <p>
         Use the form below to upload your .tem file that is generated from the
         Draft Day Sports Program. These files are used by the commission to run
-        the simulation. Make sure to select the correct league for your team as
-        well as the corresponding league password. Then input your team's name
-        and the latest .tem file.
+        the simulation.
+      </p>
+
+      <p>
+        First, select the league, either professional or college. Then input the
+        correct league password. Feel feel to ask on{" "}
+        <a href="https://join.slack.com/t/sibabball/shared_invite/zt-grkrrq9i-je57xB2Y7NGoPTh0GlKNNg">
+          Slack
+        </a>{" "}
+        if you're unsure of the password. Then select your team name from the
+        dropdown. You can see the last upload date when your team is selected.
+        And finally, select your updated .tem file and click Submit.
       </p>
 
       {form.submit && (
@@ -189,29 +146,17 @@ function Upload() {
 
       <form onSubmit={(e) => dispatch(handleSubmit(e))}>
         <InputField
-          id="teamName"
-          type="text"
-          label="Team:"
-          help={form.fields.teamName.error}
-          validation={form.fields.teamName.error && "error"}
-          value={form.fields.teamName.value}
-          onChange={(e) =>
-            dispatch({
-              type: UPLOAD_CHANGE,
-              payload: { name: e.target.id, value: e.target.value },
-            })
-          }
-          disabled={form.formSending}
-        />
-
-        <InputField
           id="leagueType"
           label="League:"
           value={form.fields.leagueType.value}
           onChange={(e) =>
             dispatch({
               type: UPLOAD_CHANGE,
-              payload: { name: e.target.id, value: e.target.value },
+              payload: {
+                name: e.target.id,
+                value: e.target.value,
+                teams: e.target.value === "pro" ? proTeams : collegeTeams,
+              },
             })
           }
           help={form.fields.leagueType.error}
@@ -240,6 +185,29 @@ function Upload() {
         />
 
         <InputField
+          id="teamId"
+          label="Team:"
+          help={form.fields.teamId.error || form.fields.teamId.info}
+          validation={form.fields.teamId.error && "error"}
+          value={form.fields.teamId.value}
+          onChange={(e) =>
+            dispatch({
+              type: UPLOAD_CHANGE,
+              payload: { name: e.target.id, value: e.target.value },
+            })
+          }
+          disabled={form.formSending}
+          componentClass="select"
+        >
+          <option value=""></option>
+          {form.options.teams.map((team) => (
+            <option key={team.name} value={team.id}>
+              {team.name}
+            </option>
+          ))}
+        </InputField>
+
+        <InputField
           id="teamFile"
           type="file"
           label="Team File:"
@@ -254,7 +222,7 @@ function Upload() {
           disabled={form.submitting}
         />
 
-        <Button type="submit" disabled={form.submitting || form.errors}>
+        <Button type="submit" disabled={form.submitting}>
           {!form.submitting ? "Submit" : "Loading..."}
         </Button>
       </form>
@@ -262,4 +230,117 @@ function Upload() {
   );
 }
 
-export default Upload;
+function init() {
+  return {
+    errors: false,
+    submit: false,
+    submitSucceeded: false,
+    submitResponse: "",
+    submitting: false,
+    options: {
+      teams: [],
+    },
+    fields: {
+      teamId: { value: "", error: null },
+      teamFile: { value: "", error: null },
+      leaguePass: { value: "", error: null },
+      leagueType: { value: "", error: null },
+    },
+  };
+}
+
+function hasErrors(fields) {
+  const fieldValueArray = Object.values(fields);
+  return fieldValueArray.some((v) => v.error !== null);
+}
+
+function validate(state, name, value) {
+  switch (name) {
+    case "teamId":
+      if (!value) return "Team name is required.";
+      else return null;
+    case "teamFile":
+      if (!value) return "Team file is required.";
+      else return null;
+    case "leagueType":
+      if (!value) return "Select either the pro or college league.";
+      else return null;
+    case "leaguePass":
+      if (!value) return "League password is required.";
+      else if (
+        (state.fields.leagueType.value === "pro" &&
+          value !== process.env.REACT_APP_PRO_LEAGUE_PASSWORD) ||
+        (state.fields.leagueType.value === "college" &&
+          value !== process.env.REACT_APP_COLLEGE_LEAGUE_PASSWORD)
+      ) {
+        return "The league type and league password do not match.";
+      } else return null;
+    default:
+      return null;
+  }
+}
+
+function getUploadDate(name, value, teams) {
+  if (name !== "teamId") return null;
+  const uploadDate = teams.find((t) => t.id === value).uploadDate;
+  return uploadDate
+    ? `Last Upload: ${moment.utc(uploadDate).local().format("LLL")}`
+    : "No recent upload";
+}
+
+function formReducer(state, action) {
+  switch (action.type) {
+    case UPLOAD_CHANGE:
+      const newValue = {
+        value: action.payload.value,
+        error: validate(state, action.payload.name, action.payload.value),
+        info: getUploadDate(
+          action.payload.name,
+          action.payload.value,
+          state.options.teams
+        ),
+      };
+
+      const newFields = {
+        ...state.fields,
+        [action.payload.name]: newValue,
+      };
+
+      //if the league type was change, populate with new teams from league
+      const newTeams = action.payload.teams || state.options.teams;
+
+      return {
+        ...state,
+        errors: hasErrors(newFields),
+        fields: newFields,
+        options: { ...state.options, teams: newTeams },
+      };
+    case UPLOAD_SUBMIT:
+      return { ...state, submitting: true };
+    case UPLOAD_SUBMIT_SUCCESS:
+      const cleanState = init();
+      return {
+        ...cleanState,
+        submit: true,
+        submitting: false,
+        submitSucceeded: true,
+        submitResponse: action.payload,
+      };
+    case UPLOAD_SUBMIT_FAIL:
+      let newState = { ...state };
+
+      if (action.payload.fields)
+        newState = { ...newState, fields: action.payload.fields };
+
+      return {
+        ...newState,
+        errors: action.payload.errors,
+        submit: true,
+        submitting: false,
+        submitSucceeded: false,
+        submitResponse: action.payload.response,
+      };
+    default:
+      return state;
+  }
+}

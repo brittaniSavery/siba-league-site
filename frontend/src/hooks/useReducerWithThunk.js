@@ -1,7 +1,15 @@
 import React from "react";
 
-export default function useReducerWithThunk(reducer, initialState) {
-  const [state, dispatch] = React.useReducer(reducer, initialState);
+export default function useReducerWithThunk(
+  reducer,
+  initialState,
+  initFunction
+) {
+  const [state, dispatch] = React.useReducer(
+    reducer,
+    initialState,
+    initFunction
+  );
 
   const getState = () => state;
 
