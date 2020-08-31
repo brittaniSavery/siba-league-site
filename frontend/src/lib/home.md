@@ -7,3 +7,5 @@ Whatever your play style, join the SIBA and/or the SICBA and test your basketbal
 **August 26, 2020:** After a rework of the menus and logo, SIBA has officially launched! Keep on the lookout the start of the season and the first simulation.
 
 **August 28, 2020:** Please welcome our latest owner and coach, Jordan Bank! Jordan will be taking over the Oklahoma City Twisters and the Texas Tech Red Raiders.
+
+**August 31, 2020:** Another head coach has joined the SICBA! Let's welcome James Kight as the new head coach of the Gonzaga Bulldogs.
