@@ -6,7 +6,7 @@ import collegeRegions from "../images/college-regions.png";
 import collegeTournaments from "../images/college-tournaments.png";
 import Content from "../layout/Content";
 
-export default function IframeContainer({ file, header }) {
+export default function MarkdownContainer({ file, header }) {
   const [markdown, setMarkdown] = React.useState("");
 
   //getting the string version of the markdown file
@@ -21,6 +21,7 @@ export default function IframeContainer({ file, header }) {
       <ReactMarkdown
         source={markdown}
         renderers={{ image: SibaImage }}
+        parserOptions={{ commonmark: true }}
         skipHtml
       />
     </Content>

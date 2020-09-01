@@ -52,7 +52,8 @@ Coach attributes will depend on the number of team choice. You will have a numbe
 ## Vacation/Time Away from League
 
 Our sims are three times a week. If you are going to have limited or no access to the computer/internet for a few days, please let the commissioner know (Kelley Avery/Brittani Avery). You can also let another person in the league act as a proxy coach for your team if you will be away for an extended period of time.
-
-SICBA Commissioners
-
+\
+\
+\
+SICBA Commissioners,\
 Kelley Avery & Brittani Avery

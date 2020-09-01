@@ -4,9 +4,8 @@ Sims Time will be Monday, Wednesday, and Friday at 9:00 PM (CST)
 
 ## League Structure
 
-<!-- prettier-ignore -->
-- Salary Cap: $99,093,000
-- Luxury Cap: $119,266,000
+- Salary Cap: \$99,093,000
+- Luxury Cap: \$119,266,000
 - Rating Scale: 1-100 Point
 - Owner's Characteristics: Randomized
 
