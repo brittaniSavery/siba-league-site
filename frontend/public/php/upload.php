@@ -11,7 +11,8 @@ include "databaseFunctions.php";
 $response = array();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $target_file = "uploads/" . $_POST["leagueType"] . "/" . basename($_FILES["teamFile"]["name"]);
+    $destination_path = dirname(__DIR__) . "/upload/{$_POST['leagueType']}/";
+    $target_file = $destination_path . basename($_FILES["teamFile"]["name"]);
     $file_ext = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
     $allowedExtensions = array("tem", "pdf");
 
@@ -20,11 +21,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $response["message"] = "Only files with " . implode(" or ", $allowedExtensions) . " extensions are allowed to be uploaded.";
     } else {
         $fileMove = move_uploaded_file($_FILES["teamFile"]["tmp_name"], $target_file);
-        $uploadSet = setUploadDate($_POST["teamId"], $_POST["leagueType"], $_POST["uploadDate"]);
 
-        if ($fileMove && $uploadSet) {
-            http_response_code(200);
-            $response["message"] = "Upload successful.";
+        if ($fileMove) {
+            $uploadSet = setUploadDate($_POST["teamId"], $_POST["leagueType"], $_POST["uploadDate"]);
+
+            if ($uploadSet) {
+                http_response_code(200);
+                $response["message"] = "Upload successful.";
+            } else {
+                http_response_code(500);
+                $response["message"] = "An error occurred during the database update.";
+            }
         } else {
             http_response_code(500);
             $response["message"] = "An error occurred during the upload.";

@@ -1,8 +1,8 @@
-Interested in joining the league? Check out the rules and general information first. If you have any questions, don't hestiate to ask a commissioner. Otherwise, feel free to [join](/join)!
+Interested in joining the league? Check out the rules and general information first. If you have any questions, don't hesitate to ask a commissioner. Otherwise, feel free to [join](/join)!
 
 ## General Information
 
-This league will be for people whom own a copy of Draft Day Sports:College Basketball 2020 version 8.14. Simulations will run three times per week, every Monday, Wednesday, and Friday. Each person has the ability to coach up to three different teams. These teams must be from in different recruiting regions as soon below.
+This league will be for people whom own a copy of Draft Day Sports:College Basketball 2020 version 8.14. Simulations will run three times per week, every Tuesday, Thursday, and Saturday. Each person has the ability to coach up to three different teams. These teams must be from in different recruiting regions as soon below.
 
 - Atlantic East
 - Midwest
@@ -35,7 +35,7 @@ Here is the information you will need to set up the coach for your team.
 - **Login Password:** A password that is easy for you to remember
 - **Age:** 25 and up
 - **Personality:** The following traits use the scale of v. low, low, ave, high, v. high
-  - **Temper** (v. low = very laidback–v. high = very aggressive)
+  - **Temper** (v. low = very laid-back–v. high = very aggressive)
   - **Ambition**
   - **Academics**
   - **Discipline**
@@ -43,7 +43,7 @@ Here is the information you will need to set up the coach for your team.
 
 ## Coach Attributes
 
-Coach attributes will depend on the number of team choice. You will have a number of points to use in five categories: Offense, Defense, Scouting, Recrutiting, Player Development. Potentials will be capped at 95% possible in the 5 categories.
+Coach attributes will depend on the number of team choice. You will have a number of points to use in five categories: Offense, Defense, Scouting, Recruiting, Player Development. Potentials will be capped at 95% possible in the 5 categories.
 
 1. 1st Team Choice - You will be set up in the **Power 5 Coach Model** and have 325 points to use. Each category must have a value of 10-85.
 2. 2nd Team Choice - You will be set up in the **Mid-Major Coach Model** and have 240 points to use. Each category must have a value of 5-65.
