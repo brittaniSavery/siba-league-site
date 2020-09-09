@@ -14,11 +14,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $destination_path = dirname(__DIR__) . "/upload/{$_POST['leagueType']}/";
     $target_file = $destination_path . basename($_FILES["teamFile"]["name"]);
     $file_ext = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-    $allowedExtensions = array("tem", "pdf");
+    $allowedExtensions = array("tem", "rep", "coa", "tra", "hco", "aco", "tfr", "brq");
 
     if (in_array($file_ext, $allowedExtensions) === false) {
         http_response_code(400);
-        $response["message"] = "Only files with " . implode(" or ", $allowedExtensions) . " extensions are allowed to be uploaded.";
+        $response["message"] = "This file does not have an allowed extension.";
     } else {
         $fileMove = move_uploaded_file($_FILES["teamFile"]["tmp_name"], $target_file);
 
