@@ -11,7 +11,7 @@ include "databaseFunctions.php";
 $response = array();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $destination_path = dirname(__DIR__) . "/upload/{$_POST['leagueType']}/";
+    $destination_path = dirname(__DIR__) . "/uploads/{$_POST['leagueType']}/";
     $target_file = $destination_path . basename($_FILES["teamFile"]["name"]);
     $file_ext = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
     $allowedExtensions = array("tem", "rep", "coa", "tra", "hco", "aco", "tfr", "brq");

@@ -90,7 +90,7 @@ export default function Upload() {
           currentTeam.forEach((team) => {
             if (team.id === currentForm.fields.teamId.value) {
               team.uploadDate = uploadDate;
-              message = `Your .tem file for the ${team.name} was successfully uploaded to the ${currentForm.fields.leagueType.value} league.`;
+              message = `Your file for the ${team.name} was successfully uploaded to the ${currentForm.fields.leagueType.value} league.`;
             }
           });
 
@@ -118,9 +118,9 @@ export default function Upload() {
   return (
     <Content header="Upload">
       <p>
-        Use the form below to upload your .tem file that is generated from the
-        Draft Day Sports Program. These files are used by the commission to run
-        the simulation.
+        Use the form below to upload your multi-player files that is generated
+        from the Draft Day Sports Program. These files are used by the
+        commission to run the simulation.
       </p>
 
       <p>
@@ -131,7 +131,7 @@ export default function Upload() {
         </a>{" "}
         if you're unsure of the password. Then select your team name from the
         dropdown. You can see the last upload date when your team is selected.
-        And finally, select your updated .tem file and click Submit.
+        And finally, select your updated file and click Submit.
       </p>
 
       {form.submit && (
