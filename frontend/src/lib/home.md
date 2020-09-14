@@ -4,6 +4,8 @@ Whatever your play style, join the SIBA and/or the SICBA and test your basketbal
 
 ## Updates
 
+**September 13, 2020:** There's another owner in the SIBA with James Kight taking over the New Orleans Bears!
+
 **September 7, 2020:** The 2019-2020 season of SIBA and SICBA are officially starting! Remember that sims for the pro league will be every Monday, Wednesday, and Friday. Sims for the college league will be every Tuesday, Thursday, and Saturday.
 
 **August 31, 2020:** Another head coach has joined the SICBA! Let's welcome James Kight as the new head coach of the Gonzaga Bulldogs.
