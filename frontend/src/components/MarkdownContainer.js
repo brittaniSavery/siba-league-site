@@ -5,8 +5,9 @@ import collegeDates from "../images/college-dates.png";
 import collegeRegions from "../images/college-regions.png";
 import collegeTournaments from "../images/college-tournaments.png";
 import Content from "../layout/Content";
+import { Col, Grid, Row, Table } from "react-bootstrap";
 
-export default function MarkdownContainer({ file, header }) {
+export default function MarkdownContainer({ file, header, children }) {
   const [markdown, setMarkdown] = React.useState("");
 
   //getting the string version of the markdown file
@@ -20,10 +21,11 @@ export default function MarkdownContainer({ file, header }) {
     <Content header={header}>
       <ReactMarkdown
         source={markdown}
-        renderers={{ image: SibaImage }}
+        renderers={{ image: SibaImage, table: BootstrapTable }}
         parserOptions={{ commonmark: true }}
         skipHtml
       />
+      {children}
     </Content>
   );
 }
@@ -45,4 +47,16 @@ function SibaImage({ alt, src }) {
   };
 
   return <img style={{ padding: "0.5em" }} src={getSrc()} alt={alt || ""} />;
+}
+
+function BootstrapTable({ children }) {
+  return (
+    <Grid>
+      <Row>
+        <Col xs={12} md={6}>
+          <Table responsive>{children}</Table>
+        </Col>
+      </Row>
+    </Grid>
+  );
 }

@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import ComingSoon from "./components/ComingSoon";
 import IframeContainer from "./components/IframeContainer";
 import MarkdownContainer from "./components/MarkdownContainer";
 import OwnersGrid from "./components/OwnersGrid";
@@ -14,6 +13,7 @@ import Download from "./pages/Download";
 import Join from "./pages/Join";
 import Upload from "./pages/Upload";
 import TeamRankings from "./pages/college/TeamRankings";
+import Rewards from "./pages/pro/Rewards";
 
 export default function Routes() {
   return (
@@ -62,9 +62,7 @@ export default function Routes() {
       <Route path="/siba/owners">
         <OwnersGrid header={"SIBA Owners"} league="pro" />
       </Route>
-      <Route path="/siba/rewards">
-        <ComingSoon header="SIBA Rewards" />
-      </Route>
+      <Route path="/siba/rewards" component={Rewards} />
       <Route path="/siba/downloads" component={Download} />
 
       {/*College Links*/}

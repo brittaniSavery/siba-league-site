@@ -1,7 +1,7 @@
 ## The SIBA
 
-The Simulation International Basketball Assoication (SIBA for short) and
-its related leagues (the developmental and colleg leagues) was the
+The Simulation International Basketball Association (SIBA for short) and
+its related leagues (the developmental and college leagues) was the
 combined efforts of Kelley and Brittani Avery, a father and daughter team.
 Sharing a love of basketball and statistics, they worked together to
 create the league as a way to spend quality time together. Kelley created
@@ -31,11 +31,11 @@ Fun Facts:
 When not leading her fictional basketball team, Brittani enjoys a variety
 of hobbies, such as reading, writing, and playing video games. Recently,
 her hobby of writing has turned into a venture with the publication of her
-first novel, [Element Unknown](http://amzn.to/2vSpcxR).
+first novel, [Element Unknown](https://www.brittanisavery.com/element-unknown).
 
 Fun Facts:
 
 - Dream Job as Kid: Veterinarian
 - Favorite Color: Deep purple
 - Favorite Animal: Black Panther
-- Favorite Food: Shrimp Etouffee or Yum Woosen
+- Favorite Food: Shrimp Étouffée or Yum Woosen
