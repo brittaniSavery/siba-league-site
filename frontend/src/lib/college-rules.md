@@ -2,7 +2,7 @@ Interested in joining the league? Check out the rules and general information fi
 
 ## General Information
 
-This league will be for people whom own a copy of Draft Day Sports:College Basketball 2020 version 8.14. Simulations will run three times per week, every Tuesday, Thursday, and Saturday. Each person has the ability to coach up to three different teams. These teams must be from in different recruiting regions as soon below.
+This league will be for people who own a copy of Draft Day Sports: College Basketball 2020 version 8.20. Simulations will run three times per week, every Tuesday, Thursday, and Saturday. Export file needs to be uploaded by **4:00 PM (Central Time)**. Each person has the ability to coach up to three different teams. These teams must be from different recruiting regions as soon below.
 
 - Atlantic East
 - Midwest

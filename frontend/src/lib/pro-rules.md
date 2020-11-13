@@ -1,6 +1,6 @@
-## Game League Schedule
+## Uploading Schedule
 
-Sims Time will be Monday, Wednesday, and Friday at 9:00 PM (CST)
+Export file needs to be uploaded by **4:00 PM (Central Time)** Monday, Wednesday, and Friday using the Draft Day Sports: Pro Basketball (DDSPB) 2020 Version 9.13.
 
 ## League Structure
 
@@ -12,8 +12,8 @@ Sims Time will be Monday, Wednesday, and Friday at 9:00 PM (CST)
 ## Trade and Draft Restrictions
 
 - All trades can be veto by the Commissioner.
-- A team **cannot** trade consecutive 1st round picks and must have a 1st round pick every other year. This is to keep things fair in a mutliplayer league and prevent teams from taking advantage of others.
-- During the season, a team **cannot** trade a player aquired in free agency or through a trade for 30 days.
+- A team **cannot** trade consecutive 1st round picks and must have a 1st round pick every other year. This is to keep things fair in a multiplayer league and prevent teams from taking advantage of others.
+- During the season, a team **cannot** trade a player acquired in free agency or through a trade for 30 days.
 - Players are allowed to enter into the SIBA from the SICBA (college league)
 - High school players **cannot** enter the SIBA directly.
 - Foreign players are allowed to enter the SIBA
@@ -21,9 +21,8 @@ Sims Time will be Monday, Wednesday, and Friday at 9:00 PM (CST)
 
 ## Calendar of Events
 
-The Draft Day Sports: Pro Basketball (DDSPB) program operates on a 365 day calendar, where applicable days are skipped
-to proceed between events. Below is a simple calendar of events for a
-single-season. Year selected is default.
+The DDSPB program operates on a 365 day calendar, where applicable days are skipped
+to proceed between events. Below is a simple calendar of events for a single-season. Year selected is default.
 ![Schedule for the SIBA league](schedule.png)
 
 ## Multiplayer
