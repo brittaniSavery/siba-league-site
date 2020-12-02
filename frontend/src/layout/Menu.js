@@ -59,7 +59,7 @@ const Menu = () => (
             League Standings
           </MenuItem>
           <MenuItem eventKey={3.3} href="/college/rankings">
-            Team Rankings
+            Pre-season Tier Rankings
           </MenuItem>
           <MenuItem eventKey={3.4} href="/college/coaches">
             Head Coaches

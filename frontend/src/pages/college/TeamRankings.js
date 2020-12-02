@@ -42,7 +42,7 @@ export default function TeamRankings() {
   }, [errors]);
 
   return (
-    <Content header="SICBA Team Rankings">
+    <Content header="SICBA Pre-season Tier Rankings">
       <p>
         All teams in SICBA are ranked and those rankings are used to determine
         the school's tier. #1–40 are Tier 1, #41–196 are Tier 2, and #197–353
