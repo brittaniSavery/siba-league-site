@@ -4,6 +4,18 @@ Whatever your play style, join the SIBA and/or the SICBA and test your basketbal
 
 ## Updates
 
+### December 17, 2020
+
+The SICBA tournament, the big one for all the marbles, is finally under way! The first round is already complete and there were some interesting games. In the Buffalo Region, Saint Mary's Gaels took the the #24 Illinois Fighting Illini by surprise, scoring 43 to 23 points in the first half. Illinois attempted to make a comeback, but it was too late. Saint Mary's took the win and is moving to the next round. Their center Clifton Majerus had a great game on both sides of the court with a near double-double: 10 points, 9 rebounds (2 offensive ones), 4 blocks, 2 assists, and 2 steals.
+
+In the Milwaukee Region, there were some upsets and a couple of very close games. The SE Louisiana Lions demolished the #17 Marquette Golden Eagles 80 to 67 with Robert Burditt leading the team with 26 points. Both the Charlotte 49ers and the Memphis Tigers upset their opponents quite handedly and will be facing each other in the next round. After the first half in the Minnesota Golden Gophers vs Kansas State Wildcats game, Kansas State had the lead. But Minnesota was not going down without a fight and in the end, Kansas State managed to hold on until the end, winning only by one point: 63 to 62. The game between the Maryland Terrapins and the #18 Michigan Wolverines actually went into overtime with the Wolverines coming out on top by two points, 89 to 87. Roman Jackson of the Wolverines (22 points) and Dave Demory of the Terrapins (26 points, 9 rebounds, and 7 steals) played amazingly, but there can only be one winner.
+
+In the San Antonio Region, the #21 Cincinnati Bearcats absolutely pulverized the VA Commonwealth Rams, 80 to 45. The Wichita State Shockers managed overtake the #19 Duke Blue Devils, despite the 19 lead changes and 6 ties in the game. At the end The Shockers won with a score of 76 to 73. Four out of their five starters had double-digit points. Emmett Means even had a double-double with 16 points and 12 rebounds.
+
+In the last region, the Spokane Region, the Butler Bulldogs led at the end of the first half in their match against the Oregon Ducks. However in the second half, the Ducks were relentless in their attack, similar to their real life animal counterpart when chasing people with bread. They outscored the Bulldogs 46 to 33 and finished ahead at the buzzer with a final score of 82 to 72.
+
+As the second round gets underway, I'm looking forward to the games, the plays, and the upsets.
+
 ### December 13, 2020
 
 The first round of the professional playoffs have come to a roaring finish. In the West, the #8 Kansas City Koyotes pushed the #1 Phoenix Scorpions to seven games. Despite the Koyotes' efforts, Darrin Johnson scored a massive 46 Points in Game 7 and helped the Scorpions earn their place in the second round.
@@ -55,7 +67,3 @@ Two more coaches are joining the SICBA, Quentin James of the Oregon Ducks and Tr
 ### September 13, 2020
 
 There's another GM in the SIBA with James Kight taking over the New Orleans Bears!
-
-### September 7, 2020
-
-The 2019-2020 season of SIBA and SICBA are officially starting! Remember that sims for the pro league will be every Monday, Wednesday, and Friday. Sims for the college league will be every Tuesday, Thursday, and Saturday.
