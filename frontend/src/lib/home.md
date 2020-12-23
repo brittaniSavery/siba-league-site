@@ -4,6 +4,20 @@ Whatever your play style, join the SIBA and/or the SICBA and test your basketbal
 
 ## Updates
 
+### December 22, 2020
+
+The last few games of the college tournaments are done and in the books. In the United States Invitational Tournament (USIT), the Merrimack Warriors earned their spot in the finals by one point. The Belmont Bruins came out strong in the first half, leading 50 to 43. However, in the second half, the Warriors fought back and scraped by, winning 85 to 84. Despite having four of their starters with double digits points, Belmont could not maintain their lead and allowed Merrimack's bench to force their team to victory. In the end, the Merrimack Warriors became the USIT champions, winning the final game against the Albany Great Danes 79 to 68.
+
+In the Internet Basketball Invitational (IBI), the Saint Josephs Hawks took on the Connecticut Huskies for the championship. Jason Thomas with his 16 points, 3 assists, and 4 rebounds earned the title Player of the Game and took the lead in winning the championship for Connecticut.
+
+In the Championship Basketball Tournament (CBT), Dayton did not have too much trouble in earning their spot in the final, beating UC-Irvine 82 to 70. Oklahoma, on the other hand, nearly lost the lead they had against Vanderbilt. Chris Odle, the senior power forward from Vanderbilt, desperately wanted to move to the next and final round for his last year and brought his A-game, earning 18 points and 20 rebounds (10 of them being offensive). However, the Sooners maintained their lead and won the game 74 to 72, the senior Blake Miller taking charge with his 27 points. The Sooners ended up winning the tournament, defeating Dayton 82 to 60.
+
+In the SICBA tournament, the final four have been named: Wisconsin, Florida, Kansas, and Texas. While most of the games determining the final four were straightforward, the game between the #3 Kansas Jayhawks and #16 Georgetown Hoyas came to a nail-biting finish. After the first half, Georgetown held the lead 38 to 27 with starters on both teams playing well. The Jayhawks, led by the forward Dante Rowland, overtook the Hoyas and within the last few seconds of the game, beat Georgetown 72 to 71.
+
+While these final games were being played, we also had some movement off the court in regards to head coaches. Genie Avery has stepped down as head coach of the Southern California Trojans to take the job at the University of Washington, home of the Huskies. Avery and the Athletic Director of Southern California reportedly got into quite the heated argument. Players heard snippets of the argument, discussing Avery's lack of professionalism and vulgar-filled speech. A loud shout of "Then I'm [explicit] out!" and a door slam signaled the end of the argument as well as Avery's time with USC. When asked for a comment on his decision to take the Huskies' job, he said, "I've admired Washington's program for a long time and so, I'm gonna help them to stick to our now mutual rival."
+
+The Athletic Director at Southern California wasted no time in hiring a replacement. Jron Magcale, a brand new member of the SIBA and SICBA leagues, will be the new head coach of the Trojans. Magcale will also be taking over as GM of the Los Angeles Waves. It'll be very interesting on how the two coaches adjust to their new positions.
+
 ### December 17, 2020
 
 The SICBA tournament, the big one for all the marbles, is finally under way! The first round is already complete and there were some interesting games. In the Buffalo Region, Saint Mary's Gaels took the the #24 Illinois Fighting Illini by surprise, scoring 43 to 23 points in the first half. Illinois attempted to make a comeback, but it was too late. Saint Mary's took the win and is moving to the next round. Their center Clifton Majerus had a great game on both sides of the court with a near double-double: 10 points, 9 rebounds (2 offensive ones), 4 blocks, 2 assists, and 2 steals.
@@ -63,7 +77,3 @@ We also have a new GM joining SIBA! Please welcome Brian Hockin who will be taki
 ### September 19, 2020
 
 Two more coaches are joining the SICBA, Quentin James of the Oregon Ducks and Tristan Porter of the Omaha Mavericks! These teams will be handled by James Kight.
-
-### September 13, 2020
-
-There's another GM in the SIBA with James Kight taking over the New Orleans Bears!
