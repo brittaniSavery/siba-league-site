@@ -6,6 +6,8 @@ Whatever your play style, join the SIBA and/or the SICBA and test your basketbal
 
 ### December 23, 2020
 
+**Edit:** We have another new head coach in the SICBA, Michael Loveland! He will be coaching the Wyoming Cowboys.
+
 The last few games of the college tournaments are done and in the books. In the United States Invitational Tournament (USIT), the Merrimack Warriors earned their spot in the finals by one point. The Belmont Bruins came out strong in the first half, leading 50 to 43. However, in the second half, the Warriors fought back and scraped by, winning 85 to 84. Despite having four of their starters with double digits points, Belmont could not maintain their lead and allowed Merrimack's bench to force their team to victory. In the end, the Merrimack Warriors became the USIT champions, winning the final game against the Albany Great Danes 79 to 68.
 
 In the Internet Basketball Invitational (IBI), the Saint Josephs Hawks took on the Connecticut Huskies for the championship. Jason Thomas with his 16 points, 3 assists, and 4 rebounds earned the title Player of the Game and took the lead in winning the championship for Connecticut.
@@ -73,7 +75,3 @@ The regular season has finished and playoffs are starting in the professional le
 #4 Denver Peaks vs #5 Houston Stampede
 
 We also have a new GM joining SIBA! Please welcome Brian Hockin who will be taking over the Washington Eagles.
-
-### September 19, 2020
-
-Two more coaches are joining the SICBA, Quentin James of the Oregon Ducks and Tristan Porter of the Omaha Mavericks! These teams will be handled by James Kight.
