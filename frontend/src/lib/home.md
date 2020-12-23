@@ -4,7 +4,7 @@ Whatever your play style, join the SIBA and/or the SICBA and test your basketbal
 
 ## Updates
 
-### December 22, 2020
+### December 23, 2020
 
 The last few games of the college tournaments are done and in the books. In the United States Invitational Tournament (USIT), the Merrimack Warriors earned their spot in the finals by one point. The Belmont Bruins came out strong in the first half, leading 50 to 43. However, in the second half, the Warriors fought back and scraped by, winning 85 to 84. Despite having four of their starters with double digits points, Belmont could not maintain their lead and allowed Merrimack's bench to force their team to victory. In the end, the Merrimack Warriors became the USIT champions, winning the final game against the Albany Great Danes 79 to 68.
 
