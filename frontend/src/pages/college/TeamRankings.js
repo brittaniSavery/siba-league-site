@@ -26,7 +26,7 @@ export default function TeamRankings() {
       }
 
       const dbResponse = await fetch(
-        `${process.env.REACT_APP_TEAMS_URL}?league=college&order=ranking`
+        `${process.env.REACT_APP_TEAMS_URL}?league=college`
       );
 
       if (dbResponse.ok) {
@@ -111,8 +111,9 @@ function TierTable({ tier, humanTeams }) {
       </thead>
       <tbody>
         {tier.map((t) => {
-          const curr = humanTeams.find(
-            (team) => team.name === `${t.school} ${t.nickname}`
+          const findHeadCoaches = RegExp(t.school + "\\s+" + t.nickname);
+          const curr = humanTeams.find((team) =>
+            findHeadCoaches.test(team.name)
           );
           return (
             <tr

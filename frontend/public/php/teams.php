@@ -20,8 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     if ($_GET["league"] == "pro") {
         $teams = getProTeamsByName($conn);
     } else {
-        $order = isset($_GET["order"]) ? $_GET["order"] : "";
-        $teams = $order == "ranking" ? getCollegeTeamsByRanking($conn) : getCollegeTeamsByName($conn);
+        $teams = getCollegeTeamsByName($conn);
     }
 
     if (mysqli_num_rows($teams) > 0) {

@@ -18,10 +18,6 @@ function getCollegeTeamsByName($conn)
 {
     return mysqli_query($conn, "SELECT * FROM college_teams ORDER BY name");
 }
-function getCollegeTeamsByRanking($conn)
-{
-    return mysqli_query($conn, "SELECT * FROM college_teams ORDER BY ranking ASC");
-}
 
 function insertProTeam($conn, $team)
 {
