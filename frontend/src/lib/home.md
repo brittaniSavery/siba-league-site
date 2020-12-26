@@ -4,6 +4,28 @@ Whatever your play style, join the SIBA and/or the SICBA and test your basketbal
 
 ## Updates
 
+### December 25, 2020
+
+Congratulations to the Wisconsin Badgers, the champions of the 2020 SICBA tournament! With a record of 39 wins and 1 single loss, they had one of the best records in the entire league. In the championship game, they shot 53% from the three-point line and two of their starters scored 20 or more points. This was certainly an amazing finish to a great season.
+
+The entire tournament brought out the best in players around the league, and the following were at the top:
+
+- **Points:** PG Chris Cross from Albany (32 per game)
+- **Assists:** SF Aquil Moreland from Albany (13 per game)
+- **Rebounds:** PF Alan Dissinger from UMBC (15 per game)
+- **Total Points Scored:** C Kenyon Paige fromTennessee (140)
+- **Total Assists:** SG Jon Hopper from New Hemisphere (47)
+- **Total Rebounds:** PG Johnny Ball from Wisconsin (92)
+- **Most Outstanding Player:** PF Nick Brown from Wisconsin
+
+With the end of the season comes end of the season awards. Stay tuned for a full breakdown of the awards for the entire association as well as individual conferences.
+
+In the pro league, the Phoenix Scorpions beat out the Houston Stampede 4 to 1. The Portland Rhinos avoided being swept, but in the end, the Dallas Rangers won the series 4 to 1. The Philadelphia Silverbacks defeated the Columbus Barons 4 to 2, despite the Barons’ best efforts. The Chicago Guardians continued their dominance and took out the New York Metros 4 to 1.
+
+Given these results, we have our conference finals. In the East, we have the Chicago Guardians vs the Philadelphia Silverbacks. In the West, we have the Phoenix Scorpions vs the Dallas Rangers. Will Philly be able to overcome the challenge that is Chicago, the No. 1 Seed in the East? Can Dallas move pass Phoenix and make it to the finals? Only time will tell as we inch closer and closer to the end of the 2019-2020 season.
+
+We also have more new coaches in the SICBA and a new GM in the SIBA. Don Lookingbill will be taking over the coaching job at Penn State University. Brooks Ward Jr. will be the head coach of the Louisiana State Tigers. And finally, the San Diego Captains have accepted Izulde Jestor as their new GM. We welcome them all and look forward to seeing how they and their teams fare in the next season.
+
 ### December 23, 2020
 
 **Edit:** We have another new head coach in the SICBA, Michael Loveland! He will be coaching the Wyoming Cowboys.
@@ -57,21 +79,3 @@ After the first round, we have these match-ups:
 **Western Conference**  
 #1 Phoenix Scorpions vs #5 Houston Stampede  
 #2 Dallas Rangers vs #3 Portland Rhinos
-
-### November 20, 2020
-
-The regular season has finished and playoffs are starting in the professional league of SIBA! It was a battle for spots in the Eastern Conference, but here are the final standings and series match-ups for the first round.
-
-**Eastern Conference**  
-#1 Chicago Guardians vs #8 Boston Nighthawks  
-#2 New Jersey Hoops vs #7 Philadelphia Silverbacks  
-#3 Montreal Argonauts vs #6 Columbus Barons  
-#4 Indiana Express vs #5 New York Metros
-
-**Western Conference**  
-#1 Phoenix Scorpions vs #8 Kansas City Koyotes  
-#2 Dallas Rangers vs #7 Oklahoma City Twisters  
-#3 Portland Rhinos vs #6 Seattle Sasquatch  
-#4 Denver Peaks vs #5 Houston Stampede
-
-We also have a new GM joining SIBA! Please welcome Brian Hockin who will be taking over the Washington Eagles.
