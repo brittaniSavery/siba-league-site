@@ -4,6 +4,18 @@ Whatever your play style, join the SIBA and/or the SICBA and test your basketbal
 
 ## Updates
 
+### January 3, 2021
+
+The SIBA finals have been announced! The Phoenix Scorpions took an early lead in the series by winning the first two games at home against the Dallas Rangers. However, Dallas was determined not to go down without a fight and won Game 3, Johnny Burton leading the Rangers with 40 points, 9 assists, and 7 rebounds. The momentum that the Rangers gained from the Game 3 win faded after the intense back and forth in Game 4. Dallas lost a 22-point lead and eventually lost the game by two points, 116 to 114. The Scorpions finished the job in Game 5 by demolishing the Rangers, 120 to 102.
+
+In the Chicago Guardians vs the Philadelphia Silverbacks series, things were looking rather bleak for the Silverbacks in the first two games at Chicago. In Game 1, Leighton Langhi, starting small forward for the Guardians, had 53 points and 11 assists and pushed his team ahead to win in the end, 131 to 124. In Game 2, all of the starters had double digit points and three of them had more than 20 points. Murry Webb even had 37 points. However once the games shifted to Philly, the Silverbacks took both Games 3 and 4, evening up the series. Both teams came to play in Game 3, but the Guardians were unable to fully recover from the double digit lead that the Silverbacks had at halftime. In the end, Philly won 123 to 111. Game 4 was more of the same with Philly winning 128 to 113, Jason Thomas leading in points (38).
+
+At 2-2, it was now anybody's game. In Game 5, it was a battle from the start with 23 lead changes and 9 ties. Leighton Langhi had another outstanding game with 39 points and 6 assists. Yet, Brett Sheppard (27 points and 12 rebounds), Ales Hare (22 points), and Jason Thomas (36 points) all had amazing games as well and with their combined efforts, overpowered Chicago starting from the second quarter.
+
+Back at home in Philly, the Silverbacks took control of Game 6, earning their place in the SIBA finals by winning by 23 points (130 to 107). Ales Hare once again put on a show: 42 points, 11 assists, and 9 rebounds.
+
+The stage is finally set for the finals: the Phoenix Scorpions vs the Philadelphia Silverbacks. The champion will be crowned soon!
+
 ### December 25, 2020
 
 Congratulations to the Wisconsin Badgers, the champions of the 2020 SICBA tournament! With a record of 39 wins and 1 single loss, they had one of the best records in the entire league. In the championship game, they shot 53% from the three-point line and two of their starters scored 20 or more points. This was certainly an amazing finish to a great season.
