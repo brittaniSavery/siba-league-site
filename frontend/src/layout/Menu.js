@@ -4,6 +4,56 @@ import { Link } from "react-router-dom";
 import logoBlank from "../images/logo-blank.svg";
 import collegeLogo from "../images/sicba-logo-blank.svg";
 
+const nav = {
+  about: {
+    title: "About",
+    link: "/about",
+  },
+  siba: {
+    title: "SIBA",
+    link: "/siba",
+    sublinks: [
+      { title: "Rules", link: "/rules" },
+      { title: "League Standings", link: "/standings" },
+      { title: "League Leaders", link: "/leaders" },
+      { title: "Schedule", link: "/schedule" },
+      { title: "Transactions", link: "/transactions" },
+      { title: "Free Agents", link: "/free-agents" },
+      { title: "Available Coaches", link: "/available-coaches" },
+      { title: "Owners", link: "/owners" },
+      { title: "Rewards", link: "/rewards" },
+      { title: "Downloads", link: "/downloads" },
+    ],
+  },
+  college: {
+    title: "College",
+    link: "/college",
+    sublinks: [
+      { title: "Rules", link: "/rules" },
+      { title: "League Standings", link: "/standings" },
+      { title: "Pre-season Tier Rankings", link: "/rankings" },
+      { title: "Head Coaches", link: "/coaches" },
+      { title: "Downloads", link: "/donwloads" },
+    ],
+  },
+  dbl: {
+    title: "DBL",
+    link: "/dbl",
+    sublinks: [
+      { title: "League Standings", link: "/standings" },
+      { title: "League Leaders", link: "/leaders" },
+    ],
+  },
+  upload: {
+    title: "Upload",
+    link: "/upload",
+  },
+  join: {
+    title: "Join",
+    link: "/join",
+  },
+};
+
 const Menu = () => (
   <Navbar fixedTop id="custom-nav-bar">
     <Navbar.Header>
@@ -19,69 +69,12 @@ const Menu = () => (
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav>
-        <NavItem eventKey={1} href="/about">
-          About
-        </NavItem>
-        <NavDropdown eventKey={2} title="SIBA" id="siba">
-          <MenuItem eventKey={2.1} href="/siba/rules">
-            Rules
-          </MenuItem>
-          <MenuItem eventKey={2.2} href="/siba/standings">
-            League Standings
-          </MenuItem>
-          <MenuItem eventKey={2.3} href="/siba/leaders">
-            League Leaders
-          </MenuItem>
-          <MenuItem eventKey={2.4} href="/siba/transactions">
-            Transactions
-          </MenuItem>
-          <MenuItem eventKey={2.5} href="/siba/free-agents">
-            Free Agents
-          </MenuItem>
-          <MenuItem eventKey={2.6} href="/siba/available-coaches">
-            Available Coaches
-          </MenuItem>
-          <MenuItem eventKey={2.7} href="/siba/owners">
-            Owners
-          </MenuItem>
-          <MenuItem eventKey={2.8} href="/siba/rewards">
-            Rewards
-          </MenuItem>
-          <MenuItem eventKey={2.9} href="/siba/downloads">
-            Downloads
-          </MenuItem>
-        </NavDropdown>
-        <NavDropdown eventKey={3} title="College" id="college">
-          <MenuItem eventKey={3.1} href="/college/rules">
-            Rules
-          </MenuItem>
-          <MenuItem eventKey={3.2} href="/college/standings">
-            League Standings
-          </MenuItem>
-          <MenuItem eventKey={3.3} href="/college/rankings">
-            Pre-season Tier Rankings
-          </MenuItem>
-          <MenuItem eventKey={3.4} href="/college/coaches">
-            Head Coaches
-          </MenuItem>
-          <MenuItem eventKey={3.5} href="/college/downloads">
-            Downloads
-          </MenuItem>
-        </NavDropdown>
-        <NavDropdown eventKey={4} title="DBL" id="dbl">
-          <MenuItem eventKey={4.1} href="/dbl/standings">
-            League Standings
-          </MenuItem>
-          <MenuItem eventKey={4.2} href="/dbl/leaders">
-            League Leaders
-          </MenuItem>
-        </NavDropdown>
-        <NavItem eventKey={5} href="/upload">
-          Upload
-        </NavItem>
-        <NavItem eventKey={6} href="/join">
-          Join
-        </NavItem>
+        <MenuOption index={1} nav={nav.about} />
+        <DropDownMenu index={2} nav={nav.siba} />
+        <DropDownMenu index={3} nav={nav.college} />
+        <DropDownMenu index={4} nav={nav.dbl} />
+        <MenuOption index={5} nav={nav.upload} />
+        <MenuOption index={6} nav={nav.join} />
       </Nav>
       <Navbar.Text pullRight>
         Associated Leagues:&nbsp;
@@ -90,6 +83,26 @@ const Menu = () => (
       </Navbar.Text>
     </Navbar.Collapse>
   </Navbar>
+);
+
+const MenuOption = ({ nav, index }) => (
+  <NavItem eventKey={index} href={nav.link}>
+    {nav.title}
+  </NavItem>
+);
+
+const DropDownMenu = ({ nav, index }) => (
+  <NavDropdown eventKey={index} title={nav.title} id={nav.title.toLowerCase()}>
+    {nav.sublinks.map((sublink, subindex) => (
+      <MenuItem
+        key={nav.title + " " + sublink.link}
+        eventKey={`${index}.${subindex + 1}`}
+        href={`${nav.link}${sublink.link}`}
+      >
+        {sublink.title}
+      </MenuItem>
+    ))}
+  </NavDropdown>
 );
 
 export default Menu;

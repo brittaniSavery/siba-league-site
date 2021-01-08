@@ -25,17 +25,20 @@ export default function TeamRankings() {
         setAllTeams(parseResult.data);
       }
 
-      const dbResponse = await fetch(
-        `${process.env.REACT_APP_TEAMS_URL}?league=college`
-      );
-
-      if (dbResponse.ok) {
-        setHumanTeams(await dbResponse.json());
-      } else {
-        setErrors([
-          ...errors,
-          { message: `${dbResponse.status}: ${dbResponse.statusText}}` },
-        ]);
+      try {
+        const dbResponse = await fetch(
+          `${process.env.REACT_APP_TEAMS_URL}?league=college`
+        );
+        if (dbResponse.ok) {
+          setHumanTeams(await dbResponse.json());
+        } else {
+          setErrors([
+            ...errors,
+            { message: `${dbResponse.status}: ${dbResponse.statusText}` },
+          ]);
+        }
+      } catch (e) {
+        setErrors([{ message: e.message }]);
       }
     };
     fetchData();

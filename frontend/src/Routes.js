@@ -44,6 +44,9 @@ export default function Routes() {
           file="pro/Website/SIBALeagueLeaders"
         />
       </Route>
+      <Route path="/siba/schedule">
+        <IframeContainer header="SIBA Schedule" file="pro/Website/Schedule" />
+      </Route>
       <Route path="/siba/transactions">
         <IframeContainer
           header="SIBA and DBL Transactions"
