@@ -38,7 +38,7 @@ export default function Rewards() {
               </thead>
               <tbody>
                 {teamPoints.map((row) => (
-                  <tr>
+                  <tr key={row.team}>
                     <td>{row.team}</td>
                     <td style={{ textAlign: "right" }}>{row.points}</td>
                   </tr>

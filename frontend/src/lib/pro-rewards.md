@@ -43,3 +43,5 @@ At the end of each SIBA season, reward points are rewarded to teams based on the
 | All-Rookie 2nd Team          |      1 |
 
 ### Current Team Reward Points
+
+Last updated: January 11, 2021
