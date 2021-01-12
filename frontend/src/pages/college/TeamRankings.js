@@ -7,22 +7,30 @@ import { readString } from "react-papaparse";
 export default function TeamRankings() {
   const [allTeams, setAllTeams] = React.useState([]);
   const [humanTeams, setHumanTeams] = React.useState([]);
-  const [errors, setErrors] = React.useState([]);
+  const [errors, setErrors] = React.useState(0);
 
   React.useEffect(() => {
     const fetchData = async () => {
-      const fileResponse = await fetch(allTeamsFile);
-      const file = await fileResponse.text();
-      const parseResult = readString(file, {
-        header: true,
-        dynamicTyping: true,
-        transformHeader: (header) => header.toLowerCase(),
-      });
+      let errors = 0;
 
-      if (parseResult.errors.length > 0) {
-        setErrors([...errors, parseResult.errors]);
-      } else {
+      try {
+        const fileResponse = await fetch(allTeamsFile);
+        const file = await fileResponse.text();
+        const parseResult = readString(file, {
+          header: true,
+          dynamicTyping: true,
+          transformHeader: (header) => header.toLowerCase(),
+        });
+
+        if (parseResult.errors.length) {
+          errors += parseResult.errors.length;
+          console.log(parseResult.errors);
+        }
+
         setAllTeams(parseResult.data);
+      } catch (error) {
+        errors += 1;
+        console.log(error);
       }
 
       try {
@@ -32,17 +40,18 @@ export default function TeamRankings() {
         if (dbResponse.ok) {
           setHumanTeams(await dbResponse.json());
         } else {
-          setErrors([
-            ...errors,
-            { message: `${dbResponse.status}: ${dbResponse.statusText}` },
-          ]);
+          errors += 1;
+          console.log(await dbResponse.text());
         }
-      } catch (e) {
-        setErrors([{ message: e.message }]);
+      } catch (error) {
+        errors += 1;
+        console.log(error);
       }
+
+      setErrors(errors);
     };
     fetchData();
-  }, [errors]);
+  }, []);
 
   return (
     <Content header="SICBA Pre-season Tier Rankings">
@@ -59,7 +68,7 @@ export default function TeamRankings() {
         <span style={{ backgroundColor: "#E8F5FF" }}>highlighted</span> and have
         a head coach are unavailable.
       </p>
-      {errors.length > 0 && (
+      {errors > 0 && (
         <Alert bsStyle="danger">
           <p>
             <b>Error!</b>
@@ -69,7 +78,7 @@ export default function TeamRankings() {
           </p>
         </Alert>
       )}
-      {errors.length === 0 && (
+      {errors === 0 && (
         <Grid>
           <Row>
             <Col xs={12} md={6}>
