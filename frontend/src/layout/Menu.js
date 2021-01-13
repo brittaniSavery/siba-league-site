@@ -33,7 +33,7 @@ const nav = {
       { title: "League Standings", link: "/standings" },
       { title: "Pre-season Tier Rankings", link: "/rankings" },
       { title: "Head Coaches", link: "/coaches" },
-      { title: "Downloads", link: "/donwloads" },
+      { title: "Downloads", link: "/downloads" },
     ],
   },
   dbl: {
