@@ -145,9 +145,11 @@ function Join() {
         <Modal.Body>
           {emailStatus === SENT ? (
             <p>
-              We greatly appreciate your interest in the SIBA. An email has been
-              sent to the commissioner and you should be hearing a response
-              within a couple of days.
+              We greatly appreciate your interest in the Simulation
+              International Basketball Association (SIBA). In a couple of days,
+              you'll receive an email from siba@averyincorporated.com detailing
+              the information required to get you up and running in the
+              league(s). Be sure to check your junk folder!
             </p>
           ) : (
             <p>
