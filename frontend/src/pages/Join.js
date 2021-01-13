@@ -149,7 +149,7 @@ function Join() {
               International Basketball Association (SIBA). In a couple of days,
               you'll receive an email from siba@averyincorporated.com detailing
               the information required to get you up and running in the
-              league(s). Be sure to check your junk folder!
+              league(s). Be sure to check your junk/spam folder!
             </p>
           ) : (
             <p>
