@@ -4,6 +4,10 @@ Whatever your play style, join the SIBA and/or the SICBA and test your basketbal
 
 ## Updates
 
+### January 13, 2021
+
+We have another coach is joining the SICBA! Please welcome Brandon Burt, the new head coach of the Syracuse Orange. Penn State also have made the announcement that Don Lookingbill stepped down as head coach. The athletic director said in a statement, "We wish him the best in his future endeavors. And if his circumstances change, we would be happy to have him on our staff once again."
+
 ### January 10, 2021
 
 With the 2019-2020 SIBA season officially completed, a champion has been crowned! The Philadelphia Silverbacks started the series out with a bang, crushing Phoenix on their home court 152 to 136. Ales Hare and Jason Thomas dominated the court with 40 and 45 points respectively. However, things quickly turned in Phoenix's favor, starting in Game 2. Both teams played to their strengths and traded leads throughout the game. However, Phoenix came out on top in the end, 118 to 108. Darrin Johnson had a double-double with 33 points and 10 assists. In Game 3, Johnson's dominance continued as his 30 points and 9 assists pushed Phoenix to lead most of the first half. However, Philly's big three of Thomas, Sheppard, and Hare were not to be counted out just yet. In the second half, Phoenix seemed to kick the pace of the game into overdrive and were much more aggressive defensively with steals and blocks. Johnson did more of the same and ended the game with 48 points and 15 assists. The Silverbacks just could never quite catch the Scorpions and retake the lead. The final score was 123 to 121.
@@ -71,29 +75,3 @@ In the San Antonio Region, the #21 Cincinnati Bearcats absolutely pulverized the
 In the last region, the Spokane Region, the Butler Bulldogs led at the end of the first half in their match against the Oregon Ducks. However in the second half, the Ducks were relentless in their attack, similar to their real life animal counterpart when chasing people with bread. They outscored the Bulldogs 46 to 33 and finished ahead at the buzzer with a final score of 82 to 72.
 
 As the second round gets underway, I'm looking forward to the games, the plays, and the upsets.
-
-### December 13, 2020
-
-The first round of the professional playoffs have come to a roaring finish. In the West, the #8 Kansas City Koyotes pushed the #1 Phoenix Scorpions to seven games. Despite the Koyotes' efforts, Darrin Johnson scored a massive 46 Points in Game 7 and helped the Scorpions earn their place in the second round.
-
-In the #2 Dallas Rangers vs #7 Oklahoma City Twisters series, the teams traded games for the first four. However, the Rangers took charge of the last two. Chris Cunningham (42 points, 14 rebounds/Game 5) and Michael Lee (32 points, 6 assists/Game 6) took the lead in Games 5 and 6.
-
-With the first two games of the #3 Portland Rhinos vs #6 Seattle Sasquatch series split, Game 3 was forced into overtime by Seattle, scoring 34 points in the fourth quarter and tieing the game. The Rhinos answered back, though, outscoring the Sasquatch and winning Game 3. Corey Riley from the Rhinos quite easily earned Player of the Game with a triple-double: 32 points, 10 assists, and 18 rebounds. Game 4 was a bit of a do-or-die moment for the Sasquatch, since they needed to win and avoid going down 3-1. Another tight game, it went down to the wire in overtime with the Rhinos winning by two points, 126 to 124. In the end, the Rhinos won the series and are heading to the second round to face the Dallas Rangers.
-
-The #4 Denver Peaks started out great, winning the first two games. However, things turned in the #5 Houston Stampede's favor in Game 3. They came out fierce in the first half and while the Peaks attempted to make a comeback, it wasn't enough. The Stampede won Game 3 114 to 113. They used that momentum to win the next three games and thus, the series. Their next opponent will be the Phoenix Scorpions.
-
-Moving to the Eastern Conference, the turbulent fight to earn a spot in the playoffs seemed to have died off or at the very least fizzled down. There were two sweeps. The #1 Chicago Guardians, with the fourth best record in the league during the regular season, knocked out the #8 Boston Nighthawks in four run-of-the-mill games. The second sweep might come as a surprise. Nick Slaughter, the starting small forward for the #2 New Jersey Hoops, injured his ankle one game before the start of the playoffs. This crippled the Hoops' offense and the #7 Philadelphia Silverbacks took advantage of their opponent's weakness. While one of the four games went into overtime and another had only a two-point difference in the final score, the Hoops could not regroup. With their unexpected sweep, the Silverbacks are in the semi-finals.
-
-The #3 Montreal Argonauts vs #6 Columbus Barons series was basically a replay of the regular season. The Argonauts have struggled against the Barons, being 1-2 against them (both loses were lost by double digits). While Game 2 was a huge win for the Argonauts, led by Willie Favors' 47 points, the Barons finished strong and won the series. The young point guard from Russia, Yevgeny "Geny Pig" Davidenko, had a great game to end the series and even earned Play of the Game with 29 points and 10 assists.
-
-Finally, the #4 Indiana Express vs #5 New York Metros series had a great start for Indiana despite two of their starters (Abraham Hirsch and Collier Perez) being injured. While Game 1 went into overtime, the next two games were fairly standard wins. However, more injuries plied on: Lamoni Price with a sore hand, Kenneth Gibson with a strained knee, Beau Smiley with a broken nose, and Ron Cliff with a mild concussion. In Game 4, Indiana only had seven available players. In Game 5, they only had six. Some players stayed on the court for the full 48 minutes for multiple games. One can only imagine how exhausted they must have been. This allowed New York to sweep the last four games necessary to win the series. Not a normal seven-game series but surely an interesting one.
-
-After the first round, we have these match-ups:
-
-**Eastern Conference**  
-#1 Chicago Guardians vs #5 New York Metros  
-#6 Columbus Barons vs #7 Philadelphia Silverbacks
-
-**Western Conference**  
-#1 Phoenix Scorpions vs #5 Houston Stampede  
-#2 Dallas Rangers vs #3 Portland Rhinos
