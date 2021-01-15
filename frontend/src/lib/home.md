@@ -4,6 +4,10 @@ Whatever your play style, join the SIBA and/or the SICBA and test your basketbal
 
 ## Updates
 
+### January 14, 2021
+
+Another coach has joined the SICBA! Please welcome Chris Guzy, the new head coach of the Liberty Flames.
+
 ### January 13, 2021
 
 We have another coach is joining the SICBA! Please welcome Brandon Burt, the new head coach of the Syracuse Orange. Penn State also have made the announcement that Don Lookingbill stepped down as head coach. The athletic director said in a statement, "We wish him the best in his future endeavors. And if his circumstances change, we would be happy to have him on our staff once again."
@@ -63,15 +67,3 @@ In the SICBA tournament, the final four have been named: Wisconsin, Florida, Kan
 While these final games were being played, we also had some movement off the court in regards to head coaches. Genie Avery has stepped down as head coach of the Southern California Trojans to take the job at the University of Washington, home of the Huskies. Avery and the Athletic Director of Southern California reportedly got into quite the heated argument. Players heard snippets of the argument, discussing Avery's lack of professionalism and vulgarity-filled speech. A loud shout of "Then I'm \[explicit\] out!" and a door slam signaled the end of the argument as well as Avery's time with USC. When asked for a comment on his decision to take the Huskies' job, he said, "I've admired Washington's program for a long time and so, I'm gonna help them to stick to our now mutual rival."
 
 The Athletic Director at Southern California wasted no time in hiring a replacement. Jron Magcale, a brand new member of the SIBA and SICBA leagues, will be the new head coach of the Trojans. Magcale will also be taking over as GM of the Los Angeles Waves. It'll be very interesting on how the two coaches adjust to their new positions.
-
-### December 17, 2020
-
-The SICBA tournament, the big one for all the marbles, is finally under way! The first round is already complete and there were some interesting games. In the Buffalo Region, Saint Mary's Gaels took the the #24 Illinois Fighting Illini by surprise, scoring 43 to 23 points in the first half. Illinois attempted to make a comeback, but it was too late. Saint Mary's took the win and is moving to the next round. Their center Clifton Majerus had a great game on both sides of the court with a near double-double: 10 points, 9 rebounds (2 offensive ones), 4 blocks, 2 assists, and 2 steals.
-
-In the Milwaukee Region, there were some upsets and a couple of very close games. The SE Louisiana Lions demolished the #17 Marquette Golden Eagles 80 to 67 with Robert Burditt leading the team with 26 points. Both the Charlotte 49ers and the Memphis Tigers upset their opponents quite handedly and will be facing each other in the next round. After the first half in the Minnesota Golden Gophers vs Kansas State Wildcats game, Kansas State had the lead. But Minnesota was not going down without a fight and in the end, Kansas State managed to hold on until the end, winning only by one point: 63 to 62. The game between the Maryland Terrapins and the #18 Michigan Wolverines actually went into overtime with the Wolverines coming out on top by two points, 89 to 87. Roman Jackson of the Wolverines (22 points) and Dave Demory of the Terrapins (26 points, 9 rebounds, and 7 steals) played amazingly, but there can only be one winner.
-
-In the San Antonio Region, the #21 Cincinnati Bearcats absolutely pulverized the VA Commonwealth Rams, 80 to 45. The Wichita State Shockers managed overtake the #19 Duke Blue Devils, despite the 19 lead changes and 6 ties in the game. At the end The Shockers won with a score of 76 to 73. Four out of their five starters had double-digit points. Emmett Means even had a double-double with 16 points and 12 rebounds.
-
-In the last region, the Spokane Region, the Butler Bulldogs led at the end of the first half in their match against the Oregon Ducks. However in the second half, the Ducks were relentless in their attack, similar to their real life animal counterpart when chasing people with bread. They outscored the Bulldogs 46 to 33 and finished ahead at the buzzer with a final score of 82 to 72.
-
-As the second round gets underway, I'm looking forward to the games, the plays, and the upsets.
