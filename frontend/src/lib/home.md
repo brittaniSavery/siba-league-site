@@ -4,6 +4,10 @@ Whatever your play style, join the SIBA and/or the SICBA and test your basketbal
 
 ## Updates
 
+### January 15, 2021
+
+We have another new member of the SIBA/SICBA. Please welcome Justin Collera, the head coach of Texas Longhorns and GM of the Dallas Rangers.
+
 ### January 14, 2021
 
 Another coach has joined the SICBA! Please welcome Chris Guzy, the new head coach of the Liberty Flames.
