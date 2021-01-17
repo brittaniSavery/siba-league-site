@@ -1,5 +1,6 @@
 import React from "react";
 import { useMatomo } from "@datapunt/matomo-tracker-react";
+import { Helmet } from "react-helmet";
 
 export default function Content({ header, children }) {
   const { trackPageView } = useMatomo();
@@ -10,6 +11,9 @@ export default function Content({ header, children }) {
 
   return (
     <section className="container">
+      <Helmet>
+        <title>{`${header} | SIBA`}</title>
+      </Helmet>
       <header>
         <h1>{header}</h1>
       </header>

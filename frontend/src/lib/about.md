@@ -31,7 +31,7 @@ Fun Facts:
 When not leading her fictional basketball team, Brittani enjoys a variety
 of hobbies, such as reading, writing, and playing video games. Recently,
 her hobby of writing has turned into a venture with the publication of her
-first novel, [Element Unknown](https://www.brittanisavery.com/element-unknown).
+first novel, [Element Unknown](https://www.brittanisavery.com/book/element-unknown).
 
 Fun Facts:
 
