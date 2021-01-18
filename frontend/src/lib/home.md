@@ -4,6 +4,10 @@ Whatever your play style, join the SIBA and/or the SICBA and test your basketbal
 
 ## Updates
 
+### January 17, 2021
+
+We have a couple of other coaches joining the SICBA. Please welcome Benedict Maligaya, the new head of the Arizona Wildcats, and JC Rizal, the new head coach of the Cornell Big Red. They will be under the leadership of Justin Collera.
+
 ### January 15, 2021
 
 We have another new member of the SIBA/SICBA. Please welcome Justin Collera, the head coach of Texas Longhorns and GM of the Dallas Rangers.
