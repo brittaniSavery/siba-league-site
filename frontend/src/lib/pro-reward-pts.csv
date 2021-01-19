@@ -1,31 +1,31 @@
-Team,Points
-Boston,11
-Calgary,3
-Charlotte,4
-Chicago,18
-Columbus,7
-Dallas,11
-Denver,8
-Detroit,2
-Houston,5
-Indiana,20
-Kansas City,1
-Los Angeles,16
-Memphis,2
-Miami,8
-Milwaukee,9
-Minnesota,9
-Montreal,10
-New Jersey,15
-New Orleans,1
-New York,7
-Oklahoma City,10
-Philadelphia,3
-Phoenix,53
-Portland,5
-San Antonio,4
-San Diego,10
-Seattle,2
-Toronto,0
-Vancouver,3
-Washington,2
+Team,Points,Used
+Boston,0,11
+Calgary,0,3
+Charlotte,0,4
+Chicago,0,18
+Columbus,7,
+Dallas,10,
+Denver,0,8
+Detroit,0,2
+Houston,0,5
+Indiana,0,20
+Kansas City,1,
+Los Angeles,16,
+Memphis,0,2
+Miami,0,8
+Milwaukee,0,9
+Minnesota,0,9
+Montreal,0,10
+New Jersey,0,15
+New Orleans,1,
+New York,0,7
+Oklahoma City,0,10
+Philadelphia,0,3
+Phoenix,3,50
+Portland,0,5
+San Antonio,0,4
+San Diego,10,
+Seattle,0,2
+Toronto,0,
+Vancouver,0,3
+Washington,2,
