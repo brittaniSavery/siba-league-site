@@ -162,7 +162,6 @@ export default function Upload() {
           }
           help={form.fields.leagueType.error}
           validation={form.fields.leagueType.error && "error"}
-          componentClass="select"
         >
           <option value=""></option>
           <option value="pro">Professional (SIBA)</option>
@@ -199,7 +198,6 @@ export default function Upload() {
             })
           }
           disabled={form.formSending}
-          componentClass="select"
         >
           <option value=""></option>
           {form.options.teams.map((team) => (

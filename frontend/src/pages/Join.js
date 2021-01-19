@@ -86,7 +86,6 @@ function Join() {
           label="Preferred League:"
           value={formData.league}
           onChange={(e) => handleOnChange(e)}
-          componentClass="select"
           required
         >
           <option value=""></option>
@@ -97,10 +96,10 @@ function Join() {
 
         <InputField
           id="teams"
+          as="textarea"
           label="Team Choice(s):"
           value={formData.teams}
           onChange={(e) => handleOnChange(e)}
-          componentClass="textarea"
           required
         />
 
@@ -110,7 +109,6 @@ function Join() {
           label="Found SIBA By:"
           value={formData.foundBy}
           onChange={(e) => handleOnChange(e)}
-          componentClass="select"
           required
         >
           <option value=""></option>
@@ -123,10 +121,10 @@ function Join() {
 
         <InputField
           id="reason"
+          as="textarea"
           label="Reason for Joining:"
           value={formData.reason}
           onChange={(e) => handleOnChange(e)}
-          componentClass="textarea"
           placeholder="Optional"
         />
 
