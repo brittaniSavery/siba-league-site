@@ -1,12 +1,12 @@
 import React from "react";
 import { Navbar } from "react-bootstrap";
-import * as copyRange from "rainge";
+
+const currentYear = new Date().getFullYear();
+const copyright = `2018–${currentYear}`;
 
 const Footer = () => (
-  <Navbar fixedBottom={true}>
-    <Navbar.Text pullRight>
-      &copy; {copyRange(2018)} Avery Incorporated
-    </Navbar.Text>
+  <Navbar bg="light" className="justify-content-end">
+    <Navbar.Text>&copy; {copyright} Avery Incorporated</Navbar.Text>
   </Navbar>
 );
 
