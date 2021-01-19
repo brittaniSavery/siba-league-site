@@ -147,6 +147,7 @@ export default function Upload() {
       <form onSubmit={(e) => dispatch(handleSubmit(e))}>
         <InputField
           id="leagueType"
+          as="select"
           label="League:"
           value={form.fields.leagueType.value}
           onChange={(e) =>
@@ -186,6 +187,7 @@ export default function Upload() {
 
         <InputField
           id="teamId"
+          as="select"
           label="Team:"
           help={form.fields.teamId.error || form.fields.teamId.info}
           validation={form.fields.teamId.error && "error"}

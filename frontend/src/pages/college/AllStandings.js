@@ -1,12 +1,12 @@
 import React from "react";
-import { Col, Grid, Image, Row } from "react-bootstrap";
+import { Col, Container, Image, Row } from "react-bootstrap";
 import { CONFERENCES } from "../../lib/constants";
 import Content from "../../layout/Content";
 
 export default function AllStandings() {
   return (
     <Content header="College League Standings">
-      <Grid className="center">
+      <Container className="center">
         <Row>
           {CONFERENCES.map((con) => {
             const imgFile = (con.img || con.file)
@@ -27,7 +27,7 @@ export default function AllStandings() {
             );
           })}
         </Row>
-      </Grid>
+      </Container>
     </Content>
   );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Grid, Row, Table } from "react-bootstrap";
+import { Col, Container, Row, Table } from "react-bootstrap";
 import MarkdownContainer from "../../components/MarkdownContainer";
 import rewardsMd from "../../lib/pro-rewards.md";
 import teamRewardFile from "../../lib/pro-reward-pts.csv";
@@ -26,7 +26,7 @@ export default function Rewards() {
 
   return (
     <MarkdownContainer header="SIBA Rewards" file={rewardsMd}>
-      <Grid>
+      <Container>
         <Row>
           <Col xs={12} md={6}>
             <Table responsive>
@@ -49,7 +49,7 @@ export default function Rewards() {
             </Table>
           </Col>
         </Row>
-      </Grid>
+      </Container>
     </MarkdownContainer>
   );
 }

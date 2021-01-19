@@ -4,14 +4,15 @@
   "private": true,
   "dependencies": {
     "@datapunt/matomo-tracker-react": "^0.3.1",
-    "moment": "^2.27.0",
+    "bootstrap": "^4.5.3",
+    "moment": "^2.29.1",
     "rainge": "^1.0.1",
-    "react": "^16.13.1",
-    "react-bootstrap": "^0.32.4",
-    "react-dom": "^16.13.1",
+    "react": "^17.0.1",
+    "react-bootstrap": "^1.4.3",
+    "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
-    "react-markdown": "^4.3.1",
-    "react-papaparse": "^3.7.3",
+    "react-markdown": "^5.0.3",
+    "react-papaparse": "^3.11.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.1"
   },
@@ -29,5 +30,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "sass": "^1.32.4"
+  }
 }

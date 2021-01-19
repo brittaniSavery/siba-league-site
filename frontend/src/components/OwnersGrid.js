@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Grid, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import Content from "../layout/Content";
 
 export default function OwnersGrid({ header, league }) {
@@ -13,7 +13,7 @@ export default function OwnersGrid({ header, league }) {
 
   return (
     <Content header={header}>
-      <Grid>
+      <Container>
         <Row>
           {data.map((d) => {
             return (
@@ -35,7 +35,7 @@ export default function OwnersGrid({ header, league }) {
             );
           })}
         </Row>
-      </Grid>
+      </Container>
     </Content>
   );
 }

@@ -4,7 +4,7 @@ import { createInstance, MatomoProvider } from "@datapunt/matomo-tracker-react";
 import Footer from "./layout/Footer";
 import Menu from "./layout/Menu";
 import Routes from "./Routes";
-import "./App.css";
+import "./App.scss";
 
 const instance = createInstance({
   urlBase: "https://analytics.averyincorporated.com",

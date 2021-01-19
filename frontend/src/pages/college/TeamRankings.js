@@ -1,5 +1,5 @@
 import React from "react";
-import { Alert, Tabs, Tab, Table, Row, Col, Grid } from "react-bootstrap";
+import { Alert, Tabs, Tab, Table, Row, Col, Container } from "react-bootstrap";
 import Content from "../../layout/Content";
 import allTeamsFile from "../../lib/sicba-rankings.csv";
 import { readString } from "react-papaparse";
@@ -79,7 +79,7 @@ export default function TeamRankings() {
         </Alert>
       )}
       {errors === 0 && (
-        <Grid>
+        <Container>
           <Row>
             <Col xs={12} md={6}>
               <Tabs defaultActiveKey={1} animation={false} id="sicba-rankings">
@@ -104,7 +104,7 @@ export default function TeamRankings() {
               </Tabs>
             </Col>
           </Row>
-        </Grid>
+        </Container>
       )}
     </Content>
   );

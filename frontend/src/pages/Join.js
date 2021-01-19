@@ -1,8 +1,8 @@
 import React from "react";
+import { Button, Modal } from "react-bootstrap";
 import InputField from "../components/InputField";
-import { Button, Modal, Glyphicon } from "react-bootstrap";
-import { ERROR, SENDING, SENT } from "../lib/constants";
 import Content from "../layout/Content";
+import { ERROR, SENDING, SENT } from "../lib/constants";
 
 function Join() {
   const [formData, setFormData] = React.useState({
@@ -82,6 +82,7 @@ function Join() {
 
         <InputField
           id="league"
+          as="select"
           label="Preferred League:"
           value={formData.league}
           onChange={(e) => handleOnChange(e)}
@@ -105,6 +106,7 @@ function Join() {
 
         <InputField
           id="foundBy"
+          as="select"
           label="Found SIBA By:"
           value={formData.foundBy}
           onChange={(e) => handleOnChange(e)}
@@ -132,7 +134,7 @@ function Join() {
           Submit
         </Button>
         <span style={{ display: emailStatus !== SENDING ? "none" : null }}>
-          <Glyphicon glyph="hourglass" />
+          Please Wait...
         </span>
       </form>
 

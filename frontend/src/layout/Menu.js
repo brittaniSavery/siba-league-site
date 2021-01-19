@@ -1,8 +1,8 @@
 import React from "react";
-import { MenuItem, Nav, Navbar, NavDropdown, NavItem } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import logoBlank from "../images/logo-blank.svg";
 import collegeLogo from "../images/sicba-logo-blank.svg";
+import developmentLogo from "../images/development-logo.gif";
 
 const nav = {
   about: {
@@ -55,52 +55,53 @@ const nav = {
 };
 
 const Menu = () => (
-  <Navbar fixedTop id="custom-nav-bar">
-    <Navbar.Header>
-      <Navbar.Brand>
-        <Link to="/">
-          <span>
-            <img src={logoBlank} alt="SIBA Logo" />
-            &nbsp;SIBA
-          </span>
-        </Link>
+  <Navbar fixed="top" bg="light" expand="lg">
+    <Container>
+      <Navbar.Brand href="/">
+        <img
+          src={logoBlank}
+          className="nav-img d-inline-block align-middle"
+          alt=""
+        />
+        <span className="font-weight-bold">&nbsp;SIBA</span>
       </Navbar.Brand>
-      <Navbar.Toggle />
-    </Navbar.Header>
-    <Navbar.Collapse>
-      <Nav>
-        <MenuOption index={1} nav={nav.about} />
-        <DropDownMenu index={2} nav={nav.siba} />
-        <DropDownMenu index={3} nav={nav.college} />
-        <DropDownMenu index={4} nav={nav.dbl} />
-        <MenuOption index={5} nav={nav.upload} />
-        <MenuOption index={6} nav={nav.join} />
-      </Nav>
-      <Navbar.Text pullRight>
-        Associated Leagues:&nbsp;
-        <img src={collegeLogo} className="nav-img" alt="SICBA Logo" />
-        SICBA
-      </Navbar.Text>
-    </Navbar.Collapse>
+      <Navbar.Toggle aria-controls="siba-navbar-nav" />
+      <Navbar.Collapse id="siba-navbar-nav" className="justify-content-between">
+        <Nav className="ml-2">
+          <Nav.Link href={nav.about.link}>{nav.about.title}</Nav.Link>
+          <DropDownMenu nav={nav.siba} />
+          <DropDownMenu nav={nav.college} />
+          <DropDownMenu nav={nav.dbl} />
+          <Nav.Link href={nav.upload.link}>{nav.upload.title}</Nav.Link>
+          <Nav.Link href={nav.join.link}>{nav.join.title}</Nav.Link>
+        </Nav>
+        <Navbar.Text>
+          <span className="d-block">Associated Leagues:&nbsp;</span>
+          <img
+            src={collegeLogo}
+            className="nav-img d-inline-block align-middle"
+            alt="SICBA"
+          />
+          <img
+            src={developmentLogo}
+            className="nav-img d-inline-block align-middle"
+            alt="DBL"
+          />
+        </Navbar.Text>
+      </Navbar.Collapse>
+    </Container>
   </Navbar>
 );
 
-const MenuOption = ({ nav, index }) => (
-  <NavItem eventKey={index} href={nav.link}>
-    {nav.title}
-  </NavItem>
-);
-
-const DropDownMenu = ({ nav, index }) => (
-  <NavDropdown eventKey={index} title={nav.title} id={nav.title.toLowerCase()}>
-    {nav.sublinks.map((sublink, subindex) => (
-      <MenuItem
+const DropDownMenu = ({ nav }) => (
+  <NavDropdown title={nav.title} id={nav.title.toLowerCase()}>
+    {nav.sublinks.map((sublink) => (
+      <NavDropdown.Item
         key={nav.title + " " + sublink.link}
-        eventKey={`${index}.${subindex + 1}`}
-        href={`${nav.link}${sublink.link}`}
+        href={nav.link + sublink.link}
       >
         {sublink.title}
-      </MenuItem>
+      </NavDropdown.Item>
     ))}
   </NavDropdown>
 );
