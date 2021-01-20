@@ -57,13 +57,13 @@ const nav = {
 const Menu = () => (
   <Navbar fixed="top" bg="light" expand="lg">
     <Container>
-      <Navbar.Brand href="/">
+      <Navbar.Brand href="/" className="d-flex align-items-center">
         <img
           src={logoBlank}
-          className="nav-img d-inline-block align-middle"
+          className="nav-img d-inline-block align-top"
           alt=""
         />
-        <span className="font-weight-bold">&nbsp;SIBA</span>
+        <span className="font-weight-bold text-primary pl-2">SIBA</span>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="siba-navbar-nav" />
       <Navbar.Collapse id="siba-navbar-nav" className="justify-content-between">
