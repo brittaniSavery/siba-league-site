@@ -106,12 +106,13 @@ function Join() {
         <InputField
           id="foundBy"
           as="select"
-          label="Found SIBA By:"
+          label="Found SIBA From:"
           value={formData.foundBy}
           onChange={(e) => handleOnChange(e)}
           required
         >
           <option value=""></option>
+          <option value="developers">Wolverine Studios Forums</option>
           <option value="referral">Friend/Family</option>
           <option value="google">Google</option>
           <option value="fb">Facebook</option>
@@ -139,23 +140,20 @@ function Join() {
       <Modal show={emailStatus === SENT || emailStatus === ERROR}>
         <Modal.Header>
           <Modal.Title>
-            {emailStatus === SENT ? "Thank you!" : "Uh oh!"}
+            {emailStatus === SENT ? "Thank you!" : "Oops!"}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {emailStatus === SENT ? (
             <p>
               We greatly appreciate your interest in the Simulation
-              International Basketball Association (SIBA). In a couple of days,
-              you'll receive an email from siba@averyincorporated.com detailing
-              the information required to get you up and running in the
-              league(s). Be sure to check your junk/spam folder!
+              International Basketball Association (SIBA). An email from
+              siba@averyincorporated.com has just been sent to you with further
+              information on setting up your team(s). Be sure to check your
+              junk/spam folder!
             </p>
           ) : (
-            <p>
-              Seems like an error occurred when trying to send the email to the
-              commissioner. Maybe try again?
-            </p>
+            <p>An error occurred. Maybe try again?</p>
           )}
         </Modal.Body>
         <Modal.Footer>

@@ -1,6 +1,11 @@
-exports.buildEmail = (body) => {
-  const { name, email, league, teams, foundBy, reason } = JSON.parse(body);
-
+exports.buildCommissionerEmail = ({
+  name,
+  email,
+  league,
+  teams,
+  foundBy,
+  reason,
+}) => {
   //throwing error if any important parameters are missing
   if (!(name && email && league && teams && foundBy)) {
     throw new Error(
@@ -9,8 +14,8 @@ exports.buildEmail = (body) => {
   }
 
   return {
-    Source: process.env.SIBA_EMAIL,
-    Destination: { ToAddresses: [process.env.COMMIS_EMAIL] },
+    Source: process.env.NO_REPLY,
+    Destination: { ToAddresses: [process.env.COMMISSIONER] },
     Message: {
       Subject: {
         Charset: "UTF-8",
@@ -21,7 +26,7 @@ exports.buildEmail = (body) => {
       Body: {
         Html: {
           Charset: "UTF-8",
-          Data: `<p>Another person wants to join the SIBA! Below is the provided information:</p>
+          Data: `<p>Another person wants to join the SIBA! Below is the information:</p>
             
             <ul>
               <li><b>Name:</b> ${name}</li>
@@ -32,7 +37,7 @@ exports.buildEmail = (body) => {
               ${reason && `<li><b>Reason for joining:</b> ${reason}</li>`}
             </ul>
             
-            <p>Thanks Comissioner!</p>
+            <p>Thanks Commissioner!</p>
             
             <p>At your service,<br />
             The Avery Incorporated IT Team</p>`,
@@ -42,8 +47,40 @@ exports.buildEmail = (body) => {
   };
 };
 
+exports.buildPlayerEmail = (name, email, league, teams) => {
+  const leagueInSubject = () => {
+    switch (league) {
+      case "pro":
+        return "the Simulation International Basketball Association (SIBA)";
+      case "pro":
+        return "the Simulation International College Basketball Association (SICBA)";
+      default:
+        return "SIBA and its college league, SICBA";
+    }
+  };
+
+  return {
+    Source: process.env.COMMISSIONER,
+    Destination: { ToAddresses: [email] },
+    Message: {
+      Subject: {
+        Charset: "UTF-8",
+        Data: `Thanks for joining ${leagueInSubject}!`,
+      },
+      Body: {
+        Html: {
+          Charset: "UTF-8",
+          Data: ``,
+        },
+      },
+    },
+  };
+};
+
 function stringifyFoundBy(foundBy) {
   switch (foundBy) {
+    case "developers":
+      return "Wolverine Studios Forums";
     case "referral":
       return "Friend/Family";
     case "google":
