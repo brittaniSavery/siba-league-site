@@ -70,9 +70,8 @@ export default function TeamRankings() {
       </p>
       {errors > 0 && (
         <Alert variant="danger">
+          <Alert.Heading>Error!</Alert.Heading>
           <p>
-            <b>Error!</b>
-            <br />
             Something went wrong when loading the team ranking data. Please try
             again later.
           </p>

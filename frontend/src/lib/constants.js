@@ -10,6 +10,17 @@ export const UPLOAD_SUBMIT = "UPLOAD_SUBMIT";
 export const UPLOAD_SUBMIT_SUCCESS = "UPLOAD_SUBMIT_SUCCESS";
 export const UPLOAD_SUBMIT_FAIL = "UPLOAD_SUBMIT_FAIL";
 
+//game-related variables
+export const COACH_PERSONALITY = [
+  "Terrible",
+  "Low",
+  "Average",
+  "High",
+  "Great",
+];
+
+export const COACH_GREED = ["Very Low", "Low", "Average", "High", "Very High"];
+
 export const CONFERENCES = [
   { file: "A-Sun", title: "Atlantic Sun Conference " },
   { file: "A10", title: "Atlantic 10 Conference " },

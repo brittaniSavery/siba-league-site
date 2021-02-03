@@ -136,11 +136,10 @@ export default function Upload() {
 
       {form.submit && (
         <Alert variant={form.submitSucceeded ? "success" : "danger"}>
-          <p>
-            <b>{form.submitSucceeded ? "Success!" : "Error!"}</b>
-            <br />
-            {form.submitResponse}
-          </p>
+          <Alert.Heading>
+            {form.submitSucceeded ? "Success!" : "Error!"}
+          </Alert.Heading>
+          <p>{form.submitResponse}</p>
         </Alert>
       )}
 

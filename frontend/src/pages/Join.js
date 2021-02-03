@@ -1,19 +1,25 @@
 import React from "react";
-import { Button, Modal } from "react-bootstrap";
+import Tabs from "react-bootstrap/Tabs";
+import Tab from "react-bootstrap/Tab";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import Spinner from "react-bootstrap/Spinner";
 import InputField from "../components/InputField";
 import Content from "../layout/Content";
 import { ERROR, SENDING, SENT } from "../lib/constants";
+import AddTeamModal from "../components/AddTeam";
 
-function Join() {
+export default function Join() {
   const [formData, setFormData] = React.useState({
     name: "",
     email: "",
-    league: "",
-    teams: "",
+    teams: {},
     foundBy: "",
     reason: "",
   });
   const [emailStatus, setEmailStatus] = React.useState("");
+  const [openPro, setOpenPro] = React.useState(false);
+  const [openCollege, setOpenCollege] = React.useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -34,8 +40,7 @@ function Join() {
       setFormData({
         name: "",
         email: "",
-        league: "",
-        teams: "",
+        teams: {},
         foundBy: "",
         reason: "",
       });
@@ -52,14 +57,30 @@ function Join() {
     setEmailStatus("");
   };
 
+  const handleProTeam = (team) => {
+    const teams = formData.teams;
+    teams.pro = team;
+
+    setFormData({ ...formData, teams: teams });
+    setOpenPro(false);
+  };
+
+  const handleCollegeTeam = (team) => {
+    const teams = formData.teams?.college || [];
+    teams.push(team);
+
+    setFormData({ ...formData, teams: { ...formData.teams, college: teams } });
+    setOpenCollege(false);
+  };
+
   return (
     <Content header="Join">
       <p>
         Interested in joining the SIBA as the general manager of your own
         professional basketball team or as the head coach of your own university
-        basketball team? Fill out the form below and the commissioner will
-        contact you with more information on available teams and follow-up
-        steps.
+        basketball team? Fill out the form below, selecting your teams and
+        coach, and the commissioner take your information and add you to our
+        league.
       </p>
 
       <form onSubmit={(e) => handleSubmit(e)}>
@@ -76,29 +97,6 @@ function Join() {
           type="email"
           label="Email:"
           value={formData.email}
-          onChange={(e) => handleOnChange(e)}
-          required
-        />
-
-        <InputField
-          id="league"
-          as="select"
-          label="Preferred League:"
-          value={formData.league}
-          onChange={(e) => handleOnChange(e)}
-          required
-        >
-          <option value=""></option>
-          <option value="pro">Professional (SIBA)</option>
-          <option value="college">College (SICBA)</option>
-          <option value="both">Both</option>
-        </InputField>
-
-        <InputField
-          id="teams"
-          as="textarea"
-          label="Team Choice(s):"
-          value={formData.teams}
           onChange={(e) => handleOnChange(e)}
           required
         />
@@ -129,12 +127,76 @@ function Join() {
           placeholder="Optional"
         />
 
-        <Button type="submit" disabled={emailStatus === SENDING}>
-          Submit
+        <div className="form-group">
+          <Tabs defaultActiveKey="pro" id="teams-container">
+            <Tab eventKey="pro" title="SIBA (pro)">
+              <p>
+                If you're an artist and would like to create a new logo for your
+                team, be sure to let the commissioners when joining our
+                community on{" "}
+                <a
+                  href="https://join.slack.com/t/sibabball/shared_invite/zt-grkrrq9i-je57xB2Y7NGoPTh0GlKNNg"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Slack
+                </a>
+                . We love creativity!
+              </p>
+              {!formData?.teams?.pro?.name && (
+                <>
+                  <Button variant="secondary" onClick={() => setOpenPro(true)}>
+                    Add Professional Team
+                  </Button>
+                  <AddTeamModal
+                    open={openPro}
+                    onClose={handleProTeam}
+                    type="pro"
+                  />
+                </>
+              )}
+            </Tab>
+            <Tab eventKey="college" title="SICBA (college)">
+              <p>
+                Remember that you can coach up to three (3) teams. They each
+                must be in different tiers and different recruiting regions.
+              </p>
+              {(!formData?.teams?.college ||
+                formData?.teams?.college?.length < 3) && (
+                <>
+                  <Button
+                    variant="secondary"
+                    onClick={() => setOpenCollege(true)}
+                  >
+                    Add College Team
+                  </Button>
+                  <AddTeamModal
+                    open={openCollege}
+                    onClose={handleCollegeTeam}
+                    type="college"
+                  />
+                </>
+              )}
+            </Tab>
+          </Tabs>
+        </div>
+
+        <Button
+          type="submit"
+          variant="primary"
+          disabled={emailStatus === SENDING}
+        >
+          {emailStatus === SENDING && (
+            <Spinner
+              as="span"
+              animation="border"
+              size="sm"
+              role="status"
+              aria-hidden="true"
+            />
+          )}
+          {emailStatus === SENDING ? " Loading..." : "Submit"}
         </Button>
-        <span style={{ display: emailStatus !== SENDING ? "none" : null }}>
-          Please Wait...
-        </span>
       </form>
 
       <Modal show={emailStatus === SENT || emailStatus === ERROR}>
@@ -147,10 +209,9 @@ function Join() {
           {emailStatus === SENT ? (
             <p>
               We greatly appreciate your interest in the Simulation
-              International Basketball Association (SIBA). An email from
-              siba@averyincorporated.com has just been sent to you with further
-              information on setting up your team(s). Be sure to check your
-              junk/spam folder!
+              International Basketball Association (SIBA). A confirmation email
+              from siba@averyincorporated.com has just been sent to you. Be sure
+              to check your junk/spam folder!
             </p>
           ) : (
             <p>An error occurred. Maybe try again?</p>
@@ -163,5 +224,3 @@ function Join() {
     </Content>
   );
 }
-
-export default Join;
