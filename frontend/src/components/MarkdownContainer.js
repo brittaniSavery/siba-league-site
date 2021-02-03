@@ -1,5 +1,6 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
+import gfm from "remark-gfm";
 import proSchedule from "../images/schedule.png";
 import collegeDates from "../images/college-dates.png";
 import collegeRegions from "../images/college-regions.png";
@@ -20,10 +21,9 @@ export default function MarkdownContainer({ file, header, children }) {
   return (
     <Content header={header}>
       <ReactMarkdown
-        source={markdown}
+        plugins={[gfm]}
+        children={markdown}
         renderers={{ image: SibaImage, table: BootstrapTable }}
-        parserOptions={{ commonmark: true }}
-        skipHtml
       />
       {children}
     </Content>
