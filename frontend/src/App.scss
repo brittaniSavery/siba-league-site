@@ -1,6 +1,9 @@
 //Bootstrap overrides
 $primary: #3260a4;
 $secondary: #7eb7e5;
+$link-decoration: underline;
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 #content {
   padding-top: 7rem;
@@ -64,33 +67,36 @@ iframe {
   width: 175px;
   text-align: center;
   word-wrap: break-word;
-}
 
-.conference-card h2 {
-  font-weight: 600;
-  font-size: 1.25em;
-  margin: 0em;
-  margin-top: 0.25em;
+  h2 {
+    font-weight: 600;
+    font-size: 1.25em;
+    margin: 0em;
+    margin-top: 0.25em;
+  }
 }
 
 .owners-grid {
   display: block;
   text-align: center;
   word-wrap: break-word;
+
+  img {
+    display: block;
+    width: 150px;
+    margin: auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  h2 {
+    font-weight: 600;
+    font-size: 1.25em;
+    margin: 0em;
+  }
 }
 
-.owners-grid img {
-  display: block;
-  width: 150px;
-  margin: auto;
-  max-width: 100%;
-  height: auto;
+//shortening the width of input
+.form-control.is-short-width {
+  width: 5em;
 }
-
-.owners-grid h2 {
-  font-weight: 600;
-  font-size: 1.25em;
-  margin: 0em;
-}
-
-@import "../node_modules/bootstrap/scss/bootstrap.scss";

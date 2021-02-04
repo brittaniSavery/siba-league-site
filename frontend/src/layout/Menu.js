@@ -57,7 +57,10 @@ const nav = {
 const Menu = () => (
   <Navbar fixed="top" bg="light" expand="lg">
     <Container>
-      <Navbar.Brand href="/" className="d-flex align-items-center">
+      <Navbar.Brand
+        href="/"
+        className="d-flex align-items-center text-decoration-none"
+      >
         <img
           src={logoBlank}
           className="nav-img d-inline-block align-top"
