@@ -1,16 +1,14 @@
 import React from "react";
-import Modal from "react-bootstrap/Modal";
-import Form from "react-bootstrap/Form";
-import InputField from "./InputField";
 import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
+import Modal from "react-bootstrap/Modal";
 import { Link } from "react-router-dom";
 import {
+  ABILITY_POINTS,
   COACH_GREED,
   COACH_PERSONALITY,
-  ABILITY_POINTS,
 } from "../lib/constants";
+import InputField from "./InputField";
 
 export default function AddTeamModal({ open, onClose, type }) {
   const fullTeamType = type === "pro" ? "Professional" : "College";
