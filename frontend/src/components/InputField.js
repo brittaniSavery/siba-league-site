@@ -7,57 +7,90 @@ export default function InputField({
   id,
   label,
   help,
+  error,
   validation,
   column,
   horizontal,
   short,
   ...props
 }) {
-  const FormGroup = ({ children }) => (
-    <Form.Group as={horizontal && Row} controlId={id}>
-      {children}
-    </Form.Group>
-  );
-  const LabelComponent = () => (
-    <Form.Label column={horizontal}>{label}</Form.Label>
-  );
-  const FieldComponent = () => (
-    <>
-      <Form.Control
-        aria-describedby={`${id}-helpText`}
-        className={short && "is-short-width"}
-        {...props}
-      />
-      {help && (
-        <Form.Text id={`${id}-helpText`} muted>
-          {help}
-        </Form.Text>
-      )}
-    </>
-  );
-
   return (
     <>
       {horizontal ? (
-        <FormGroup>
-          <LabelComponent />
+        <FormGroup horizontal controlId={id}>
+          <FormLabel horizontal label={label} />
           <Col>
-            <FieldComponent />
+            <FormInput
+              controlId={id}
+              short={short}
+              help={help}
+              error={error}
+              {...props}
+            />
           </Col>
         </FormGroup>
       ) : column ? (
         <Col xs={12} md={6}>
-          <FormGroup>
-            <LabelComponent />
-            <FieldComponent />
+          <FormGroup controlId={id}>
+            <FormLabel label={label} />
+            <FormInput
+              controlId={id}
+              short={short}
+              help={help}
+              error={error}
+              {...props}
+            />
           </FormGroup>
         </Col>
       ) : (
-        <FormGroup>
-          <LabelComponent />
-          <FieldComponent />
+        <FormGroup controlId={id}>
+          <FormLabel label={label} />
+          <FormInput
+            controlId={id}
+            short={short}
+            help={help}
+            error={error}
+            {...props}
+          />
         </FormGroup>
       )}
+    </>
+  );
+}
+
+function FormGroup({ children, horizontal, controlId }) {
+  return (
+    <Form.Group as={horizontal && Row} controlId={controlId}>
+      {children}
+    </Form.Group>
+  );
+}
+
+function FormLabel({ horizontal, label }) {
+  return <Form.Label column={horizontal}>{label}</Form.Label>;
+}
+
+function FormInput({ controlId, help, error, short, ...rest }) {
+  const errorMessage = error
+    ? error
+    : rest.required && "This field is required.";
+
+  return (
+    <>
+      <Form.Control
+        aria-describedby={`${controlId}-helpText`}
+        className={short && "is-short-width"}
+        name={controlId}
+        {...rest}
+      />
+      {help && (
+        <Form.Text id={`${controlId}-helpText`} muted>
+          {help}
+        </Form.Text>
+      )}
+      <Form.Control.Feedback type="invalid">
+        {errorMessage}
+      </Form.Control.Feedback>
     </>
   );
 }

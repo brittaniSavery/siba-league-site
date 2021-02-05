@@ -21,6 +21,14 @@ export const COACH_PERSONALITY = [
 
 export const COACH_GREED = ["Very Low", "Low", "Average", "High", "Very High"];
 
+export const ABILITY_POINTS = [
+  { label: "Offensive Ability", id: "offensive" },
+  { label: "Defensive Ability", id: "defensive" },
+  { label: "Potential", id: "potential" },
+  { label: "Game Strategy", id: "strategy" },
+  { label: "Player Development", id: "development" },
+];
+
 export const CONFERENCES = [
   { file: "A-Sun", title: "Atlantic Sun Conference " },
   { file: "A10", title: "Atlantic 10 Conference " },
