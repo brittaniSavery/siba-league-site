@@ -27,7 +27,7 @@ export default function TeamRankings() {
           console.log(parseResult.errors);
         }
 
-        setAllTeams(parseResult.data);
+        setAllTeams(parseResult.data.sort((a, b) => a.ranking - b.ranking));
       } catch (error) {
         errors += 1;
         console.log(error);
@@ -64,9 +64,8 @@ export default function TeamRankings() {
         <a href="/college/rules">SICBA Rules</a>.
       </p>
       <p>
-        <b>Note:</b> Teams that are{" "}
-        <span style={{ backgroundColor: "#E8F5FF" }}>highlighted</span> and have
-        a head coach are unavailable.
+        <b>Note:</b> Teams that are <span className="mark">highlighted</span>{" "}
+        and have a head coach are unavailable.
       </p>
       {errors > 0 && (
         <Alert variant="danger">
@@ -81,7 +80,7 @@ export default function TeamRankings() {
         <Container>
           <Row>
             <Col xs={12} md={6}>
-              <Tabs defaultActiveKey={1} animation={false} id="sicba-rankings">
+              <Tabs defaultActiveKey={1} animation="false" id="sicba-rankings">
                 <Tab eventKey={1} title="Tier 1">
                   <TierTable
                     tier={allTeams.filter((t) => t.tier === 1)}
@@ -127,10 +126,7 @@ function TierTable({ tier, humanTeams }) {
             findHeadCoaches.test(team.name)
           );
           return (
-            <tr
-              key={`${t.school} ${t.nickname}`}
-              style={{ backgroundColor: curr && "#E8F5FF" }}
-            >
+            <tr key={`${t.school} ${t.nickname}`} className={curr && "mark"}>
               <td>{t.ranking}</td>
               <td>{t.school}</td>
               <td>{t.nickname}</td>

@@ -2,6 +2,8 @@
 export const SENT = "sent";
 export const SENDING = "sending";
 export const ERROR = "error";
+export const PRO = "pro";
+export const COLLEGE = "college";
 
 //actions
 export const UPLOAD_VALIDATE = "UPLOAD_VALIDATE";
@@ -62,4 +64,37 @@ export const CONFERENCES = [
   { file: "Sun Belt", title: "Sun Belt Conference" },
   { file: "WAC", title: "Western Athletic Conference" },
   { file: "WCC", title: "West Coast Conference" },
+];
+
+export const PRO_TEAMS = [
+  "Boston Nighthawks",
+  "Calgary Charge",
+  "Charlotte Wasps",
+  "Chicago Guardians",
+  "Columbus Barons",
+  "Dallas Rangers",
+  "Denver Peaks",
+  "Detroit Legion",
+  "Houston Stampede",
+  "Indiana Express",
+  "Kansas City Koyotes",
+  "Los Angeles Waves",
+  "Memphis Vandals",
+  "Miami Sunbirds",
+  "Milwaukee Wildcats",
+  "Minnesota Lancers",
+  "Montreal Argonauts",
+  "New Jersey Hoops",
+  "New Orleans Bears",
+  "New York Metros",
+  "Oklahoma City Twisters",
+  "Philadelphia Silverbacks",
+  "Phoenix Scorpions",
+  "Portland Rhinos",
+  "San Antonio Monarchs",
+  "San Diego Captains",
+  "Seattle Sasquatch",
+  "Toronto Roar",
+  "Vancouver Rain",
+  "Washington Eagles",
 ];

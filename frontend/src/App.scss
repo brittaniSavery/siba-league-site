@@ -2,6 +2,7 @@
 $primary: #3260a4;
 $secondary: #7eb7e5;
 $link-decoration: underline;
+$mark-bg: #e8f5ff;
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
@@ -98,5 +99,5 @@ iframe {
 
 //shortening the width of input
 .form-control.is-short-width {
-  width: 5em;
+  width: 6em;
 }

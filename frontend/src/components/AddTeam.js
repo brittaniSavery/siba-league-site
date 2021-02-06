@@ -1,21 +1,43 @@
-import React from "react";
+import React, { useRef } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import { Link } from "react-router-dom";
+import { Highlighter, Typeahead } from "react-bootstrap-typeahead";
 import {
   ABILITY_POINTS,
   COACH_GREED,
   COACH_PERSONALITY,
+  COLLEGE,
+  PRO,
 } from "../lib/constants";
 import InputField from "./InputField";
 
-export default function AddTeamModal({ open, onClose, type }) {
-  const fullTeamType = type === "pro" ? "Professional" : "College";
-  const playerType = type === "pro" ? "General Manager" : "Head Coach";
+export default function AddTeamModal({ open, onClose, type, options }) {
+  const typeahead = useRef(null);
   const [pointSum, setPointSum] = React.useState(325);
   const [currentSum, setCurrentSum] = React.useState(50);
   const [validated, setValidated] = React.useState(false);
+  const fullTeamType = type === PRO ? "Professional" : "College";
+  const playerType = type === PRO ? "General Manager" : "Head Coach";
+  const typeaheadOptions =
+    type === COLLEGE
+      ? {
+          labelKey: "name",
+          renderMenuItemChildren: (option, { text }) => (
+            <>
+              <Highlighter search={text}>{option.name}</Highlighter>
+              <div>
+                <small>
+                  Tier: {option.tier}
+                  <br />
+                  Region: {option.region}
+                </small>
+              </div>
+            </>
+          ),
+        }
+      : {};
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -31,6 +53,8 @@ export default function AddTeamModal({ open, onClose, type }) {
         formJson[name] = value.toString();
       }
 
+      console.log(formJson);
+
       handleClose(formJson);
     }
   };
@@ -43,10 +67,11 @@ export default function AddTeamModal({ open, onClose, type }) {
     setCurrentSum(sum);
   };
 
-  const handleClose = (team) => {
+  const handleClose = (form) => {
+    if (!form?.hasOwnProperty("team")) form = null;
     setCurrentSum(50);
     setValidated(false);
-    onClose(team);
+    onClose(form);
   };
 
   return (
@@ -70,15 +95,29 @@ export default function AddTeamModal({ open, onClose, type }) {
               .
             </p>
 
+            <Form.Group>
+              <Form.Label>Team Selection</Form.Label>
+              <Typeahead
+                id="team"
+                ref={typeahead}
+                className={
+                  validated &&
+                  typeahead.current.state.selected.length === 0 &&
+                  "is-invalid"
+                }
+                options={options}
+                {...typeaheadOptions}
+                inputProps={{ required: true, name: "team" }}
+                highlightOnlyResult
+              />
+              <Form.Control.Feedback type="invalid">
+                This field is required.
+              </Form.Control.Feedback>
+            </Form.Group>
+
             <p className="h5">{`${playerType} Basics`}</p>
             <Form.Row>
-              <InputField
-                key="first_name"
-                id="first_name"
-                label="First Name:"
-                column
-                required
-              />
+              <InputField id="first_name" label="First Name:" column required />
               <InputField id="last_name" label="Last Name:" column required />
             </Form.Row>
 
@@ -143,6 +182,7 @@ export default function AddTeamModal({ open, onClose, type }) {
             </p>
             {ABILITY_POINTS.map(({ label, id }) => (
               <InputField
+                key={id}
                 id={id}
                 label={`${label}:`}
                 type="number"

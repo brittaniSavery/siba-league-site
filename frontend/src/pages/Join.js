@@ -8,13 +8,87 @@ import Tabs from "react-bootstrap/Tabs";
 import AddTeamModal from "../components/AddTeam";
 import InputField from "../components/InputField";
 import Content from "../layout/Content";
-import { ERROR, SENDING, SENT } from "../lib/constants";
+import { readString } from "react-papaparse";
+import allCollegeTeamsFile from "../lib/sicba-rankings.csv";
+import {
+  ERROR,
+  SENDING,
+  SENT,
+  PRO_TEAMS,
+  PRO,
+  COLLEGE,
+} from "../lib/constants";
 
 export default function Join() {
-  const [teams, setTeams] = React.useState([]);
+  const [pageError, setPageError] = React.useState(false);
+  const [validated, setValidated] = React.useState(false);
+  const [proTeams, setProTeams] = React.useState([]);
+  const [collegeTeams, setCollegeTeams] = React.useState([]);
+  const [selectedTeams, setSelectedTeams] = React.useState([]);
   const [emailStatus, setEmailStatus] = React.useState();
-  const [openPro, setOpenPro] = React.useState(false);
-  const [openCollege, setOpenCollege] = React.useState(false);
+  const [openAddTeam, setOpenAddTeam] = React.useState(false);
+  const [teamType, setTeamType] = React.useState(PRO);
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        //get human (unavailable) teams
+        const proHumanTeamsFetch = await fetch(
+          `${process.env.REACT_APP_TEAMS_URL}?league=pro`
+        );
+        const collegeHumanTeamsFetch = await fetch(
+          `${process.env.REACT_APP_TEAMS_URL}?league=college`
+        );
+
+        //parse college team file
+        const fileResponse = await fetch(allCollegeTeamsFile);
+        const file = await fileResponse.text();
+        const parseResult = readString(file, {
+          header: true,
+          dynamicTyping: false,
+          transformHeader: (header) => header.toLowerCase(),
+        });
+
+        //let the user know necessary data was not loaded correctly
+        if (
+          parseResult.errors.length ||
+          !proHumanTeamsFetch.ok ||
+          !collegeHumanTeamsFetch
+        ) {
+          console.log(parseResult.errors);
+          console.log(await proHumanTeamsFetch.text());
+          console.log(await collegeHumanTeamsFetch.text());
+          setPageError(true);
+        } else {
+          //continue filtering out unavailable human teams
+          const proHumanTeams = (await proHumanTeamsFetch.json()).map(
+            (team) => team.name
+          );
+          const collegeHumanTeams = (await collegeHumanTeamsFetch.json()).map(
+            (team) => team.name
+          );
+          const allCollegeTeams = parseResult.data.map((team) => ({
+            tier: team.tier,
+            name: `${team.school} ${team.nickname}`,
+            region: team.region,
+          }));
+
+          setProTeams(
+            PRO_TEAMS.filter((team) => !proHumanTeams.includes(team))
+          );
+          setCollegeTeams(
+            allCollegeTeams.filter((team) =>
+              collegeHumanTeams.every((hTeam) => hTeam !== team.name)
+            )
+          );
+        }
+      } catch (error) {
+        setPageError(true);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   //TODO: Change to include user info and team info
   const handleSubmit = async (event) => {
@@ -23,7 +97,7 @@ export default function Join() {
 
     const response = await fetch(process.env.REACT_APP_JOIN_URL, {
       method: "POST",
-      body: JSON.stringify(teams),
+      body: JSON.stringify(selectedTeams),
       headers: {
         "Content-Type": "application/json",
       },
@@ -33,16 +107,20 @@ export default function Join() {
       const message = await response.json();
       console.log(`Email sent! ${message}`);
       setEmailStatus(SENT);
-      setTeams({});
+      setSelectedTeams({});
     } else {
       setEmailStatus(ERROR);
     }
   };
 
+  const handleOpenAddTeam = (type) => {
+    setTeamType(type);
+    setOpenAddTeam(true);
+  };
+
   const handleAddTeam = (team) => {
-    console.log(team);
-    setTeams([...teams, team]);
-    team.type === "pro" ? setOpenPro(false) : setOpenCollege(false);
+    if (team) setSelectedTeams([...selectedTeams, team]);
+    setOpenAddTeam(false);
   };
 
   return (
@@ -54,6 +132,16 @@ export default function Join() {
         coach, and the commissioner take your information and add you to our
         league.
       </p>
+
+      {pageError && (
+        <Alert variant="warning">
+          <Alert.Heading>Teams Missing</Alert.Heading>
+          <p>
+            It looks like the available team choices have not loaded properly.
+            Try refreshing the page to see if that fixes the problem.
+          </p>
+        </Alert>
+      )}
 
       {emailStatus && (
         <Alert variant={emailStatus === SENT ? "success" : "danger"}>
@@ -72,7 +160,14 @@ export default function Join() {
         </Alert>
       )}
 
-      <Form onSubmit={(e) => handleSubmit(e)}>
+      <AddTeamModal
+        open={openAddTeam}
+        onClose={handleAddTeam}
+        options={teamType === PRO ? proTeams : collegeTeams}
+        type={teamType}
+      />
+
+      <Form noValidate validated={validated} onSubmit={(e) => handleSubmit(e)}>
         <InputField id="name" label="Name:" required />
 
         <InputField
@@ -101,8 +196,8 @@ export default function Join() {
         />
 
         <div className="form-group">
-          <Tabs defaultActiveKey="pro" id="teams-container">
-            <Tab eventKey="pro" title="SIBA (pro)">
+          <Tabs defaultActiveKey={PRO} id="teams-container">
+            <Tab eventKey={PRO} title="SIBA (pro)">
               <p>
                 If you're an artist and would like to create a new logo for your
                 team, be sure to let the commissioners when joining our
@@ -118,14 +213,16 @@ export default function Join() {
               </p>
               <Button
                 variant="secondary"
-                disabled={!teams.includes((team) => team.type === "pro")}
-                onClick={() => setOpenPro(true)}
+                disabled={
+                  selectedTeams.length &&
+                  !selectedTeams.includes((team) => team.type === PRO)
+                }
+                onClick={() => handleOpenAddTeam(PRO)}
               >
                 Add Professional Team
               </Button>
-              <AddTeamModal open={openPro} onClose={handleAddTeam} type="pro" />
             </Tab>
-            <Tab eventKey="college" title="SICBA (college)">
+            <Tab eventKey={COLLEGE} title="SICBA (college)">
               <p>
                 Remember that you can coach up to three (3) teams. They each
                 must be in different tiers and different recruiting regions.
@@ -133,16 +230,14 @@ export default function Join() {
 
               <Button
                 variant="secondary"
-                disabled={teams.filter((team) => team.type === "college") > 3}
-                onClick={() => setOpenCollege(true)}
+                disabled={
+                  selectedTeams.length &&
+                  selectedTeams.filter((team) => team.type === COLLEGE) > 3
+                }
+                onClick={() => handleOpenAddTeam(COLLEGE)}
               >
                 Add College Team
               </Button>
-              <AddTeamModal
-                open={openCollege}
-                onClose={handleAddTeam}
-                type="college"
-              />
             </Tab>
           </Tabs>
         </div>
