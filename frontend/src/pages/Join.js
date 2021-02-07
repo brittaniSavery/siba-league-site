@@ -1,23 +1,17 @@
 import React from "react";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
+
 import Form from "react-bootstrap/Form";
 import Spinner from "react-bootstrap/Spinner";
-import Tab from "react-bootstrap/Tab";
-import Tabs from "react-bootstrap/Tabs";
-import AddTeamModal from "../components/AddTeam";
+
+import AddTeamModal from "../components/join/AddTeam";
 import InputField from "../components/InputField";
 import Content from "../layout/Content";
 import { readString } from "react-papaparse";
 import allCollegeTeamsFile from "../lib/sicba-rankings.csv";
-import {
-  ERROR,
-  SENDING,
-  SENT,
-  PRO_TEAMS,
-  PRO,
-  COLLEGE,
-} from "../lib/constants";
+import { ERROR, SENDING, SENT, PRO_TEAMS, PRO } from "../lib/constants";
+import TeamSelectionCard from "../components/join/TeamSelectionCard";
 
 export default function Join() {
   const [pageError, setPageError] = React.useState(false);
@@ -195,56 +189,13 @@ export default function Join() {
           placeholder="Optional"
         />
 
-        <div className="form-group">
-          <Tabs defaultActiveKey={PRO} id="teams-container">
-            <Tab eventKey={PRO} title="SIBA (pro)">
-              <p>
-                If you're an artist and would like to create a new logo for your
-                team, be sure to let the commissioners when joining our
-                community on{" "}
-                <a
-                  href="https://join.slack.com/t/sibabball/shared_invite/zt-grkrrq9i-je57xB2Y7NGoPTh0GlKNNg"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Slack
-                </a>
-                . We love creativity!
-              </p>
-              <Button
-                variant="secondary"
-                disabled={
-                  selectedTeams.length &&
-                  !selectedTeams.includes((team) => team.type === PRO)
-                }
-                onClick={() => handleOpenAddTeam(PRO)}
-              >
-                Add Professional Team
-              </Button>
-            </Tab>
-            <Tab eventKey={COLLEGE} title="SICBA (college)">
-              <p>
-                Remember that you can coach up to three (3) teams. They each
-                must be in different tiers and different recruiting regions.
-              </p>
-
-              <Button
-                variant="secondary"
-                disabled={
-                  selectedTeams.length &&
-                  selectedTeams.filter((team) => team.type === COLLEGE) > 3
-                }
-                onClick={() => handleOpenAddTeam(COLLEGE)}
-              >
-                Add College Team
-              </Button>
-            </Tab>
-          </Tabs>
-        </div>
+        <h2>Pick Your Teams</h2>
+        <TeamSelectionCard teams={selectedTeams} onAdd={handleOpenAddTeam} />
 
         <Button
           type="submit"
           variant="primary"
+          className="mt-3"
           disabled={emailStatus === SENDING}
         >
           {emailStatus === SENDING && (

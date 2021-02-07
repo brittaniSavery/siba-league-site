@@ -10,12 +10,16 @@ import {
   COACH_PERSONALITY,
   COLLEGE,
   PRO,
-} from "../lib/constants";
-import InputField from "./InputField";
+} from "../../lib/constants";
+import InputField from "../InputField";
 
 export default function AddTeamModal({ open, onClose, type, options }) {
   const typeahead = useRef(null);
-  const [pointSum, setPointSum] = React.useState(325);
+  const [pointLimits, setPointLimits] = React.useState({
+    min: 10,
+    max: 85,
+    sum: 325,
+  });
   const [currentSum, setCurrentSum] = React.useState(50);
   const [validated, setValidated] = React.useState(false);
   const fullTeamType = type === PRO ? "Professional" : "College";
@@ -24,14 +28,38 @@ export default function AddTeamModal({ open, onClose, type, options }) {
     type === COLLEGE
       ? {
           labelKey: "name",
+          onChange: (selected) => {
+            if (selected.length === 0) return;
+
+            switch (selected[0].tier) {
+              case "3":
+                setPointLimits({
+                  min: 5,
+                  max: 45,
+                  sum: 150,
+                });
+                break;
+              case "2":
+                setPointLimits({
+                  min: 5,
+                  max: 65,
+                  sum: 240,
+                });
+                break;
+              default:
+                setPointLimits({
+                  min: 10,
+                  max: 85,
+                  sum: 325,
+                });
+            }
+          },
           renderMenuItemChildren: (option, { text }) => (
             <>
               <Highlighter search={text}>{option.name}</Highlighter>
               <div>
                 <small>
-                  Tier: {option.tier}
-                  <br />
-                  Region: {option.region}
+                  Tier: {option.tier}, Region: {option.region}
                 </small>
               </div>
             </>
@@ -44,18 +72,22 @@ export default function AddTeamModal({ open, onClose, type, options }) {
     event.stopPropagation();
 
     const form = event.currentTarget;
+
     if (form.checkValidity() === false) {
       setValidated(true);
     } else {
-      const formJson = { type: type };
+      const team = { type: type, coach: {} };
       const formData = new FormData(form);
       for (const [name, value] of formData) {
-        formJson[name] = value.toString();
+        //handle team separately due to custom input component, otherwise use form name to fill out json
+        if (name === "team") {
+          const selected = typeahead.current.state.selected[0];
+          team.basics =
+            typeof selected === "string" ? { name: selected } : selected;
+        } else team.coach[name] = value.toString();
       }
 
-      console.log(formJson);
-
-      handleClose(formJson);
+      handleClose(team);
     }
   };
 
@@ -67,11 +99,11 @@ export default function AddTeamModal({ open, onClose, type, options }) {
     setCurrentSum(sum);
   };
 
-  const handleClose = (form) => {
-    if (!form?.hasOwnProperty("team")) form = null;
+  const handleClose = (team) => {
+    if (!team?.hasOwnProperty("basics")) team = null;
     setCurrentSum(50);
     setValidated(false);
-    onClose(form);
+    onClose(team);
   };
 
   return (
@@ -102,8 +134,9 @@ export default function AddTeamModal({ open, onClose, type, options }) {
                 ref={typeahead}
                 className={
                   validated &&
-                  typeahead.current.state.selected.length === 0 &&
-                  "is-invalid"
+                  (typeahead.current.state.selected.length === 0
+                    ? "is-invalid"
+                    : "is-valid")
                 }
                 options={options}
                 {...typeaheadOptions}
@@ -177,8 +210,8 @@ export default function AddTeamModal({ open, onClose, type, options }) {
             <p>
               These are the skills that your {playerType.toLowerCase()} will
               have in evaluating players. The minimum that each category can
-              have is 10 and the maximum is 85. The maximum sum of the
-              categories is {pointSum}.
+              have is {pointLimits.min} and the maximum is {pointLimits.max}.
+              The maximum sum of the categories is {pointLimits.sum}.
             </p>
             {ABILITY_POINTS.map(({ label, id }) => (
               <InputField
@@ -186,11 +219,10 @@ export default function AddTeamModal({ open, onClose, type, options }) {
                 id={id}
                 label={`${label}:`}
                 type="number"
-                defaultValue={10}
-                min={10}
-                max={85}
+                min={pointLimits.min}
+                max={pointLimits.max}
                 onChange={addCurrentSum}
-                error="Category amounts must be between 10 and 85."
+                error={`Category amounts must be between ${pointLimits.min} and ${pointLimits.max}.`}
                 horizontal
                 short
                 required
@@ -202,8 +234,8 @@ export default function AddTeamModal({ open, onClose, type, options }) {
               id="sum"
               label="Total Sum:"
               value={currentSum}
-              isInvalid={currentSum > pointSum}
-              error={`Total sum cannot be more than ${pointSum}`}
+              isInvalid={currentSum > pointLimits.sum}
+              error={`Total sum cannot be more than ${pointLimits.sum}`}
               short
               horizontal
               readOnly

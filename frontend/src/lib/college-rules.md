@@ -43,11 +43,11 @@ Here is the information you will need to set up the coach for your team.
 
 ## Coach Attributes
 
-Coach attributes will depend on the number of team choice. You will have a number of points to use in five categories: Offense, Defense, Scouting, Recruiting, Player Development. Potentials will be capped at 95% possible in the 5 categories.
+Coach attributes will depend on the tier of team choice. You will have a number of points to use in five categories: Offense, Defense, Scouting, Recruiting, Player Development. Potentials will be capped at 95% possible in the 5 categories.
 
-1. 1st Team Choice - You will be set up in the **Power 5 Coach Model** and have 325 points to use. Each category must have a value of 10-85.
-2. 2nd Team Choice - You will be set up in the **Mid-Major Coach Model** and have 240 points to use. Each category must have a value of 5-65.
-3. 3rd Team Choice - You will be set up in the **Rookie Coach Model** and have 150 points to use. Each category must have a value of 5-45.
+1. Tier 1 Team - You will be set up in the **Power 5 Coach Model** and have 325 points to use. Each category must have a value of 10-85.
+2. Tier 2 Team - You will be set up in the **Mid-Major Coach Model** and have 240 points to use. Each category must have a value of 5-65.
+3. Tier 3 Team - You will be set up in the **Rookie Coach Model** and have 150 points to use. Each category must have a value of 5-45.
 
 ## Vacation/Time Away from League
 

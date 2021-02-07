@@ -80,7 +80,7 @@ export default function TeamRankings() {
         <Container>
           <Row>
             <Col xs={12} md={6}>
-              <Tabs defaultActiveKey={1} animation="false" id="sicba-rankings">
+              <Tabs defaultActiveKey={1} transition={false} id="sicba-rankings">
                 <Tab eventKey={1} title="Tier 1">
                   <TierTable
                     tier={allTeams.filter((t) => t.tier === 1)}
