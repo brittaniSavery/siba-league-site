@@ -1,15 +1,18 @@
 import React, { useRef } from "react";
+import { Highlighter, Typeahead } from "react-bootstrap-typeahead";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
+import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
-import { Highlighter, Typeahead } from "react-bootstrap-typeahead";
 import {
-  ABILITY_POINTS,
-  COACH_GREED,
-  COACH_PERSONALITY,
+  COACH_LEVELS_HIGH_LOW,
+  COACH_LEVELS_TERRIBLE_GREAT,
   COLLEGE,
+  COLLEGE_ABILITY_POINTS,
+  COLLEGE_COACH_PERSONALITY,
   PRO,
+  PRO_ABILITY_POINTS,
 } from "../../lib/constants";
 import InputField from "../InputField";
 
@@ -20,7 +23,7 @@ export default function AddTeamModal({ open, onClose, type, options }) {
     max: 85,
     sum: 325,
   });
-  const [currentSum, setCurrentSum] = React.useState(50);
+  const [currentSum, setCurrentSum] = React.useState(0);
   const [validated, setValidated] = React.useState(false);
   const fullTeamType = type === PRO ? "Professional" : "College";
   const playerType = type === PRO ? "General Manager" : "Head Coach";
@@ -76,14 +79,17 @@ export default function AddTeamModal({ open, onClose, type, options }) {
     if (form.checkValidity() === false) {
       setValidated(true);
     } else {
-      const team = { type: type, coach: {} };
+      const team = { type: type, basics: {}, coach: {} };
       const formData = new FormData(form);
       for (const [name, value] of formData) {
         //handle team separately due to custom input component, otherwise use form name to fill out json
         if (name === "team") {
           const selected = typeahead.current.state.selected[0];
-          team.basics =
+          const teamInfo =
             typeof selected === "string" ? { name: selected } : selected;
+          team.basics = { ...team.basics, ...teamInfo };
+        } else if (name === "password") {
+          team.basics.password = value;
         } else team.coach[name] = value.toString();
       }
 
@@ -92,9 +98,9 @@ export default function AddTeamModal({ open, onClose, type, options }) {
   };
 
   const addCurrentSum = () => {
-    const sum = ABILITY_POINTS.map(
-      (points) => document.getElementById(points.id).value * 1
-    ).reduce((sum, cur) => sum + cur);
+    const sum = (type === PRO ? PRO_ABILITY_POINTS : COLLEGE_ABILITY_POINTS)
+      .map((points) => document.getElementById(points.id).value * 1)
+      .reduce((sum, cur) => sum + cur);
 
     setCurrentSum(sum);
   };
@@ -127,26 +133,39 @@ export default function AddTeamModal({ open, onClose, type, options }) {
               .
             </p>
 
-            <Form.Group>
-              <Form.Label>Team Selection</Form.Label>
-              <Typeahead
-                id="team"
-                ref={typeahead}
-                className={
-                  validated &&
-                  (typeahead.current.state.selected.length === 0
-                    ? "is-invalid"
-                    : "is-valid")
-                }
-                options={options}
-                {...typeaheadOptions}
-                inputProps={{ required: true, name: "team" }}
-                highlightOnlyResult
+            <p className="h5">Team Basics</p>
+            <Form.Row>
+              <Col xs={12} lg={6}>
+                <Form.Group>
+                  <Form.Label>Team Selection</Form.Label>
+                  <Typeahead
+                    id="team"
+                    ref={typeahead}
+                    className={
+                      validated &&
+                      (typeahead.current.state.selected.length === 0
+                        ? "is-invalid"
+                        : "is-valid")
+                    }
+                    options={options}
+                    {...typeaheadOptions}
+                    inputProps={{ required: true, name: "team" }}
+                    highlightOnlyResult
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    This field is required.
+                  </Form.Control.Feedback>
+                </Form.Group>
+              </Col>
+
+              <InputField
+                id="password"
+                label="Team Password:"
+                type="password"
+                column
+                required
               />
-              <Form.Control.Feedback type="invalid">
-                This field is required.
-              </Form.Control.Feedback>
-            </Form.Group>
+            </Form.Row>
 
             <p className="h5">{`${playerType} Basics`}</p>
             <Form.Row>
@@ -159,9 +178,12 @@ export default function AddTeamModal({ open, onClose, type, options }) {
                 id="pic"
                 type="number"
                 label="Picture Number:"
-                help="Type the number of the matching picture from graphics/nonplayers/fac."
+                help={`Type the number of the matching picture from graphics/${
+                  type === PRO ? "nonplayers" : "coaches"
+                }/fac.`}
                 min={1}
-                htmlSize={4}
+                max={171}
+                error="Picture number must be between 1 and 171"
                 required
                 column
               />
@@ -169,43 +191,19 @@ export default function AddTeamModal({ open, onClose, type, options }) {
                 id="outfit"
                 type="number"
                 label="Outfit Number:"
-                help="Type the number of the matching picture from graphics/nonplayers/clothes."
+                help={`Type the number of the matching picture from graphics/${
+                  type === PRO ? "nonplayers" : "coaches"
+                }/clothes.`}
                 min={1}
-                htmlSize={4}
+                max={55}
+                error="Outfit number must be between 1 and 55"
                 required
                 column
               />
             </Form.Row>
-            <Form.Row>
-              <InputField
-                id="personality"
-                as="select"
-                label="Personality:"
-                required
-                column
-              >
-                <option value=""></option>
-                {COACH_PERSONALITY.map((level) => (
-                  <option key={level} value={level}>
-                    {level}
-                  </option>
-                ))}
-              </InputField>
-              <InputField
-                id="greed"
-                as="select"
-                label="Greed Level:"
-                column
-                required
-              >
-                <option value=""></option>
-                {COACH_GREED.map((level) => (
-                  <option key={level} value={level}>
-                    {level}
-                  </option>
-                ))}
-              </InputField>
-            </Form.Row>
+
+            <CoachPersonalityFields type={type} />
+
             <p className="h5">{`${playerType} Ability Points`}</p>
             <p>
               These are the skills that your {playerType.toLowerCase()} will
@@ -213,21 +211,23 @@ export default function AddTeamModal({ open, onClose, type, options }) {
               have is {pointLimits.min} and the maximum is {pointLimits.max}.
               The maximum sum of the categories is {pointLimits.sum}.
             </p>
-            {ABILITY_POINTS.map(({ label, id }) => (
-              <InputField
-                key={id}
-                id={id}
-                label={`${label}:`}
-                type="number"
-                min={pointLimits.min}
-                max={pointLimits.max}
-                onChange={addCurrentSum}
-                error={`Category amounts must be between ${pointLimits.min} and ${pointLimits.max}.`}
-                horizontal
-                short
-                required
-              />
-            ))}
+            {(type === PRO ? PRO_ABILITY_POINTS : COLLEGE_ABILITY_POINTS).map(
+              ({ label, id }) => (
+                <InputField
+                  key={id}
+                  id={id}
+                  label={`${label}:`}
+                  type="number"
+                  min={pointLimits.min}
+                  max={pointLimits.max}
+                  onChange={addCurrentSum}
+                  error={`Category amounts must be between ${pointLimits.min} and ${pointLimits.max}.`}
+                  horizontal
+                  short
+                  required
+                />
+              )
+            )}
 
             <hr />
             <InputField
@@ -251,6 +251,62 @@ export default function AddTeamModal({ open, onClose, type, options }) {
           </Modal.Footer>
         </Form>
       </Modal>
+    </>
+  );
+}
+
+function CoachPersonalityFields({ type }) {
+  return type === PRO ? (
+    <Form.Row>
+      <InputField
+        id="personality"
+        as="select"
+        label="Personality:"
+        required
+        column
+      >
+        <option value=""></option>
+        {COACH_LEVELS_TERRIBLE_GREAT.map((level) => (
+          <option key={level} value={level}>
+            {level}
+          </option>
+        ))}
+      </InputField>
+      <InputField id="greed" as="select" label="Greed Level:" column required>
+        <option value=""></option>
+        {COACH_LEVELS_HIGH_LOW.map((level) => (
+          <option key={level} value={level}>
+            {level}
+          </option>
+        ))}
+      </InputField>
+    </Form.Row>
+  ) : (
+    <>
+      <p className="h5">Head Coach Personality</p>
+      <p>
+        These are the different aspects of the coach's personality. For
+        Ambition, Integrity, and Temper, the level indicates the amount a coach
+        has for the category. For Academics and Discipline, the level determines
+        how important the category is to the coach. For example, a coach with
+        high integrity and low academics will not bribe players but also doesn't
+        care if students have good grades.
+      </p>
+      {COLLEGE_COACH_PERSONALITY.map((category) => (
+        <InputField
+          id={category.toLowerCase()}
+          as="select"
+          label={category}
+          required
+        >
+          <option value=""></option>
+          {COACH_LEVELS_HIGH_LOW.map((level) => (
+            <option key={level} value={level}>
+              {level}
+            </option>
+          ))}
+        </InputField>
+      ))}
     </>
   );
 }

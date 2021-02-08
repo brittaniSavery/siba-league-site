@@ -30,7 +30,7 @@ export default function InputField({
           </Col>
         </FormGroup>
       ) : column ? (
-        <Col xs={12} md={6}>
+        <Col xs={12} lg={6}>
           <FormGroup controlId={id}>
             <FormLabel label={label} />
             <FormInput

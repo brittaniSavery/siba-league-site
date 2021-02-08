@@ -189,7 +189,13 @@ export default function Join() {
           placeholder="Optional"
         />
 
-        <h2>Pick Your Teams</h2>
+        <h2 className="h3">Pick Your Teams</h2>
+        <p>
+          This is where your team choices will appear after adding them by
+          clicking the "Add" button for pro or college teams. Feel free to only
+          add a pro league or just some college teams. At least one team is
+          required before submitting the form.
+        </p>
         <TeamSelectionCard teams={selectedTeams} onAdd={handleOpenAddTeam} />
 
         <Button

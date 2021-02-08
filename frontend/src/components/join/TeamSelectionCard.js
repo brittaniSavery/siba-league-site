@@ -1,11 +1,11 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 import Nav from "react-bootstrap/Nav";
+import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
 import { COLLEGE, PRO } from "../../lib/constants";
+import TeamCard from "./TeamCard";
 
 export default function TeamSelectionCard({ teams, onAdd }) {
   const proTeam = teams.find((team) => team.type === PRO);
@@ -77,25 +77,5 @@ function AddTeamButton({ type, onAdd }) {
     >
       Add {type} Team
     </Button>
-  );
-}
-
-function TeamCard({ team }) {
-  return (
-    <Col xs md={4}>
-      <Card>
-        <Card.Body>
-          <Card.Title>{team.basics.name}</Card.Title>
-          {team.basics.tier && (
-            <Card.Subtitle className="mb-2 text-muted">
-              Tier {team.basics.tier}, Region: {team.basics.region}
-            </Card.Subtitle>
-          )}
-          <Card.Text>{`${
-            team.type === PRO ? "General Manager" : "Head Coach"
-          } ${team.coach.first_name} ${team.coach.last_name}`}</Card.Text>
-        </Card.Body>
-      </Card>
-    </Col>
   );
 }

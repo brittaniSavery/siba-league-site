@@ -13,7 +13,7 @@ export const UPLOAD_SUBMIT_SUCCESS = "UPLOAD_SUBMIT_SUCCESS";
 export const UPLOAD_SUBMIT_FAIL = "UPLOAD_SUBMIT_FAIL";
 
 //game-related variables
-export const COACH_PERSONALITY = [
+export const COACH_LEVELS_TERRIBLE_GREAT = [
   "Terrible",
   "Low",
   "Average",
@@ -21,14 +21,36 @@ export const COACH_PERSONALITY = [
   "Great",
 ];
 
-export const COACH_GREED = ["Very Low", "Low", "Average", "High", "Very High"];
+export const COACH_LEVELS_HIGH_LOW = [
+  "Very Low",
+  "Low",
+  "Average",
+  "High",
+  "Very High",
+];
 
-export const ABILITY_POINTS = [
+export const PRO_ABILITY_POINTS = [
   { label: "Offensive Ability", id: "offensive" },
   { label: "Defensive Ability", id: "defensive" },
   { label: "Potential", id: "potential" },
   { label: "Game Strategy", id: "strategy" },
   { label: "Player Development", id: "development" },
+];
+
+export const COLLEGE_ABILITY_POINTS = [
+  { label: "Offensive Concepts", id: "offensive" },
+  { label: "Defensive Concepts", id: "defensive" },
+  { label: "Recruiting Skills", id: "recruiting" },
+  { label: "Scouting Skills", id: "scouting" },
+  { label: "Player Development", id: "development" },
+];
+
+export const COLLEGE_COACH_PERSONALITY = [
+  "Academics",
+  "Ambition",
+  "Discipline",
+  "Integrity",
+  "Temper",
 ];
 
 export const CONFERENCES = [

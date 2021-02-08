@@ -53,7 +53,6 @@ function SibaImage({ alt, src }) {
 }
 
 function BootstrapTable({ children }) {
-  console.log(children);
   return (
     <Container>
       <Row>

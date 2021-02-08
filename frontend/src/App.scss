@@ -101,3 +101,15 @@ iframe {
 .form-control.is-short-width {
   width: 6em;
 }
+
+.coach-pic {
+  &-face {
+    position: relative;
+    z-index: 0;
+  }
+  &-outfit {
+    position: relative;
+    right: 98px;
+    z-index: 1;
+  }
+}
