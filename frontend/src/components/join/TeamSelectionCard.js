@@ -41,7 +41,7 @@ export default function TeamSelectionCard({ teams, onAdd }) {
                 . We love creativity!
               </p>
               {proTeam ? (
-                <TeamCard team={proTeam} />
+                <TeamCard team={proTeam} onEdit={() => onAdd(proTeam)} />
               ) : (
                 <AddTeamButton type={PRO} onAdd={onAdd} />
               )}
@@ -53,7 +53,11 @@ export default function TeamSelectionCard({ teams, onAdd }) {
               </p>
               <Row className="mb-2">
                 {collegeTeams.map((team) => (
-                  <TeamCard key={team.basics.name} team={team} />
+                  <TeamCard
+                    key={team.basics.name}
+                    team={team}
+                    onEdit={() => onAdd(team)}
+                  />
                 ))}
               </Row>
 

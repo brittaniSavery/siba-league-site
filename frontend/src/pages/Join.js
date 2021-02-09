@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Spinner from "react-bootstrap/Spinner";
 
-import AddTeamModal from "../components/join/AddTeam";
+import TeamInfoForm from "../components/join/TeamInfoForm";
 import InputField from "../components/InputField";
 import Content from "../layout/Content";
 import { readString } from "react-papaparse";
@@ -19,9 +19,9 @@ export default function Join() {
   const [proTeams, setProTeams] = React.useState([]);
   const [collegeTeams, setCollegeTeams] = React.useState([]);
   const [selectedTeams, setSelectedTeams] = React.useState([]);
+  const [currentTeam, setCurrentTeam] = React.useState({ type: PRO });
   const [emailStatus, setEmailStatus] = React.useState();
   const [openAddTeam, setOpenAddTeam] = React.useState(false);
-  const [teamType, setTeamType] = React.useState(PRO);
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -107,14 +107,23 @@ export default function Join() {
     }
   };
 
-  const handleOpenAddTeam = (type) => {
-    setTeamType(type);
+  const handleOpenAddTeam = (team) => {
     setOpenAddTeam(true);
+    if (typeof team === "string") {
+      setCurrentTeam({ type: team });
+    } else {
+      setCurrentTeam(team);
+    }
   };
 
   const handleAddTeam = (team) => {
-    if (team) setSelectedTeams([...selectedTeams, team]);
     setOpenAddTeam(false);
+    if (team) {
+      const newTeams = [...selectedTeams];
+      const match = selectedTeams.findIndex((sTeam) => sTeam.id === team.id);
+      match < 0 ? newTeams.push(team) : newTeams.splice(match, 1, team);
+      setSelectedTeams(newTeams);
+    }
   };
 
   return (
@@ -154,11 +163,11 @@ export default function Join() {
         </Alert>
       )}
 
-      <AddTeamModal
+      <TeamInfoForm
         open={openAddTeam}
         onClose={handleAddTeam}
-        options={teamType === PRO ? proTeams : collegeTeams}
-        type={teamType}
+        options={currentTeam.type === PRO ? proTeams : collegeTeams}
+        current={currentTeam}
       />
 
       <Form noValidate validated={validated} onSubmit={(e) => handleSubmit(e)}>

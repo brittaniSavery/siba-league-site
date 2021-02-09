@@ -10,7 +10,7 @@ import {
   PRO_ABILITY_POINTS,
 } from "../../lib/constants";
 
-export default function TeamCard({ team }) {
+export default function TeamCard({ team, onEdit, onDelete }) {
   return (
     <Col xs md={6} lg={4}>
       <Card>
@@ -77,8 +77,12 @@ export default function TeamCard({ team }) {
           )}
         </Card.Body>
         <Card.Footer>
-          <Button variant="outline-primary">Edit</Button>{" "}
-          <Button variant="outline-danger">Delete</Button>
+          <Button variant="outline-primary" onClick={onEdit}>
+            Edit
+          </Button>{" "}
+          <Button variant="outline-danger" onClick={onDelete}>
+            Delete
+          </Button>
         </Card.Footer>
       </Card>
     </Col>
