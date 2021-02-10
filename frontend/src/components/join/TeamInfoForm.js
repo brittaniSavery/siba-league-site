@@ -16,7 +16,13 @@ import {
 } from "../../lib/constants";
 import InputField from "../InputField";
 
-export default function TeamInfoForm({ open, onClose, current, options }) {
+export default function TeamInfoForm({
+  open,
+  onClose,
+  current,
+  allTeams,
+  options,
+}) {
   const typeahead = useRef(null);
   const [pointLimits, setPointLimits] = React.useState({
     min: 10,
@@ -25,17 +31,27 @@ export default function TeamInfoForm({ open, onClose, current, options }) {
   });
   const [currentSum, setCurrentSum] = React.useState(0);
   const [validated, setValidated] = React.useState(false);
+  const [teamError, setTeamError] = React.useState("");
   const isPro = current.type === PRO;
   const isCollege = current.type === COLLEGE;
   const fullTeamType = isPro ? "Professional" : "College";
   const playerType = isPro ? "General Manager" : "Head Coach";
+  const teamPattern =
+    isCollege && allTeams
+      ? `.*[^${allTeams.map((a) => a.basics.tier).join("")}]-(?!${allTeams
+          .map((a) => a.basics.region)
+          .join("|")}).*`
+      : "";
+
   const typeaheadOptions = isCollege
     ? {
-        labelKey: "name",
-        onChange: (selected) => {
-          if (selected.length === 0) return;
+        labelKey: (option) =>
+          `${option.name} (${option.tier}-${option.region})`,
+        inputProps: { required: true, pattern: teamPattern, name: "team" },
+        onChange: (allTeams) => {
+          if (allTeams.length === 0) return;
 
-          switch (selected[0].tier) {
+          switch (allTeams[0].tier) {
             case "3":
               setPointLimits({
                 min: 5,
@@ -69,15 +85,16 @@ export default function TeamInfoForm({ open, onClose, current, options }) {
           </>
         ),
       }
-    : {};
+    : { inputProps: { required: true, name: "team" } };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     event.stopPropagation();
 
     const form = event.currentTarget;
+    validateTeamSelection();
 
-    if (form.checkValidity() === false) {
+    if (form.checkValidity() === false || teamError) {
       setValidated(true);
     } else {
       const team = { ...current, basics: {}, coach: {} };
@@ -115,6 +132,27 @@ export default function TeamInfoForm({ open, onClose, current, options }) {
     onClose(team);
   };
 
+  const validateTeamSelection = () => {
+    let error = "";
+    const selectedArray = typeahead.current.state.selected;
+
+    if (selectedArray.length === 0) {
+      error = "This field is required.";
+    } else if (isCollege && allTeams.length > 0) {
+      const selectedTeam = selectedArray[0];
+      const tiers = allTeams.map((s) => s.basics.tier);
+      const regions = allTeams.map((s) => s.basics.region);
+
+      error = tiers.includes(selectedTeam.tier)
+        ? `You already have a ${selectedTeam.tier} Tier team.`
+        : regions.includes(selectedTeam.region)
+        ? `You already have a team in the ${selectedTeam.region} region.`
+        : "";
+    }
+
+    setTeamError(error);
+  };
+
   return (
     <>
       <Modal show={open} onHide={handleClose} size="lg">
@@ -146,18 +184,15 @@ export default function TeamInfoForm({ open, onClose, current, options }) {
                     ref={typeahead}
                     defaultInputValue={current?.basics?.name}
                     className={
-                      validated &&
-                      (typeahead.current.state.selected.length === 0
-                        ? "is-invalid"
-                        : "is-valid")
+                      validated && teamError ? "is-invalid" : "is-valid"
                     }
                     options={options}
                     {...typeaheadOptions}
-                    inputProps={{ required: true, name: "team" }}
+                    onChange={validateTeamSelection}
                     highlightOnlyResult
                   />
                   <Form.Control.Feedback type="invalid">
-                    This field is required.
+                    {teamError}
                   </Form.Control.Feedback>
                 </Form.Group>
               </Col>

@@ -123,6 +123,17 @@ export default function Join() {
       const match = selectedTeams.findIndex((sTeam) => sTeam.id === team.id);
       match < 0 ? newTeams.push(team) : newTeams.splice(match, 1, team);
       setSelectedTeams(newTeams);
+
+      //remove team from list options
+      if (team.type === PRO) {
+        const newOptions = proTeams.filter((p) => p !== team.basics.name);
+        setProTeams(newOptions);
+      } else {
+        const newOptions = collegeTeams.filter(
+          (c) => c.name !== team.basics.name
+        );
+        setCollegeTeams(newOptions);
+      }
     }
   };
 
@@ -168,6 +179,7 @@ export default function Join() {
         onClose={handleAddTeam}
         options={currentTeam.type === PRO ? proTeams : collegeTeams}
         current={currentTeam}
+        allTeams={selectedTeams}
       />
 
       <Form noValidate validated={validated} onSubmit={(e) => handleSubmit(e)}>
