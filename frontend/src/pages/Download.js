@@ -36,13 +36,16 @@ export default function Download() {
   }, [mainUrl, leagueName]);
 
   return (
-    <Content header={`Download ${leagueName} Program Files`}>
+    <Content
+      id={`download-${leagueType}`}
+      header={`Download ${leagueName} (${leagueType}) Program Files`}
+    >
       <p>
         Below are the necessary files for the {leagueType} league ({leagueName}
         ). Make sure all your files are up to date.
       </p>
       {files.map((file) => (
-        <p>
+        <p key={file.title}>
           <b>
             <a href={file.url} download>
               {file.title}:&nbsp;

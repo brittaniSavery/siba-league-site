@@ -7,6 +7,38 @@ $secondary: #7eb7e5;
   padding-bottom: 5rem;
   background-color: white;
   min-height: 95vh;
+
+  h1 {
+    text-transform: capitalize;
+  }
+}
+
+#download {
+  &-pro h1::after {
+    content: "";
+    display: inline-flex;
+    position: relative;
+    top: 1.75rem;
+    margin: 0 0.5rem;
+    background-image: url("images/logo.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 2rem;
+    height: 4rem;
+  }
+
+  &-college h1::after {
+    content: "";
+    display: inline-flex;
+    position: relative;
+    top: 0.75rem;
+    margin: 0 0.5rem;
+    background-image: url("images/sicba-logo.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 3rem;
+    height: 3rem;
+  }
 }
 
 .center {

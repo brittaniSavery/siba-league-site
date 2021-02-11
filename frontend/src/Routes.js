@@ -49,7 +49,7 @@ export default function Routes() {
       </Route>
       <Route path="/siba/transactions">
         <IframeContainer
-          header="SIBA and DBL Transactions"
+          header="SIBA & DBL Transactions"
           file="pro/Website/Transactions"
         />
       </Route>
