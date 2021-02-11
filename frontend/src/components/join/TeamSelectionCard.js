@@ -7,7 +7,7 @@ import Tab from "react-bootstrap/Tab";
 import { COLLEGE, PRO } from "../../lib/constants";
 import TeamCard from "./TeamCard";
 
-export default function TeamSelectionCard({ teams, onAdd }) {
+export default function TeamSelectionCard({ teams, onAdd, onDelete }) {
   const proTeam = teams.find((team) => team.type === PRO);
   const collegeTeams = teams.filter((team) => team.type === COLLEGE);
 
@@ -41,7 +41,11 @@ export default function TeamSelectionCard({ teams, onAdd }) {
                 . We love creativity!
               </p>
               {proTeam ? (
-                <TeamCard team={proTeam} onEdit={() => onAdd(proTeam)} />
+                <TeamCard
+                  team={proTeam}
+                  onEdit={() => onAdd(proTeam)}
+                  onDelete={onDelete}
+                />
               ) : (
                 <AddTeamButton type={PRO} onAdd={onAdd} />
               )}
@@ -57,6 +61,7 @@ export default function TeamSelectionCard({ teams, onAdd }) {
                     key={team.basics.name}
                     team={team}
                     onEdit={() => onAdd(team)}
+                    onDelete={onDelete}
                   />
                 ))}
               </Row>

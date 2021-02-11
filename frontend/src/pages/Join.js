@@ -137,6 +137,10 @@ export default function Join() {
     }
   };
 
+  const handleDeleteTeam = (id) => {
+    if (id) setSelectedTeams(selectedTeams.filter((t) => t.id !== id));
+  };
+
   return (
     <Content header="Join">
       <p>
@@ -217,7 +221,12 @@ export default function Join() {
           add a pro league or just some college teams. At least one team is
           required before submitting the form.
         </p>
-        <TeamSelectionCard teams={selectedTeams} onAdd={handleOpenAddTeam} />
+
+        <TeamSelectionCard
+          teams={selectedTeams}
+          onAdd={handleOpenAddTeam}
+          onDelete={handleDeleteTeam}
+        />
 
         <Button
           type="submit"

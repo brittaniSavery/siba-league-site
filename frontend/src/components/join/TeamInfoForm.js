@@ -37,11 +37,11 @@ export default function TeamInfoForm({
   const fullTeamType = isPro ? "Professional" : "College";
   const playerType = isPro ? "General Manager" : "Head Coach";
   const teamPattern =
-    isCollege && allTeams
+    isCollege && allTeams.length > 0
       ? `.*[^${allTeams.map((a) => a.basics.tier).join("")}]-(?!${allTeams
           .map((a) => a.basics.region)
           .join("|")}).*`
-      : "";
+      : ".*";
 
   const typeaheadOptions = isCollege
     ? {
@@ -182,7 +182,10 @@ export default function TeamInfoForm({
                   <Typeahead
                     id="team"
                     ref={typeahead}
-                    defaultInputValue={current?.basics?.name}
+                    defaultInputValue={
+                      current?.basics &&
+                      `${current?.basics?.name} (${current.basics.tier}-${current.basics.region})`
+                    }
                     className={
                       validated && teamError ? "is-invalid" : "is-valid"
                     }
