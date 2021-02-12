@@ -84,26 +84,45 @@ export default function Join() {
     fetchData();
   }, []);
 
-  //TODO: Change to include user info and team info
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setEmailStatus(SENDING);
+    event.stopPropagation();
 
-    const response = await fetch(process.env.REACT_APP_JOIN_URL, {
-      method: "POST",
-      body: JSON.stringify(selectedTeams),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    if (response.ok) {
-      const message = await response.json();
-      console.log(`Email sent! ${message}`);
-      setEmailStatus(SENT);
-      setSelectedTeams({});
+    const form = event.currentTarget;
+    if (form.checkValidity() === false || selectedTeams.length === 0) {
+      setValidated(true);
     } else {
-      setEmailStatus(ERROR);
+      const formJson = { teams: selectedTeams };
+      const formData = new FormData(form);
+      for (const [name, value] of formData) {
+        formJson[name] = value;
+      }
+
+      console.log(formJson);
+      setEmailStatus(SENDING);
+      setTimeout(() => setEmailStatus(SENT), 2000);
+      setValidated(false);
+      form.reset();
+      setSelectedTeams([]);
+
+      // TODO: Send all form data to join api call
+      // setEmailStatus(SENDING);
+      // const response = await fetch(process.env.REACT_APP_JOIN_URL, {
+      //   method: "POST",
+      //   body: JSON.stringify(selectedTeams),
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      // });
+
+      // if (response.ok) {
+      //   const message = await response.json();
+      //   console.log(`Email sent! ${message}`);
+      //   setEmailStatus(SENT);
+      //   setSelectedTeams({});
+      // } else {
+      //   setEmailStatus(ERROR);
+      // }
     }
   };
 
@@ -161,7 +180,7 @@ export default function Join() {
         </Alert>
       )}
 
-      {emailStatus && (
+      {emailStatus && emailStatus !== SENDING && (
         <Alert variant={emailStatus === SENT ? "success" : "danger"}>
           <Alert.Heading>
             {emailStatus === SENT ? "Thank you!" : "Oops!"}
@@ -221,6 +240,16 @@ export default function Join() {
           add a pro league or just some college teams. At least one team is
           required before submitting the form.
         </p>
+
+        {validated && selectedTeams.length === 0 && (
+          <Alert variant="danger">
+            <Alert.Heading>Team Choice(s) Required</Alert.Heading>
+            At least one team must be added before submitting the form. Remember
+            you can have a one (1) pro team and up to three (3) college teams
+            but you <b>do not</b> have to participate in both leagues. Pick the
+            amount of teams you can handle.
+          </Alert>
+        )}
 
         <TeamSelectionCard
           teams={selectedTeams}
