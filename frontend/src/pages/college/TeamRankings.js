@@ -69,7 +69,7 @@ export default function TeamRankings() {
         a head coach are unavailable.
       </p>
       {errors > 0 && (
-        <Alert bsStyle="danger">
+        <Alert variant="danger">
           <p>
             <b>Error!</b>
             <br />
