@@ -11,44 +11,144 @@
             background-color: #3260a4;
         }
 
-        .container {
-            background-color: white;
-            width: 75vw;
-            margin: 2rem auto;
-            padding: 0.5rem 3rem;
-            border-radius: .5rem;
-            text-align: justify;
+        .email-container {
+            margin: 2rem;
         }
 
-        .content p:last-child {
+        .main-container {
+            padding: 0.5rem 3rem;
+            border-radius: 0.5rem;
+            text-align: justify;
+            background-color: white;
+        }
+
+        .content ul li p:last-child {
+            margin-bottom: 1rem;
+        }
+
+        .content>p:last-child {
             margin-bottom: 2rem;
+        }
+
+        code {
+            background-color: #e8f5ff;
+            color: #3260a4;
+        }
+
+        a,
+        a:hover,
+        a:active,
+        a:focus {
+            color: #3260a4;
+        }
+
+        .columns {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .column {
+            width: 100%;
+        }
+
+        @media screen and (min-width: 1024px) {
+            .columns {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .column {
+                width: 50%;
+            }
+        }
+
+        .coach-pic-face {
+            position: relative;
+            z-index: 0;
+        }
+
+        .coach-pic-outfit {
+            position: relative;
+            right: 102px;
+            z-index: 1;
+        }
+
+        .header {
+            width: 115px;
+            height: 60px;
+        }
+
+        .header img {
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1 style="text-align: center;">Hi [name], welcome to the [league]!</h1>
-        <div class="content">
-            <p>Thank you for joining! We look forward to chatting with you in our <a href="#">Slack community</a>. If
-                you haven't joined already, be sure to do so and say hi in the general channel. From there, one of the
-                commissioners will add you to the channels for the pro/college league.</p>
-            <p>Below are some friendly reminders for getting up and running to manage your team(s).</p>
-            <ul>
-                <li>Game versions</li>
-                <li>Graphics</li>
-                <li>Verify teams</li>
-            </ul>
-            <p>Thanks once again for joining! Tell your friends about the leagues if they love basketball, numbers, and
-                stats too.
-                There are plenty of teams available, some really good ones too.
-            </p>
+    <div class="email-container">
+        <div class="header"><img src="images/siba-header.png" alt="SIBA header" /></div>
+        <div class="main-container">
+            <div class="content">
+                <h1 style="text-align: center;">Hi [name], welcome to the [league]!</h1>
+                <p>Thank you for joining! We look forward to chatting with you in our <a
+                        href="https://join.slack.com/t/sibabball/shared_invite/zt-grkrrq9i-je57xB2Y7NGoPTh0GlKNNg">Slack
+                        community</a>. If
+                    you haven't joined already, be sure to do so and say hi in the general channel. From there, one of
+                    the
+                    commissioners will add you to the channels for the pro/college league.</p>
+                <p>Below are some friendly reminders for getting up and running to manage your team(s).</p>
+                <ul>
+                    <li><b>Game versions</b>
+                        <p>For the pro league, we are using Draft Day Sports: Pro Basketball 2020 version 9.13. For the
+                            college league, we are using Draft Day Sports: College Basketball 2020 version 8.20.
+                        </p>
+                    </li>
+                    <li><b>League Graphics and Files</b>
+                        <p>Our leagues use specific graphics for the team logos, players, and coaches. Make sure to
+                            download (pro/college) the graphics folder from our website. Once you download the graphics
+                            .zip folder, you'll place everything in that folder inside the graphics folder where your
+                            game is located, e.g. <code>C:\Wolverine Studios\DDSPB2020\app\disk\graphics</code>.</p>
+
+                        <p>The current league file is also available on our website on the download page. Once you have
+                            the
+                            .zip folder on your computer, unzip the content into the saves folder for your game, e.g.
+                            <code>C:\Wolverine Studios\DDSPB2020\app\disk\saves</code>. Then launch the program, load
+                            the SIBA association, and finally pick your coach's name and insert the password associated
+                            with your team.
+                        </p>
+                    </li>
+                    <li><b>Your Teams</b>
+                        <p>The following is the information you entered for your teams. Double-check everything is
+                            correct and if anything is incorrect, let one of the commissioners know and it will be
+                            changed as soon as possible.</p>
+                        <div class="columns">
+                            <div class="column">
+                                <h2>[Team Name]</h2>
+                                <p><b>Password:</b></p>
+                                <img class="coach-pic-face"
+                                    src="C:\Users\britt\repos\siba-league-site\frontend\public\files\pro\Website\images\nonplayers\fac\2.png"
+                                    alt="" />
+                                <img class="coach-pic-outfit"
+                                    src="C:\Users\britt\repos\siba-league-site\frontend\public\files\pro\Website\images\nonplayers\clothes\3.png"
+                                    alt="" />
+                            </div>
+                            <div class="column">Column 2</div>
+                            <div class="column">Column 3</div>
+                        </div>
+                    </li>
+                </ul>
+                <p>Thanks once again for joining! Tell your friends about the leagues if they love basketball, numbers,
+                    and stats too.
+                    There are plenty of teams available, some really good ones too.
+                </p>
+            </div>
+
+            <p>Happy gaming,</p>
+
+            <p>Kelley and Brittani Avery<br />
+                SIBA/SICBA Commissioners</p>
         </div>
-
-        <p>Happy gaming,</p>
-
-        <p>Kelley and Brittani Avery<br />
-            SIBA/SICBA Commissioners</p>
     </div>
 </body>
 

@@ -16,6 +16,7 @@ provider:
   environment:
     COMMISSIONER: ${self:custom.vars.${self:provider.stage}_commis_email}
     NO_REPLY: ${self:custom.vars.no_reply_email}
+    SITE_URL: ${self:custom.vars.${self:provider.stage}_url}
   iamRoleStatements:
     - Effect: "Allow"
       Action:

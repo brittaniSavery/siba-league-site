@@ -98,31 +98,27 @@ export default function Join() {
         formJson[name] = value;
       }
 
-      console.log(formJson);
+      console.log(JSON.stringify(formJson));
+
       setEmailStatus(SENDING);
-      setTimeout(() => setEmailStatus(SENT), 2000);
-      setValidated(false);
-      form.reset();
-      setSelectedTeams([]);
+      const response = await fetch(process.env.REACT_APP_JOIN_URL, {
+        method: "POST",
+        body: JSON.stringify(formJson),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-      // TODO: Send all form data to join api call
-      // setEmailStatus(SENDING);
-      // const response = await fetch(process.env.REACT_APP_JOIN_URL, {
-      //   method: "POST",
-      //   body: JSON.stringify(selectedTeams),
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      // });
-
-      // if (response.ok) {
-      //   const message = await response.json();
-      //   console.log(`Email sent! ${message}`);
-      //   setEmailStatus(SENT);
-      //   setSelectedTeams({});
-      // } else {
-      //   setEmailStatus(ERROR);
-      // }
+      if (response.ok) {
+        const message = await response.json();
+        console.log(`Email sent! ${message}`);
+        setEmailStatus(SENT);
+        // setValidated(false);
+        // setSelectedTeams({});
+        // form.reset();
+      } else {
+        setEmailStatus(ERROR);
+      }
     }
   };
 

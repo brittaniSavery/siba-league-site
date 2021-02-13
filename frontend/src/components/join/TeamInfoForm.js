@@ -37,7 +37,7 @@ export default function TeamInfoForm({
   const fullTeamType = isPro ? "Professional" : "College";
   const playerType = isPro ? "General Manager" : "Head Coach";
   const teamPattern =
-    isCollege && allTeams.length > 0
+    isCollege && allTeams.some((t) => t.type === COLLEGE)
       ? `.*[^${allTeams.map((a) => a.basics.tier).join("")}]-(?!${allTeams
           .map((a) => a.basics.region)
           .join("|")}).*`

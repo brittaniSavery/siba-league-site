@@ -11,12 +11,15 @@ exports.join = async (event) => {
     const playerEmail = join.buildPlayerEmail(
       body.name,
       body.email,
-      body.league,
       body.teams
     );
-    await ses.sendEmail(commissionerEmail).promise();
-    await ses.sendEmail(playerEmail).promise();
-    return generateResponse(200);
+    //console.log(JSON.stringify(playerEmail));
+    // await ses.sendEmail(commissionerEmail).promise();
+    // await ses.sendEmail(playerEmail).promise();
+    return generateResponse(
+      200,
+      commissionerEmail.Message.Body.Html.Data.replace(/\s+/, " ")
+    );
   } catch (error) {
     return generateError(500, error);
   }
@@ -32,7 +35,7 @@ function generateResponse(code, payload) {
     },
   };
 
-  if (payload) response.body = JSON.stringify(payload);
+  if (payload) response.body = payload; //JSON.stringify(payload);
 
   return response;
 }
