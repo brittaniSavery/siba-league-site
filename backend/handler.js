@@ -13,13 +13,9 @@ exports.join = async (event) => {
       body.email,
       body.teams
     );
-    //console.log(JSON.stringify(playerEmail));
-    // await ses.sendEmail(commissionerEmail).promise();
-    // await ses.sendEmail(playerEmail).promise();
-    return generateResponse(
-      200,
-      commissionerEmail.Message.Body.Html.Data.replace(/\s+/, " ")
-    );
+    await ses.sendEmail(commissionerEmail).promise();
+    await ses.sendEmail(playerEmail).promise();
+    return generateResponse(200);
   } catch (error) {
     return generateError(500, error);
   }
