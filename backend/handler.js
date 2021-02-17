@@ -31,7 +31,7 @@ function generateResponse(code, payload) {
     },
   };
 
-  if (payload) response.body = payload; //JSON.stringify(payload);
+  if (payload) response.body = JSON.stringify(payload);
 
   return response;
 }
