@@ -15,7 +15,7 @@
     "serverless-offline": "^6.5.0"
   },
   "scripts": {
-    "start": "sls offline --functionCleanupIdleTimeSeconds 5",
+    "start": "sls offline",
     "test": "mocha --timeout 5000",
     "deploy": "sls deploy --stage"
   }

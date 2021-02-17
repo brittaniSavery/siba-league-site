@@ -53,20 +53,23 @@ exports.buildCommissionerEmail = ({ name, email, teams, foundBy, reason }) => {
         Html: {
           Charset: "UTF-8",
           Data: `
-          ${EmailStart(`Another person wants to join ${league}!`, "")}
+          ${EmailStart(
+            hasCollege && !hasPro,
+            `Another person wants to join ${league}!`,
+            ""
+          )}
           ${EmailSubheading("Basic Information")}
-          ${EmailParagraph(`<b>Name:</b> ${name}</p>`)}
-          ${EmailParagraph(`<b>Email:</b> ${email}</p>`)}
-          ${EmailParagraph(`<b>Found SIBA from:</b> ${getFoundBy(foundBy)}`)}
-          ${reason && EmailParagraph(`<b>Reason for joining:</b> ${reason}`)}
-          
-          ${EmailBlankLine()}
+          ${EmailParagraph(`
+          <b>Name:</b> ${name}<br />
+          <b>Email:</b> ${email}<br />
+          <b>Found SIBA from:</b> ${getFoundBy(foundBy)}
+          ${reason ? `<br /><b>Reason for joining:</b> ${reason}` : ""}
+          `)}
+
           ${EmailSubheading("Team(s) Information")}
           ${EmailTeams(teams)}
           
-          ${EmailBlankLine()}
-          ${EmailParagraph("Thanks,")}
-          ${EmailParagraph("The Avery Incorporated IT Team")}
+          ${EmailParagraph("Thanks,<br />The Avery Incorporated IT Team")}
           ${EmailEnd(
             "You are receiving this email because someone completed the join form and you are deemed the commissioner for both the pro league and college of SIBA."
           )}`,
@@ -89,9 +92,9 @@ exports.buildPlayerEmail = (name, email, teams) => {
     if (hasPro && hasCollege) {
       return "the SIBA, and its college league, the SICBA";
     } else if (hasPro) {
-      return "the Simulation International Basketball Association (SIBA)";
+      return "the SIBA";
     } else {
-      return "the Simulation International College Basketball Association (SICBA)";
+      return "the SICBA";
     }
   };
 
@@ -266,7 +269,7 @@ function EmailParagraph(text) {
                   style="width: 620px;">
                   <tr>
                       <td class="paragraph-block__content"
-                          style="padding: 25px 0 18px 0; font-size: 16px; line-height: 27px; color: #969696;"
+                          style="padding: 25px 0 18px 0; font-size: 16px; line-height: 27px; color: #495057;"
                           align="left">${text}</td>
                   </tr>
               </table>
@@ -303,7 +306,7 @@ function EmailTeamPlain(team) {
   const personality =
     team.type === PRO
       ? `Personality: ${team.coach.personality}
-  Greed: ${team.coach.greed}`
+         Greed: ${team.coach.greed}`
       : COLLEGE_COACH_PERSONALITY.map(
           (trait) =>
             `${trait}: ${team.coach[trait.toLowerCase()]}
@@ -318,35 +321,39 @@ function EmailTeamPlain(team) {
       .map(
         (ability) =>
           `${ability.label}: ${team.coach[ability.id]}
-                `
+          `
       )
       .join("");
   };
 
   return `
-        ${team.basics.name} (${team.type})
-        Password: ${team.basics.password}
-        ${team.type === PRO ? "General Manager" : "Head Coach"}: ${
+${team.basics.name} (${team.type})
+Password: ${team.basics.password}
+${team.type === PRO ? "General Manager" : "Head Coach"}: ${
     team.coach.first_name
   } ${team.coach.last_name}
-        Picture Number: ${team.coach.pic}
-        Outfit Number: ${team.coach.outfit}
-        ${personality}
-        ${abilities()}
-        -----
+Picture Number: ${team.coach.pic}
+Outfit Number: ${team.coach.outfit}
+
+${team.type === COLLEGE ? "Personality" : ""}
+${personality}
+        
+Ability Points
+${abilities()}
+-----
         `;
 }
 
 function EmailTeam(team) {
-  const defaultFont = "font-size: 16px; line-height: 27px; color: #969696;";
+  const defaultFont = "font-size: 16px; line-height: 27px; color: #495057;";
 
   const personality =
     team.type === PRO
-      ? `<tr><td style="${defaultFont}><b>Personality:</b> ${team.coach.personality}</td></tr>
-       <tr><td style="${defaultFont}><b>Greed:</b> ${team.coach.greed}</td></tr>`
+      ? `<tr><td style="${defaultFont}"><b>Personality:</b> ${team.coach.personality}</td></tr>
+       <tr><td style="${defaultFont}"><b>Greed:</b> ${team.coach.greed}</td></tr>`
       : COLLEGE_COACH_PERSONALITY.map(
           (trait) =>
-            `<tr><td style="${defaultFont}><b>${trait}:</b> ${
+            `<tr><td style="${defaultFont}"><b>${trait}:</b> ${
               team.coach[trait.toLowerCase()]
             }</td></tr>`
         ).join("");
@@ -358,7 +365,9 @@ function EmailTeam(team) {
     return abilityList
       .map(
         (ability) =>
-          `<tr><td><b>${ability.label}:</b> ${team.coach[ability.id]}</td></tr>`
+          `<tr><td  style="${defaultFont}"><b>${ability.label}:</b> ${
+            team.coach[ability.id]
+          }</td></tr>`
       )
       .join("");
   };
@@ -366,47 +375,49 @@ function EmailTeam(team) {
   return `
  <table style="padding: 0 40px;">
  <tr>
-     <td style="font-size: 18px; color: #969696;">${team.basics.name}</td>
+     <td style="font-size: 20px; color: #3260a4;">${team.basics.name} (${
+    team.type
+  })</td>
  </tr>
  <tr>
-     <td style="${defaultFont}><b>Password:</b> ${team.basics.password}</td>
+     <td style="${defaultFont}"><b>Password:</b> ${team.basics.password}</td>
  </tr>
  <tr>
- <td style="${defaultFont}>${
-    team.type === PRO ? "General Manager" : "Head Coach"
-  }</td>
+    <td style="${defaultFont}">
+      ${team.type === PRO ? "General Manager" : "Head Coach"}<br />${
+    team.coach.first_name
+  } ${team.coach.last_name}
+    </td>
 </tr>
-<tr>
- <td style="${defaultFont}>${team.coach.first_name} ${team.coach.last_name}</td>
-</tr
  <tr>
-     <td><img
-     src="${process.env.SITE_URL}/files/${team.type}/Website/images/${
+     <td style="${defaultFont}">
+        <img src="${process.env.SITE_URL}/files/${team.type}/Website/images/${
     team.type === PRO ? "nonplayers" : "coaches"
   }/fac/${team.coach.pic}.png"
-             alt="" /></td>
-<tr>
-    <td style="${defaultFont}><b>Picture Number:</b> ${team.coach.pic}</td>
-</tr>
-  <tr>
-    <td><img
-             src="${process.env.SITE_URL}/files/${team.type}/Website/images/${
+             alt="" />
+        <br />
+        <b>Picture Number:</b> ${team.coach.pic}
+      </td>
+      </tr>
+      <tr>
+     <td style="${defaultFont}">
+        <img src="${process.env.SITE_URL}/files/${team.type}/Website/images/${
     team.type === PRO ? "nonplayers" : "coaches"
   }/clothes/${team.coach.outfit}.png"
-             alt=""/></td>
- </tr>
- <tr>
-     <td style="${defaultFont}><b>Outfit Number:</b> ${team.coach.outfit}</td>
- </tr>
+             alt="" />
+        <br />
+        <b>Picture Number:</b> ${team.coach.outfit}
+      </td>
+  </tr>
  ${
    team.type === COLLEGE
      ? `${EmailBlankLine()}
-    <tr><td style="color: #3260a4; font-size: 16px;">Personality</td></tr>`
+    <tr><td style="color: #3260a4; font-size: 18px; font-weight:500;">Personality</td></tr>`
      : ""
  }
 ${personality}
 ${EmailBlankLine()}
-<tr><td style="color: #3260a4; font-size: 16px;">Ability Points</td></tr>
+<tr><td style="color: #3260a4; font-size: 18px; font-weight:500;">Ability Points</td></tr>
 ${abilities()}
 </table>`;
 }
@@ -421,23 +432,29 @@ function EmailTeams(teams) {
               <table class="container" border="0" cellpadding="0" cellspacing="0"
                   width="100%">
                   <tr>
-                      ${[0, 1, 2].map(
-                        (index) =>
-                          teams[index] &&
-                          `<td align="left">
-                          ${EmailTeam(teams[index])}
-                      </td>`
-                      )}
+                      ${[0, 1]
+                        .map(
+                          (index) =>
+                            teams[index] &&
+                            `<td valign="top" align="left">
+                              ${EmailTeam(teams[index])}
+                             </td>`
+                        )
+                        .join("")}
                   </tr>
 
                   ${
-                    teams.length === 4
+                    teams.length > 2
                       ? `
-                  <tr>
-                  <td align="left">
-                    ${EmailTeam(teams[index])}
-                  </td>
-                  </tr>`
+                      ${[2, 3]
+                        .map(
+                          (index) =>
+                            teams[index] &&
+                            `<td valign="top" align="left" style="padding-top: 15px">
+                              ${EmailTeam(teams[index])}
+                             </td>`
+                        )
+                        .join("")}`
                       : ""
                   }
               </table>
@@ -447,7 +464,7 @@ function EmailTeams(teams) {
   <!-- /// Projects list -->`;
 }
 
-function EmailStart(hasCollegeOnly, title, header) {
+function EmailStart(hasCollegeOnly, title, content) {
   const backgroundColor = hasCollegeOnly ? "#313638" : "#3260a4";
 
   return `
@@ -615,8 +632,8 @@ function EmailStart(hasCollegeOnly, title, header) {
 
                                 <tr>
                                     <td class="hero-subheader__content"
-                                        style="font-size: 16px; line-height: 27px; color: #969696; padding: 0 60px 10px 0;"
-                                        align="left">${header}</td>
+                                        style="font-size: 16px; line-height: 27px; color: #343a40; padding: 0 60px 10px 0;"
+                                        align="left">${content}</td>
                                 </tr>
                             </table>
                             <!-- /// Hero subheader -->`;
@@ -632,11 +649,9 @@ function EmailEnd(footer) {
               <table class="container" border="0" cellpadding="0" cellspacing="0" width="620"
                   align="center" style="border-top: 1px solid #eeeeee; width: 620px;">
                   <tr>
-                      <td style="text-align: center; padding: 50px 0 30px 0;">
-                      ${footer}<br/>
-                          <a href="https://averyincorporated.com"
-                              style="font-size: 12px; text-decoration: none; color: #969696;">
-                              Avery Incorporated</a>
+                      <td style="color: #969696; font-size: 14px; text-align: center; padding: 50px 0 30px 0;">
+                      ${footer}<br/><br />
+                          <a href="https://averyincorporated.com">Avery Incorporated</a>
                       </td>
                   </tr>
 

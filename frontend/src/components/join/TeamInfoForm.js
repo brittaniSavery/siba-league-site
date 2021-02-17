@@ -24,11 +24,9 @@ export default function TeamInfoForm({
   options,
 }) {
   const typeahead = useRef(null);
-  const [pointLimits, setPointLimits] = React.useState({
-    min: 10,
-    max: 85,
-    sum: 325,
-  });
+  const [pointLimits, setPointLimits] = React.useState(
+    getPointLimitsByTier(current?.basics?.tier || "")
+  );
   const [currentSum, setCurrentSum] = React.useState(0);
   const [validated, setValidated] = React.useState(false);
   const [teamError, setTeamError] = React.useState("");
@@ -36,56 +34,6 @@ export default function TeamInfoForm({
   const isCollege = current.type === COLLEGE;
   const fullTeamType = isPro ? "Professional" : "College";
   const playerType = isPro ? "General Manager" : "Head Coach";
-  const teamPattern =
-    isCollege && allTeams.some((t) => t.type === COLLEGE)
-      ? `.*[^${allTeams.map((a) => a.basics.tier).join("")}]-(?!${allTeams
-          .map((a) => a.basics.region)
-          .join("|")}).*`
-      : ".*";
-
-  const typeaheadOptions = isCollege
-    ? {
-        labelKey: (option) =>
-          `${option.name} (${option.tier}-${option.region})`,
-        inputProps: { required: true, pattern: teamPattern, name: "team" },
-        onChange: (allTeams) => {
-          if (allTeams.length === 0) return;
-
-          switch (allTeams[0].tier) {
-            case "3":
-              setPointLimits({
-                min: 5,
-                max: 45,
-                sum: 150,
-              });
-              break;
-            case "2":
-              setPointLimits({
-                min: 5,
-                max: 65,
-                sum: 240,
-              });
-              break;
-            default:
-              setPointLimits({
-                min: 10,
-                max: 85,
-                sum: 325,
-              });
-          }
-        },
-        renderMenuItemChildren: (option, { text }) => (
-          <>
-            <Highlighter search={text}>{option.name}</Highlighter>
-            <div>
-              <small>
-                Tier: {option.tier}, Region: {option.region}
-              </small>
-            </div>
-          </>
-        ),
-      }
-    : { inputProps: { required: true, name: "team" } };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -134,8 +82,7 @@ export default function TeamInfoForm({
 
   const validateTeamSelection = () => {
     let error = "";
-    const selectedArray = typeahead.current.state.selected;
-
+    const selectedArray = typeahead.current?.state?.selected || [];
     if (selectedArray.length === 0) {
       error = "This field is required.";
     } else if (isCollege && allTeams.length > 0) {
@@ -152,6 +99,50 @@ export default function TeamInfoForm({
 
     setTeamError(error);
   };
+
+  const getTeamValidationPattern = () => {
+    if (!isCollege || !allTeams.some((t) => t.type === COLLEGE)) return ".*";
+
+    const editingCurrent = current?.basics?.name
+      ? `(.*${current.basics.name}.*)|`
+      : "";
+    const selectedTiers = allTeams.map((a) => a.basics.tier).join("");
+    const selectedRegions = allTeams.map((a) => a.basics.region).join("|");
+
+    return `${editingCurrent}.*[^${selectedTiers}]-(?!${selectedRegions}).*`;
+  };
+
+  const typeaheadOptions = isCollege
+    ? {
+        labelKey: (option) =>
+          `${option.name} (${option.tier}-${option.region})`,
+        inputProps: {
+          required: true,
+          pattern: getTeamValidationPattern(),
+          name: "team",
+        },
+        onChange: () => {
+          if (typeahead.current.state.selected.length === 0) return;
+          setPointLimits(
+            getPointLimitsByTier(typeahead.current.state.selected[0].tier)
+          );
+
+          validated && validateTeamSelection();
+        },
+        renderMenuItemChildren: (option, { text }) => (
+          <>
+            <Highlighter search={text}>{option.name}</Highlighter>
+            <div>
+              <small>
+                Tier: {option.tier}, Region: {option.region}
+              </small>
+            </div>
+          </>
+        ),
+      }
+    : {
+        inputProps: { required: true, name: "team" },
+      };
 
   return (
     <>
@@ -182,16 +173,12 @@ export default function TeamInfoForm({
                   <Typeahead
                     id="team"
                     ref={typeahead}
-                    defaultInputValue={
-                      current?.basics &&
-                      `${current?.basics?.name} (${current.basics.tier}-${current.basics.region})`
-                    }
+                    defaultSelected={current?.basics ? [current.basics] : []}
                     className={
                       validated && teamError ? "is-invalid" : "is-valid"
                     }
                     options={options}
                     {...typeaheadOptions}
-                    onChange={validateTeamSelection}
                     highlightOnlyResult
                   />
                   <Form.Control.Feedback type="invalid">
@@ -301,7 +288,7 @@ export default function TeamInfoForm({
           </Modal.Body>
           <Modal.Footer>
             <Button variant="primary" type="submit">
-              Add
+              {current?.basics ? "Edit" : "Add"}
             </Button>
             <Button variant="light" onClick={handleClose}>
               Cancel
@@ -377,4 +364,27 @@ function CoachPersonalityFields({ team }) {
       ))}
     </>
   );
+}
+
+function getPointLimitsByTier(tier) {
+  switch (tier) {
+    case "3":
+      return {
+        min: 5,
+        max: 45,
+        sum: 150,
+      };
+    case "2":
+      return {
+        min: 5,
+        max: 65,
+        sum: 240,
+      };
+    default:
+      return {
+        min: 10,
+        max: 85,
+        sum: 325,
+      };
+  }
 }

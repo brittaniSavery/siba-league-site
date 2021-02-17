@@ -98,8 +98,6 @@ export default function Join() {
         formJson[name] = value;
       }
 
-      console.log(JSON.stringify(formJson));
-
       setEmailStatus(SENDING);
       const response = await fetch(process.env.REACT_APP_JOIN_URL, {
         method: "POST",
@@ -110,13 +108,12 @@ export default function Join() {
       });
 
       if (response.ok) {
-        const message = await response.json();
-        console.log(`Email sent! ${message}`);
         setEmailStatus(SENT);
-        // setValidated(false);
-        // setSelectedTeams({});
-        // form.reset();
+        setValidated(false);
+        setSelectedTeams({});
+        form.reset();
       } else {
+        console.log(await response.text());
         setEmailStatus(ERROR);
       }
     }
