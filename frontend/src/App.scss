@@ -1,10 +1,15 @@
 //Bootstrap overrides
 $primary: #3260a4;
 $secondary: #7eb7e5;
+$link-decoration: underline;
+$mark-bg: #e8f5ff;
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 #content {
   padding-top: 7rem;
   padding-bottom: 5rem;
+  min-height: 94vh;
   background-color: white;
   min-height: 95vh;
 
@@ -63,33 +68,48 @@ iframe {
   width: 175px;
   text-align: center;
   word-wrap: break-word;
-}
 
-.conference-card h2 {
-  font-weight: 600;
-  font-size: 1.25em;
-  margin: 0em;
-  margin-top: 0.25em;
+  h2 {
+    font-weight: 600;
+    font-size: 1.25em;
+    margin: 0em;
+    margin-top: 0.25em;
+  }
 }
 
 .owners-grid {
   display: block;
   text-align: center;
   word-wrap: break-word;
+
+  img {
+    display: block;
+    width: 150px;
+    margin: auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  h2 {
+    font-weight: 600;
+    font-size: 1.25em;
+    margin: 0em;
+  }
 }
 
-.owners-grid img {
-  display: block;
-  width: 150px;
-  margin: auto;
-  max-width: 100%;
-  height: auto;
+//shortening the width of input
+.form-control.is-short-width {
+  width: 6em;
 }
 
-.owners-grid h2 {
-  font-weight: 600;
-  font-size: 1.25em;
-  margin: 0em;
+.coach-pic {
+  &-face {
+    position: relative;
+    z-index: 0;
+  }
+  &-outfit {
+    position: relative;
+    right: 98px;
+    z-index: 1;
+  }
 }
-
-@import "../node_modules/bootstrap/scss/bootstrap.scss";

@@ -6,7 +6,10 @@ import collegeDates from "../images/college-dates.png";
 import collegeRegions from "../images/college-regions.png";
 import collegeTournaments from "../images/college-tournaments.png";
 import Content from "../layout/Content";
-import { Col, Container, Row, Table } from "react-bootstrap";
+import Table from "react-bootstrap/Table";
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 export default function MarkdownContainer({ file, header, children }) {
   const [markdown, setMarkdown] = React.useState("");

@@ -1,55 +1,156 @@
 import React from "react";
-import { Button, Modal } from "react-bootstrap";
+import Alert from "react-bootstrap/Alert";
+import Button from "react-bootstrap/Button";
+
+import Form from "react-bootstrap/Form";
+import Spinner from "react-bootstrap/Spinner";
+
+import TeamInfoForm from "../components/join/TeamInfoForm";
 import InputField from "../components/InputField";
 import Content from "../layout/Content";
-import { ERROR, SENDING, SENT } from "../lib/constants";
+import { readString } from "react-papaparse";
+import allCollegeTeamsFile from "../lib/sicba-rankings.csv";
+import { ERROR, SENDING, SENT, PRO_TEAMS, PRO } from "../lib/constants";
+import TeamSelectionCard from "../components/join/TeamSelectionCard";
 
-function Join() {
-  const [formData, setFormData] = React.useState({
-    name: "",
-    email: "",
-    league: "",
-    teams: "",
-    foundBy: "",
-    reason: "",
-  });
-  const [emailStatus, setEmailStatus] = React.useState("");
+export default function Join() {
+  const [pageError, setPageError] = React.useState(false);
+  const [validated, setValidated] = React.useState(false);
+  const [proTeams, setProTeams] = React.useState([]);
+  const [collegeTeams, setCollegeTeams] = React.useState([]);
+  const [selectedTeams, setSelectedTeams] = React.useState([]);
+  const [currentTeam, setCurrentTeam] = React.useState({ type: PRO });
+  const [emailStatus, setEmailStatus] = React.useState();
+  const [openAddTeam, setOpenAddTeam] = React.useState(false);
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        //get human (unavailable) teams
+        const proHumanTeamsFetch = await fetch(
+          `${process.env.REACT_APP_TEAMS_URL}?league=pro`
+        );
+        const collegeHumanTeamsFetch = await fetch(
+          `${process.env.REACT_APP_TEAMS_URL}?league=college`
+        );
+
+        //parse college team file
+        const fileResponse = await fetch(allCollegeTeamsFile);
+        const file = await fileResponse.text();
+        const parseResult = readString(file, {
+          header: true,
+          dynamicTyping: false,
+          transformHeader: (header) => header.toLowerCase(),
+        });
+
+        //let the user know necessary data was not loaded correctly
+        if (
+          parseResult.errors.length ||
+          !proHumanTeamsFetch.ok ||
+          !collegeHumanTeamsFetch
+        ) {
+          console.log(parseResult.errors);
+          console.log(await proHumanTeamsFetch.text());
+          console.log(await collegeHumanTeamsFetch.text());
+          setPageError(true);
+        } else {
+          //continue filtering out unavailable human teams
+          const proHumanTeams = (await proHumanTeamsFetch.json()).map(
+            (team) => team.name
+          );
+          const collegeHumanTeams = (await collegeHumanTeamsFetch.json()).map(
+            (team) => team.name
+          );
+          const allCollegeTeams = parseResult.data.map((team) => ({
+            tier: team.tier,
+            name: `${team.school} ${team.nickname}`,
+            region: team.region,
+          }));
+
+          setProTeams(
+            PRO_TEAMS.filter((team) => !proHumanTeams.includes(team))
+          );
+          setCollegeTeams(
+            allCollegeTeams.filter((team) =>
+              collegeHumanTeams.every((hTeam) => hTeam !== team.name)
+            )
+          );
+        }
+      } catch (error) {
+        setPageError(true);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setEmailStatus(SENDING);
+    event.stopPropagation();
 
-    const response = await fetch(process.env.REACT_APP_JOIN_URL, {
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    if (response.ok) {
-      const message = await response.json();
-      console.log(`Email sent! ${message}`);
-      setEmailStatus(SENT);
-      setFormData({
-        name: "",
-        email: "",
-        league: "",
-        teams: "",
-        foundBy: "",
-        reason: "",
-      });
+    const form = event.currentTarget;
+    if (form.checkValidity() === false || selectedTeams.length === 0) {
+      setValidated(true);
     } else {
-      setEmailStatus(ERROR);
+      const formJson = { teams: selectedTeams };
+      const formData = new FormData(form);
+      for (const [name, value] of formData) {
+        formJson[name] = value;
+      }
+
+      setEmailStatus(SENDING);
+      const response = await fetch(process.env.REACT_APP_JOIN_URL, {
+        method: "POST",
+        body: JSON.stringify(formJson),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setEmailStatus(SENT);
+        setValidated(false);
+        setSelectedTeams({});
+        form.reset();
+      } else {
+        console.log(await response.text());
+        setEmailStatus(ERROR);
+      }
     }
   };
 
-  const handleOnChange = (event) => {
-    setFormData({ ...formData, [event.target.id]: event.target.value });
+  const handleOpenAddTeam = (team) => {
+    setOpenAddTeam(true);
+    if (typeof team === "string") {
+      setCurrentTeam({ type: team });
+    } else {
+      setCurrentTeam(team);
+    }
   };
 
-  const handleClose = () => {
-    setEmailStatus("");
+  const handleAddTeam = (team) => {
+    setOpenAddTeam(false);
+    if (team) {
+      const newTeams = [...selectedTeams];
+      const match = selectedTeams.findIndex((sTeam) => sTeam.id === team.id);
+      match < 0 ? newTeams.push(team) : newTeams.splice(match, 1, team);
+      setSelectedTeams(newTeams);
+
+      //remove team from list options
+      if (team.type === PRO) {
+        const newOptions = proTeams.filter((p) => p !== team.basics.name);
+        setProTeams(newOptions);
+      } else {
+        const newOptions = collegeTeams.filter(
+          (c) => c.name !== team.basics.name
+        );
+        setCollegeTeams(newOptions);
+      }
+    }
+  };
+
+  const handleDeleteTeam = (id) => {
+    if (id) setSelectedTeams(selectedTeams.filter((t) => t.id !== id));
   };
 
   return (
@@ -57,61 +158,60 @@ function Join() {
       <p>
         Interested in joining the SIBA as the general manager of your own
         professional basketball team or as the head coach of your own university
-        basketball team? Fill out the form below and the commissioner will
-        contact you with more information on available teams and follow-up
-        steps.
+        basketball team? Fill out the form below, selecting your teams and
+        coach, and the commissioner take your information and add you to our
+        league.
       </p>
 
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <InputField
-          id="name"
-          label="Name:"
-          value={formData.name}
-          onChange={(e) => handleOnChange(e)}
-          required
-        />
+      {pageError && (
+        <Alert variant="warning">
+          <Alert.Heading>Teams Missing</Alert.Heading>
+          <p>
+            It looks like the available team choices have not loaded properly.
+            Try refreshing the page to see if that fixes the problem.
+          </p>
+        </Alert>
+      )}
+
+      {emailStatus && emailStatus !== SENDING && (
+        <Alert variant={emailStatus === SENT ? "success" : "danger"}>
+          <Alert.Heading>
+            {emailStatus === SENT ? "Thank you!" : "Oops!"}
+          </Alert.Heading>
+          {emailStatus === SENT && (
+            <p>
+              We greatly appreciate your interest in the Simulation
+              International Basketball Association (SIBA). A confirmation email
+              from siba@averyincorporated.com has just been sent to you. Be sure
+              to check your junk/spam folder!
+            </p>
+          )}
+          {emailStatus === ERROR && <p>An error occurred. Maybe try again?</p>}
+        </Alert>
+      )}
+
+      <TeamInfoForm
+        open={openAddTeam}
+        onClose={handleAddTeam}
+        options={currentTeam.type === PRO ? proTeams : collegeTeams}
+        current={currentTeam}
+        allTeams={selectedTeams}
+      />
+
+      <Form noValidate validated={validated} onSubmit={(e) => handleSubmit(e)}>
+        <InputField id="name" label="Name:" required />
 
         <InputField
           id="email"
           type="email"
           label="Email:"
-          value={formData.email}
-          onChange={(e) => handleOnChange(e)}
+          error={"Please enter a valid email."}
           required
         />
 
-        <InputField
-          id="league"
-          as="select"
-          label="Preferred League:"
-          value={formData.league}
-          onChange={(e) => handleOnChange(e)}
-          required
-        >
+        <InputField id="foundBy" as="select" label="Found SIBA From:" required>
           <option value=""></option>
-          <option value="pro">Professional (SIBA)</option>
-          <option value="college">College (SICBA)</option>
-          <option value="both">Both</option>
-        </InputField>
-
-        <InputField
-          id="teams"
-          as="textarea"
-          label="Team Choice(s):"
-          value={formData.teams}
-          onChange={(e) => handleOnChange(e)}
-          required
-        />
-
-        <InputField
-          id="foundBy"
-          as="select"
-          label="Found SIBA By:"
-          value={formData.foundBy}
-          onChange={(e) => handleOnChange(e)}
-          required
-        >
-          <option value=""></option>
+          <option value="developers">Wolverine Studios Forums</option>
           <option value="referral">Friend/Family</option>
           <option value="google">Google</option>
           <option value="fb">Facebook</option>
@@ -123,47 +223,51 @@ function Join() {
           id="reason"
           as="textarea"
           label="Reason for Joining:"
-          value={formData.reason}
-          onChange={(e) => handleOnChange(e)}
           placeholder="Optional"
         />
 
-        <Button type="submit" disabled={emailStatus === SENDING}>
-          Submit
-        </Button>
-        <span style={{ display: emailStatus !== SENDING ? "none" : null }}>
-          Please Wait...
-        </span>
-      </form>
+        <h2 className="h3">Pick Your Teams</h2>
+        <p>
+          This is where your team choices will appear after adding them by
+          clicking the "Add" button for pro or college teams. Feel free to only
+          add a pro league or just some college teams. At least one team is
+          required before submitting the form.
+        </p>
 
-      <Modal show={emailStatus === SENT || emailStatus === ERROR}>
-        <Modal.Header>
-          <Modal.Title>
-            {emailStatus === SENT ? "Thank you!" : "Uh oh!"}
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          {emailStatus === SENT ? (
-            <p>
-              We greatly appreciate your interest in the Simulation
-              International Basketball Association (SIBA). In a couple of days,
-              you'll receive an email from siba@averyincorporated.com detailing
-              the information required to get you up and running in the
-              league(s). Be sure to check your junk/spam folder!
-            </p>
-          ) : (
-            <p>
-              Seems like an error occurred when trying to send the email to the
-              commissioner. Maybe try again?
-            </p>
+        {validated && selectedTeams.length === 0 && (
+          <Alert variant="danger">
+            <Alert.Heading>Team Choice(s) Required</Alert.Heading>
+            At least one team must be added before submitting the form. Remember
+            you can have a one (1) pro team and up to three (3) college teams
+            but you <b>do not</b> have to participate in both leagues. Pick the
+            amount of teams you can handle.
+          </Alert>
+        )}
+
+        <TeamSelectionCard
+          teams={selectedTeams}
+          onAdd={handleOpenAddTeam}
+          onDelete={handleDeleteTeam}
+        />
+
+        <Button
+          type="submit"
+          variant="primary"
+          className="mt-3"
+          disabled={emailStatus === SENDING}
+        >
+          {emailStatus === SENDING && (
+            <Spinner
+              as="span"
+              animation="border"
+              size="sm"
+              role="status"
+              aria-hidden="true"
+            />
           )}
-        </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={() => handleClose()}>Close</Button>
-        </Modal.Footer>
-      </Modal>
+          {emailStatus === SENDING ? " Loading..." : "Submit"}
+        </Button>
+      </Form>
     </Content>
   );
 }
-
-export default Join;

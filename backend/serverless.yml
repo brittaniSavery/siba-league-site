@@ -14,8 +14,9 @@ provider:
   region: us-west-2
   stage: ${opt:stage, self:custom.defaultStage}
   environment:
-    COMMIS_EMAIL: ${self:custom.vars.${self:provider.stage}_commis_email}
-    SIBA_EMAIL: ${self:custom.vars.siba_email}
+    COMMISSIONER: ${self:custom.vars.${self:provider.stage}_commis_email}
+    NO_REPLY: ${self:custom.vars.no_reply_email}
+    SITE_URL: ${self:custom.vars.site_url}
   iamRoleStatements:
     - Effect: "Allow"
       Action:
@@ -33,15 +34,3 @@ functions:
           path: siba/join
           method: post
           cors: true
-  parse:
-    handler: handler.parse
-    events:
-      - http:
-          method: get
-          path: siba/parse
-          cors: true
-          request:
-            parameters:
-              querystrings:
-                url: true
-                page: true

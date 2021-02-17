@@ -2,60 +2,38 @@
 
 const aws = require("aws-sdk");
 const ses = new aws.SES();
-
 const join = require("./join");
-const { parse } = require("./parse");
 
 exports.join = async (event) => {
   try {
-    const joinEmail = join.buildEmail(event.body);
-    const result = await ses.sendEmail(joinEmail).promise();
-    return generateResponse(200, result);
-  } catch (error) {
-    return generateError(500, error);
-  }
-};
-
-exports.parse = async (event) => {
-  try {
-    let url, page;
-
-    if (event.queryStringParameters) {
-      url = event.queryStringParameters.url;
-      page = event.queryStringParameters.page;
-    }
-
-    if (!(url && page)) throw new Error("Required - Url and Page");
-
-    const result = await parse(url, page);
-
-    // errors not catching due to nested async functions, moving errors up
-    if (result instanceof Error) {
-      let status;
-
-      if (result.message.indexOf("Not Found")) status = 404;
-      else if (result.message.indexOf("Required")) status = 400;
-      else status = 500;
-
-      return generateError(status, result);
-    }
-
-    return generateResponse(200, result);
+    const body = JSON.parse(event.body);
+    const commissionerEmail = join.buildCommissionerEmail(body);
+    const playerEmail = join.buildPlayerEmail(
+      body.name,
+      body.email,
+      body.teams
+    );
+    await ses.sendEmail(commissionerEmail).promise();
+    await ses.sendEmail(playerEmail).promise();
+    return generateResponse(200);
   } catch (error) {
     return generateError(500, error);
   }
 };
 
 function generateResponse(code, payload) {
-  return {
+  const response = {
     statusCode: code,
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Headers": "x-requested-with",
       "Access-Control-Allow-Credentials": true,
     },
-    body: JSON.stringify(payload),
   };
+
+  if (payload) response.body = JSON.stringify(payload);
+
+  return response;
 }
 
 function generateError(code, error) {
