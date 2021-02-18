@@ -6,6 +6,8 @@ Whatever your play style, join the SIBA and/or the SICBA and test your basketbal
 
 ### February 17, 2021
 
+**Update:** The Columbus Barons have announced that Robby Arnold has stepped down from his position as general manager. According to the Barons, Arnold wanted to focus more on Louisville Cardinals, the college team he is also managing. In other news, we have another head coach has joined the SICBA! Please welcome Pops Galindo of the Memphis Tigers.
+
 Chris Guzy from the Liberty Flames has joined Brooks Ward Jr. and joined the New York Metros as their new general manager. Very exciting to see how the college coaches handle the challenges that come from the professional league!
 
 ### February 8, 2021

@@ -129,7 +129,7 @@ exports.buildPlayerEmail = (name, email, teams) => {
             hasCollege && !hasPro,
             `Hi ${name}, welcome to ${leagueName()}!`,
             `Thank you for joining! We look forward to chatting with you in our <a
-            href="https://join.slack.com/t/sibabball/shared_invite/zt-grkrrq9i-jex2YNGoPTh0GlKNNg" target="_blank"
+            href="https://join.slack.com/t/sibabball/shared_invite/zt-grkrrq9i-je57xB2Y7NGoPTh0GlKNNg" target="_blank"
             style="color: #3260a4;">Slack community</a>. If you haven't joined already, be sure to do so and say hi in the general channel. 
             From there, one of the commissioners will add you to the right channels for ${league}.`
           )}
@@ -190,7 +190,7 @@ exports.buildPlayerEmail = (name, email, teams) => {
           Data: `
           Hi ${name}, welcome to ${leagueName()}!
       
-          Thank you for joining! We look forward to chatting with you in our Slack community (https://join.slack.com/t/sibabball/shared_invite/zt-grkrrq9i-jex2YNGoPTh0GlKNNg).
+          Thank you for joining! We look forward to chatting with you in our Slack community (https://join.slack.com/t/sibabball/shared_invite/zt-grkrrq9i-je57xB2Y7NGoPTh0GlKNNg).
           If you haven't joined already, be sure to do so and say hi in the general channel. From there, one of the commissioners will add you to the right channels for ${league}.
 
           Below are some friendly reminders for getting ready to join in on the fun of managing a team.
