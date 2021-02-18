@@ -46,23 +46,15 @@ email or some other method to communicate their instructions.
 
 ## In Season Free Agent Signing
 
-In-Season is done by a team placing a post in the free agency thread
-which player they want. Then that player is there for 24 hours to give
-any other teams a chance of signing him. After the 24 hour period, Commissioner will use the website [True Random Number Generator](http://www.random.org/) to calculate the number. Three
-random numbers will be average together to get the free agent number of
-interest.
+In-Season is done by a team placing a post in the free agency thread which player they want. Then that player is there for 24 hours to give
+any other teams a chance of signing him. After the 24 hour period, Commissioner will use the website [True Random Number Generator](http://www.random.org/) to calculate the number. Three random numbers will be average together to get the free agent number of interest.
 
 The following are the changes to sign the free agent depending on the number of interested teams.
 
 1. If only one team is involved, then that team signs him.
-2. If two teams are involved, then the first team has a 70% chance of
-   signing him and the second team has only 30%. Example: team one has
-   from (1-70) and team two has from (71-100).
-3. If three teams are involved, then the break down is team one gets 70%
-   (1-70), team two get 20% (71-90), and team three get 10% (91-100).
-4. If four teams are involved, then the break down is team one gets 65%
-   (1-65), team two gets 20% (66-85), team three gets 10% (86-95), and
-   team four gets 5% (96-100).
+2. If two teams are involved, then the first team has a 85% chance of signing him and the second team has only 15%. Example: team one has from (1-85) and team two has from (86-100).
+3. If three teams are involved, then the break down is team one gets 80% (1-80), team two get 15% (81-95), and team three get 5% (96-100).
+4. If four teams are involved, then the break down is team one gets 75% (1-75), team two gets 15% (76-90), team three gets 7% (91-97), and team four gets 3% (98-100).
 
 **NOTE:** Only four teams can claim a free agent. After the fourth team has
 claimed him, the claims are finalized. Only the first four teams will

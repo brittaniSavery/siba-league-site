@@ -13,7 +13,7 @@ support it.
 
 ### Kelley Avery
 
-Basketball has always been a major portion of Kelly's life. He played the
+Basketball has always been a major portion of Kelley's life. He played the
 game throughout his childhood and in his high school years and shared the
 love of the game with fifth and sixth grades when he coached little
 league. However, he has always been a family man at heart and his favorite
