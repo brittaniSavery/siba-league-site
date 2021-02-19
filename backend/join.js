@@ -406,7 +406,7 @@ function EmailTeam(team) {
   }/clothes/${team.coach.outfit}.png"
              alt="" />
         <br />
-        <b>Picture Number:</b> ${team.coach.outfit}
+        <b>Outfit Number:</b> ${team.coach.outfit}
       </td>
   </tr>
  ${
