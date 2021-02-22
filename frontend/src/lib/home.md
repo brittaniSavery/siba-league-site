@@ -4,6 +4,10 @@ Whatever your play style, join the SIBA and/or the SICBA and test your basketbal
 
 ## Updates
 
+### February 21, 2021
+
+Another college coach wants to try his hand at managing a pro team as well. Don Lookingbill will be taking over the Boston Nighthawks.
+
 ### February 20, 2021
 
 Three new coaches have joined SICBA! Please welcome Tim Smitherson of the Arizona State Sun Devils, Eddie Komrska of the Duke Blue Devils, and Henry Mann of the Illinois State Redbirds.
