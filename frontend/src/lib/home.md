@@ -4,6 +4,14 @@ Whatever your play style, join the SIBA and/or the SICBA and test your basketbal
 
 ## Updates
 
+### February 23, 2021
+
+There has been a lot of movement in and around both the pro and college leagues. Dave Galindo has decided to take control over two San Diego teams, the pro team of the San Diego Captains and the college team of the San Diego State Aztecs. We wish him and his teams the best in the upcoming seasons!
+
+As stated earlier, Robby Arnold had stepped down from his position as general manager of the Columbus Barons. Apparently, there is a bit more to that story. A disagreement in the Barons' front office actually led Arnold to step away from the organization. Without much hesitation, they began interviewing to fill the new vacancy. Jeremy Goldman was the head runner for the job; however, neither side could come to an agreement. Frustrated with the situation, the Barons' owner Arthur Deane, got on the phone and called Arnold. After a long and somewhat intense discussion, they came to an understanding of each other and the rest of the organization. With that, Robby Arnold is back as GM of the Barons.
+
+Jeremy Goldman, fortunately, was not left out of the GM conversation. He had also interviewed with the Charlotte Wasp. Yet, the owner of the team, Will Jackson, was in the middle of negotiations for a new arena and could not give Goldman his full attention. The deal for the new arena eventually fell through, which Jackson caused to pack up and relocate the organization to Atlanta, giving them a new name as well, the Atlanta Attack. Seeing that Robby Arnold had retaken the job at Columbus and Jeremy Goldman was still available, Jackson hired Goldman to be the first GM of the new Atlanta team.
+
 ### February 21, 2021
 
 Another college coach wants to try his hand at managing a pro team as well. Don Lookingbill will be taking over the Boston Nighthawks.
