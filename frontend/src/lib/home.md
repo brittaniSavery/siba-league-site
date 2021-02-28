@@ -4,6 +4,10 @@ Whatever your play style, join the SIBA and/or the SICBA and test your basketbal
 
 ## Updates
 
+### February 28, 2021
+
+We have another new GM for SIBA. Please welcome Luis Rodriguez of the New Jersey Hoops! With Rodriguez joining, we have our first fully human controlled division in the pro league.
+
 ### February 23, 2021
 
 There has been a lot of movement in and around both the pro and college leagues. Dave Galindo has decided to take control over two San Diego teams, the pro team of the San Diego Captains and the college team of the San Diego State Aztecs. We wish him and his teams the best in the upcoming seasons!
