@@ -4,6 +4,10 @@ Whatever your play style, join the SIBA and/or the SICBA and test your basketbal
 
 ## Updates
 
+### March 2, 2021
+
+We have two more GMs joining the SIBA! Please welcome Eddie Komrska of the Indiana Express and Denzil Davis of the Seattle Sasquatch.
+
 ### February 28, 2021
 
 We have another new GM for SIBA. Please welcome Luis Rodriguez of the New Jersey Hoops! With Rodriguez joining, we have our first fully human controlled division in the pro league.
