@@ -23,11 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $fileMove = move_uploaded_file($_FILES["teamFile"]["tmp_name"], $target_file);
 
         if ($fileMove) {
-            $uploadSet = setUploadDate($_POST["teamId"], $_POST["leagueType"], $_POST["uploadDate"]);
+            $uploadDate = setUploadDate($_POST["teamId"], $_POST["leagueType"]);
 
-            if ($uploadSet) {
+            if ($uploadDate) {
                 http_response_code(200);
                 $response["message"] = "Upload successful.";
+                $response["updated"] = $uploadDate;
             } else {
                 http_response_code(500);
                 $response["message"] = "An error occurred during the database update.";
@@ -47,8 +48,8 @@ echo json_encode($response);
 /**
  * Sets the upload data for the selected team
  */
-function setUploadDate($teamId, $league, $date)
+function setUploadDate($teamId, $league)
 {
     $conn = setupDatabase();
-    return updateUploadDate($conn, $league, $teamId, $date);
+    return updateUploadDate($conn, $league, $teamId);
 }

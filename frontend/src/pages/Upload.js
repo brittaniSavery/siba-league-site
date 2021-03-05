@@ -1,4 +1,5 @@
 import React from "react";
+import { DateTime } from "luxon";
 import { Alert, Button } from "react-bootstrap";
 import InputField from "../components/InputField";
 import useReducerWithThunk from "../hooks/useReducerWithThunk";
@@ -9,7 +10,6 @@ import {
   UPLOAD_SUBMIT_SUCCESS,
 } from "../lib/constants";
 import Content from "../layout/Content";
-import moment from "moment";
 
 export default function Upload() {
   const [form, dispatch] = useReducerWithThunk(formReducer, undefined, init);
@@ -41,6 +41,7 @@ export default function Upload() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    event.stopPropagation();
 
     return async (dispatch, getState) => {
       dispatch({ type: UPLOAD_SUBMIT });
@@ -72,8 +73,6 @@ export default function Upload() {
         for (const [field, { value }] of Object.entries(currentForm.fields)) {
           formData.append(field, value);
         }
-        const uploadDate = moment.utc().format("YYYY-MM-DD HH:mm:ss");
-        formData.append("uploadDate", uploadDate);
 
         const response = await fetch(process.env.REACT_APP_UPLOAD_URL, {
           method: "POST",
@@ -81,13 +80,14 @@ export default function Upload() {
         });
 
         if (response.ok) {
+          const uploadDate = (await response.json()).updated;
           let message = "";
-          let currentTeam =
+          let currentTeams =
             currentForm.fields.leagueType.value === "pro"
               ? proTeams
               : collegeTeams;
 
-          currentTeam.forEach((team) => {
+          currentTeams.forEach((team) => {
             if (team.id === currentForm.fields.teamId.value) {
               team.uploadDate = uploadDate;
               message = `Your file for the ${team.name} was successfully uploaded to the ${currentForm.fields.leagueType.value} league.`;
@@ -282,8 +282,11 @@ function validate(state, name, value) {
 function getUploadDate(name, value, teams) {
   if (name !== "teamId") return null;
   const uploadDate = teams.find((t) => t.id === value).uploadDate;
+
   return uploadDate
-    ? `Last Upload: ${moment.utc(uploadDate).local().format("LLL")}`
+    ? `Last Upload: ${DateTime.fromSQL(uploadDate, { zone: "utc" })
+        .toLocal()
+        .toLocaleString(DateTime.DATETIME_MED)}`
     : "No recent upload";
 }
 

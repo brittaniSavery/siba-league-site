@@ -16,15 +16,12 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         return;
     }
 
-    $response = (object) [];
+    $response = array();
     $dir = $_GET["league"];
     $file = $dir === "pro" ? "siba" : "sicba";
 
-    $response->league = filemtime(dirname(__DIR__) . "/files/" . $dir . "/" . strtoupper($file) . ".zip");
-    $response->graphics = filemtime(dirname(__DIR__) . "/files/" . $dir . "/" . $file . "graphics.zip");
-
-/*     $response->league = date("Y-m-d H:i:s T", $league);
-$response->graphics = date("Y-m-d H:i:s T", $graphics); */
+    $response["league"] = filemtime(dirname(__DIR__) . "/files/" . $dir . "/" . strtoupper($file) . ".zip");
+    $response["graphics"] = filemtime(dirname(__DIR__) . "/files/" . $dir . "/" . $file . "graphics.zip");
 
     echo json_encode($response);
 

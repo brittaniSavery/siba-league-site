@@ -31,9 +31,19 @@ function insertCollegeTeam($conn, $team)
     return mysqli_query($conn, $sql);
 }
 
-function updateUploadDate($conn, $league, $teamId, $date)
+function updateUploadDate($conn, $league, $teamId)
 {
+    $updatedDate;
     $tableName = $league == "pro" ? "pro_teams" : "college_teams";
-    $sql = "UPDATE $tableName SET upload_date = ('$date') WHERE id = " . intval($teamId);
-    return mysqli_query($conn, $sql);
+    $updateSql = "UPDATE $tableName SET upload_date = UTC_TIMESTAMP WHERE id = " . intval($teamId);
+
+    if (mysqli_query($conn, $updateSql)) {
+        $selectSql = mysqli_query($conn, "SELECT upload_date FROM $tableName WHERE id = " . intval($teamId));
+        while ($row = mysqli_fetch_assoc($selectSql)) {
+            $updatedDate = $row["upload_date"];
+        }
+        return $updatedDate;
+    } else {
+        return false;
+    }
 }
