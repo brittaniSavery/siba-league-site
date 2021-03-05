@@ -4,6 +4,10 @@ Whatever your play style, join the SIBA and/or the SICBA and test your basketbal
 
 ## Updates
 
+### March 4, 2021
+
+The Oklahoma City Twisters and the Texas Tech Red Raiders have announced that Jordan Bank has stepped down from his positions as general manager and head coach in order to focus more on his family. Both teams have wished him the best in his future endeavors.
+
 ### March 2, 2021
 
 We have two more GMs joining the SIBA! Please welcome Eddie Komrska of the Indiana Express and Denzil Davis of the Seattle Sasquatch.
@@ -43,19 +47,3 @@ Chris Guzy from the Liberty Flames has joined Brooks Ward Jr. and joined the New
 ### February 8, 2021
 
 Brooks Ward Jr. from LSU has decided to venture out into the professional side of things. Starting today, he will be the general manager of the Toronto Roar. Looking forward to seeing what he and his new team can accomplish! They had a rough season last year, but hopefully things will improve with Ward in charge.
-
-### January 17, 2021
-
-We have a couple of other coaches joining the SICBA. Please welcome Benedict Maligaya, the new head of the Arizona Wildcats, and JC Rizal, the new head coach of the Cornell Big Red. They will be under the leadership of Justin Collera.
-
-### January 15, 2021
-
-We have another new member of the SIBA/SICBA. Please welcome Justin Collera, the head coach of Texas Longhorns and GM of the Dallas Rangers.
-
-### January 14, 2021
-
-Another coach has joined the SICBA! Please welcome Chris Guzy, the new head coach of the Liberty Flames.
-
-### January 13, 2021
-
-We have another coach is joining the SICBA! Please welcome Brandon Burt, the new head coach of the Syracuse Orange. Penn State also have made the announcement that Don Lookingbill stepped down as head coach. The athletic director said in a statement, "We wish him the best in his future endeavors. And if his circumstances change, we would be happy to have him on our staff once again."
