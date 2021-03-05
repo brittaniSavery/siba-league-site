@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import IframeContainer from "./components/IframeContainer";
 import MarkdownContainer from "./components/MarkdownContainer";
 import OwnersGrid from "./components/OwnersGrid";
@@ -14,6 +14,7 @@ import Join from "./pages/Join";
 import Upload from "./pages/Upload";
 import TeamRankings from "./pages/college/TeamRankings";
 import Rewards from "./pages/pro/Rewards";
+import NotFound from "./pages/NotFound";
 
 export default function Routes() {
   return (
@@ -27,6 +28,7 @@ export default function Routes() {
       </Route>
       <Route path="/upload" component={Upload} />
       <Route path="/join" component={Join} />
+      <Route path="/:league/downloads" component={Download} />
 
       {/*SIBA Links*/}
       <Route path="/siba/rules">
@@ -66,7 +68,6 @@ export default function Routes() {
         <OwnersGrid header={"SIBA Owners"} league="pro" />
       </Route>
       <Route path="/siba/rewards" component={Rewards} />
-      <Route path="/siba/downloads" component={Download} />
 
       {/*College Links*/}
       <Route path="/college/rules">
@@ -81,7 +82,6 @@ export default function Routes() {
       <Route path="/college/coaches">
         <OwnersGrid header="SICBA Head Coaches" league="college" />
       </Route>
-      <Route path="/college/downloads" component={Download} />
 
       {/*DBL Links*/}
       <Route path="/dbl/standings">
@@ -95,6 +95,10 @@ export default function Routes() {
           header="DBL League Leaders"
           file="pro/Website/DBLLeagueLeaders"
         />
+      </Route>
+      <Route path="/404" component={NotFound} />
+      <Route path="*">
+        <Redirect to="/404" />
       </Route>
     </Switch>
   );
