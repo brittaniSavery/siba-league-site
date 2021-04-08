@@ -119,4 +119,5 @@ export const PRO_TEAMS = [
   "Toronto Roar",
   "Vancouver Rain",
   "Washington Eagles",
+  "D-League Team",
 ];
