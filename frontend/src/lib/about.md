@@ -1,6 +1,6 @@
 ## The SIBA
 
-The Simulation International Basketball Association (SIBA for short) and
+The Simulation Internet Basketball Association (SIBA for short) and
 its related leagues (the developmental and college leagues) was the
 combined efforts of Kelley and Brittani Avery, a father and daughter team.
 Sharing a love of basketball and statistics, they worked together to

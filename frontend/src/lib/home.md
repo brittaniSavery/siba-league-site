@@ -1,8 +1,42 @@
-The Simulation International Basketball Association (SIBA) and its related college (SICBA) and developmental (DBL) leagues are a fictional basketball simulation league using the Draft Day Sports: Basketball programs by Wolverine Studios. In the professional league of SIBA, 30 teams and 30 GM all plan, recruit, trade, train, and play in order to take home the coveted prize of the SIBA Championship. Will you be league champion? Or would you rather be the head of your own college basketball program? In the college league of the SICBA, universities and colleges from all around the United States battle each other to bring the championship to their school.
+The Simulation Internet Basketball Association (SIBA) and its related college (SICBA) and developmental (DBL) leagues are a fictional basketball simulation league using the Draft Day Sports: Basketball programs by Wolverine Studios. In the professional league of SIBA, 30 teams and 30 GM all plan, recruit, trade, train, and play in order to take home the coveted prize of the SIBA Championship. Will you be league champion? Or would you rather be the head of your own college basketball program? In the college league of the SICBA, universities and colleges from all around the United States battle each other to bring the championship to their school.
 
 Whatever your play style, [join](/join) the SIBA and/or the SICBA and test your basketball coaching and management skills! Read the [professional league rules](/siba/rules) and the [college league rules](/college/rules) to get a good understanding of the workings of the leagues. Also, be sure to join our [Slack community](https://join.slack.com/t/sibabball/shared_invite/zt-grkrrq9i-je57xB2Y7NGoPTh0GlKNNg)! We're happy to answer any questions you may have.
 
 ## Updates
+
+### May 6, 2021
+
+Congratulations to the Kansas Jayhawks, the champions of the 2021 SICBA tournament! In the championship game against the Memphis Tigers, the Jayhawks dominated, leading nearly the entire game and having the largest lead of the game at 24 points. Jerrance Lewis won Player of the Game, having 19 points and 16 rebounds.
+
+The entire tournament brought out the best in players around the league, and the following were at the top:
+
+- **Points:** PF Philipp Green from Albany Great Danes (38 per game)
+- **Assists:** C Ahmad Fisher from California Baptist Lancers (9 per game)
+- **Rebounds:** PF Jeremy Vaughn from Oral Roberts Golden Eagles (12 per game)
+- **Total Points Scored:** PG Kerek Grandison from Binghamton Bearcats (116)
+- **Total Assists:** SF Gray Sullivan from Campbell Fighting Camels (36)
+- **Total Rebounds:** SF Romain Cummings from Kansas Jayhawks (56)
+- **Most Outstanding Player:** SF Curtis McBride from Kansas Jayhawks
+
+With the end of the season comes end of the season awards. Stay tuned for a full breakdown!.
+
+In the pro league, round one of the playoffs have begun and here are the match-ups.
+
+**Eastern Conference**  
+#1 New York Metros vs #8 Memphis Vandals
+#2 Indiana Express vs #7 New Jersey Hoops
+#3 Montreal Argonauts vs #6 Philadelphia Silverbacks
+#4 Chicago Guardians vs #5 Columbus Barons
+
+**Western Conference**  
+#1 Kansas City Koyotes vs #8 Vancouver Rain
+#2 Phoenix Scorpions vs #7 Houston Stampede
+#3 Portland Rhinos vs #6 Oklahoma City Twisters
+#4 Dallas Rangers vs #5 Seattle Sasquatch
+
+Chicago didn't seem to have as great of a year this season compared to last year as the number one seed, ending up as the fourth instead. The Hoops also had a set back, going from 2nd to 7th this year. The Montreal Argonauts, despite major roster changes, stayed steady at spot number 3. The Indiana Express improved this season as well, now as the #2 team in the East compared to #4 last year. Philly and Columbus are returning to the playoffs as well with slightly higher spots compared to last year. In the #8 spot, we have a newcomer to the playoff scene, Memphis. Their new GM Jay Tinaan had little time in adjusting to his position, so it'll be interesting to see if his team can pull off a major upset against the Metros.
+
+It is exciting to see Kansas City recover from the devastating injury and disappointing season last year. The defending champs of the Phoenix Scorpions make another appearance in the playoffs and it is expected that they will do well. Dallas returns as well, still managing to get home court advantage despite the lower rank from last year. Portland, Seattle, and OKC are in or around the same spots as they were last year. However, the Vancouver Rain make their first playoff appearance and we look forward to seeing how they compete against the team with the best record in the league.
 
 ### May 1, 2021
 
@@ -53,15 +87,3 @@ Finally, we arrive at the main event of the weekend, the All-Start Game, East vs
 The Western starters were Roman Guseinev (PG) from the San Diego Captains, Derek Blackman (SG) from the Oklahoma City Twisters, Frank Richardson (SF) from the Houston Stampede, Tyron White (PF) from the Kansas City Koyotes, and Chris Cunningham (C) from the Dallas Rangers.
 
 Unlike the Rookies vs Sophomores, the All-Star Game was dominated by the West, ending with a score of 152 to 128. Roman Guseinev took Players of the Game with 35 points, 14 assists, and 4 rebounds. [Watch](https://averyincorporated.com/siba/games/2021SIBAAllStarGame.mp4) the game if you want to see the top players in the SIBA!
-
-### March 4, 2021
-
-The Oklahoma City Twisters and the Texas Tech Red Raiders have announced that Jordan Bank has stepped down from his positions as general manager and head coach in order to focus more on his family. Both teams have wished him the best in his future endeavors.
-
-### March 2, 2021
-
-We have two more GMs joining the SIBA! Please welcome Eddie Komrska of the Indiana Express and Denzil Davis of the Seattle Sasquatch.
-
-### February 28, 2021
-
-We have another new GM for SIBA. Please welcome Luis Rodriguez of the New Jersey Hoops! With Rodriguez joining, we have our first fully human controlled division in the pro league.

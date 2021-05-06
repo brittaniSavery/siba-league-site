@@ -180,10 +180,10 @@ export default function Join() {
           </Alert.Heading>
           {emailStatus === SENT && (
             <p>
-              We greatly appreciate your interest in the Simulation
-              International Basketball Association (SIBA). A confirmation email
-              from siba@averyincorporated.com has just been sent to you. Be sure
-              to check your junk/spam folder!
+              We greatly appreciate your interest in the Simulation Internet
+              Basketball Association (SIBA). A confirmation email from
+              siba@averyincorporated.com has just been sent to you. Be sure to
+              check your junk/spam folder!
             </p>
           )}
           {emailStatus === ERROR && <p>An error occurred. Maybe try again?</p>}
