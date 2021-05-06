@@ -22,17 +22,19 @@ With the end of the season comes end of the season awards. Stay tuned for a full
 
 In the pro league, round one of the playoffs have begun and here are the match-ups.
 
-**Eastern Conference**  
-#1 New York Metros vs #8 Memphis Vandals
-#2 Indiana Express vs #7 New Jersey Hoops
-#3 Montreal Argonauts vs #6 Philadelphia Silverbacks
-#4 Chicago Guardians vs #5 Columbus Barons
+**Eastern Conference**
 
-**Western Conference**  
-#1 Kansas City Koyotes vs #8 Vancouver Rain
-#2 Phoenix Scorpions vs #7 Houston Stampede
-#3 Portland Rhinos vs #6 Oklahoma City Twisters
-#4 Dallas Rangers vs #5 Seattle Sasquatch
+- #1 New York Metros vs #8 Memphis Vandals
+- #2 Indiana Express vs #7 New Jersey Hoops
+- #3 Montreal Argonauts vs #6 Philadelphia Silverbacks
+- #4 Chicago Guardians vs #5 Columbus Barons
+
+**Western Conference**
+
+- #1 Kansas City Koyotes vs #8 Vancouver Rain
+- #2 Phoenix Scorpions vs #7 Houston Stampede
+- #3 Portland Rhinos vs #6 Oklahoma City Twisters
+- #4 Dallas Rangers vs #5 Seattle Sasquatch
 
 Chicago didn't seem to have as great of a year this season compared to last year as the number one seed, ending up as the fourth instead. The Hoops also had a set back, going from 2nd to 7th this year. The Montreal Argonauts, despite major roster changes, stayed steady at spot number 3. The Indiana Express improved this season as well, now as the #2 team in the East compared to #4 last year. Philly and Columbus are returning to the playoffs as well with slightly higher spots compared to last year. In the #8 spot, we have a newcomer to the playoff scene, Memphis. Their new GM Jay Tinaan had little time in adjusting to his position, so it'll be interesting to see if his team can pull off a major upset against the Metros.
 
