@@ -4,6 +4,12 @@ Whatever your play style, [join](/join) the SIBA and/or the SICBA and test your 
 
 ## Updates
 
+### May 8, 2021
+
+SIBA officially has a [twitter](https://twitter.com/SIBA_AveryINC)! It's brand new, so content is limited. However, we would love for you to give us a follow.
+
+We also have a new coach joining the SICBA. Please welcome Sebastien Hillion, head coach of the UCLA Bruins!
+
 ### May 6, 2021
 
 Congratulations to the Kansas Jayhawks, the champions of the 2021 SICBA tournament! In the championship game against the Memphis Tigers, the Jayhawks dominated, leading nearly the entire game and having the largest lead of the game at 24 points. Jerrance Lewis won Player of the Game, having 19 points and 16 rebounds.
