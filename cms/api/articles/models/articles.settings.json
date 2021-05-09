@@ -12,23 +12,24 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string",
       "required": true
     },
-    "Summary": {
+    "summary": {
       "type": "text",
       "required": true
     },
-    "Slug": {
+    "slug": {
       "type": "uid",
-      "required": true
+      "required": true,
+      "targetField": "title"
     },
-    "Content": {
+    "content": {
       "type": "richtext",
       "required": true
     },
-    "Header": {
+    "header": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
@@ -40,11 +41,19 @@
       "required": false,
       "pluginOptions": {}
     },
-    "author": {
-      "model": "authors"
-    },
     "tags": {
       "collection": "tag"
+    },
+    "league": {
+      "type": "enumeration",
+      "enum": [
+        "pro",
+        "college"
+      ],
+      "required": true
+    },
+    "author": {
+      "model": "authors"
     }
   }
 }

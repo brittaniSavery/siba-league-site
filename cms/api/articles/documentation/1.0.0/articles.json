@@ -517,28 +517,29 @@
       "Articles": {
         "required": [
           "id",
-          "Title",
-          "Summary",
-          "Slug",
-          "Content"
+          "title",
+          "summary",
+          "slug",
+          "content",
+          "league"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "Title": {
+          "title": {
             "type": "string"
           },
-          "Summary": {
+          "summary": {
             "type": "string"
           },
-          "Slug": {
+          "slug": {
             "type": "uid"
           },
-          "Content": {
+          "content": {
             "type": "string"
           },
-          "Header": {
+          "header": {
             "required": [
               "id",
               "name",
@@ -608,16 +609,16 @@
           "author": {
             "required": [
               "id",
-              "Name"
+              "name"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "Name": {
+              "name": {
                 "type": "string"
               },
-              "Profile": {
+              "profile": {
                 "type": "string"
               },
               "created_by": {
@@ -650,6 +651,13 @@
               }
             }
           },
+          "league": {
+            "type": "string",
+            "enum": [
+              "pro",
+              "college"
+            ]
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -658,22 +666,23 @@
       },
       "NewArticles": {
         "required": [
-          "Title",
-          "Summary",
-          "Slug",
-          "Content"
+          "title",
+          "summary",
+          "slug",
+          "content",
+          "league"
         ],
         "properties": {
-          "Title": {
+          "title": {
             "type": "string"
           },
-          "Summary": {
+          "summary": {
             "type": "string"
           },
-          "Slug": {
+          "slug": {
             "type": "uid"
           },
-          "Content": {
+          "content": {
             "type": "string"
           },
           "author": {
@@ -684,6 +693,13 @@
             "items": {
               "type": "string"
             }
+          },
+          "league": {
+            "type": "string",
+            "enum": [
+              "pro",
+              "college"
+            ]
           },
           "published_at": {
             "type": "string",

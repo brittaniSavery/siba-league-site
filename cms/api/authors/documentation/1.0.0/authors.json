@@ -517,16 +517,16 @@
       "Authors": {
         "required": [
           "id",
-          "Name"
+          "name"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "Name": {
+          "name": {
             "type": "string"
           },
-          "Profile": {
+          "profile": {
             "required": [
               "id",
               "name",
@@ -597,10 +597,10 @@
       },
       "NewAuthors": {
         "required": [
-          "Name"
+          "name"
         ],
         "properties": {
-          "Name": {
+          "name": {
             "type": "string"
           },
           "created_by": {

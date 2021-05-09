@@ -1,23 +1,27 @@
-import React from "react";
-import {
-  Badge,
-  Button,
-  Col,
-  Container,
-  FormControl,
-  InputGroup,
-  Row,
-} from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Col, FormControl, InputGroup, Row } from "react-bootstrap";
+import ArticleCards from "../components/ArticleCards";
 import Content from "../layout/Content";
 
 export default function News() {
-  const [tags, setTags] = React.useState([]);
-  const [selectedTag, setSelectedTag] = React.useState("");
+  const [tags, setTags] = useState([]);
+  const [selectedTag, setSelectedTag] = useState("");
+  const [articles, setArticles] = useState([]);
 
   React.useEffect(() => {
-    fetch(`${process.env.REACT_APP_STRAPI_URL}/tags`)
+    fetch(`${process.env.REACT_APP_STRAPI_URL}/articles`)
       .then((response) => response.json())
-      .then((strapiTags) => setTags(strapiTags));
+      .then((cmsArticles) => {
+        console.log(cmsArticles);
+        setArticles(cmsArticles);
+
+        const articleTags = cmsArticles
+          .map((article) => article.tags)
+          .flat()
+          .map((tag) => tag.name);
+        const totalTags = ["pro", "college", ...new Set(articleTags)];
+        setTags(totalTags);
+      });
   }, []);
 
   return (
@@ -37,7 +41,7 @@ export default function News() {
               className="mx-1 text-capitalize"
               onClick={() => setSelectedTag(tag)}
             >
-              {tag.Name}
+              {tag}
             </Button>
           ))}
         </Col>
@@ -53,6 +57,7 @@ export default function News() {
           </InputGroup>
         </Col>
       </Row>
+      <ArticleCards articles={articles} />
     </Content>
   );
 }

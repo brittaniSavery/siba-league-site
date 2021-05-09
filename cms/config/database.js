@@ -4,7 +4,11 @@ module.exports = ({ env }) => ({
     default: {
       connector: "mongoose",
       settings: {
-        uri: env("DATABASE_URI"),
+        uri:
+          "mongodb+srv://" +
+          env("DATABASE_CREDS") +
+          env("DATABASE_URI") +
+          "?retryWrites=true&w=majority",
         srv: env.bool("DATABASE_SRV", true),
         port: env.int("DATABASE_PORT", 27017),
         database: env("DATABASE_NAME"),

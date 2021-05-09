@@ -12,11 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string",
       "required": true
     },
-    "Profile": {
+    "profile": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
