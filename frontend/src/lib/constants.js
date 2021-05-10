@@ -121,3 +121,6 @@ export const PRO_TEAMS = [
   "Washington Eagles",
   "D-League Team",
 ];
+
+//news related
+export const PAGE_SIZE = 10;

@@ -1,18 +1,34 @@
 import React, { useState } from "react";
-import { Button, Col, FormControl, InputGroup, Row } from "react-bootstrap";
-import ArticleCards from "../components/ArticleCards";
+import {
+  Button,
+  Col,
+  FormControl,
+  InputGroup,
+  Pagination,
+  Row,
+  Spinner,
+} from "react-bootstrap";
+import ArticleCards from "../components/news/ArticleCards";
+import NewsPagination from "../components/news/NewsPagination";
 import Content from "../layout/Content";
+import { PAGE_SIZE } from "../lib/constants";
 
 export default function News() {
+  const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const [tags, setTags] = useState([]);
   const [selectedTag, setSelectedTag] = useState("");
   const [articles, setArticles] = useState([]);
 
   React.useEffect(() => {
-    fetch(`${process.env.REACT_APP_STRAPI_URL}/articles`)
+    // const fetchCMSData = async () => {
+    //   const
+    // }
+
+    fetch(`${process.env.REACT_APP_CMS_URL}/articles?_limit=${PAGE_SIZE}`)
       .then((response) => response.json())
       .then((cmsArticles) => {
-        console.log(cmsArticles);
         setArticles(cmsArticles);
 
         const articleTags = cmsArticles
@@ -21,6 +37,7 @@ export default function News() {
           .map((tag) => tag.name);
         const totalTags = ["pro", "college", ...new Set(articleTags)];
         setTags(totalTags);
+        setLoading(false);
       });
   }, []);
 
@@ -57,7 +74,23 @@ export default function News() {
           </InputGroup>
         </Col>
       </Row>
-      <ArticleCards articles={articles} />
+      {loading && (
+        <Row>
+          <Spinner className="mx-auto mt-3" animation="border" role="status">
+            <span className="sr-only">Loading...</span>
+          </Spinner>
+        </Row>
+      )}
+      {articles.length > 0 && (
+        <>
+          <ArticleCards articles={articles} />
+          <NewsPagination
+            pages={totalPages}
+            active={page}
+            onSelect={(e) => console.log(e.target.value)}
+          />
+        </>
+      )}
     </Content>
   );
 }

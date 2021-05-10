@@ -28,8 +28,8 @@ export default function Routes() {
         <MarkdownContainer file={About} header="About" />
       </Route>
       <Route path="/join" component={Join} />
+      <Route path="/news/:slug" component={Article} />
       <Route path="/news" component={News} />
-      <Route path="/news/:article" component={Article} />
       <Route path="/:league/downloads" component={Download} />
 
       {/*SIBA Links*/}

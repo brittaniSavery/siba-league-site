@@ -1,5 +1,6 @@
 import React from "react";
 import { Badge, Card, CardColumns } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default function ArticleCards({ articles }) {
   return (
@@ -8,7 +9,9 @@ export default function ArticleCards({ articles }) {
         <Card>
           <Card.Img src={article.header.url} />
           <Card.Body>
-            <Card.Title>{article.title}</Card.Title>
+            <Card.Title>
+              <Link to={`/news/${article.slug}`}>{article.title}</Link>
+            </Card.Title>
             <Card.Subtitle className="mb-2 text-muted">
               {article.author.name}
             </Card.Subtitle>
@@ -17,7 +20,7 @@ export default function ArticleCards({ articles }) {
               {article.league}
             </Badge>
             {article.tags.map((tag) => (
-              <Badge variant="secondary" className="mr-2 h5 text-capitalize">
+              <Badge variant="primary" className="mr-2 h5 text-capitalize">
                 {tag.name}
               </Badge>
             ))}

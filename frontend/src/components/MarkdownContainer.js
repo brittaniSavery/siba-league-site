@@ -45,14 +45,14 @@ function SibaImage({ alt, src }) {
       case "schedule.png":
         return proSchedule;
       default:
-        return null;
+        return src;
     }
   };
 
   return <img style={{ padding: "0.5em" }} src={getSrc()} alt={alt || ""} />;
 }
 
-function BootstrapTable({ children }) {
+export function BootstrapTable({ children }) {
   return (
     <Container>
       <Row>
