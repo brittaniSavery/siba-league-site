@@ -6,6 +6,7 @@ import Content from "../layout/Content";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { BootstrapTable } from "../components/MarkdownContainer";
+import { DATETIME_FORMAT } from "../lib/constants";
 
 export default function Article() {
   const [loading, setLoading] = useState(true);
@@ -37,12 +38,14 @@ export default function Article() {
   return (
     <Content header={article.title} hideHeader>
       <div className="justify-content-center">
-        <Image
-          src={article.header.url}
-          alt={article.header.alternativeText}
-          className="pt-3"
-          fluid
-        />
+        {article.header && (
+          <Image
+            src={article.header.url}
+            alt={article.header.alternativeText}
+            className="pt-3"
+            fluid
+          />
+        )}
       </div>
       <Row>
         <p className="mt-2 mb-0">
@@ -75,16 +78,12 @@ export default function Article() {
       <Row>
         <p>
           Published on{" "}
-          {DateTime.fromISO(article.published_at).toLocaleString(
-            DateTime.DATETIME_FULL
-          )}
+          {DateTime.fromISO(article.published_at).toFormat(DATETIME_FORMAT)}
         </p>
         {article.updatedAt > article.published_at && (
           <p className="font-italic ml-1">
             | Last Updated on{" "}
-            {DateTime.fromISO(article.updatedAt).toLocaleString(
-              DateTime.DATETIME_FULL
-            )}
+            {DateTime.fromISO(article.updatedAt).toFormat(DATETIME_FORMAT)}
           </p>
         )}
       </Row>

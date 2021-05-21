@@ -7,7 +7,7 @@ export default function ArticleCards({ articles }) {
     <CardColumns className="mt-4">
       {articles.map((article) => (
         <Card>
-          <Card.Img src={article.header.url} />
+          {article.header && <Card.Img src={article.header.url} />}
           <Card.Body>
             <Card.Title>
               <Link to={`/news/${article.slug}`}>{article.title}</Link>

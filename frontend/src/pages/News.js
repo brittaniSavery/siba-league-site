@@ -22,20 +22,16 @@ export default function News() {
   const [articles, setArticles] = useState([]);
 
   React.useEffect(() => {
-    // const fetchCMSData = async () => {
-    //   const
-    // }
+    getArticles().then((info) => {
+      setTotalPages(info.total / PAGE_SIZE + 1);
+      setArticles(info.articles);
+    });
 
-    fetch(`${process.env.REACT_APP_CMS_URL}/articles?_limit=${PAGE_SIZE}`)
+    fetch(`${process.env.REACT_APP_CMS_URL}/tags`)
       .then((response) => response.json())
-      .then((cmsArticles) => {
-        setArticles(cmsArticles);
-
-        const articleTags = cmsArticles
-          .map((article) => article.tags)
-          .flat()
-          .map((tag) => tag.name);
-        const totalTags = ["pro", "college", ...new Set(articleTags)];
+      .then((cmsTags) => {
+        const cmsTagNames = cmsTags.map((tag) => tag.name);
+        const totalTags = ["pro", "college", ...new Set(cmsTagNames)];
         setTags(totalTags);
         setLoading(false);
       });
@@ -93,4 +89,23 @@ export default function News() {
       )}
     </Content>
   );
+}
+
+async function getArticles(page, league, tag) {
+  const paging = `_limit=${PAGE_SIZE}&_start=${
+    page ? (page - 1) * PAGE_SIZE : 0
+  }&_sort=published_at:DESC`;
+  const filters = league ? `&league=${league}` : tag ? `&tags.name=${tag}` : "";
+
+  const articlesRes = await fetch(
+    `${process.env.REACT_APP_CMS_URL}/articles?${filters}${paging}`
+  );
+  const articles = await articlesRes.json();
+
+  const totalRes = await fetch(
+    `${process.env.REACT_APP_CMS_URL}/articles/count?${filters}${paging}`
+  );
+  const total = await totalRes.json();
+
+  return { articles: articles, total: total };
 }
