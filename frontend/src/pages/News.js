@@ -4,7 +4,6 @@ import {
   Col,
   FormControl,
   InputGroup,
-  Pagination,
   Row,
   Spinner,
 } from "react-bootstrap";
@@ -23,7 +22,7 @@ export default function News() {
 
   React.useEffect(() => {
     getArticles().then((info) => {
-      setTotalPages(info.total / PAGE_SIZE + 1);
+      setTotalPages(info.total);
       setArticles(info.articles);
     });
 
@@ -83,7 +82,16 @@ export default function News() {
           <NewsPagination
             pages={totalPages}
             active={page}
-            onSelect={(e) => console.log(e.target.value)}
+            onSelect={async (newPage) => {
+              setPage(newPage);
+              const league = /college|pro/i.test(selectedTag)
+                ? selectedTag
+                : null;
+              const { articles: newArticles, total: newTotal } =
+                await getArticles(newPage, league, selectedTag);
+              setArticles(newArticles);
+              setTotalPages(newTotal);
+            }}
           />
         </>
       )}
@@ -106,6 +114,7 @@ async function getArticles(page, league, tag) {
     `${process.env.REACT_APP_CMS_URL}/articles/count?${filters}${paging}`
   );
   const total = await totalRes.json();
+  const totalPages = Math.ceil(total / PAGE_SIZE);
 
-  return { articles: articles, total: total };
+  return { articles, total: totalPages };
 }

@@ -6,7 +6,11 @@ export default function NewsPagination({ pages, active, onSelect }) {
     let items = [];
     for (let num = 1; num <= pages; num++) {
       items.push(
-        <Pagination.Item key={num} active={num === active} onClick={onSelect}>
+        <Pagination.Item
+          key={num}
+          active={num === active}
+          onClick={() => onSelect(num)}
+        >
           {num}
         </Pagination.Item>
       );
