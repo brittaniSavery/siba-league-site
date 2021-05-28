@@ -140,11 +140,11 @@ exports.buildPlayerEmail = (name, email, teams) => {
           ${EmailParagraph(
             `${
               hasPro
-                ? "For the pro league, we are using Draft Day Sports: Pro Basketball 2020 version 9.13"
+                ? "For the pro league, we are using Draft Day Sports: Pro Basketball 2021 version 10.10"
                 : ""
             } ${
               hasCollege
-                ? "For the college league, we are using raft ay Sports: College Basketball 2020 version 8.20."
+                ? "For the college league, we are using raft Day Sports: College Basketball 2021 version 9.6."
                 : ""
             }`
           )}
@@ -158,12 +158,12 @@ exports.buildPlayerEmail = (name, email, teams) => {
           <code
               style="background-color: #e8f5ff; color: #3260a4;">C:\\Wolverine Studios\\DDS${
                 hasCollege && !hasPro ? "C" : "P"
-              }B2020\\app\\disk\\graphics</code>`)}
+              }B2021\\app\\disk\\graphics</code>`)}
               ${EmailParagraph(`The current league file is also available on the download page.
           Once you have the .zip folder on your computer, unzip the content into the saves folder for your game,
           e.g. <code style="background-color: #e8f5ff; color: #3260a4;">C:\\Wolverine Studios\\DDS${
             hasCollege && !hasPro ? "C" : "P"
-          }B2020\\app\\disk\\saves</code>. Then launch the program, load the association, and finally pick your coach's name and insert the password
+          }B2021\\app\\disk\\saves</code>. Then launch the program, load the association, and finally pick your coach's name and insert the password
           associated with your team.`)}
 
           ${EmailSubheading(`Your Team${teams.length > 1 ? "s" : ""}`)}
@@ -197,11 +197,11 @@ exports.buildPlayerEmail = (name, email, teams) => {
 
           - Game version${hasPro && hasCollege ? "s" : ""}: ${
             hasPro
-              ? "For the pro league, we are using Draft Day Sports: Pro Basketball 2020 version 9.13"
+              ? "For the pro league, we are using Draft Day Sports: Pro Basketball 2021 version 10.10"
               : ""
           } ${
             hasCollege
-              ? "For the college league, we are using raft ay Sports: College Basketball 2020 version 8.20."
+              ? "For the college league, we are using raft Day Sports: College Basketball 2021 version 9.6."
               : ""
           }
 
@@ -211,12 +211,12 @@ exports.buildPlayerEmail = (name, email, teams) => {
           sure to ${downloadLinkPlain} the graphics folder from our website. Once you download the graphics .zip folder, you'll place everything in that folder inside the graphics folder
           where your game is located, e.g. C:\\Wolverine Studios\\DDS${
             hasCollege && !hasPro ? "C" : "P"
-          }B2020\\app\\disk\\graphics.
+          }B2021\\app\\disk\\graphics.
 
           The current league file is also available on the download page. Once you have the .zip folder on your computer, unzip the content into the saves folder for your game,
           e.g. C:\\Wolverine Studios\\DDS${
             hasCollege && !hasPro ? "C" : "P"
-          }B2020\\app\\disk\\saves. Then launch the program, load the association, and finally pick your coach's name and insert the password
+          }B2021\\app\\disk\\saves. Then launch the program, load the association, and finally pick your coach's name and insert the password
           associated with your team.
 
           - Your Team${

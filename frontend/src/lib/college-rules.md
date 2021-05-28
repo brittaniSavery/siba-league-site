@@ -2,7 +2,7 @@ Interested in joining the league? Check out the rules and general information fi
 
 ## General Information
 
-This league will be for people who own a copy of Draft Day Sports: College Basketball 2020 version 8.20. Simulations will run three times per week, every Tuesday, Thursday, and Saturday. Export file needs to be uploaded by **4:00 PM (Central Time)**. Each person has the ability to coach up to three different teams. These teams must be from different recruiting regions as soon below.
+This league will be for people who own a copy of Draft Day Sports: College Basketball 2021 version 9.6. Simulations will run three times per week, every Tuesday, Thursday, and Saturday. Export file needs to be uploaded by **4:00 PM (Central Time)**. Each person has the ability to coach up to three different teams. These teams must be from different recruiting regions as soon below.
 
 - Atlantic East
 - Midwest
@@ -15,8 +15,8 @@ This league will be for people who own a copy of Draft Day Sports: College Baske
 SICBA has three tiers of team rankings as follows:
 
 - Tier 1 teams are ranked from 1–40
-- Tier 2 teams are ranked from 41–196
-- Tier 3 teams are ranked from 197–353
+- Tier 2 teams are ranked from 41–199
+- Tier 3 teams are ranked from 200–357
 
 Each season will begin with a preseason RPI ranking for all teams.
 

@@ -1,11 +1,11 @@
 ## Uploading Schedule
 
-Export file needs to be uploaded by **4:00 PM (Central Time)** Monday, Wednesday, and Friday using the Draft Day Sports: Pro Basketball (DDSPB) 2020 Version 9.13.
+Export file needs to be uploaded by **4:00 PM (Central Time)** Monday, Wednesday, and Friday using the Draft Day Sports: Pro Basketball (DDSPB) 2021 Version 10.10.
 
 ## League Structure
 
-- Salary Cap: \$99,093,000
-- Luxury Cap: \$119,266,000
+- Salary Cap: \$109,140,000
+- Luxury Cap: \$133,150,800
 - Rating Scale: 1-100 Point
 - Owner's Characteristics: Randomized
 

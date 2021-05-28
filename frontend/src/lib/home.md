@@ -4,6 +4,12 @@ Whatever your play style, [join](/join) the SIBA and/or the SICBA and test your 
 
 ## Updates
 
+### May 28, 2021
+
+The 2020-2021 season is complete and the Kansas City Koyotes are this season's champion! They managed to defeat the Dallas Rangers in Round 2 as well as last year's champs, the Phoenix Scorpions in the semi-finals. In the finals, they swept the Columbus Barons, quite handedly claiming the championship.
+
+As the league gears up for the next season, we are switching game versions. For the pro league, we will be using DDS:Pro Basketball 2021 v10.10. For the college league, we will be using DDS: College Basketball 2021 v9.6. Make sure you have the right version before next Tuesday! We'll all very excited to see what's new in this latest version.
+
 ### May 14, 2021
 
 Round 1 of the playoffs are in the books and we're heading into Round 2. Out of the eight matchups, only one team was able to sweep their competitor. It was a compelling set of series. Let's break them down!
@@ -46,7 +52,7 @@ So the match-ups for Round 2 are:
 #1 Kansas City Koyotes vs #4 Dallas Rangers  
 #3 Portland Rhinos vs #2 Phoenix Scorpions
 
-In post-season news, two news GMs will be taking over teams at the start of the next season. Julous Coleman will be managing the Los Angeles Waves and Aron Ivanovich will be managing the Calgary Charge. For the college leagues, we also have a couple of new head coaches joining the SICBA, J Coleman with Mississippi State and JC Coleman with Michigan. We're excited to see they all handle their new responsibilities.
+In post-season news, two news GMs will be taking over teams at the start of the next season. Julous Coleman will be managing the Los Angeles Waves and Vann Red will be managing the Calgary Charge. For the college leagues, we also have a couple of new head coaches joining the SICBA, J Coleman with Mississippi State and JC Coleman with Michigan. We're excited to see they all handle their new responsibilities.
 
 ### May 8, 2021
 
@@ -89,53 +95,3 @@ In the pro league, round one of the playoffs have begun and here are the match-u
 Chicago didn't seem to have as great of a year this season compared to last year as the number one seed, ending up as the fourth instead. The Hoops also had a set back, going from 2nd to 7th this year. The Montreal Argonauts, despite major roster changes, stayed steady at spot number 3. The Indiana Express improved this season as well, now as the #2 team in the East compared to #4 last year. Philly and Columbus are returning to the playoffs as well with slightly higher spots compared to last year. In the #8 spot, we have a newcomer to the playoff scene, Memphis. Their new GM Jay Tinaan had little time in adjusting to his position, so it'll be interesting to see if his team can pull off a major upset against the Metros.
 
 It is exciting to see Kansas City recover from the devastating injury and disappointing season last year. The defending champs of the Phoenix Scorpions make another appearance in the playoffs and it is expected that they will do well. Dallas returns as well, still managing to get home court advantage despite the lower rank from last year. Portland, Seattle, and OKC are in or around the same spots as they were last year. However, the Vancouver Rain make their first playoff appearance and we look forward to seeing how they compete against the team with the best record in the league.
-
-### May 1, 2021
-
-With the final games of the SIBA season in full swing, the battle for the 16 playoff spots intensifies. The Eastern Conference has 6 teams in the hunt for the last three playoffs spots and the Western Conference has 5 teams fighting for the last four spots with 4.5 games separating them. Stayed tuned for the final playoff match-ups in the next few days.
-
-We also have a new GM taking over for the Memphis Vandals. Please welcome Jay Tinaan!
-
-In the college league, it's tournament time and there have been plenty of activity as teams battle in the main tournament or one of the secondary tournaments. We'll be sure to update on the process of the tournaments as they continue on.
-
-### April 18, 2021
-
-The 2021 All-Star Weekend is in the books and what an exciting weekend it was! Starting with the 3-Point Contest, we had 8 participants. After the first round, we had the following results:
-
-| Player                                          | 1st Round |
-| ----------------------------------------------- | --------- |
-| Bill Fields Bill Fields (SG) - New Jersey Hoops | 22        |
-| Bryan Lytle (SG) - Oklahoma City City Twisters  | 21        |
-| Tony Blackwell (PG) - Philadelphia Silverbacks  | 20        |
-| Jonathan Jones (PG) - Portland Rhinos           | 18        |
-| Riyad Murray (SG) - Boston Nighthawks           | 17        |
-| Jonah Winer (PG) - Montreal Argonauts           | 16        |
-| Rashard Brown (SF) - Phoenix Scorpions          | 16        |
-| Kashien Johnson (PF) - San Antonio Monarchs     | 13        |
-
-Bill Fields, Bryan Lytle, and Tony Blackwell had the three top scores and thus moved to the final round. Fields pulled away from the other two finalists, having 22 points while Blackwell and Lytle only had 19 and 15 respectively. Congratulations to the 2021 3-Point Contest Winner Bill Fields!
-
-Up next was the Slam Dunk Contest with the following participants and their first round results:
-
-| Player                                        | 1st Round |
-| --------------------------------------------- | --------- |
-| Ramel Simpson (SF) - Kansas City Koyotes      | 67        |
-| Andy Robinson (SG) - Atlanta Attack           | 62        |
-| Mike Thurston (SF) - Philadelphia Silverbacks | 57        |
-| Kelly Rueter (SF) - Detroit Legion            | 54        |
-
-Ramel Simpson and Andy Robinson made it to the final round and battled for the name of Slam Dunk Champion. In the end, it was just as tight in the final round as it was in the first. Simpson with 69 points to Robinson's 64, he was announced the winner of this year's Slam Dunk Contest!
-
-The next day featured the top rookies and sophomores of the league. The starters for the rookies were Jarrad Lawson (PG) from the Toronto Roar, Dennis Harper (SG) from the Vancouver Rain, Vashon Tracy (SF) from the Washington Eagles, Henry Coley (PF) also from the Toronto Roar, and Corey Lake (C) from the San Diego Captions.
-
-The starters for the sophomores were Joe Kelly (PG) from the Vancouver Rain, Sean Williams (SG) from the Minnesota Lancers, Ronald Singletary (SF) from the Los Angeles Waves, Phil Jefferson (PF) the Oklahoma City Twisters, and Luke Mann (C) from the New Jersey Hoops.
-
-Tony Blackwell and Ramel Simpson also participated in the Rookie vs Sophomore, having a busy weekend.
-
-The Rookies and the Sophomores traded quarters throughout the game, but end the Sophomores came out on top, 176 to 169. Joe Kelly gained Player of the Game with 36 points, 13 assists, and 6 steals. Be sure to [watch](https://averyincorporated.com/siba/games/2021Rookvs%20Soph.mp4) the replay of the game.
-
-Finally, we arrive at the main event of the weekend, the All-Start Game, East vs. West. The Eastern starters were Lee Thomas (PG) from the New York Metros, Wendel Lockhart (SG) from the Atlanta Attack, Leighton Langhi (SF) from the Chicago Guardians, Collier Perez (PF) from the Indiana Express, and Eugene Brown (C) from the Boston Nighthawks.
-
-The Western starters were Roman Guseinev (PG) from the San Diego Captains, Derek Blackman (SG) from the Oklahoma City Twisters, Frank Richardson (SF) from the Houston Stampede, Tyron White (PF) from the Kansas City Koyotes, and Chris Cunningham (C) from the Dallas Rangers.
-
-Unlike the Rookies vs Sophomores, the All-Star Game was dominated by the West, ending with a score of 152 to 128. Roman Guseinev took Players of the Game with 35 points, 14 assists, and 4 rebounds. [Watch](https://averyincorporated.com/siba/games/2021SIBAAllStarGame.mp4) the game if you want to see the top players in the SIBA!
