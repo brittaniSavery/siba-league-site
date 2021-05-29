@@ -8,6 +8,8 @@ Whatever your play style, [join](/join) the SIBA and/or the SICBA and test your 
 
 The 2020-2021 season is complete and the Kansas City Koyotes are this season's champion! They managed to defeat the Dallas Rangers in Round 2 as well as last year's champs, the Phoenix Scorpions in the semi-finals. In the finals, they swept the Columbus Barons, quite handedly claiming the championship.
 
+[League awards](https://averyincorporated.com/siba/games/21sibaleagueawards.mp4) have been handed out and the draft top picks have been finalized. [Check out](https://averyincorporated.com/siba/games/2021-draft-lottery-final.mp4) the discussion between co-commissioners Kelley and Brittani Avery as they talk about the results of the playoffs and reveal the results of the draft lottery.
+
 As the league gears up for the next season, we are switching game versions. For the pro league, we will be using DDS:Pro Basketball 2021 v10.10. For the college league, we will be using DDS: College Basketball 2021 v9.6. Make sure you have the right version before next Tuesday! We'll all very excited to see what's new in this latest version.
 
 ### May 14, 2021
