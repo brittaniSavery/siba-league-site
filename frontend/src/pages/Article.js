@@ -76,12 +76,12 @@ export default function Article() {
       </Row>
 
       <Row>
-        <p>
+        <p className="small">
           Published on{" "}
           {DateTime.fromISO(article.published_at).toFormat(DATETIME_FORMAT)}
         </p>
         {article.updatedAt > article.published_at && (
-          <p className="font-italic ml-1">
+          <p className="font-italic ml-1 small">
             | Last Updated on{" "}
             {DateTime.fromISO(article.updatedAt).toFormat(DATETIME_FORMAT)}
           </p>

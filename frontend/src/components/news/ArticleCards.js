@@ -6,7 +6,7 @@ export default function ArticleCards({ articles }) {
   return (
     <CardColumns className="mt-4">
       {articles.map((article) => (
-        <Card>
+        <Card key={article._id}>
           {article.header && <Card.Img src={article.header.url} />}
           <Card.Body>
             <Card.Title>

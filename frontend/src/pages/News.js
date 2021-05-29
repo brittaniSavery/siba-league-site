@@ -43,21 +43,34 @@ export default function News() {
           <Button
             variant={!selectedTag ? "primary" : "light"}
             className="mx-1 text-capitalize"
-            onClick={() => setSelectedTag("")}
+            onClick={async () => {
+              setSelectedTag("");
+              const { articles: newArticles, total: newTotal } =
+                await getArticles();
+              setArticles(newArticles);
+              setTotalPages(newTotal);
+            }}
           >
             All Articles
           </Button>
           {tags.map((tag) => (
             <Button
+              key={tag}
               variant={selectedTag === tag ? "primary" : "light"}
               className="mx-1 text-capitalize"
-              onClick={() => setSelectedTag(tag)}
+              onClick={async () => {
+                setSelectedTag(tag);
+                const { articles: newArticles, total: newTotal } =
+                  await getArticles(1, tag);
+                setArticles(newArticles);
+                setTotalPages(newTotal);
+              }}
             >
               {tag}
             </Button>
           ))}
         </Col>
-        <Col xs={12} md={6}>
+        {/* <Col xs={12} md={6}>
           <InputGroup>
             <FormControl
               placeholder="Enter a search term"
@@ -67,7 +80,7 @@ export default function News() {
               <Button variant="primary">Search</Button>
             </InputGroup.Append>
           </InputGroup>
-        </Col>
+        </Col> */}
       </Row>
       {loading && (
         <Row>
@@ -76,7 +89,7 @@ export default function News() {
           </Spinner>
         </Row>
       )}
-      {articles.length > 0 && (
+      {!loading && articles.length > 0 && (
         <>
           <ArticleCards articles={articles} />
           <NewsPagination
@@ -84,34 +97,38 @@ export default function News() {
             active={page}
             onSelect={async (newPage) => {
               setPage(newPage);
-              const league = /college|pro/i.test(selectedTag)
-                ? selectedTag
-                : null;
               const { articles: newArticles, total: newTotal } =
-                await getArticles(newPage, league, selectedTag);
+                await getArticles(newPage, selectedTag);
               setArticles(newArticles);
               setTotalPages(newTotal);
             }}
           />
         </>
       )}
+      {!loading && articles.length === 0 && (
+        <p class="text-center">
+          No articles available. Please try again later.
+        </p>
+      )}
     </Content>
   );
 }
 
-async function getArticles(page, league, tag) {
+async function getArticles(page, tag) {
+  const league = /college|pro/i.test(tag) ? tag : null;
+
   const paging = `_limit=${PAGE_SIZE}&_start=${
     page ? (page - 1) * PAGE_SIZE : 0
   }&_sort=published_at:DESC`;
   const filters = league ? `&league=${league}` : tag ? `&tags.name=${tag}` : "";
 
   const articlesRes = await fetch(
-    `${process.env.REACT_APP_CMS_URL}/articles?${filters}${paging}`
+    `${process.env.REACT_APP_CMS_URL}/articles?${paging}${filters}`
   );
   const articles = await articlesRes.json();
 
   const totalRes = await fetch(
-    `${process.env.REACT_APP_CMS_URL}/articles/count?${filters}${paging}`
+    `${process.env.REACT_APP_CMS_URL}/articles/count?${paging}${filters}`
   );
   const total = await totalRes.json();
   const totalPages = Math.ceil(total / PAGE_SIZE);
