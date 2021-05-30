@@ -121,3 +121,7 @@ export const PRO_TEAMS = [
   "Washington Eagles",
   "D-League Team",
 ];
+
+//news related
+export const PAGE_SIZE = 3;
+export const DATETIME_FORMAT = "dd MMM yyyy hh:mm a";

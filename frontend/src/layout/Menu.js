@@ -44,9 +44,9 @@ const nav = {
       { title: "League Leaders", link: "/leaders" },
     ],
   },
-  upload: {
-    title: "Upload",
-    link: "/upload",
+  news: {
+    title: "News",
+    link: "/news",
   },
   join: {
     title: "Join",
@@ -75,7 +75,7 @@ const Menu = () => (
           <DropDownMenu nav={nav.siba} />
           <DropDownMenu nav={nav.college} />
           <DropDownMenu nav={nav.dbl} />
-          <Nav.Link href={nav.upload.link}>{nav.upload.title}</Nav.Link>
+          <Nav.Link href={nav.news.link}>{nav.news.title}</Nav.Link>
           <Nav.Link href={nav.join.link}>{nav.join.title}</Nav.Link>
         </Nav>
         <Navbar.Text>

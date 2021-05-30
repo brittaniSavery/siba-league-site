@@ -11,7 +11,8 @@ import AllStandings from "./pages/college/AllStandings";
 import ConferenceStandings from "./pages/college/ConferenceStandings";
 import Download from "./pages/Download";
 import Join from "./pages/Join";
-import Upload from "./pages/Upload";
+import News from "./pages/News";
+import Article from "./pages/Article";
 import TeamRankings from "./pages/college/TeamRankings";
 import Rewards from "./pages/pro/Rewards";
 import NotFound from "./pages/NotFound";
@@ -26,8 +27,9 @@ export default function Routes() {
       <Route path="/about">
         <MarkdownContainer file={About} header="About" />
       </Route>
-      <Route path="/upload" component={Upload} />
       <Route path="/join" component={Join} />
+      <Route path="/news/:slug" component={Article} />
+      <Route path="/news" component={News} />
       <Route path="/:league/downloads" component={Download} />
 
       {/*SIBA Links*/}
