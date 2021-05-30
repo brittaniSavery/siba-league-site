@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  Button,
-  Col,
-  FormControl,
-  InputGroup,
-  Row,
-  Spinner,
-} from "react-bootstrap";
+import { Button, Col, Row, Spinner } from "react-bootstrap";
 import ArticleCards from "../components/news/ArticleCards";
 import NewsPagination from "../components/news/NewsPagination";
 import Content from "../layout/Content";
