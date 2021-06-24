@@ -37,7 +37,7 @@ export default function Article() {
 
   return (
     <Content header={article.title} hideHeader>
-      <div className="justify-content-center">
+      {/* <div className="justify-content-center">
         {article.header && (
           <Image
             src={article.header.url}
@@ -46,7 +46,7 @@ export default function Article() {
             fluid
           />
         )}
-      </div>
+      </div> */}
       <Row>
         <p className="mt-2 mb-0">
           <Badge variant="primary" className="mr-2 text-capitalize">

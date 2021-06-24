@@ -4,6 +4,12 @@ Whatever your play style, [join](/join) the SIBA and/or the SICBA and test your 
 
 ## Updates
 
+### June 23, 2021
+
+The summer league is starting up! Stayed tuned to see some of the best of the league's young talent battle it out for summer league championship.
+
+Also, check out the first article from Sennet Beaulieu, _[A Look To Next Season: Montreal Argonauts](/news/a-look-to-next-season-montreal-argonauts)_.
+
 ### May 28, 2021
 
 The 2020-2021 season is complete and the Kansas City Koyotes are this season's champion! They managed to defeat the Dallas Rangers in Round 2 as well as last year's champs, the Phoenix Scorpions in the semi-finals. In the finals, they swept the Columbus Barons, quite handedly claiming the championship.
@@ -55,45 +61,3 @@ So the match-ups for Round 2 are:
 #3 Portland Rhinos vs #2 Phoenix Scorpions
 
 In post-season news, two news GMs will be taking over teams at the start of the next season. Julous Coleman will be managing the Los Angeles Waves and Vann Red will be managing the Calgary Charge. For the college leagues, we also have a couple of new head coaches joining the SICBA, J Coleman with Mississippi State and JC Coleman with Michigan. We're excited to see they all handle their new responsibilities.
-
-### May 8, 2021
-
-SIBA officially has a [twitter](https://twitter.com/SIBA_AveryINC)! It's brand new, so content is limited. However, we would love for you to give us a follow.
-
-We also have a new coach joining the SICBA. Please welcome Sebastien Hillion, head coach of the UCLA Bruins!
-
-### May 6, 2021
-
-Congratulations to the Kansas Jayhawks, the champions of the 2021 SICBA tournament! In the championship game against the Memphis Tigers, the Jayhawks dominated, leading nearly the entire game and having the largest lead of the game at 24 points. Jerrance Lewis won Player of the Game, having 19 points and 16 rebounds.
-
-The entire tournament brought out the best in players around the league, and the following were at the top:
-
-- **Points:** PF Philipp Green from Albany Great Danes (38 per game)
-- **Assists:** C Ahmad Fisher from California Baptist Lancers (9 per game)
-- **Rebounds:** PF Jeremy Vaughn from Oral Roberts Golden Eagles (12 per game)
-- **Total Points Scored:** PG Kerek Grandison from Binghamton Bearcats (116)
-- **Total Assists:** SF Gray Sullivan from Campbell Fighting Camels (36)
-- **Total Rebounds:** SF Romain Cummings from Kansas Jayhawks (56)
-- **Most Outstanding Player:** SF Curtis McBride from Kansas Jayhawks
-
-With the end of the season comes end of the season awards. Stay tuned for a full breakdown!.
-
-In the pro league, round one of the playoffs have begun and here are the match-ups.
-
-**Eastern Conference**
-
-- #1 New York Metros vs #8 Memphis Vandals
-- #2 Indiana Express vs #7 New Jersey Hoops
-- #3 Montreal Argonauts vs #6 Philadelphia Silverbacks
-- #4 Chicago Guardians vs #5 Columbus Barons
-
-**Western Conference**
-
-- #1 Kansas City Koyotes vs #8 Vancouver Rain
-- #2 Phoenix Scorpions vs #7 Houston Stampede
-- #3 Portland Rhinos vs #6 Oklahoma City Twisters
-- #4 Dallas Rangers vs #5 Seattle Sasquatch
-
-Chicago didn't seem to have as great of a year this season compared to last year as the number one seed, ending up as the fourth instead. The Hoops also had a set back, going from 2nd to 7th this year. The Montreal Argonauts, despite major roster changes, stayed steady at spot number 3. The Indiana Express improved this season as well, now as the #2 team in the East compared to #4 last year. Philly and Columbus are returning to the playoffs as well with slightly higher spots compared to last year. In the #8 spot, we have a newcomer to the playoff scene, Memphis. Their new GM Jay Tinaan had little time in adjusting to his position, so it'll be interesting to see if his team can pull off a major upset against the Metros.
-
-It is exciting to see Kansas City recover from the devastating injury and disappointing season last year. The defending champs of the Phoenix Scorpions make another appearance in the playoffs and it is expected that they will do well. Dallas returns as well, still managing to get home court advantage despite the lower rank from last year. Portland, Seattle, and OKC are in or around the same spots as they were last year. However, the Vancouver Rain make their first playoff appearance and we look forward to seeing how they compete against the team with the best record in the league.
