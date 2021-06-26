@@ -7,7 +7,7 @@ export default function ArticleCards({ articles }) {
     <CardColumns className="mt-4">
       {articles.map((article) => (
         <Card key={article._id}>
-          {article.header && <Card.Img src={article.header.url} />}
+          {article.image && <Card.Img src={article.image.url} />}
           <Card.Body>
             <Card.Title>
               <Link to={`/news/${article.slug}`}>{article.title}</Link>
@@ -20,7 +20,11 @@ export default function ArticleCards({ articles }) {
               {article.league}
             </Badge>
             {article.tags.map((tag) => (
-              <Badge variant="primary" className="mr-2 h5 text-capitalize">
+              <Badge
+                key={tag}
+                variant="primary"
+                className="mr-2 h5 text-capitalize"
+              >
                 {tag.name}
               </Badge>
             ))}

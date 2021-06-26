@@ -526,7 +526,7 @@
           "name": {
             "type": "string"
           },
-          "profile": {
+          "picture": {
             "required": [
               "id",
               "name",
