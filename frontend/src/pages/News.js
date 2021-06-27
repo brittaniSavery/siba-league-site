@@ -99,7 +99,7 @@ export default function News() {
         </>
       )}
       {!loading && articles.length === 0 && (
-        <p class="text-center">
+        <p className="text-center">
           No articles available. Please try again later.
         </p>
       )}

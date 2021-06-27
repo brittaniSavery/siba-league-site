@@ -5,10 +5,10 @@ import MarkdownContainer from "./components/MarkdownContainer";
 import OwnersGrid from "./components/OwnersGrid";
 import About from "./lib/about.md";
 import CollegeRules from "./lib/college-rules.md";
-import Home from "./lib/home.md";
 import ProRules from "./lib/pro-rules.md";
 import AllStandings from "./pages/college/AllStandings";
 import ConferenceStandings from "./pages/college/ConferenceStandings";
+import Home from "./pages/Home";
 import Download from "./pages/Download";
 import Join from "./pages/Join";
 import News from "./pages/News";
@@ -21,9 +21,7 @@ export default function Routes() {
   return (
     <Switch>
       {/*General Links*/}
-      <Route exact path="/">
-        <MarkdownContainer header="Welcome" file={Home} />
-      </Route>
+      <Route exact path="/" component={Home} />
       <Route path="/about">
         <MarkdownContainer file={About} header="About" />
       </Route>

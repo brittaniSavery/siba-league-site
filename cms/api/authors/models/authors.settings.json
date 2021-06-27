@@ -16,11 +16,13 @@
       "type": "string",
       "required": true
     },
-    "profile": {
+    "picture": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
-        "images"
+        "images",
+        "files",
+        "videos"
       ],
       "plugin": "upload",
       "required": false,

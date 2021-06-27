@@ -66,24 +66,30 @@ export default function Article() {
       </Row>
 
       <Row>
-        <Image
-          src={article.author.profile.url}
-          alt={article.author.profile.alternativeText}
-          className="author-pic"
-          roundedCircle
-        />
+        {article.author.picture && (
+          <Image
+            src={article.author.picture.url}
+            alt={article.author.picture.alternativeText}
+            className="author-pic"
+            roundedCircle
+          />
+        )}
         <p className="h3 text-muted">{article.author.name}</p>
       </Row>
 
       <Row>
         <p className="small">
           Published on{" "}
-          {DateTime.fromISO(article.published_at).toFormat(DATETIME_FORMAT)}
+          {DateTime.fromISO(article.published_at).toLocaleString(
+            DATETIME_FORMAT
+          )}
         </p>
         {article.updatedAt > article.published_at && (
           <p className="font-italic ml-1 small">
             | Last Updated on{" "}
-            {DateTime.fromISO(article.updatedAt).toFormat(DATETIME_FORMAT)}
+            {DateTime.fromISO(article.updatedAt).toLocaleString(
+              DATETIME_FORMAT
+            )}
           </p>
         )}
       </Row>
