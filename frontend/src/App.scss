@@ -118,3 +118,9 @@ iframe {
   height: 2rem;
   margin-right: 0.25rem;
 }
+
+.home-column {
+  @media screen and (min-width: 768px) {
+    border-right: 1px solid #dee2e6;
+  }
+}

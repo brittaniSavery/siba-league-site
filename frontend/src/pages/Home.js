@@ -11,7 +11,7 @@ import { DateTime } from "luxon";
 
 export default function Home() {
   const [markdown, setMarkdown] = useState("");
-  const [updates, setUpdates] = useState([]);
+  const [siteUpdates, setSiteUpdates] = useState([]);
   const [articles, setArticles] = useState([]);
 
   //Getting the static blurb of the welcome page
@@ -25,7 +25,7 @@ export default function Home() {
     )
       .then((response) => response.json())
       .then((data) => {
-        setUpdates(data);
+        setSiteUpdates(data);
       });
 
     fetch(
@@ -41,27 +41,37 @@ export default function Home() {
     <Content header="Welcome">
       <ReactMarkdown plugins={[gfm]} children={markdown} />
       <Row>
-        <Col xs={12} md={8}>
-          <h2>Announcements</h2>
-          {updates.map((announcement) => (
-            <ReactMarkdown
-              plugins={[gfm]}
-              children={announcement.content}
-              renderers={{ table: BootstrapTable }}
-            />
+        <Col xs={12} md={8} className="home-column">
+          <h2>Updates</h2>
+          {siteUpdates.map((update) => (
+            <>
+              <h3>
+                {DateTime.fromISO(update.published_at).toLocaleString(
+                  DateTime.DATE_MED
+                )}
+              </h3>
+              <ReactMarkdown
+                plugins={[gfm]}
+                children={update.content}
+                renderers={{ table: BootstrapTable }}
+              />
+            </>
           ))}
         </Col>
         <Col xs={12} md={4}>
           <h2>Latest Articles</h2>
           {articles.map((article) => (
             <>
-              <p className="small">
-                {DateTime.fromISO(article.published_at).toLocaleString(
-                  DateTime.DATE_MED
-                )}
-              </p>
               <p>
-                <Link to={`/news/${article.slug}`}>{article.title}</Link>
+                <Link className="h5" to={`/news/${article.slug}`}>
+                  {article.title}
+                </Link>
+                <br />
+                <span className="small">
+                  {DateTime.fromISO(article.published_at).toLocaleString(
+                    DateTime.DATE_MED
+                  )}
+                </span>
               </p>
               <p>{article.summary}</p>
             </>
