@@ -47,6 +47,10 @@ const nav = {
   news: {
     title: "News",
     link: "/news",
+    sublinks: [
+      { title: "Pro Headlines", link: "/headlines" },
+      { title: "Articles", link: "/articles" },
+    ],
   },
   join: {
     title: "Join",
@@ -75,7 +79,7 @@ const Menu = () => (
           <DropDownMenu nav={nav.siba} />
           <DropDownMenu nav={nav.college} />
           <DropDownMenu nav={nav.dbl} />
-          <Nav.Link href={nav.news.link}>{nav.news.title}</Nav.Link>
+          <DropDownMenu nav={nav.news} />
           <Nav.Link href={nav.join.link}>{nav.join.title}</Nav.Link>
         </Nav>
         <Navbar.Text>

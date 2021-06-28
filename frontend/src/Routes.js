@@ -26,8 +26,11 @@ export default function Routes() {
         <MarkdownContainer file={About} header="About" />
       </Route>
       <Route path="/join" component={Join} />
+      <Route path="/news/:slug">
+        <IframeContainer header="SIBA Headlines" file="pro/Website/Headlines" />
+      </Route>
       <Route path="/news/:slug" component={Article} />
-      <Route path="/news" component={News} />
+      <Route path="/news/articles" component={News} />
       <Route path="/:league/downloads" component={Download} />
 
       {/*SIBA Links*/}
