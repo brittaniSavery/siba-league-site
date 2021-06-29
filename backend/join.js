@@ -140,11 +140,11 @@ exports.buildPlayerEmail = (name, email, teams) => {
           ${EmailParagraph(
             `${
               hasPro
-                ? "For the pro league, we are using Draft Day Sports: Pro Basketball 2021 version 10.10"
+                ? "For the pro league, we are using Draft Day Sports: Pro Basketball 2021 version 10.11"
                 : ""
             } ${
               hasCollege
-                ? "For the college league, we are using raft Day Sports: College Basketball 2021 version 9.6."
+                ? "For the college league, we are using raft Day Sports: College Basketball 2021 version 9.7."
                 : ""
             }`
           )}
@@ -197,11 +197,11 @@ exports.buildPlayerEmail = (name, email, teams) => {
 
           - Game version${hasPro && hasCollege ? "s" : ""}: ${
             hasPro
-              ? "For the pro league, we are using Draft Day Sports: Pro Basketball 2021 version 10.10"
+              ? "For the pro league, we are using Draft Day Sports: Pro Basketball 2021 version 10.11"
               : ""
           } ${
             hasCollege
-              ? "For the college league, we are using raft Day Sports: College Basketball 2021 version 9.6."
+              ? "For the college league, we are using raft Day Sports: College Basketball 2021 version 9.7."
               : ""
           }
 
