@@ -3,6 +3,8 @@ import { Alert, Tabs, Tab, Table, Row, Col, Container } from "react-bootstrap";
 import Content from "../../layout/Content";
 import allTeamsFile from "../../lib/sicba-rankings.csv";
 import { readString } from "react-papaparse";
+import { InlineIcon } from "@iconify/react";
+import exclamationCircle from "@iconify-icons/fa-solid/exclamation-circle";
 
 export default function TeamRankings() {
   const [allTeams, setAllTeams] = React.useState([]);
@@ -65,7 +67,9 @@ export default function TeamRankings() {
       </p>
       <p>
         <b>Note:</b> Teams that are <span className="mark">highlighted</span>{" "}
-        and have a head coach are unavailable.
+        and have a head coach are unavailable. Teams that have an exclamation
+        icon, <InlineIcon icon={exclamationCircle} color="#721121" />, are on
+        probation.
       </p>
       {errors > 0 && (
         <Alert variant="danger">
@@ -128,7 +132,17 @@ function TierTable({ tier, humanTeams }) {
           return (
             <tr key={`${t.school} ${t.nickname}`} className={curr && "mark"}>
               <td>{t.ranking}</td>
-              <td>{t.school}</td>
+              <td>
+                {t.probation && (
+                  <InlineIcon
+                    icon={exclamationCircle}
+                    color="#721121"
+                    alt="On probation"
+                    style={{ marginRight: "0.5rem" }}
+                  />
+                )}
+                {t.school}
+              </td>
               <td>{t.nickname}</td>
               <td>{curr && curr.coach}</td>
             </tr>

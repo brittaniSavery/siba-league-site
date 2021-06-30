@@ -33,6 +33,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@iconify-icons/fa-solid": "^1.1.1",
+    "@iconify/react": "^3.0.0-alpha.1",
     "sass": "^1.32.6"
   }
 }
