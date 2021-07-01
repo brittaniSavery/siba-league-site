@@ -46,8 +46,8 @@ export const COLLEGE_ABILITY_POINTS = [
 ];
 
 export const COLLEGE_COACH_PERSONALITY = [
-  "Academics",
   "Ambition",
+  "Academics",
   "Discipline",
   "Integrity",
   "Temper",

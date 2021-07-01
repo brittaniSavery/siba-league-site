@@ -3,8 +3,7 @@ import { Alert, Tabs, Tab, Table, Row, Col, Container } from "react-bootstrap";
 import Content from "../../layout/Content";
 import allTeamsFile from "../../lib/sicba-rankings.csv";
 import { readString } from "react-papaparse";
-import { InlineIcon } from "@iconify/react";
-import exclamationCircle from "@iconify-icons/fa-solid/exclamation-circle";
+import ProbationIcon from "../../components/ProbationIcon";
 
 export default function TeamRankings() {
   const [allTeams, setAllTeams] = React.useState([]);
@@ -37,7 +36,7 @@ export default function TeamRankings() {
 
       try {
         const dbResponse = await fetch(
-          `${process.env.REACT_APP_TEAMS_URL}?league=college`
+          `${process.env.REACT_APP_CMS_URL}/coaches`
         );
         if (dbResponse.ok) {
           setHumanTeams(await dbResponse.json());
@@ -68,8 +67,7 @@ export default function TeamRankings() {
       <p>
         <b>Note:</b> Teams that are <span className="mark">highlighted</span>{" "}
         and have a head coach are unavailable. Teams that have an exclamation
-        icon, <InlineIcon icon={exclamationCircle} color="#721121" />, are on
-        probation.
+        icon (<ProbationIcon />) are on probation.
       </p>
       {errors > 0 && (
         <Alert variant="danger">
@@ -126,25 +124,16 @@ function TierTable({ tier, humanTeams }) {
       <tbody>
         {tier.map((t) => {
           const findHeadCoaches = RegExp(t.school + "\\s+" + t.nickname);
-          const curr = humanTeams.find((team) =>
-            findHeadCoaches.test(team.name)
-          );
+          const curr = humanTeams.find((t) => findHeadCoaches.test(t.team));
           return (
             <tr key={`${t.school} ${t.nickname}`} className={curr && "mark"}>
               <td>{t.ranking}</td>
               <td>
-                {t.probation && (
-                  <InlineIcon
-                    icon={exclamationCircle}
-                    color="#721121"
-                    alt="On probation"
-                    style={{ marginRight: "0.5rem" }}
-                  />
-                )}
+                {t.probation && <ProbationIcon isPadded />}
                 {t.school}
               </td>
               <td>{t.nickname}</td>
-              <td>{curr && curr.coach}</td>
+              <td>{curr && curr.name}</td>
             </tr>
           );
         })}

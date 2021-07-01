@@ -18,8 +18,8 @@ const COLLEGE_ABILITY_POINTS = [
 ];
 
 const COLLEGE_COACH_PERSONALITY = [
-  "Academics",
   "Ambition",
+  "Academics",
   "Discipline",
   "Integrity",
   "Temper",

@@ -28,10 +28,10 @@ export default function Join() {
       try {
         //get human (unavailable) teams
         const proHumanTeamsFetch = await fetch(
-          `${process.env.REACT_APP_TEAMS_URL}?league=pro`
+          `${process.env.REACT_APP_CMS_URL}/general-managers`
         );
         const collegeHumanTeamsFetch = await fetch(
-          `${process.env.REACT_APP_TEAMS_URL}?league=college`
+          `${process.env.REACT_APP_CMS_URL}/coaches`
         );
 
         //parse college team file
@@ -56,15 +56,16 @@ export default function Join() {
         } else {
           //continue filtering out unavailable human teams
           const proHumanTeams = (await proHumanTeamsFetch.json()).map(
-            (team) => team.name
+            (data) => data.team
           );
           const collegeHumanTeams = (await collegeHumanTeamsFetch.json()).map(
-            (team) => team.name
+            (data) => data.team
           );
           const allCollegeTeams = parseResult.data.map((team) => ({
             tier: team.tier,
             name: `${team.school} ${team.nickname}`,
             region: team.region,
+            probation: team.probation,
           }));
 
           setProTeams(

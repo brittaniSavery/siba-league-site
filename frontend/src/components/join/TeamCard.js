@@ -10,6 +10,7 @@ import {
   PRO,
   PRO_ABILITY_POINTS,
 } from "../../lib/constants";
+import ProbationIcon from "../ProbationIcon";
 
 export default function TeamCard({ team, onEdit, onDelete }) {
   const [openDeleteConfirm, setOpenDeleteConfirm] = React.useState(false);
@@ -24,11 +25,17 @@ export default function TeamCard({ team, onEdit, onDelete }) {
     <Col xs md={6} lg={4}>
       <Card>
         <Card.Body>
-          <Card.Title>{team.basics.name}</Card.Title>
+          <Card.Title>
+            {team.basics.probation && <ProbationIcon isPadded />}
+            {team.basics.name}
+          </Card.Title>
           {team.basics.tier && (
             <Card.Subtitle className="mb-2 text-muted">
               Tier {team.basics.tier}, Region: {team.basics.region}
             </Card.Subtitle>
+          )}
+          {team.basics.probation && (
+            <Card.Text>{team.basics.probation}</Card.Text>
           )}
           <Card.Text className="d-flex align-items-center">
             <b>Password:</b>&nbsp;{showPassword && team.basics.password}
@@ -40,7 +47,6 @@ export default function TeamCard({ team, onEdit, onDelete }) {
               {showPassword ? "Hide" : "Show"}
             </Button>
           </Card.Text>
-
           <img
             className="coach-pic-face"
             src={`/files/${team.type}/Website/images/${

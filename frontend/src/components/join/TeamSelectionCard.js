@@ -6,6 +6,7 @@ import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
 import { COLLEGE, PRO } from "../../lib/constants";
 import TeamCard from "./TeamCard";
+import ProbationIcon from "../ProbationIcon";
 
 export default function TeamSelectionCard({ teams, onAdd, onDelete }) {
   const proTeam = teams.find((team) => team.type === PRO);
@@ -54,6 +55,8 @@ export default function TeamSelectionCard({ teams, onAdd, onDelete }) {
               <p>
                 Remember that you can coach up to three (3) teams. They each
                 must be in different tiers and different recruiting regions.
+                Teams that have an exclamation icon (<ProbationIcon />) are on
+                probation.
               </p>
               <Row className="mb-2">
                 {collegeTeams.map((team) => (

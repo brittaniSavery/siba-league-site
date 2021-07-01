@@ -104,12 +104,12 @@ iframe {
 
 .coach-pic {
   &-face {
-    position: relative;
+    position: absolute;
     z-index: 0;
   }
   &-outfit {
+    padding-bottom: 0.25rem;
     position: relative;
-    right: 98px;
     z-index: 1;
   }
 }

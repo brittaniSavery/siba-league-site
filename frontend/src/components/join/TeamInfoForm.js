@@ -15,6 +15,7 @@ import {
   PRO_ABILITY_POINTS,
 } from "../../lib/constants";
 import InputField from "../InputField";
+import ProbationIcon from "../ProbationIcon";
 
 export default function TeamInfoForm({
   open,
@@ -131,12 +132,18 @@ export default function TeamInfoForm({
         },
         renderMenuItemChildren: (option, { text }) => (
           <>
+            {option.probation && <ProbationIcon isPadded />}
             <Highlighter search={text}>{option.name}</Highlighter>
             <div>
               <small>
                 Tier: {option.tier}, Region: {option.region}
               </small>
             </div>
+            {option.probation && (
+              <div>
+                <small>{option.probation}</small>
+              </div>
+            )}
           </>
         ),
       }
@@ -162,7 +169,8 @@ export default function TeamInfoForm({
               >
                 Downloads
               </Link>
-              .
+              . Teams that have an exclamation icon (<ProbationIcon />) are on
+              probation.
             </p>
 
             <p className="h5">Team Basics</p>
