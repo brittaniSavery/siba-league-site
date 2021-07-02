@@ -10,7 +10,7 @@ export default function OwnersGrid({ header, league }) {
     fetch(
       `${process.env.REACT_APP_CMS_URL}/${
         league === PRO ? "general-managers" : "coaches"
-      }`
+      }?_sort=team`
     )
       .then((response) => response.json())
       .then((teams) => setData(teams));
