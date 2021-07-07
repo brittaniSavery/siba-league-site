@@ -33,16 +33,14 @@ export default function Rewards() {
               <thead>
                 <tr>
                   <th>Team</th>
-                  <th style={{ textAlign: "right" }}>Points (Current)</th>
-                  <th style={{ textAlign: "right" }}>Points (Used)</th>
+                  <th>Points</th>
                 </tr>
               </thead>
               <tbody>
                 {teamPoints.map((row) => (
                   <tr key={row.team}>
                     <td>{row.team}</td>
-                    <td style={{ textAlign: "right" }}>{row.points}</td>
-                    <td style={{ textAlign: "right" }}>{row.used}</td>
+                    <td>{row.points}</td>
                   </tr>
                 ))}
               </tbody>
