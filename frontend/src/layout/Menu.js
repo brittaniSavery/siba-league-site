@@ -9,20 +9,27 @@ const nav = {
     title: "About",
     link: "/about",
   },
-  siba: {
-    title: "SIBA",
+  proInfo: {
+    title: "SIBA Info",
     link: "/siba",
     sublinks: [
       { title: "Rules", link: "/rules" },
+      { title: "Owners", link: "/owners" },
+      { title: "Rewards", link: "/rewards" },
+      { title: "Downloads", link: "/downloads" },
+    ],
+  },
+  proSeason: {
+    title: "SIBA Season",
+    link: "/siba",
+    sublinks: [
       { title: "League Standings", link: "/standings" },
       { title: "League Leaders", link: "/leaders" },
       { title: "Schedule", link: "/schedule" },
       { title: "Transactions", link: "/transactions" },
       { title: "Free Agents", link: "/free-agents" },
       { title: "Available Coaches", link: "/available-coaches" },
-      { title: "Owners", link: "/owners" },
-      { title: "Rewards", link: "/rewards" },
-      { title: "Downloads", link: "/downloads" },
+      { title: "Player Index", link: "/player-index" },
     ],
   },
   college: {
@@ -76,7 +83,8 @@ const Menu = () => (
       <Navbar.Collapse id="siba-navbar-nav" className="justify-content-between">
         <Nav className="ml-2">
           <Nav.Link href={nav.about.link}>{nav.about.title}</Nav.Link>
-          <DropDownMenu nav={nav.siba} />
+          <DropDownMenu nav={nav.proInfo} />
+          <DropDownMenu nav={nav.proSeason} />
           <DropDownMenu nav={nav.college} />
           <DropDownMenu nav={nav.dbl} />
           <DropDownMenu nav={nav.news} />

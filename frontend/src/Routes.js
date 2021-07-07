@@ -67,6 +67,12 @@ export default function Routes() {
           file="pro/Website/FACoach"
         />
       </Route>
+      <Route path="/siba/player-index">
+        <IframeContainer
+          header="SIBA Player Index"
+          file="pro/Website/PlayerIndex"
+        />
+      </Route>
       <Route path="/siba/owners">
         <OwnersGrid header={"SIBA Owners"} league="pro" />
       </Route>
