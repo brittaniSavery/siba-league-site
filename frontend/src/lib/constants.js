@@ -1,9 +1,13 @@
+// League Related
+export const PRO = "pro";
+export const COLLEGE = "college";
+export const PRO_LEAGUE = "SIBA";
+export const COLLEGE_LEAGUE = "SICBA";
+
 //Statuses
 export const SENT = "sent";
 export const SENDING = "sending";
 export const ERROR = "error";
-export const PRO = "pro";
-export const COLLEGE = "college";
 
 //actions
 export const UPLOAD_VALIDATE = "UPLOAD_VALIDATE";

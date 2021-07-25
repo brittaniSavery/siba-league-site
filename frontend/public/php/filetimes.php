@@ -19,12 +19,12 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $response = array();
     $dir = $_GET["league"];
     $file = $dir === "pro" ? "siba" : "sicba";
+    $graphics = $dir === "pro" ? "DDSPB2021" : "DDSCB2021";
 
     $response["league"] = filemtime(dirname(__DIR__) . "/files/" . $dir . "/" . strtoupper($file) . ".zip");
-    $response["graphics"] = filemtime(dirname(__DIR__) . "/files/" . $dir . "/" . $file . "graphics.zip");
+    $response["graphics"] = filemtime(dirname(__DIR__) . "/files/" . $dir . "/" . $graphics . ".zip");
 
     echo json_encode($response);
-
 } else {
     http_response_code(405); //Method Not Allowed
 }

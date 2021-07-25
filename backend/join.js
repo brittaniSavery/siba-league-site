@@ -153,12 +153,10 @@ exports.buildPlayerEmail = (name, email, teams) => {
           )}
           ${EmailParagraph(` Our leagues use specific graphics for the team logos, players, and coaches. Make
           sure to ${downloadLink} the graphics folder from our website. Once you download
-          the graphics .zip folder, you'll place everything in that folder inside the graphics folder
+          the graphics .zip folder, you'll place that folder inside Wolverine Studios folder
           where your game is located, e.g.
           <code
-              style="background-color: #e8f5ff; color: #3260a4;">C:\\Wolverine Studios\\DDS${
-                hasCollege && !hasPro ? "C" : "P"
-              }B2021\\app\\disk\\graphics</code>`)}
+              style="background-color: #e8f5ff; color: #3260a4;">C:\\Wolverine Studios</code>`)}
               ${EmailParagraph(`The current league file is also available on the download page.
           Once you have the .zip folder on your computer, unzip the content into the saves folder for your game,
           e.g. <code style="background-color: #e8f5ff; color: #3260a4;">C:\\Wolverine Studios\\DDS${
@@ -208,10 +206,9 @@ exports.buildPlayerEmail = (name, email, teams) => {
           - League Graphics and File${
             hasPro && hasCollege ? "s" : ""
           }: Our leagues use specific graphics for the team logos, players, and coaches. Make
-          sure to ${downloadLinkPlain} the graphics folder from our website. Once you download the graphics .zip folder, you'll place everything in that folder inside the graphics folder
-          where your game is located, e.g. C:\\Wolverine Studios\\DDS${
-            hasCollege && !hasPro ? "C" : "P"
-          }B2021\\app\\disk\\graphics.
+          sure to ${downloadLinkPlain} the graphics folder from our website. Once you download
+          the graphics .zip folder, you'll place that folder inside Wolverine Studios folder
+          where your game is located, e.g. C:\\Wolverine Studios.
 
           The current league file is also available on the download page. Once you have the .zip folder on your computer, unzip the content into the saves folder for your game,
           e.g. C:\\Wolverine Studios\\DDS${

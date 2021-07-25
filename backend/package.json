@@ -17,6 +17,7 @@
   "scripts": {
     "start": "sls offline",
     "test": "mocha --timeout 5000",
-    "deploy": "sls deploy --stage"
+    "deploy-dev": "sls deploy --stage dev",
+    "deploy-prod": "sls deploy --stage prod"
   }
 }

@@ -2,17 +2,19 @@ import React from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { DateTime } from "luxon";
 import Content from "../layout/Content";
+import { PRO, PRO_LEAGUE, COLLEGE, COLLEGE_LEAGUE } from "../lib/constants";
 
 export default function Download() {
   const { league } = useParams();
   const history = useHistory();
-  const leagueName = league === "college" ? "SICBA" : league.toUpperCase();
-  const leagueType = league === "siba" ? "pro" : "college";
+  const leagueName = league === COLLEGE ? COLLEGE_LEAGUE : PRO_LEAGUE;
+  const leagueType = league === COLLEGE ? COLLEGE : PRO;
   const mainUrl = `${process.env.PUBLIC_URL}/files/${leagueType}`;
   let [files, setFiles] = React.useState([]);
 
   React.useEffect(() => {
-    if (league !== "siba" && league !== "college") history.replace("/404");
+    if (![COLLEGE, PRO_LEAGUE.toLowerCase()].includes(league))
+      history.replace("/404");
 
     fetch(`${process.env.REACT_APP_FILE_TIMES_URL}?league=${leagueType}`)
       .then((result) => result.json())
@@ -26,7 +28,7 @@ export default function Download() {
             modifiedDate: times.league,
           },
           {
-            url: `${mainUrl}/${leagueName.toLowerCase()}graphics.zip`,
+            url: `${mainUrl}/DDS${leagueType === PRO ? "P" : "C"}B2021.zip`,
             title: "Graphics File",
             description:
               "This file holds all the graphics of the players and coaches of the league. Make sure to add this file to your copy of the program to have a customized experience of the league.",
