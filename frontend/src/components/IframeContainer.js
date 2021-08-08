@@ -7,8 +7,8 @@ export default function IframeContainer({ file, header }) {
   const loadIframe = () => {
     setLoading(false);
     var frame = document.getElementById("generatedContent");
-    frame.style.height = frame.contentWindow.document.body.scrollHeight + "px";
-    frame.style.width = frame.contentWindow.document.body.scrollWidth + "px";
+    // frame.style.height = frame.contentWindow.document.body.scrollHeight + "px";
+    // frame.style.width = frame.contentWindow.document.body.scrollWidth + "px";
     frame.style.visibility = "unset";
   };
 
@@ -20,7 +20,7 @@ export default function IframeContainer({ file, header }) {
         title={header}
         src={`${process.env.PUBLIC_URL}/files/${file}.html`}
         onLoad={loadIframe}
-        style={{ visibility: "hidden" }}
+        style={{ visibility: "hidden", height: "100vh" }}
       />
     </Content>
   );
