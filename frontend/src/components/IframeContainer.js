@@ -13,7 +13,7 @@ export default function IframeContainer({ file, header }) {
   };
 
   return (
-    <Content header={header}>
+    <Content header={header} hideHeader fullWidth>
       {loading && <p className="text-center font-weight-bold">Loading...</p>}
       <iframe
         id="generatedContent"
