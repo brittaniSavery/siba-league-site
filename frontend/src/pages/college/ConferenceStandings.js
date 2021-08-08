@@ -14,7 +14,7 @@ export default function ConferenceStandings({ match }) {
   return (
     <IframeContainer
       header={`${selected.title} Standings`}
-      file={`college/Website/${selected.file}Standings`}
+      file={`college/Website/${selected.file.replace(/\s/, "_")}_Standings`}
     />
   );
 }
