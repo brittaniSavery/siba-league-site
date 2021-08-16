@@ -35,4 +35,4 @@ jobs:
           server: ftp://ftp.averyincorporated.com/
           username: code@siba.averyincorporated.com
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: frontend/build
+          local-dir: frontend/build/
