@@ -32,7 +32,7 @@ jobs:
       - name: FTP-Deploy-Action
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with:
-          ftp-server: ftp://ftp.averyincorporated.com/
-          ftp-username: code@siba.averyincorporated.com
-          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          server: ftp://ftp.averyincorporated.com/
+          username: code@siba.averyincorporated.com
+          password: ${{ secrets.FTP_PASSWORD }}
           local-dir: frontend/build
