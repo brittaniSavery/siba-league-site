@@ -93,9 +93,9 @@ export const CONFERENCES = [
 ];
 
 export const PRO_TEAMS = [
+  "Atlanta Attack",
   "Boston Nighthawks",
   "Calgary Charge",
-  "Charlotte Wasps",
   "Chicago Guardians",
   "Columbus Barons",
   "Dallas Rangers",

@@ -232,8 +232,8 @@ export default function TeamInfoForm({
                   isPro ? "nonplayers" : "coaches"
                 }/fac.`}
                 min={1}
-                max={171}
-                error="Picture number must be between 1 and 171"
+                max={1022}
+                error="Picture number must be between 1 and 1022"
                 defaultValue={current?.coach?.pic}
                 required
                 column
