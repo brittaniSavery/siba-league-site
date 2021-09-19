@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Highlighter, Typeahead } from "react-bootstrap-typeahead";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -25,60 +25,35 @@ export default function TeamInfoForm({
   options,
 }) {
   const typeahead = useRef(null);
-  const [pointLimits, setPointLimits] = React.useState(
+  const [pointLimits, setPointLimits] = useState(
     getPointLimitsByTier(current?.basics?.tier || "")
   );
-  const [currentSum, setCurrentSum] = React.useState(0);
-  const [validated, setValidated] = React.useState(false);
-  const [teamError, setTeamError] = React.useState("");
+  const [currentSum, setCurrentSum] = useState(0);
+  const [validated, setValidated] = useState(false);
+  const [teamError, setTeamError] = useState("");
   const isPro = current.type === PRO;
   const isCollege = current.type === COLLEGE;
   const fullTeamType = isPro ? "Professional" : "College";
   const playerType = isPro ? "General Manager" : "Head Coach";
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    event.stopPropagation();
+  const getTeamValidationPattern = () => {
+    let pattern = ".*";
 
-    const form = event.currentTarget;
-    validateTeamSelection();
+    if (
+      isCollege &&
+      allTeams.length > 0 &&
+      allTeams.some((t) => t.type === COLLEGE)
+    ) {
+      const editingCurrent = current?.basics?.name
+        ? `(.*${current.basics.name}.*)|`
+        : "";
+      const selectedTiers = allTeams.map((a) => a.basics.tier).join("");
+      const selectedRegions = allTeams.map((a) => a.basics.region).join("|");
 
-    if (form.checkValidity() === false || teamError) {
-      setValidated(true);
-    } else {
-      const team = { ...current, basics: {}, coach: {} };
-      if (!team.id) team.id = `team-${Date.now().valueOf()}`;
-
-      const formData = new FormData(form);
-      for (const [name, value] of formData) {
-        //handle team separately due to custom input component, otherwise use form name to fill out json
-        if (name === "team") {
-          const selected = typeahead.current.state.selected[0];
-          const teamInfo =
-            typeof selected === "string" ? { name: selected } : selected;
-          team.basics = { ...team.basics, ...teamInfo };
-        } else if (name === "password") {
-          team.basics.password = value;
-        } else team.coach[name] = value.toString();
-      }
-
-      handleClose(team);
+      pattern = `${editingCurrent}.*[^${selectedTiers}]-(?!${selectedRegions}).*`;
     }
-  };
 
-  const addCurrentSum = () => {
-    const sum = (isPro ? PRO_ABILITY_POINTS : COLLEGE_ABILITY_POINTS)
-      .map((points) => document.getElementById(points.id).value * 1)
-      .reduce((sum, cur) => sum + cur);
-
-    setCurrentSum(sum);
-  };
-
-  const handleClose = (team) => {
-    if (!team?.hasOwnProperty("basics")) team = null;
-    setCurrentSum(50);
-    setValidated(false);
-    onClose(team);
+    return pattern;
   };
 
   const validateTeamSelection = () => {
@@ -88,8 +63,12 @@ export default function TeamInfoForm({
       error = "This field is required.";
     } else if (isCollege && allTeams.length > 0) {
       const selectedTeam = selectedArray[0];
-      const tiers = allTeams.map((s) => s.basics.tier);
-      const regions = allTeams.map((s) => s.basics.region);
+
+      //excluding the currently selected team (just in case for editing a team)
+      const teams = allTeams.filter((t) => t.basics.name !== selectedTeam.name);
+
+      const tiers = teams.map((t) => t.basics.tier);
+      const regions = teams.map((t) => t.basics.region);
 
       error = tiers.includes(selectedTeam.tier)
         ? `You already have a ${selectedTeam.tier} Tier team.`
@@ -99,18 +78,6 @@ export default function TeamInfoForm({
     }
 
     setTeamError(error);
-  };
-
-  const getTeamValidationPattern = () => {
-    if (!isCollege || !allTeams.some((t) => t.type === COLLEGE)) return ".*";
-
-    const editingCurrent = current?.basics?.name
-      ? `(.*${current.basics.name}.*)|`
-      : "";
-    const selectedTiers = allTeams.map((a) => a.basics.tier).join("");
-    const selectedRegions = allTeams.map((a) => a.basics.region).join("|");
-
-    return `${editingCurrent}.*[^${selectedTiers}]-(?!${selectedRegions}).*`;
   };
 
   const typeaheadOptions = isCollege
@@ -150,6 +117,49 @@ export default function TeamInfoForm({
     : {
         inputProps: { required: true, name: "team" },
       };
+
+  useEffect(() => {
+    setPointLimits(getPointLimitsByTier(current?.basics?.tier || ""));
+    setCurrentSum(addCurrentSum(isPro, current));
+  }, [current, isPro]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const form = event.currentTarget;
+    validateTeamSelection();
+
+    if (form.checkValidity() === false || teamError) {
+      setValidated(true);
+    } else {
+      const team = { ...current, basics: {}, coach: {} };
+      if (!team.id) team.id = `team-${Date.now().valueOf()}`;
+
+      const formData = new FormData(form);
+      for (const [name, value] of formData) {
+        //handle team separately due to custom input component, otherwise use form name to fill out json
+        if (name === "team") {
+          const selected = typeahead.current.state.selected[0];
+          const teamInfo =
+            typeof selected === "string" ? { name: selected } : selected;
+          team.basics = { ...team.basics, ...teamInfo };
+        } else if (name === "password") {
+          team.basics.password = value;
+        } else team.coach[name] = value.toString();
+      }
+
+      handleClose(team);
+    }
+  };
+
+  const handleClose = (team) => {
+    if (!team?.hasOwnProperty("basics")) team = null;
+    setCurrentSum(0);
+    setValidated(false);
+    setTeamError("");
+    onClose(team);
+  };
 
   return (
     <>
@@ -272,7 +282,7 @@ export default function TeamInfoForm({
                   type="number"
                   min={pointLimits.min}
                   max={pointLimits.max}
-                  onChange={addCurrentSum}
+                  onChange={() => setCurrentSum(addCurrentSum(isPro))}
                   error={`Category amounts must be between ${pointLimits.min} and ${pointLimits.max}.`}
                   defaultValue={current?.coach && current?.coach[id]}
                   horizontal
@@ -395,4 +405,18 @@ function getPointLimitsByTier(tier) {
         sum: 325,
       };
   }
+}
+
+function addCurrentSum(isPro, current) {
+  const pointLabels = isPro ? PRO_ABILITY_POINTS : COLLEGE_ABILITY_POINTS;
+  const points = pointLabels.map((label) => {
+    const stringNum = current?.hasOwnProperty("coach")
+      ? current.coach[label.id]
+      : document.getElementById(label.id)?.value;
+    return stringNum * 1;
+  });
+
+  return points.reduce(
+    (previousValue, currentValue) => previousValue + currentValue
+  );
 }

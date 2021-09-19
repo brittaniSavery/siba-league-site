@@ -111,7 +111,7 @@ export default function Join() {
       if (response.ok) {
         setEmailStatus(SENT);
         setValidated(false);
-        setSelectedTeams({});
+        setSelectedTeams([]);
         form.reset();
       } else {
         console.log(await response.text());
