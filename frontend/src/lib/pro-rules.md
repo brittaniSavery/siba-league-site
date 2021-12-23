@@ -44,8 +44,7 @@ email or some other method to communicate their instructions.
 
 ## In Season Free Agent Signing
 
-In-Season is done by a team placing a post in the free agency thread which player they want. Then that player is there for 24 hours to give
-any other teams a chance of signing him. After the 24 hour period, Commissioner will use the website [True Random Number Generator](http://www.random.org/) to calculate the number. Three random numbers will be average together to get the free agent number of interest.
+In-Season is done by a team placing a post in the free agency thread which player they want. Then that player is there up until the next sim or for 6 hours, whichever is period is shorter, to give any other teams a chance of signing him. After the waiting period, Commissioner will use the website [True Random Number Generator](http://www.random.org/) to calculate the number. Three random numbers will be average together to get the free agent number of interest.
 
 The following are the changes to sign the free agent depending on the number of interested teams.
 
