@@ -1,3 +1,5 @@
+Thanks for checking our professional basketball league. You will find the rules and other important information about the league below. If you have any questions, please reach out to us on either [Slack](https://join.slack.com/t/sibabball/shared_invite/zt-grkrrq9i-je57xB2Y7NGoPTh0GlKNNg) or [Twitter](https://twitter.com/SIBA_AveryINC). And don't forget to [join](/join)!
+
 ## Uploading Schedule
 
 Export file needs to be uploaded by **4:00 PM (Central Time)** Monday, Wednesday, and Friday using the Draft Day Sports: Pro Basketball (DDSPB) 2021 Version 10.11.
@@ -20,7 +22,7 @@ Export file needs to be uploaded by **4:00 PM (Central Time)** Monday, Wednesday
 ## Calendar of Events
 
 The DDSPB program operates on a 365 day calendar, where applicable days are skipped
-to proceed between events. Below is a simple calendar of events for a single-season. Year selected is default.
+to proceed between events. Below is a sample calendar of events for a single-season. Year selected is default.
 ![Schedule for the SIBA league](schedule.png)
 
 ## Multiplayer

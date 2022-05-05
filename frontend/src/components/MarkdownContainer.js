@@ -3,7 +3,7 @@ import ReactMarkdown from "react-markdown";
 import gfm from "remark-gfm";
 import proSchedule from "../images/schedule.png";
 import collegeDates from "../images/college-dates.png";
-import collegeRegions from "../images/college-regions.png";
+import collegeRegions from "../images/recruiting-regions.svg";
 import collegeTournaments from "../images/college-tournaments.png";
 import Content from "../layout/Content";
 import Table from "react-bootstrap/Table";
@@ -38,7 +38,7 @@ function SibaImage({ alt, src }) {
     switch (src) {
       case "college-dates.png":
         return collegeDates;
-      case "college-regions.png":
+      case "recruiting-regions.svg":
         return collegeRegions;
       case "college-tournaments.png":
         return collegeTournaments;

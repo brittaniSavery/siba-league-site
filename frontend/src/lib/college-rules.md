@@ -1,24 +1,10 @@
-Interested in joining the league? Check out the rules and general information first. If you have any questions, don't hesitate to ask a commissioner. Otherwise, feel free to [join](/join)!
+Thanks for checking our college basketball league. You will find the rules and other important information about the league below. If you have any questions, please reach out to us on either [Slack](https://join.slack.com/t/sibabball/shared_invite/zt-grkrrq9i-je57xB2Y7NGoPTh0GlKNNg) or [Twitter](https://twitter.com/SIBA_AveryINC). And don't forget to [join](/join)!
 
 ## General Information
 
-This league will be for people who own a copy of Draft Day Sports: College Basketball 2021 version 9.7. Simulations will run three times per week, every Tuesday, Thursday, and Saturday. Export file needs to be uploaded by **4:00 PM (Central Time)**. Each person has the ability to coach up to three different teams. These teams must be from different recruiting regions as soon below.
+The Simulation Internet College Basketball (SICBA) league is powered by Draft Day Sports: College Basketball **2021** version 9.7. We are skipping DDS:CB 2022 and will move to DDS:CB 2023 once it becomes available.
 
-- Atlantic East
-- Midwest
-- Southwest
-- Great Plains
-- West
-
-![Regions for the SICBA](college-regions.png)
-
-SICBA has three tiers of team rankings as follows:
-
-- Tier 1 teams are ranked from 1–40
-- Tier 2 teams are ranked from 41–199
-- Tier 3 teams are ranked from 200–357
-
-Each season will begin with a preseason RPI ranking for all teams.
+Simulations run three times per week, every Tuesday, Thursday, and Saturday. The export file must be uploaded by **4:00 PM (Central Time)** on a sim day to ensure that it will included in the sim. After 4PM, there is no guarantee your changes will be included. To export, check out the pinned messages in the `#sicba-news` channel in Slack.
 
 ## Important Game Dates
 
@@ -26,24 +12,71 @@ Each season will begin with a preseason RPI ranking for all teams.
 
 ![Tournaments for the SICBA, the college league](college-tournaments.png)
 
-## Coach Information
+## Team Tiers and Rankings
 
-Here is the information you will need to set up the coach for your team.
+Teams each have a tier ranking and a recruiting region. Tier 1 teams are the best of the best and the most well-known. Tier 2 teams have the broadest range of skill and recognition. And finally Tier 3 teams are usually from smaller schools and/or have mediocre records.
 
-- **Owner Name:** First and last
-- **Coach Name:** First and last (Note: If coaching multiple teams, the coaches' names much be different, e.g. John Doe and Johnny Doe)
+These rankings are re-evaluated every pre-season. The [pre-season rankings](/college/rankings) show the current rankings for the season. Below shows how the rankings determine the tier.
+
+- Tier 1: 1–40
+- Tier 2: 41–199
+- Tier 3: 200–357
+
+The recruiting region of a team is determined by the state where the school is located. There are five regions: Atlantic East, Midwest, Southeast, Great Plains, and West. If a school is based in California, their region would be West, for example. Refer to the map below to see which states belong to which region.
+
+![Regions for the SICBA](recruiting-regions.svg)
+
+**NOTE:** Each person is allowed to coach up to three (3) teams, all of different tiers and different regions. None of your selected teams can share a tier or a recruiting region.
+
+Here are examples of valid and invalid team choices based on this sample school list.
+
+| School           | Tier | Region        |
+| ---------------- | ---- | ------------- |
+| Tennessee        | 1    | Southeast     |
+| West Virginia    | 1    | Atlantic East |
+| Michigan         | 1    | Midwest       |
+| Georgia Tech     | 2    | Southeast     |
+| New Mexico State | 2    | West          |
+| Wisconsin        | 2    | Midwest       |
+| Longwood         | 3    | Atlantic East |
+| Alabama A&M      | 3    | Southeast     |
+| Denver           | 3    | Great Plains  |
+
+**❌ Invalid - Shared Tiers**
+
+- Tennessee ❌
+- Michigan ❌
+- Denver
+
+**❌ Invalid - Shared Regions**
+
+- West Virginia
+- Georgia Tech ❌
+- Alabama A&M ❌
+
+**✅ Valid**
+
+- Michigan
+- New Mexico State
+- Longwood
+
+## Coach Creation
+
+When creating your coach(es), the following is required:
+
+- **Name:** First and last (**NOTE:** If you have selected to coach multiple teams, each coach must have a different name, though the last names can be the same, e.g. John Doe and Jane Doe)
 - **Login Password:** A password that is easy for you to remember
 - **Age:** 25 and up
-- **Personality:** The following traits use the scale of v. low, low, ave, high, v. high
-  - **Temper** (v. low = very laid-back–v. high = very aggressive)
-  - **Ambition**
-  - **Academics**
-  - **Discipline**
-  - **Integrity**
+- **Personality:** (uses the following scale: very low, low, average, high, very high)
+  - Temper
+  - Ambition
+  - Academics
+  - Discipline
+  - Integrity
 
-## Coach Attributes
+## Coach Skill Attributes and Ability Points
 
-Coach attributes will depend on the tier of team choice. You will have a number of points to use in five categories: Offense, Defense, Scouting, Recruiting, Player Development. Potentials will be capped at 95% possible in the 5 categories.
+Coach skill attributes are determined by the tier of their team. There are five categories: Offense, Defense, Scouting, Recruiting, Player Development. Potentials will be capped at 95 possible in the 5 categories.
 
 1. Tier 1 Team - You will be set up in the **Power 5 Coach Model** and have 325 points to use. Each category must have a value of 10-85.
 2. Tier 2 Team - You will be set up in the **Mid-Major Coach Model** and have 240 points to use. Each category must have a value of 5-65.
@@ -51,7 +84,7 @@ Coach attributes will depend on the tier of team choice. You will have a number 
 
 ## Vacation/Time Away from League
 
-Our sims are three times a week. If you are going to have limited or no access to the computer/internet for a few days, please let the commissioner know (Kelley Avery/Brittani Avery). You can also let another person in the league act as a proxy coach for your team if you will be away for an extended period of time.
+If you are going to have limited or no access to the computer/internet for a few days, please let one of the commissioners know (Kelley Avery or Brittani Avery). You can also let another person in the league act as a proxy coach for your team if you will be away for an extended period of time.
 \
 \
 \
