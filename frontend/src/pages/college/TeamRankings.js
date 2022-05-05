@@ -81,7 +81,7 @@ export default function TeamRankings() {
       {errors === 0 && (
         <Container>
           <Row>
-            <Col xs={12} md={6}>
+            <Col xs={12}>
               <Tabs defaultActiveKey={1} transition={false} id="sicba-rankings">
                 <Tab eventKey={1} title="Tier 1">
                   <TierTable
@@ -118,6 +118,7 @@ function TierTable({ tier, humanTeams }) {
           <th>#</th>
           <th>School</th>
           <th>Nickname</th>
+          <th>Region</th>
           <th>Head Coach</th>
         </tr>
       </thead>
@@ -133,6 +134,7 @@ function TierTable({ tier, humanTeams }) {
                 {t.school}
               </td>
               <td>{t.nickname}</td>
+              <td>{t.region}</td>
               <td>{curr && curr.name}</td>
             </tr>
           );
