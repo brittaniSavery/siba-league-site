@@ -1,8 +1,4 @@
-import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import logoBlank from "../images/logo-blank.svg";
-import collegeLogo from "../images/sicba-logo-blank.svg";
-import developmentLogo from "../images/development-logo.gif";
 
 const nav = {
   about: {
@@ -73,7 +69,7 @@ const Menu = () => (
         className="d-flex align-items-center text-decoration-none"
       >
         <img
-          src={logoBlank}
+          src={`${process.env.REACT_APP_URL}/images/logo-blank.svg`}
           className="nav-img d-inline-block align-top"
           alt=""
         />
@@ -93,12 +89,12 @@ const Menu = () => (
         <Navbar.Text>
           <span className="d-block">Associated Leagues:&nbsp;</span>
           <img
-            src={collegeLogo}
+            src={`${process.env.REACT_APP_URL}/images/sicba-logo-blank.svg`}
             className="nav-img d-inline-block align-middle"
             alt="SICBA"
           />
           <img
-            src={developmentLogo}
+            src={`${process.env.REACT_APP_URL}/images/development-logo.gif`}
             className="nav-img d-inline-block align-middle"
             alt="DBL"
           />

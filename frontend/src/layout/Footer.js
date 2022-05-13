@@ -1,7 +1,4 @@
-import React from "react";
 import { Container, Navbar } from "react-bootstrap";
-import slackIcon from "../images/Slack_Mark.svg";
-import twitterIcon from "../images/Twitter_Logo_Blue.svg";
 
 const currentYear = new Date().getFullYear();
 const copyright = `2018–${currentYear}`;
@@ -18,7 +15,7 @@ const Footer = () => (
         >
           <img
             className="nav-img"
-            src={twitterIcon}
+            src={`${process.env.REACT_APP_URL}/images/Twitter_Logo_Blue.svg`}
             alt="Follow us on Twitter!"
           />
         </a>
@@ -27,7 +24,11 @@ const Footer = () => (
           target="_blank"
           rel="noreferrer"
         >
-          <img className="nav-img" src={slackIcon} alt="Join us on Slack!" />
+          <img
+            className="nav-img"
+            src={`${process.env.REACT_APP_URL}/images/Slack_Mark.svg`}
+            alt="Join us on Slack!"
+          />
         </a>
       </Navbar.Text>
       <Navbar.Text className="small justify-content-end">
