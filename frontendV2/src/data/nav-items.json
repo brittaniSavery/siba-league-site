@@ -1,0 +1,59 @@
+[
+  { "title": "About", "link": "/about", "dropdown": false },
+  {
+    "title": "SIBA Info",
+    "link": "/siba",
+    "dropdown": true,
+    "sublinks": [
+      { "title": "Rules", "link": "/rules" },
+      { "title": "Owners", "link": "/owners" },
+      { "title": "Rewards", "link": "/rewards" },
+      { "title": "Downloads", "link": "/downloads" }
+    ]
+  },
+  {
+    "title": "SIBA Season",
+    "link": "/siba",
+    "dropdown": true,
+    "sublinks": [
+      { "title": "League Standings", "link": "/standings" },
+      { "title": "League Leaders", "link": "/leaders" },
+      { "title": "Schedule", "link": "/schedule" },
+      { "title": "Transactions", "link": "/transactions" },
+      { "title": "Free Agents", "link": "/free-agents" },
+      { "title": "Available Coaches", "link": "/available-coaches" },
+      { "title": "Player Index", "link": "/player-index" }
+    ]
+  },
+  {
+    "title": "College",
+    "link": "/college",
+    "dropdown": true,
+    "sublinks": [
+      { "title": "Rules", "link": "/rules" },
+      { "title": "League Standings", "link": "/standings" },
+      { "title": "Pre-season Tier Rankings", "link": "/rankings" },
+      { "title": "Head Coaches", "link": "/coaches" },
+      { "title": "Downloads", "link": "/downloads" }
+    ]
+  },
+  {
+    "title": "DBL",
+    "link": "/dbl",
+    "dropdown": true,
+    "sublinks": [
+      { "title": "League Standings", "link": "/standings" },
+      { "title": "League Leaders", "link": "/leaders" }
+    ]
+  },
+  {
+    "title": "News",
+    "link": "/news",
+    "dropdown": true,
+    "sublinks": [
+      { "title": "Pro Headlines", "link": "/headlines" },
+      { "title": "Articles", "link": "/articles" }
+    ]
+  },
+  { "title": "Join", "link": "/join", "dropdown": false }
+]

@@ -1,0 +1,18 @@
+---
+import Nav from "../components/Nav";
+import "@styles/main.scss";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <slot name="head" />
+  </head>
+  <body class="has-navbar-fixed-top">
+    <Nav client:visible />
+    <slot name="body" />
+  </body>
+</html>
