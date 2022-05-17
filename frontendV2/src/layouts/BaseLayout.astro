@@ -12,7 +12,9 @@ import "@styles/main.scss";
     <slot name="head" />
   </head>
   <body class="has-navbar-fixed-top">
-    <Nav client:visible />
-    <slot name="body" />
+    <Nav client:load />
+    <main class="section">
+      <slot />
+    </main>
   </body>
 </html>

@@ -1,3 +1,8 @@
+---
+layout: "@layouts/MarkdownLayout.astro"
+title: "About"
+---
+
 ## The SIBA
 
 The Simulation Internet Basketball Association (SIBA for short) and

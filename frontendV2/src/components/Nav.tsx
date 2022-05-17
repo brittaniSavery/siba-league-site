@@ -69,7 +69,7 @@ export default function Nav() {
       role="navigation"
       aria-label="main navigation"
     >
-      <section className="container is-max-desktop">
+      <section className="container">
         <div className="navbar-brand">
           <a className="navbar-item" href={import.meta.env.BASE_URL}>
             <img src="/logo-blank.svg" alt="" style={{ width: "5vh" }} />
