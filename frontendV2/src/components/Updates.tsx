@@ -1,7 +1,8 @@
+import { getFormattedDate } from "@lib/utils";
 import { useEffect, useState } from "react";
 
 export default function Updates() {
-  const [updates, setUpdates] = useState([]);
+  const [updates, setUpdates] = useState<SiteUpdate[]>([]);
 
   useEffect(() => {
     fetch(
@@ -19,8 +20,8 @@ export default function Updates() {
     <>
       {updates.map((u) => (
         <>
-          <h3>{new Date(u.published_at).toDateString()}</h3>
-          {u.content}
+          <h3>{getFormattedDate(u.published_at)}</h3>
+          <p>{u.content}</p>
         </>
       ))}
     </>
