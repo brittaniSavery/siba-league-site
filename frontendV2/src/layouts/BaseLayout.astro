@@ -1,6 +1,8 @@
 ---
 import Nav from "../components/Nav";
 import "@styles/main.scss";
+
+const {content} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -9,7 +11,7 @@ import "@styles/main.scss";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <slot name="head" />
+    <title>{content.title} | SIBA</title>
   </head>
   <body class="has-navbar-fixed-top">
     <Nav client:load />

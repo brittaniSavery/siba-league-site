@@ -3,8 +3,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 const { content } = Astro.props;
 ---
 
-<BaseLayout>
-  <title slot="head">{content.title}</title>
+<BaseLayout content={{title: content.title}}>
   <article class="content">
     <h1>{content.title}</h1>
     <slot />
