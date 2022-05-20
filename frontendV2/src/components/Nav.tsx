@@ -73,7 +73,7 @@ export default function Nav() {
         <div className="navbar-brand">
           <a className="navbar-item" href={import.meta.env.BASE_URL}>
             <img src="/logo-blank.svg" alt="" style={{ width: "5vh" }} />
-            <span className="has-text-weight-bold has-text-primary ml-2 is-size-3-touch is-size-2">
+            <span className="is-family-secondary has-text-weight-bold has-text-primary ml-2 is-size-3-touch is-size-2">
               SIBA
             </span>
           </a>
