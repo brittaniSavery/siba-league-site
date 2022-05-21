@@ -1,4 +1,7 @@
 ---
+setup: |
+  import EventsCalendar from "@components/EventsCalendar";
+  import events from "@data/college-dates";
 layout: "@layouts/MarkdownLayout.astro"
 title: "SICBA Rules"
 ---
@@ -13,9 +16,7 @@ Simulations run three times per week, every Tuesday, Thursday, and Saturday. The
 
 ## Important Game Dates
 
-![Important dates for SICBA, the college league](college-dates.png)
-
-![Tournaments for the SICBA, the college league](college-tournaments.png)
+<EventsCalendar events={events} client:load />
 
 ## Team Tiers and Rankings
 
@@ -29,7 +30,7 @@ These rankings are re-evaluated every pre-season. The [pre-season rankings](/col
 
 The recruiting region of a team is determined by the state where the school is located. There are five regions: Atlantic East, Midwest, Southeast, Great Plains, and West. If a school is based in California, their region would be West, for example. Refer to the map below to see which states belong to which region.
 
-![Regions for the SICBA](recruiting-regions.svg)
+![Regions for the SICBA](/images/recruiting-regions.svg)
 
 **NOTE:** Each person is allowed to coach up to three (3) teams, all of different tiers and different regions. None of your selected teams can share a tier or a recruiting region.
 

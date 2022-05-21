@@ -1,3 +1,4 @@
+import { Article } from "@lib/global";
 import { getFormattedDate } from "@lib/utils";
 import { useEffect, useState } from "react";
 
@@ -19,7 +20,7 @@ export default function LatestArticles() {
   return (
     <>
       {articles.map((a) => (
-        <>
+        <div key={a.slug} className="mb-5">
           <p>
             <a className="is-size-5" href={`/news/${a.slug}`}>
               {a.title}
@@ -30,7 +31,7 @@ export default function LatestArticles() {
             </span>
           </p>
           <p>{a.summary}</p>
-        </>
+        </div>
       ))}
     </>
   );

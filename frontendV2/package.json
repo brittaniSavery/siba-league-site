@@ -10,7 +10,9 @@
   },
   "devDependencies": {
     "@astrojs/react": "^0.1.2",
+    "@types/luxon": "^2.3.2",
     "@types/react": "^18.0.9",
+    "@types/react-big-calendar": "^0.38.0",
     "@typescript-eslint/eslint-plugin": "^5.23.0",
     "@typescript-eslint/parser": "^5.23.0",
     "astro": "^1.0.0-beta.28",
@@ -24,6 +26,8 @@
   },
   "dependencies": {
     "clsx": "^1.1.1",
+    "luxon": "^2.4.0",
+    "react-big-calendar": "^0.40.1",
     "react-dom": "^18.1.0"
   }
 }

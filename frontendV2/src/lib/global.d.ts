@@ -1,7 +1,30 @@
+// GENERAL TYPES
+
+import { LEAGUE } from "@data/constants";
+
 type SiteUpdate = {
   content: string;
   published_at: string;
 };
+
+// CALENDAR TYPES
+
+type SibaEvent = {
+  title: string;
+  start: Date;
+  end: Date;
+  allDay?: boolean;
+};
+
+type CollegeEvent = SibaEvent & {
+  tournament?: boolean;
+};
+
+type ProEvent = SibaEvent & {
+  league: LEAGUE;
+};
+
+// ARTICLE TYPES
 
 type Article = {
   author: Author;
