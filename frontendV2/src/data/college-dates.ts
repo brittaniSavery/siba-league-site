@@ -1,9 +1,9 @@
 import { CollegeEvent } from "@lib/global";
 import { DateTime } from "luxon";
-import { RECRUITING } from "./constants";
+import { RECRUITING, TOURNAMENT_TYPE } from "./constants";
 
 const events: CollegeEvent[] = [
-  // SEASON
+  //#region SEASON
   {
     title: "Order Recruit Scouting Services",
     start: DateTime.fromISO("2022-05-01").toJSDate(),
@@ -70,11 +70,6 @@ const events: CollegeEvent[] = [
     end: DateTime.fromISO("2022-11-13T23:59:59").toJSDate(),
   },
   {
-    title: "Preseason Tournaments",
-    start: DateTime.fromISO("2022-11-13").toJSDate(),
-    end: DateTime.fromISO("2022-12-25T23:59:59").toJSDate(),
-  },
-  {
     title: "Recruit SAT Scores Finalized",
     start: DateTime.fromISO("2022-01-28").toJSDate(),
     end: DateTime.fromISO("2022-01-28T23:59:59").toJSDate(),
@@ -114,8 +109,9 @@ const events: CollegeEvent[] = [
     start: DateTime.fromISO("2022-04-23").toJSDate(),
     end: DateTime.fromISO("2022-04-23T23:59:59").toJSDate(),
   },
+  //#endregion
 
-  // RECRUITING
+  //#region RECRUITING
   {
     title: RECRUITING.Evaluation,
     start: DateTime.fromISO("2022-01-01").toJSDate(),
@@ -196,6 +192,139 @@ const events: CollegeEvent[] = [
     start: DateTime.fromISO("2022-11-20").toJSDate(),
     end: DateTime.fromISO("2022-12-31").toJSDate(),
   },
+
+  //#endregion
+
+  //#region TOURNAMENTS
+
+  {
+    title: "Coaches Classic",
+    start: DateTime.fromISO("2022-11-13").toJSDate(),
+    end: DateTime.fromISO("2022-11-19").toJSDate(),
+    tournament: true,
+    tournamentType: TOURNAMENT_TYPE.preseason,
+  },
+  {
+    title: "Preseason CBT Tournament",
+    start: DateTime.fromISO("2022-11-14").toJSDate(),
+    end: DateTime.fromISO("2022-11-20").toJSDate(),
+    tournament: true,
+    tournamentType: TOURNAMENT_TYPE.preseason,
+  },
+  {
+    title: "Hawaiian Shootout",
+    start: DateTime.fromISO("2022-11-18").toJSDate(),
+    end: DateTime.fromISO("2022-11-20").toJSDate(),
+    tournament: true,
+    tournamentType: TOURNAMENT_TYPE.preseason,
+  },
+  {
+    title: "Tip-Off In Paradise",
+    start: DateTime.fromISO("2022-11-18").toJSDate(),
+    end: DateTime.fromISO("2022-11-20").toJSDate(),
+    tournament: true,
+    tournamentType: TOURNAMENT_TYPE.preseason,
+  },
+  {
+    title: "WS Midwest Invitational",
+    start: DateTime.fromISO("2022-11-21").toJSDate(),
+    end: DateTime.fromISO("2022-11-23").toJSDate(),
+    tournament: true,
+    tournamentType: TOURNAMENT_TYPE.preseason,
+  },
+  {
+    title: "Fallen Heroes Tournament",
+    start: DateTime.fromISO("2022-11-21").toJSDate(),
+    end: DateTime.fromISO("2022-11-23").toJSDate(),
+    tournament: true,
+    tournamentType: TOURNAMENT_TYPE.preseason,
+  },
+  {
+    title: "Alaskan Classic",
+    start: DateTime.fromISO("2022-11-25").toJSDate(),
+    end: DateTime.fromISO("2022-11-27").toJSDate(),
+    tournament: true,
+    tournamentType: TOURNAMENT_TYPE.preseason,
+  },
+  {
+    title: "Palmetto Shootout",
+    start: DateTime.fromISO("2022-11-25").toJSDate(),
+    end: DateTime.fromISO("2022-11-27").toJSDate(),
+    tournament: true,
+    tournamentType: TOURNAMENT_TYPE.preseason,
+  },
+  {
+    title: "Sunshine Shootout",
+    start: DateTime.fromISO("2022-12-09").toJSDate(),
+    end: DateTime.fromISO("2022-12-11").toJSDate(),
+    tournament: true,
+    tournamentType: TOURNAMENT_TYPE.preseason,
+  },
+  {
+    title: "Golden State Classic",
+    start: DateTime.fromISO("2022-12-09").toJSDate(),
+    end: DateTime.fromISO("2022-12-1").toJSDate(),
+    tournament: true,
+    tournamentType: TOURNAMENT_TYPE.preseason,
+  },
+  {
+    title: "Las Vegas Winter Jam",
+    start: DateTime.fromISO("2022-12-16").toJSDate(),
+    end: DateTime.fromISO("2022-12-18").toJSDate(),
+    tournament: true,
+    tournamentType: TOURNAMENT_TYPE.preseason,
+  },
+  {
+    title: "Caribbean Challenge",
+    start: DateTime.fromISO("2022-12-16").toJSDate(),
+    end: DateTime.fromISO("2022-12-18").toJSDate(),
+    tournament: true,
+    tournamentType: TOURNAMENT_TYPE.preseason,
+  },
+  {
+    title: "JAG Holiday Invitational",
+    start: DateTime.fromISO("2022-12-23").toJSDate(),
+    end: DateTime.fromISO("2022-12-25").toJSDate(),
+    tournament: true,
+    tournamentType: TOURNAMENT_TYPE.preseason,
+  },
+  {
+    title: "Hoops For Troops",
+    start: DateTime.fromISO("2022-12-23").toJSDate(),
+    end: DateTime.fromISO("2022-12-25").toJSDate(),
+    tournament: true,
+    tournamentType: TOURNAMENT_TYPE.preseason,
+  },
+  {
+    title: "SICBA Tournament",
+    start: DateTime.fromISO("2022-03-14").toJSDate(),
+    end: DateTime.fromISO("2022-04-03").toJSDate(),
+    tournament: true,
+    tournamentType: TOURNAMENT_TYPE.postseason,
+  },
+  {
+    title: "CBT Tournament",
+    start: DateTime.fromISO("2022-03-13").toJSDate(),
+    end: DateTime.fromISO("2022-03-30").toJSDate(),
+    tournament: true,
+    tournamentType: TOURNAMENT_TYPE.postseason,
+  },
+  {
+    title: "IBI Tournament",
+    start: DateTime.fromISO("2022-03-13").toJSDate(),
+    end: DateTime.fromISO("2022-03-30").toJSDate(),
+    tournament: true,
+    tournamentType: TOURNAMENT_TYPE.postseason,
+  },
+  {
+    title: "USIT Tournament",
+    start: DateTime.fromISO("2022-03-14").toJSDate(),
+    end: DateTime.fromISO("2022-03-29").toJSDate(),
+    tournament: true,
+    tournamentType: TOURNAMENT_TYPE.postseason,
+  },
+
+  //#endregion
 ];
 
 export default events;

@@ -1,6 +1,6 @@
 // GENERAL TYPES
 
-import { LEAGUE } from "@data/constants";
+import { LEAGUE, TOURNAMENT_TYPE } from "@data/constants";
 
 type SiteUpdate = {
   content: string;
@@ -18,6 +18,7 @@ type SibaEvent = {
 
 type CollegeEvent = SibaEvent & {
   tournament?: boolean;
+  tournamentType?: TOURNAMENT_TYPE;
 };
 
 type ProEvent = SibaEvent & {

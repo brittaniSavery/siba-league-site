@@ -9,8 +9,13 @@ export const enum RECRUITING {
 }
 
 export const enum LEAGUE {
-  Pro,
-  Development,
-  European,
-  College,
+  pro,
+  development,
+  european,
+  college,
+}
+
+export const enum TOURNAMENT_TYPE {
+  preseason,
+  postseason,
 }
