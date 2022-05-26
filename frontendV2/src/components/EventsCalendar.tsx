@@ -37,7 +37,19 @@ export default function EventsCalendar({ events = [] }: EventsCalendarProps) {
           }
           return endDate.toJSDate();
         }}
-        // TODO: Figure out how to change date back to Janaury after December - onRangeChange={(end) => {console.log("On Range Change", end); }}
+        onRangeChange={(range: { start: Date; end: Date }) => {
+          const endDate = DateTime.fromJSDate(range.end);
+          const lastDay2022 = DateTime.fromISO("2022-12-31");
+          const firstDay2022 = DateTime.fromISO("2022-01-01");
+          const duration = lastDay2022.diff(endDate, "days").toObject().days;
+
+          console.log(duration);
+          if (duration < -1) {
+            setCurrentDate(firstDay2022.toJSDate());
+          } else if (duration > 360) {
+            setCurrentDate(lastDay2022.toJSDate());
+          }
+        }}
       />
     </div>
   );
