@@ -2,6 +2,7 @@
 setup: |
   import EventsCalendar from "@components/EventsCalendar";
   import events from "@data/college-dates";
+  import { LEAGUE } from "@data/constants";
 layout: "@layouts/MarkdownLayout.astro"
 title: "SICBA Rules"
 ---
@@ -16,7 +17,7 @@ Simulations run three times per week, every Tuesday, Thursday, and Saturday. The
 
 ## Important Game Dates
 
-<EventsCalendar events={events} client:load />
+<EventsCalendar league={LEAGUE.college} events={events} client:load />
 
 ## Team Tiers and Rankings
 

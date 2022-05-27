@@ -3,6 +3,90 @@ import { DateTime } from "luxon";
 import { RECRUITING, TOURNAMENT_TYPE } from "./constants";
 
 const events: CollegeEvent[] = [
+  //#region RECRUITING
+  {
+    title: RECRUITING.Evaluation,
+    start: DateTime.fromISO("2022-01-01").toJSDate(),
+    end: DateTime.fromISO("2022-03-18").toJSDate(),
+  },
+  {
+    title: RECRUITING.Contact,
+    start: DateTime.fromISO("2022-03-19").toJSDate(),
+    end: DateTime.fromISO("2022-03-25").toJSDate(),
+  },
+  {
+    title: RECRUITING.Quiet,
+    start: DateTime.fromISO("2022-03-26").toJSDate(),
+    end: DateTime.fromISO("2022-04-01").toJSDate(),
+  },
+  {
+    title: RECRUITING.Dead,
+    start: DateTime.fromISO("2022-04-02").toJSDate(),
+    end: DateTime.fromISO("2022-04-08").toJSDate(),
+  },
+  {
+    title: RECRUITING.Contact,
+    start: DateTime.fromISO("2022-04-09").toJSDate(),
+    end: DateTime.fromISO("2022-04-30").toJSDate(),
+  },
+  {
+    title: RECRUITING.LateLOI,
+    start: DateTime.fromISO("2022-04-09").toJSDate(),
+    end: DateTime.fromISO("2022-04-30").toJSDate(),
+  },
+  {
+    title: RECRUITING.None,
+    start: DateTime.fromISO("2022-05-01").toJSDate(),
+    end: DateTime.fromISO("2022-06-25").toJSDate(),
+  },
+  {
+    title: RECRUITING.Quiet,
+    start: DateTime.fromISO("2022-06-26").toJSDate(),
+    end: DateTime.fromISO("2022-07-02").toJSDate(),
+  },
+  {
+    title: RECRUITING.Evaluation,
+    start: DateTime.fromISO("2022-07-03").toJSDate(),
+    end: DateTime.fromISO("2022-07-16").toJSDate(),
+  },
+  {
+    title: RECRUITING.Dead,
+    start: DateTime.fromISO("2022-07-17").toJSDate(),
+    end: DateTime.fromISO("2022-07-23").toJSDate(),
+  },
+  {
+    title: RECRUITING.Evaluation,
+    start: DateTime.fromISO("2022-07-24").toJSDate(),
+    end: DateTime.fromISO("2022-07-30").toJSDate(),
+  },
+  {
+    title: RECRUITING.Quiet,
+    start: DateTime.fromISO("2022-07-31").toJSDate(),
+    end: DateTime.fromISO("2022-09-10").toJSDate(),
+  },
+  {
+    title: RECRUITING.Contact,
+    start: DateTime.fromISO("2022-09-11").toJSDate(),
+    end: DateTime.fromISO("2022-10-08").toJSDate(),
+  },
+  {
+    title: RECRUITING.Quiet,
+    start: DateTime.fromISO("2022-10-09").toJSDate(),
+    end: DateTime.fromISO("2022-11-19").toJSDate(),
+  },
+  {
+    title: RECRUITING.EarlyLOI,
+    start: DateTime.fromISO("2022-11-13").toJSDate(),
+    end: DateTime.fromISO("2022-11-19").toJSDate(),
+  },
+  {
+    title: RECRUITING.Evaluation,
+    start: DateTime.fromISO("2022-11-20").toJSDate(),
+    end: DateTime.fromISO("2022-12-31").toJSDate(),
+  },
+
+  //#endregion
+
   //#region SEASON
   {
     title: "Order Recruit Scouting Services",
@@ -109,90 +193,6 @@ const events: CollegeEvent[] = [
     start: DateTime.fromISO("2022-04-23").toJSDate(),
     end: DateTime.fromISO("2022-04-23T23:59:59").toJSDate(),
   },
-  //#endregion
-
-  //#region RECRUITING
-  {
-    title: RECRUITING.Evaluation,
-    start: DateTime.fromISO("2022-01-01").toJSDate(),
-    end: DateTime.fromISO("2022-03-18").toJSDate(),
-  },
-  {
-    title: RECRUITING.Contact,
-    start: DateTime.fromISO("2022-03-19").toJSDate(),
-    end: DateTime.fromISO("2022-03-25").toJSDate(),
-  },
-  {
-    title: RECRUITING.Quiet,
-    start: DateTime.fromISO("2022-03-26").toJSDate(),
-    end: DateTime.fromISO("2022-04-01").toJSDate(),
-  },
-  {
-    title: RECRUITING.Dead,
-    start: DateTime.fromISO("2022-04-02").toJSDate(),
-    end: DateTime.fromISO("2022-04-08").toJSDate(),
-  },
-  {
-    title: RECRUITING.Contact,
-    start: DateTime.fromISO("2022-04-09").toJSDate(),
-    end: DateTime.fromISO("2022-04-30").toJSDate(),
-  },
-  {
-    title: RECRUITING.LateLOI,
-    start: DateTime.fromISO("2022-04-09").toJSDate(),
-    end: DateTime.fromISO("2022-04-30").toJSDate(),
-  },
-  {
-    title: RECRUITING.None,
-    start: DateTime.fromISO("2022-05-01").toJSDate(),
-    end: DateTime.fromISO("2022-06-25").toJSDate(),
-  },
-  {
-    title: RECRUITING.Quiet,
-    start: DateTime.fromISO("2022-06-26").toJSDate(),
-    end: DateTime.fromISO("2022-07-02").toJSDate(),
-  },
-  {
-    title: RECRUITING.Evaluation,
-    start: DateTime.fromISO("2022-07-03").toJSDate(),
-    end: DateTime.fromISO("2022-07-16").toJSDate(),
-  },
-  {
-    title: RECRUITING.Dead,
-    start: DateTime.fromISO("2022-07-17").toJSDate(),
-    end: DateTime.fromISO("2022-07-23").toJSDate(),
-  },
-  {
-    title: RECRUITING.Evaluation,
-    start: DateTime.fromISO("2022-07-24").toJSDate(),
-    end: DateTime.fromISO("2022-07-30").toJSDate(),
-  },
-  {
-    title: RECRUITING.Quiet,
-    start: DateTime.fromISO("2022-07-31").toJSDate(),
-    end: DateTime.fromISO("2022-09-10").toJSDate(),
-  },
-  {
-    title: RECRUITING.Contact,
-    start: DateTime.fromISO("2022-09-11").toJSDate(),
-    end: DateTime.fromISO("2022-10-08").toJSDate(),
-  },
-  {
-    title: RECRUITING.Quiet,
-    start: DateTime.fromISO("2022-10-09").toJSDate(),
-    end: DateTime.fromISO("2022-11-19").toJSDate(),
-  },
-  {
-    title: RECRUITING.EarlyLOI,
-    start: DateTime.fromISO("2022-11-13").toJSDate(),
-    end: DateTime.fromISO("2022-11-19").toJSDate(),
-  },
-  {
-    title: RECRUITING.Evaluation,
-    start: DateTime.fromISO("2022-11-20").toJSDate(),
-    end: DateTime.fromISO("2022-12-31").toJSDate(),
-  },
-
   //#endregion
 
   //#region TOURNAMENTS

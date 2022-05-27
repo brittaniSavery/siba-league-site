@@ -1,1 +1,33 @@
-@import 'react-big-calendar/lib/sass/styles';
+@import "react-big-calendar/lib/sass/styles";
+
+.recruiting {
+  &-none {
+    background-color: black;
+    color: white;
+  }
+
+  &-quiet {
+    background-color: #2185d0;
+    color: white;
+  }
+
+  &-evaluation {
+    background-color: #f2711c;
+    color: white;
+  }
+
+  &-dead {
+    background-color: #db2828;
+    color: white;
+  }
+
+  &-contact {
+    background-color: #21ba45;
+    color: white;
+  }
+
+  &-loi {
+    background-color: #767676;
+    color: white;
+  }
+}
