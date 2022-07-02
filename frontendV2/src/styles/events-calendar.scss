@@ -1,33 +1,42 @@
-@import "react-big-calendar/lib/sass/styles";
+.rbc-event {
+  &.recruiting {
+    &-none {
+      background-color: black;
+      color: white;
+    }
 
-.recruiting {
-  &-none {
-    background-color: black;
-    color: white;
+    &-quiet {
+      background-color: #2185d0;
+      color: white;
+    }
+
+    &-evaluation {
+      background-color: #f2711c;
+      color: white;
+    }
+
+    &-dead {
+      background-color: #db2828;
+      color: white;
+    }
+
+    &-contact {
+      background-color: #21ba45;
+      color: white;
+    }
+
+    &-loi {
+      background-color: #767676;
+      color: white;
+    }
   }
 
-  &-quiet {
-    background-color: #2185d0;
-    color: white;
-  }
-
-  &-evaluation {
-    background-color: #f2711c;
-    color: white;
-  }
-
-  &-dead {
-    background-color: #db2828;
-    color: white;
-  }
-
-  &-contact {
-    background-color: #21ba45;
-    color: white;
-  }
-
-  &-loi {
-    background-color: #767676;
+  &.tournament {
+    background-color: #8f6ead;
     color: white;
   }
 }
+
+$event-bg: #6e93ad;
+
+@import "react-big-calendar/lib/sass/styles";

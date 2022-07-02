@@ -1,4 +1,4 @@
-import { LEAGUE, RECRUITING } from "@data/constants";
+import { LEAGUE, RECRUITING, TOURNAMENT_TYPE } from "@data/constants";
 import { CollegeEvent, ProEvent } from "@lib/global";
 import "@styles/events-calendar.scss";
 import { DateTime } from "luxon";
@@ -26,33 +26,38 @@ export default function EventsCalendar({
     <>
       <div style={{ height: "80vh" }}>
         <Calendar
-          showAllEvents
+          popup
           localizer={localizer}
           date={currentDate}
           events={events}
           eventPropGetter={(event) => {
+            const collegeEvent = event as CollegeEvent;
             let className = null;
 
-            switch (event.title) {
-              case RECRUITING.Contact:
-                className = "recruiting-contact";
-                break;
-              case RECRUITING.Dead:
-                className = "recruiting-dead";
-                break;
-              case RECRUITING.EarlyLOI:
-              case RECRUITING.LateLOI:
-                className = "recruiting-loi";
-                break;
-              case RECRUITING.Evaluation:
-                className = "recruiting-evaluation";
-                break;
-              case RECRUITING.None:
-                className = "recruiting-none";
-                break;
-              case RECRUITING.Quiet:
-                className = "recruiting-quiet";
-                break;
+            if (collegeEvent.tournament) {
+              className = "tournament";
+            } else {
+              switch (event.title) {
+                case RECRUITING.Contact:
+                  className = "recruiting-contact";
+                  break;
+                case RECRUITING.Dead:
+                  className = "recruiting-dead";
+                  break;
+                case RECRUITING.EarlyLOI:
+                case RECRUITING.LateLOI:
+                  className = "recruiting-loi";
+                  break;
+                case RECRUITING.Evaluation:
+                  className = "recruiting-evaluation";
+                  break;
+                case RECRUITING.None:
+                  className = "recruiting-none";
+                  break;
+                case RECRUITING.Quiet:
+                  className = "recruiting-quiet";
+                  break;
+              }
             }
 
             return { className: className };
