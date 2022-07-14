@@ -1,0 +1,20 @@
+---
+import MembersGrid from "@components/MembersGrid";
+import { LEAGUE } from "@data/constants";
+import Layout from "@layouts/BaseLayout.astro";
+
+const { league } = Astro.params;
+const title = league === LEAGUE.pro ? "SIBA Owners" : "SICBA Head Coaches";
+const leagueType = league === "siba" ? LEAGUE.pro : LEAGUE.college;
+
+export function getStaticPaths() {
+  return [
+    { params: { league: "siba", members: "owners" } },
+    { params: { league: "college", members: "coaches" } },
+  ];
+}
+---
+
+<Layout content={{ title: title }}>
+  <MembersGrid league={leagueType} client:load />
+</Layout>

@@ -7,6 +7,12 @@ type SiteUpdate = {
   published_at: string;
 };
 
+type MemberInfo = {
+  team: string;
+  logo: string;
+  name: string;
+};
+
 // CALENDAR TYPES
 
 type SibaEvent = {

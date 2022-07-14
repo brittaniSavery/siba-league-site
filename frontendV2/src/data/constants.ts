@@ -9,10 +9,10 @@ export const enum RECRUITING {
 }
 
 export const enum LEAGUE {
-  pro,
-  development,
-  european,
-  college,
+  pro = "pro",
+  development = "development",
+  european = "european",
+  college = "college",
 }
 
 export const enum TOURNAMENT_TYPE {
