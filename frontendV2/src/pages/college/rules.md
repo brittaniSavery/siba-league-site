@@ -1,8 +1,8 @@
 ---
 setup: |
   import EventsCalendar from "@components/EventsCalendar";
-  import events from "@data/college-dates";
-  import { LEAGUE } from "@data/constants";
+  import events from "@content/college-dates";
+  import { LEAGUE } from "@content/constants";
 layout: "@layouts/MarkdownLayout.astro"
 title: "SICBA Rules"
 ---

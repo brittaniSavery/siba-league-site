@@ -1,6 +1,6 @@
 // GENERAL TYPES
 
-import { LEAGUE, TOURNAMENT_TYPE } from "@data/constants";
+import { LEAGUE, TOURNAMENT_TYPE } from "src/content/constants";
 
 type SiteUpdate = {
   content: string;

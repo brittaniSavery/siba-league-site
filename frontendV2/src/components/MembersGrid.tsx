@@ -1,4 +1,4 @@
-import { LEAGUE } from "@data/constants";
+import { LEAGUE } from "src/content/constants";
 import { MemberInfo } from "@lib/global";
 import { useEffect, useState } from "react";
 

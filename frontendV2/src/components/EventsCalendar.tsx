@@ -1,4 +1,4 @@
-import { LEAGUE, RECRUITING, TOURNAMENT_TYPE } from "@data/constants";
+import { LEAGUE, RECRUITING } from "@content/constants";
 import { CollegeEvent, ProEvent } from "@lib/global";
 import "@styles/events-calendar.scss";
 import { DateTime } from "luxon";

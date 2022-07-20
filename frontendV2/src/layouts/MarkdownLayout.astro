@@ -1,10 +1,11 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import clsx from "clsx";
 const { content } = Astro.props;
 ---
 
-<BaseLayout content={{title: content.title}}>
-  <article class="content">
+<BaseLayout content={{ title: content.title }}>
+  <article class={clsx("content")}>
     <h1>{content.title}</h1>
     <slot />
   </article>
