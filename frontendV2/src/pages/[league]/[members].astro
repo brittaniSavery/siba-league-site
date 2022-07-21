@@ -4,7 +4,7 @@ import { LEAGUE } from "@content/constants";
 import Layout from "@layouts/BaseLayout.astro";
 
 const { league } = Astro.params;
-const title = league === LEAGUE.pro ? "SIBA Owners" : "SICBA Head Coaches";
+const title = league === "siba" ? "SIBA Owners" : "SICBA Head Coaches";
 const leagueType = league === "siba" ? LEAGUE.pro : LEAGUE.college;
 
 export function getStaticPaths() {
@@ -16,5 +16,8 @@ export function getStaticPaths() {
 ---
 
 <Layout content={{ title: title }}>
+  <section class="content">
+    <h1>{title}</h1>
+  </section>
   <MembersGrid league={leagueType} client:load />
 </Layout>

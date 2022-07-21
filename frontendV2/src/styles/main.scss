@@ -1,10 +1,11 @@
 @charset "utf-8";
 
-@import url("https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@700&family=Montserrat:wght@400;500;600;700;800;900&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@700&family=Montserrat:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Secular+One&family=Maven+Pro:wght@400;500;600;700;800;900&display=swap");
 
 $primary: #3260a4;
-$family-sans-serif: "Montserrat", sans-serif;
-$family-secondary: "Hepta Slab", serif;
+$family-sans-serif: "Maven Pro", sans-serif;
+$family-secondary: "Bebas Neue", sans-serif;
 $navbar-item-img-max-height: none;
 
 .content {
@@ -26,6 +27,10 @@ $navbar-item-img-max-height: none;
     max-width: 100%;
     height: auto;
   }
+}
+
+.navbar-img {
+  width: 5vh;
 }
 
 @import "../node_modules/bulma/sass/utilities/_all.sass";

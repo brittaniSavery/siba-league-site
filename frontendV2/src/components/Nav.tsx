@@ -70,9 +70,9 @@ export default function Nav() {
       aria-label="main navigation"
     >
       <section className="container is-fullhd">
-        <div className="navbar-brand">
+        <div className="navbar-brand ml-3">
           <a className="navbar-item" href={import.meta.env.BASE_URL}>
-            <img src="/images/logo-blank.svg" alt="" style={{ width: "5vh" }} />
+            <img src="/images/logo-blank.svg" alt="" className="navbar-img" />
             <span className="is-family-secondary has-text-weight-bold has-text-primary ml-2 is-size-3-touch is-size-2">
               SIBA
             </span>
@@ -93,20 +93,39 @@ export default function Nav() {
         </div>
         <div
           id="navigation-menu"
-          className={`navbar-menu${isMenuActive ? " is-active" : ""}`}
+          className={clsx("navbar-menu", isMenuActive && "is-active")}
         >
-          {navItems.map((i) => {
-            if (i.dropdown)
-              return (
-                <NavDropdown
-                  key={i.title}
-                  title={i.title}
-                  link={i.link}
-                  sublinks={i.sublinks}
-                />
-              );
-            else return <NavLink key={i.title} title={i.title} link={i.link} />;
-          })}
+          <div className="navbar-start">
+            {navItems.map((i) => {
+              if (i.dropdown)
+                return (
+                  <NavDropdown
+                    key={i.title}
+                    title={i.title}
+                    link={i.link}
+                    sublinks={i.sublinks}
+                  />
+                );
+              else
+                return <NavLink key={i.title} title={i.title} link={i.link} />;
+            })}
+          </div>
+          <div className="navbar-end mr-3">
+            <div className="navbar-item">
+              <span className="is-size-7-desktop">Associated Leagues:</span>
+              <br />
+              <img
+                src="/images/sicba-logo-blank.svg"
+                alt="SICBA"
+                className="navbar-img"
+              />
+              <img
+                src="/images/development-logo.gif"
+                alt="DBL"
+                className="navbar-img"
+              />
+            </div>
+          </div>
         </div>
       </section>
     </nav>
@@ -145,13 +164,11 @@ function NavDropdown({ link, title, sublinks }: DropDownProps) {
         })}
       >
         {sublinks.map((l) => (
-          <a
+          <NavLink
             key={`${title}-${l.title}`}
-            className="navbar-item"
-            href={`${link}${l.link}`}
-          >
-            {l.title}
-          </a>
+            link={`${link}${l.link}`}
+            title={l.title}
+          />
         ))}
       </div>
     </div>
