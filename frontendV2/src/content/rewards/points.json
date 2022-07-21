@@ -1,122 +1,122 @@
 [
   {
-    "Team": "Atlanta",
-    "Points": 23
+    "team": "Atlanta",
+    "points": 26
   },
   {
-    "Team": "Boston",
-    "Points": 4
+    "team": "Boston",
+    "points": 7
   },
   {
-    "Team": "Calgary",
-    "Points": 7
+    "team": "Calgary",
+    "points": 7
   },
   {
-    "Team": "Chicago",
-    "Points": 7
+    "team": "Chicago",
+    "points": 8
   },
   {
-    "Team": "Columbus",
-    "Points": 4
+    "team": "Columbus",
+    "points": 4
   },
   {
-    "Team": "Dallas",
-    "Points": 3
+    "team": "Dallas",
+    "points": 9
   },
   {
-    "Team": "Denver",
-    "Points": 1
+    "team": "Denver",
+    "points": 1
   },
   {
-    "Team": "Detroit",
-    "Points": 3
+    "team": "Detroit",
+    "points": 3
   },
   {
-    "Team": "Houston",
-    "Points": 5
+    "team": "Houston",
+    "points": 9
   },
   {
-    "Team": "Indiana",
-    "Points": 70
+    "team": "Indiana",
+    "points": 93
   },
   {
-    "Team": "Kansas City",
-    "Points": 1
+    "team": "Kansas City",
+    "points": 31
   },
   {
-    "Team": "Los Angeles",
-    "Points": 2
+    "team": "Los Angeles",
+    "points": 2
   },
   {
-    "Team": "Memphis",
-    "Points": 3
+    "team": "Memphis",
+    "points": 4
   },
   {
-    "Team": "Miami",
-    "Points": 0
+    "team": "Miami",
+    "points": 0
   },
   {
-    "Team": "Milwaukee",
-    "Points": 1
+    "team": "Milwaukee",
+    "points": 1
   },
   {
-    "Team": "Minnesota",
-    "Points": 2
+    "team": "Minnesota",
+    "points": 18
   },
   {
-    "Team": "Montreal",
-    "Points": 4
+    "team": "Montreal",
+    "points": 13
   },
   {
-    "Team": "New Jersey",
-    "Points": 3
+    "team": "New Jersey",
+    "points": 5
   },
   {
-    "Team": "New Orleans",
-    "Points": 2
+    "team": "New Orleans",
+    "points": 4
   },
   {
-    "Team": "New York",
-    "Points": 5
+    "team": "New York",
+    "points": 17
   },
   {
-    "Team": "Oklahoma City",
-    "Points": 5
+    "team": "Oklahoma City",
+    "points": 10
   },
   {
-    "Team": "Philadelphia",
-    "Points": 6
+    "team": "Philadelphia",
+    "points": 6
   },
   {
-    "Team": "Phoenix",
-    "Points": 5
+    "team": "Phoenix",
+    "points": 16
   },
   {
-    "Team": "Portland",
-    "Points": 2
+    "team": "Portland",
+    "points": 5
   },
   {
-    "Team": "San Antonio",
-    "Points": 1
+    "team": "San Antonio",
+    "points": 1
   },
   {
-    "Team": "San Diego",
-    "Points": 5
+    "team": "San Diego",
+    "points": 15
   },
   {
-    "Team": "Seattle",
-    "Points": 1
+    "team": "Seattle",
+    "points": 3
   },
   {
-    "Team": "Toronto",
-    "Points": 4
+    "team": "Toronto",
+    "points": 19
   },
   {
-    "Team": "Vancouver",
-    "Points": 3
+    "team": "Vancouver",
+    "points": 6
   },
   {
-    "Team": "Washington",
-    "Points": 2
+    "team": "Washington",
+    "points": 6
   }
 ]
