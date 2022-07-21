@@ -33,6 +33,34 @@ $navbar-item-img-max-height: none;
   width: 5vh;
 }
 
+#downloads {
+  &-pro::after {
+    content: "";
+    display: inline-flex;
+    position: relative;
+    top: 1.75rem;
+    margin: 0 0.5rem;
+    background-image: url("/images/logo.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 2rem;
+    height: 4rem;
+  }
+
+  &-college::after {
+    content: "";
+    display: inline-flex;
+    position: relative;
+    top: 0.75rem;
+    margin: 0 0.5rem;
+    background-image: url("/images/sicba-logo.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
 @import "../node_modules/bulma/sass/utilities/_all.sass";
 @import "../node_modules/bulma/sass/base/_all.sass";
 @import "../node_modules/bulma/sass/helpers/_all.sass";
