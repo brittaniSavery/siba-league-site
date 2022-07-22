@@ -1,6 +1,7 @@
 ---
 import { LEAGUE } from "@content/constants";
 import Layout from "@layouts/BaseLayout.astro";
+import DownloadTimes from "@components/DownloadFileTime";
 
 const { league } = Astro.params;
 const title = `Download ${
@@ -27,7 +28,13 @@ export function getStaticPaths() {
       file runs all the simulation from the league. Add this to your own copy of
       the program so you have the most updated version of the league.
       <br />
-      <i>[Insert timestamp]</i>
+      <i
+        >Last Modified: <DownloadTimes
+          league={leagueType}
+          file={"league"}
+          client:idle
+        /></i
+      >
     </p>
     <p>
       <b
@@ -37,7 +44,13 @@ export function getStaticPaths() {
       > This file runs all the simulation from the league. Add this to your own copy
       of the program so you have the most updated version of the league.
       <br />
-      <i>[Insert timestamp]</i>
+      <i
+        >Last Modified: <DownloadTimes
+          league={leagueType}
+          file={"graphics"}
+          client:idle
+        /></i
+      >
     </p>
   </section>
 </Layout>

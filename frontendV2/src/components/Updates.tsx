@@ -1,3 +1,4 @@
+import { SiteUpdate } from "@lib/global";
 import { getFormattedDate } from "@lib/utils";
 import { useEffect, useState } from "react";
 
