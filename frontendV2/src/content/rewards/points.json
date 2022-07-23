@@ -1,23 +1,23 @@
 [
   {
     "team": "Atlanta",
-    "points": 26
+    "points": 31
   },
   {
     "team": "Boston",
-    "points": 7
+    "points": 9
   },
   {
     "team": "Calgary",
-    "points": 7
+    "points": 40
   },
   {
     "team": "Chicago",
-    "points": 8
+    "points": 12
   },
   {
     "team": "Columbus",
-    "points": 4
+    "points": 9
   },
   {
     "team": "Dallas",
@@ -25,31 +25,31 @@
   },
   {
     "team": "Denver",
-    "points": 1
+    "points": 10
   },
   {
     "team": "Detroit",
-    "points": 3
+    "points": 5
   },
   {
     "team": "Houston",
-    "points": 9
+    "points": 10
   },
   {
     "team": "Indiana",
-    "points": 93
+    "points": 45
   },
   {
     "team": "Kansas City",
-    "points": 31
+    "points": 23
   },
   {
     "team": "Los Angeles",
-    "points": 2
+    "points": 10
   },
   {
     "team": "Memphis",
-    "points": 4
+    "points": 7
   },
   {
     "team": "Miami",
@@ -57,19 +57,19 @@
   },
   {
     "team": "Milwaukee",
-    "points": 1
+    "points": 2
   },
   {
     "team": "Minnesota",
-    "points": 18
+    "points": 6
   },
   {
     "team": "Montreal",
-    "points": 13
+    "points": 27
   },
   {
     "team": "New Jersey",
-    "points": 5
+    "points": 12
   },
   {
     "team": "New Orleans",
@@ -77,46 +77,46 @@
   },
   {
     "team": "New York",
-    "points": 17
+    "points": 32
   },
   {
     "team": "Oklahoma City",
-    "points": 10
+    "points": 17
   },
   {
     "team": "Philadelphia",
-    "points": 6
-  },
-  {
-    "team": "Phoenix",
-    "points": 16
-  },
-  {
-    "team": "Portland",
-    "points": 5
-  },
-  {
-    "team": "San Antonio",
     "points": 1
   },
   {
-    "team": "San Diego",
-    "points": 15
+    "team": "Phoenix",
+    "points": 21
   },
   {
-    "team": "Seattle",
+    "team": "Portland",
+    "points": 9
+  },
+  {
+    "team": "San Antonio",
     "points": 3
   },
   {
+    "team": "San Diego",
+    "points": 24
+  },
+  {
+    "team": "Seattle",
+    "points": 6
+  },
+  {
     "team": "Toronto",
-    "points": 19
+    "points": 12
   },
   {
     "team": "Vancouver",
-    "points": 6
+    "points": 1
   },
   {
     "team": "Washington",
-    "points": 6
+    "points": 5
   }
 ]
