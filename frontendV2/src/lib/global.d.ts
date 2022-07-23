@@ -3,6 +3,13 @@
 import { ReactNode } from "react";
 import { LEAGUE, TOURNAMENT_TYPE } from "src/content/constants";
 
+declare global {
+  interface Window {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    _paq?: any;
+  }
+}
+
 type ChildrenProps = {
   children?: ReactNode;
 };

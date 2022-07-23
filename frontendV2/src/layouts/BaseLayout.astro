@@ -1,8 +1,9 @@
 ---
 import Nav from "@components/Nav";
+import clsx from "clsx";
 import "@styles/main.scss";
 
-const { content } = Astro.props;
+const { content, fullWidth } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -35,7 +36,9 @@ const { content } = Astro.props;
   </head>
   <body class="has-navbar-fixed-top">
     <Nav client:load />
-    <main class="section container">
+    <main
+      class={clsx(!fullWidth && "section container", fullWidth && "mt-5 pt-4")}
+    >
       <slot />
     </main>
   </body>

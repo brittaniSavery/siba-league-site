@@ -22,7 +22,10 @@ export default function MembersGrid({ league }: MembersGridProps) {
   return (
     <div className="columns is-multiline owners-grid">
       {members.map((m) => (
-        <div key={m.team} className="column is-one-quarter">
+        <div
+          key={m.team}
+          className="column is-one-quarter-desktop is-half-tablet"
+        >
           <img
             src={`/files/${league}/Website/images/${m.logo}`}
             alt={`${m.team} logo`}
