@@ -1,6 +1,11 @@
 // GENERAL TYPES
 
+import { ReactNode } from "react";
 import { LEAGUE, TOURNAMENT_TYPE } from "src/content/constants";
+
+type ChildrenProps = {
+  children?: ReactNode;
+};
 
 type SiteUpdate = {
   content: string;

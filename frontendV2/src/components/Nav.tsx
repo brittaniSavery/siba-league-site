@@ -63,6 +63,7 @@ const navItems = [
 
 export default function Nav() {
   const [isMenuActive, setMenuActive] = useState(false);
+
   return (
     <nav
       className="navbar is-fixed-top is-light"
