@@ -3,17 +3,17 @@ import IFrameContainer from "@components/IFrameContainer.astro";
 import { LEAGUE } from "@content/constants";
 import Layout from "@layouts/BaseLayout.astro";
 
-const { generated } = Astro.params;
+const { league, generated } = Astro.params;
 let title: string, file: string;
 
 switch (generated) {
   case "standings":
-    title = "SIBA League Standings";
-    file = "SIBAStandings";
+    title = `${league.toString().toUpperCase()} League Standings`;
+    file = `${league.toString().toUpperCase()}Standings`;
     break;
   case "leaders":
-    title = "SIBA League Leaders";
-    file = "SIBALeagueLeaders";
+    title = `${league.toString().toUpperCase()} League Leaders`;
+    file = `${league.toString().toUpperCase()}LeagueLeaders`;
     break;
   case "schedule":
     title = "SIBA Schedule";
@@ -52,12 +52,12 @@ export function getStaticPaths() {
     { params: { league: "siba", generated: "free-agents" } },
     { params: { league: "siba", generated: "available-coaches" } },
     { params: { league: "siba", generated: "player-index" } },
+    { params: { league: "dbl", generated: "standings" } },
+    { params: { league: "dbl", generated: "leaders" } },
   ];
 }
 ---
 
 <Layout content={{ title: title }} fullWidth>
-  <div>
-    <IFrameContainer {...iframeProps} />
-  </div>
+  <IFrameContainer {...iframeProps} />
 </Layout>

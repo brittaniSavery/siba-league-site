@@ -1,17 +1,26 @@
 @charset "utf-8";
 
-// @import url("https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@700&family=Montserrat:wght@400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Secular+One&family=Maven+Pro:wght@400;500;600;700;800;900&display=swap");
 
 $primary: #3260a4;
 $family-sans-serif: "Maven Pro", sans-serif;
 $family-secondary: "Bebas Neue", sans-serif;
+$navbar-height: 6rem;
 $navbar-item-img-max-height: none;
+
+@import "../node_modules/bulma/sass/utilities/initial-variables.sass";
+@import "../node_modules/bulma/sass/utilities/mixins.sass";
 
 .content {
   h1,
   h2 {
     font-family: $family-secondary;
+  }
+}
+
+body > .container {
+  @include until($desktop) {
+    padding-left: 0.75rem;
   }
 }
 
@@ -38,35 +47,38 @@ $navbar-item-img-max-height: none;
     content: "";
     display: inline-flex;
     position: relative;
-    top: 1.75rem;
+    top: 0.25rem;
     margin: 0 0.5rem;
     background-image: url("/images/logo.svg");
     background-size: contain;
     background-repeat: no-repeat;
-    width: 2rem;
-    height: 4rem;
+    height: 1.75rem;
+    width: 1.75rem;
   }
 
   &-college::after {
     content: "";
     display: inline-flex;
     position: relative;
-    top: 0.75rem;
+    top: 0.25rem;
     margin: 0 0.5rem;
     background-image: url("/images/sicba-logo.svg");
     background-size: contain;
     background-repeat: no-repeat;
-    width: 3rem;
-    height: 3rem;
+    height: 1.75rem;
+    width: 1.75rem;
   }
 }
 
 @import "../node_modules/bulma/sass/utilities/_all.sass";
 @import "../node_modules/bulma/sass/base/_all.sass";
 @import "../node_modules/bulma/sass/helpers/_all.sass";
+@import "../node_modules/bulma/sass/components/card.sass";
 @import "../node_modules/bulma/sass/components/dropdown.sass";
 @import "../node_modules/bulma/sass/components/navbar.sass";
 @import "../node_modules/bulma/sass/elements/container.sass";
 @import "../node_modules/bulma/sass/elements/content";
+@import "../node_modules/bulma/sass/elements/title.sass";
 @import "../node_modules/bulma/sass/grid/columns.sass";
+@import "../node_modules/bulma/sass/layout/hero.sass";
 @import "../node_modules/bulma/sass/layout/section.sass";

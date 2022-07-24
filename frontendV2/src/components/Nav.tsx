@@ -70,8 +70,8 @@ export default function Nav() {
       role="navigation"
       aria-label="main navigation"
     >
-      <section className="container is-fullhd">
-        <div className="navbar-brand ml-3">
+      <section className="container is-max-widescreen">
+        <div className="navbar-brand">
           <a className="navbar-item" href={import.meta.env.BASE_URL}>
             <img src="/images/logo-blank.svg" alt="" className="navbar-img" />
             <span className="is-family-secondary has-text-weight-bold has-text-primary ml-2 is-size-3-touch is-size-2">

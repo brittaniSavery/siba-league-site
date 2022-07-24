@@ -1,0 +1,22 @@
+---
+import Layout from "@layouts/BaseLayout.astro";
+import { CONFERENCES } from "@content/constants";
+import ConferenceColumn from "@components/ConferenceColumn.astro";
+---
+
+<Layout content={{ title: "College League Standings" }}>
+  <section class="container content">
+    <h1>College League Standings</h1>
+  </section>
+  <div class="level">
+    <div class="level-item columns is-multiline is-centered">
+        {CONFERENCES.map((conf) => {
+            const imgFile = (conf.img || conf.file)
+                  .replace(/\W/, "")
+                  .toLowerCase();
+            const link = conf.file.replace(/\s/, "-").toLowerCase();
+            return <ConferenceColumn image={imgFile} link={link} title={conf.title} />
+          })}
+    </div>
+  </div>
+</Layout>
