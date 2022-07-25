@@ -5,11 +5,10 @@ import Layout from "@layouts/BaseLayout.astro";
 ---
 
 <Layout content={{ title: "College League Standings" }}>
-  <section class="container content">
+  <section class="content">
     <h1>College League Standings</h1>
   </section>
-  <div class="level">
-    <div class="level-item columns is-multiline is-centered">
+    <div class="columns is-multiline is-centered">
         {CONFERENCES.map((conf) => {
             const imgFile = (conf.img || conf.file)
                   .replace(/\W/, "")
@@ -17,5 +16,4 @@ import Layout from "@layouts/BaseLayout.astro";
             return <ConferenceColumn image={imgFile} link={conf.file} title={conf.title} />
           })}
     </div>
-  </div>
 </Layout>
