@@ -1,7 +1,7 @@
 ---
-import Layout from "@layouts/BaseLayout.astro";
-import { CONFERENCES } from "@content/constants";
 import ConferenceColumn from "@components/ConferenceColumn.astro";
+import { CONFERENCES } from "@content/constants";
+import Layout from "@layouts/BaseLayout.astro";
 ---
 
 <Layout content={{ title: "College League Standings" }}>
@@ -14,8 +14,7 @@ import ConferenceColumn from "@components/ConferenceColumn.astro";
             const imgFile = (conf.img || conf.file)
                   .replace(/\W/, "")
                   .toLowerCase();
-            const link = conf.file.replace(/\s/, "-").toLowerCase();
-            return <ConferenceColumn image={imgFile} link={link} title={conf.title} />
+            return <ConferenceColumn image={imgFile} link={conf.file} title={conf.title} />
           })}
     </div>
   </div>

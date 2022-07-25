@@ -21,11 +21,11 @@ export const enum TOURNAMENT_TYPE {
 }
 
 export const CONFERENCES = [
-  { file: "A-Sun", title: "Atlantic Sun Conference " },
-  { file: "A10", title: "Atlantic 10 Conference " },
-  { file: "AAC", title: "American Athletic Conference " },
-  { file: "ACC", title: "Atlantic Coast Conference " },
-  { file: "America East", title: "America East Conference " },
+  { file: "A-Sun", title: "Atlantic Sun Conference" },
+  { file: "A10", title: "Atlantic 10 Conference" },
+  { file: "AAC", title: "American Athletic Conference" },
+  { file: "ACC", title: "Atlantic Coast Conference" },
+  { file: "America East", title: "America East Conference" },
   { file: "Big 10", title: "Big 10 Conference" },
   { file: "Big 12", title: "Big 12 Conference" },
   { file: "Big East", title: "Big East Conference" },

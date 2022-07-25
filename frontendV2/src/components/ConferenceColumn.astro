@@ -1,4 +1,6 @@
 ---
+import { linkify } from "@lib/utils";
+
 export type Props = {
   title: string;
   link: string;
@@ -21,8 +23,9 @@ const { title, link, image } = Astro.props as Props;
       />
     </div>
     <div class="card-footer">
-      <a href={`/college/rankings/${link}`} class="card-footer-item is-size-4"
-        >{title}</a
+      <a
+        href={`/college/standings/${linkify(link)}`}
+        class="card-footer-item is-size-4">{title}</a
       >
     </div>
   </div>

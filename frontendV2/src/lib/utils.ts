@@ -18,3 +18,8 @@ export function getFormattedDate(date: string): string {
   return `${MONTHS[dateObj.getMonth()]}
    ${dateObj.getDate()}, ${dateObj.getFullYear()}`;
 }
+
+export function linkify(data: string, original = false): string {
+  const formatted = data.replace(/\s/g, "_");
+  return original ? formatted : formatted.toLowerCase();
+}
