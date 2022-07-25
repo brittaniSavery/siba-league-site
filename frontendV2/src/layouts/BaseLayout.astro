@@ -1,5 +1,6 @@
 ---
 import Nav from "@components/Nav";
+import Footer from "@components/Footer.astro";
 import clsx from "clsx";
 import "@styles/main.scss";
 
@@ -36,8 +37,9 @@ const { content, fullWidth } = Astro.props;
   </head>
   <body class="has-navbar-fixed-top">
     <Nav client:load />
-    <main class={clsx(!fullWidth && "container is-max-widescreen mt-2 ")}>
+    <main class={clsx(!fullWidth && "container is-max-widescreen mt-2 mb-3")}>
       <slot />
     </main>
+    <Footer />
   </body>
 </html>

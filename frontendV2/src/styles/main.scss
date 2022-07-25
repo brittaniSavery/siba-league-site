@@ -7,6 +7,7 @@ $family-sans-serif: "Maven Pro", sans-serif;
 $family-secondary: "Bebas Neue", sans-serif;
 $navbar-height: 6rem;
 $navbar-item-img-max-height: none;
+$footer-padding: 1.5rem;
 
 @import "../node_modules/bulma/sass/utilities/initial-variables.sass";
 @import "../node_modules/bulma/sass/utilities/mixins.sass";
@@ -75,10 +76,12 @@ body > .container {
 @import "../node_modules/bulma/sass/helpers/_all.sass";
 @import "../node_modules/bulma/sass/components/card.sass";
 @import "../node_modules/bulma/sass/components/dropdown.sass";
+@import "../node_modules/bulma/sass/components/level.sass";
 @import "../node_modules/bulma/sass/components/navbar.sass";
 @import "../node_modules/bulma/sass/elements/container.sass";
 @import "../node_modules/bulma/sass/elements/content";
 @import "../node_modules/bulma/sass/elements/title.sass";
 @import "../node_modules/bulma/sass/grid/columns.sass";
+@import "../node_modules/bulma/sass/layout/footer.sass";
 @import "../node_modules/bulma/sass/layout/hero.sass";
 @import "../node_modules/bulma/sass/layout/section.sass";
