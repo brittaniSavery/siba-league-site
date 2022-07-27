@@ -99,7 +99,7 @@ export const PRO_TEAMS = [
   "Chicago Guardians",
   "Columbus Barons",
   "Dallas Rangers",
-  "Denver Peaks",
+  "Denver Big Horns",
   "Detroit Legion",
   "Houston Stampede",
   "Indiana Express",
