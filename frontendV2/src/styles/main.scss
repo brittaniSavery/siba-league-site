@@ -12,6 +12,11 @@ $footer-padding: 1.5rem;
 @import "../node_modules/bulma/sass/utilities/initial-variables.sass";
 @import "../node_modules/bulma/sass/utilities/mixins.sass";
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 .content {
   h1,
   h2 {
@@ -20,9 +25,18 @@ $footer-padding: 1.5rem;
 }
 
 body > .container {
+  margin-bottom: 10rem;
+
   @include until($desktop) {
     padding-left: 0.75rem;
   }
+}
+
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 .owners-grid {
