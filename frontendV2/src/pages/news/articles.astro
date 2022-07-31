@@ -1,10 +1,12 @@
 ---
+import AllArticles from "@components/articles/AllArticles";
 import Layout from "@layouts/BaseLayout.astro";
-const title = "League Articles";
+const title = "League News Articles";
 ---
 
 <Layout content={{ title: title }}>
   <section class="content">
     <h1>{title}</h1>
   </section>
+  <AllArticles client:idle />
 </Layout>

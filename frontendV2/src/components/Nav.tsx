@@ -114,7 +114,6 @@ export default function Nav() {
           <div className="navbar-end mr-3">
             <div className="navbar-item">
               <span className="is-size-7-desktop">Associated Leagues:</span>
-              <br />
               <img
                 src="/images/sicba-logo-blank.svg"
                 alt="SICBA"

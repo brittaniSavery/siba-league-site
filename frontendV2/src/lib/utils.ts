@@ -23,3 +23,11 @@ export function linkify(data: string, original = false): string {
   const formatted = data.replace(/\s/g, "_");
   return original ? formatted : formatted.toLowerCase();
 }
+
+export async function getDataFromApi<T>(url: string): Promise<T> {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(response.statusText);
+  }
+  return await (response.json() as Promise<T>);
+}

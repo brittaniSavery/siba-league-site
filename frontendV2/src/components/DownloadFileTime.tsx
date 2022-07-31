@@ -1,6 +1,7 @@
 import { LEAGUE } from "@content/constants";
 import { useEffect, useState } from "react";
 import { format, secondsToMilliseconds } from "date-fns";
+import { getDataFromApi } from "@lib/utils";
 
 type DownloadFileTimeProps = {
   league: LEAGUE;
@@ -19,9 +20,9 @@ export default function DownloadFileTime({
   const [fileTimes, setFileTimes] = useState<FileTimes>(null);
 
   useEffect(() => {
-    fetch(`${import.meta.env.PUBLIC_FILE_TIMES_URL}?league=${league}`)
-      .then((response) => response.json())
-      .then((times) => setFileTimes(times));
+    getDataFromApi<FileTimes>(
+      `${import.meta.env.PUBLIC_FILE_TIMES_URL}?league=${league}`
+    ).then((times) => setFileTimes(times));
   }, [league]);
 
   if (fileTimes !== null) {
