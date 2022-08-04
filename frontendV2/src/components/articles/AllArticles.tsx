@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { sortBy } from "lodash";
 import { useEffect, useState } from "react";
 
-const PAGE_SIZE = 10;
+const PAGE_SIZE = 6;
 
 export default function AllArticles() {
   const [articles, setArticles] = useState<Article[]>([]);

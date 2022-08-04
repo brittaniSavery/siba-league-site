@@ -17,6 +17,10 @@ html {
   min-height: 100%;
 }
 
+.card {
+  border: 1px solid $grey-lighter;
+}
+
 .content {
   h1,
   h2 {
