@@ -1,6 +1,6 @@
 import { Article } from "@lib/global";
 import { getFormattedDate } from "@lib/utils";
-import { capitalize, sortBy } from "lodash";
+import { capitalize, sortBy } from "lodash-es";
 
 type ArticleCardProps = {
   article: Article;
@@ -21,7 +21,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
       </div>
       <div className="card-content">
         <h2 className="title is-4 mb-0">
-          <a href={`${import.meta.env.BASE_URL}${slug}`}>{title}</a>
+          <a href={`/news/${slug}`}>{title}</a>
         </h2>
         <p className="mb-5">
           {author.name} &middot; {getFormattedDate(published_at)}

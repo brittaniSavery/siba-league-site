@@ -2,8 +2,9 @@ import ArticleCard from "@components/articles/ArticleCard";
 import { Article, Tag } from "@lib/global";
 import { getDataFromApi } from "@lib/utils";
 import clsx from "clsx";
-import { sortBy } from "lodash";
+import { sortBy } from "lodash-es";
 import { useEffect, useState } from "react";
+import ArticlePagination from "./ArticlePagination";
 
 const PAGE_SIZE = 6;
 
@@ -38,37 +39,42 @@ export default function AllArticles() {
   };
 
   return (
-    <>
-      <div className="columns is-multiline">
-        <div className="column is-full">
-          <div className="buttons">
-            <button
-              className={clsx("button", selectedTag === "" && "is-primary")}
-              onClick={() => updateTag("")}
-            >
-              All Articles
-            </button>
-            {tags.map(({ name }) => (
-              <button
-                key={name}
-                className={clsx("button", selectedTag === name && "is-primary")}
-                onClick={() => updateTag(name)}
-              >
-                {name}
-              </button>
-            ))}
-          </div>
-        </div>
-        {articles.map((article) => (
-          <div
-            key={article.slug}
-            className="column is-4-desktop is-half-tablet"
+    <div className="columns is-multiline">
+      <div className="column is-full">
+        <div className="buttons">
+          <button
+            className={clsx("button", selectedTag === "" && "is-primary")}
+            onClick={() => updateTag("")}
           >
-            <ArticleCard article={article} />
-          </div>
-        ))}
+            All Articles
+          </button>
+          {tags.map(({ name }) => (
+            <button
+              key={name}
+              className={clsx("button", selectedTag === name && "is-primary")}
+              onClick={() => updateTag(name)}
+            >
+              {name}
+            </button>
+          ))}
+        </div>
       </div>
-    </>
+      {articles.map((article) => (
+        <div key={article.slug} className="column is-4-desktop is-half-tablet">
+          <ArticleCard article={article} />
+        </div>
+      ))}
+      <div className="column is-full">
+        <ArticlePagination
+          current={page}
+          total={totalPages}
+          onPageSelect={(newPage) => {
+            setPage(newPage);
+            window.scroll(0, 0);
+          }}
+        />
+      </div>
+    </div>
   );
 }
 
