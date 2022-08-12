@@ -17,7 +17,7 @@ const { title, link, image } = Astro.props as Props;
     <div class="card-image">
       <img
         src={`${
-          import.meta.env.BASE_URL
+          import.meta.env.SITE
         }files/college/Website/images/1CM_${image}.png`}
         alt={title}
       />
