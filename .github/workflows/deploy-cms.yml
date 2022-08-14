@@ -13,7 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Add CMS remote origin
-        run: git remote add heroku-cms https://heroku:${{ secrets.HEROKU_API_TOKEN }}@git.heroku.com/${{ secrets.HEROKU_CMS_APP_NAME }}.git
-      - name: Deploy CMS to Heroku
-        run: git push heroku-cms `git subtree split --prefix cms master`:refs/heads/master --force
+        with:
+          ref: master
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_CMS_APP_NAME}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+          branch: "master"
