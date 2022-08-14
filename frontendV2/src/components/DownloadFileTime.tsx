@@ -5,7 +5,7 @@ import { getDataFromApi } from "@lib/utils";
 
 type DownloadFileTimeProps = {
   league: LEAGUE;
-  file: "league" | "graphics";
+  file: string;
 };
 
 type FileTimes = {

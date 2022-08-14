@@ -2,55 +2,44 @@
 import { LEAGUE } from "@content/constants";
 import Layout from "@layouts/BaseLayout.astro";
 import DownloadTimes from "@components/DownloadFileTime";
+import { capitalize } from "lodash-es";
 
 type Props = {
-  league: "siba" | "college";
+  league: LEAGUE;
 };
 
-const { league } = Astro.params as Props;
-const title = `Download ${
-  league === "siba" ? "SIBA (Pro)" : "SICBA (College)"
-} Program Files`;
-const leagueType = league === "siba" ? LEAGUE.pro : LEAGUE.college;
-const leagueName = `SI${leagueType === LEAGUE.college ? "C" : ""}BA`;
-const graphicsFile = `DDS${leagueType === LEAGUE.college ? "C" : "P"}B2021`;
+const { league } = Astro.props as Props;
+const leagueName = `SI${league === LEAGUE.college ? "C" : ""}BA`;
+const title = `Download ${leagueName} (${capitalize(league)}) Program Files`;
+const graphicsFile = `DDS${league === LEAGUE.college ? "C" : "P"}B2021`;
+
+const leagueDownloads = { league: league, file: "league" };
+const graphicsDownloads = { league: league, file: "graphics" };
 ---
 
 <Layout content={{ title: title }}>
   <section class="content">
-    <h1 id={`downloads-${leagueType}`}>{title}</h1>
+    <h1 id={`downloads-${league}`}>{title}</h1>
     <p>
-      Below are the necessary files for the {leagueType} league ({leagueName}).
-      Make sure all your files are up to date.
+      Below are the necessary files for the {league} league ({leagueName}). Make
+      sure all your files are up to date.
     </p>
     <p>
       <b><a href={`/files/${leagueName}.zip`} download> League File:</a></b> This
       file runs all the simulation from the league. Add this to your own copy of
       the program so you have the most updated version of the league.
       <br />
-      <i
-        >Last Modified: <DownloadTimes
-          league={leagueType}
-          file={"league"}
-          client:idle
-        /></i
-      >
+      <i>Last Modified: <DownloadTimes {...leagueDownloads} client:idle /></i>
     </p>
     <p>
       <b
-        ><a href={`/files/${leagueType}/${graphicsFile}.zip`} download>
+        ><a href={`/files/${league}/${graphicsFile}.zip`} download>
           Graphics File:</a
         ></b
       > This file runs all the simulation from the league. Add this to your own copy
       of the program so you have the most updated version of the league.
       <br />
-      <i
-        >Last Modified: <DownloadTimes
-          league={leagueType}
-          file={"graphics"}
-          client:idle
-        /></i
-      >
+      <i>Last Modified: <DownloadTimes {...graphicsDownloads} client:idle /></i>
     </p>
   </section>
 </Layout>
