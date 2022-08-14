@@ -27,7 +27,9 @@ export default function MembersGrid({ league }: MembersGridProps) {
           className="column is-one-quarter-desktop is-half-tablet"
         >
           <img
-            src={`/files/${league}/Website/images/${m.logo}`}
+            src={`${import.meta.env.SITE}files/${league}/Website/images/${
+              m.logo
+            }`}
             alt={`${m.team} logo`}
           />
           <h2 className="is-size-5 has-text-weight-semibold">{m.team}</h2>

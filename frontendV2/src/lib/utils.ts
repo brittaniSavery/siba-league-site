@@ -1,4 +1,4 @@
-export function getFormattedDate(date: string): string {
+export function getFormattedDate(date: string | Date): string {
   const MONTHS = [
     "Jan",
     "Feb",
@@ -13,7 +13,11 @@ export function getFormattedDate(date: string): string {
     "Nov",
     "Dec",
   ];
-  const dateObj = new Date(date);
+
+  let dateObj: Date;
+  if (typeof date === "string") {
+    dateObj = new Date(date);
+  } else dateObj = date;
 
   return `${MONTHS[dateObj.getMonth()]}
    ${dateObj.getDate()}, ${dateObj.getFullYear()}`;

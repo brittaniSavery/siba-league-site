@@ -1,7 +1,6 @@
 ---
 import IFrameContainer from "@components/IFrameContainer.astro";
-import { CONFERENCES, LEAGUE } from "@content/constants";
-import Layout from "@layouts/BaseLayout.astro";
+import { LEAGUE } from "@content/constants";
 
 const iframeProps = {
   title: "SIBA Headlines",
@@ -10,6 +9,4 @@ const iframeProps = {
 };
 ---
 
-<Layout content={{ title: iframeProps.title }} fullWidth>
-  <IFrameContainer {...iframeProps} />
-</Layout>
+<IFrameContainer {...iframeProps} />

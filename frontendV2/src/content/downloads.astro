@@ -3,17 +3,17 @@ import { LEAGUE } from "@content/constants";
 import Layout from "@layouts/BaseLayout.astro";
 import DownloadTimes from "@components/DownloadFileTime";
 
-const { league } = Astro.params;
+type Props = {
+  league: "siba" | "college";
+};
+
+const { league } = Astro.params as Props;
 const title = `Download ${
   league === "siba" ? "SIBA (Pro)" : "SICBA (College)"
 } Program Files`;
 const leagueType = league === "siba" ? LEAGUE.pro : LEAGUE.college;
 const leagueName = `SI${leagueType === LEAGUE.college ? "C" : ""}BA`;
 const graphicsFile = `DDS${leagueType === LEAGUE.college ? "C" : "P"}B2021`;
-
-export function getStaticPaths() {
-  return [{ params: { league: "siba" } }, { params: { league: "college" } }];
-}
 ---
 
 <Layout content={{ title: title }}>

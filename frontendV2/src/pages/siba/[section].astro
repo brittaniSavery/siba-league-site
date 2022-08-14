@@ -1,0 +1,18 @@
+---
+import ProGenereatedPage from "@components/ProGenereatedPage.astro";
+import OwnersPage from "@content/pro/owners.astro";
+import RewardsPage from "@content/pro/rewards.astro";
+import RulesPage from "@content/pro/rules.md";
+
+type Props = {
+  section: string;
+};
+
+const { section } = Astro.params as Props;
+---
+
+{section === "owners" ? <OwnersPage/> 
+: section === "rules" ? <RulesPage /> 
+: section === "rewards" ? <RewardsPage />
+: <ProGenereatedPage league="siba" section={section} />}
+

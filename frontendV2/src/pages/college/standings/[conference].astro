@@ -1,7 +1,6 @@
 ---
 import IFrameContainer from "@components/IFrameContainer.astro";
 import { CONFERENCES, LEAGUE } from "@content/constants";
-import Layout from "@layouts/BaseLayout.astro";
 import { linkify } from "@lib/utils";
 
 const { conference } = Astro.params;
@@ -14,19 +13,6 @@ const title = `${selectedConference.title} Standings`;
 const file = `${linkify(selectedConference.file, true)}_Standings`;
 
 const iframeProps = { title, file, league: LEAGUE.college };
-
-export function getStaticPaths() {
-  const staticPaths = [];
-
-  CONFERENCES.map((conf) => {
-    const data = { params: { conference: linkify(conf.file) } };
-    staticPaths.push(data);
-  });
-
-  return staticPaths;
-}
 ---
 
-<Layout content={{ title: title }} fullWidth>
-  <IFrameContainer {...iframeProps} />
-</Layout>
+<IFrameContainer {...iframeProps} />

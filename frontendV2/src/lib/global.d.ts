@@ -43,6 +43,11 @@ type ProEvent = SibaEvent & {
   league: LEAGUE;
 };
 
+type RewardPoints = {
+  data: { team: string; points: number }[];
+  updatedAt: Date;
+};
+
 // ARTICLE TYPES
 
 type Article = {

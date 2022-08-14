@@ -1,12 +1,16 @@
 ---
 import IFrameContainer from "@components/IFrameContainer.astro";
 import { LEAGUE } from "@content/constants";
-import Layout from "@layouts/BaseLayout.astro";
 
-const { league, generated } = Astro.params;
+type Props = {
+  league: LEAGUE | string;
+  section: string;
+};
+
+const { league, section } = Astro.props as Props;
 let title: string, file: string;
 
-switch (generated) {
+switch (section) {
   case "standings":
     title = `${league.toString().toUpperCase()} League Standings`;
     file = `${league.toString().toUpperCase()}Standings`;
@@ -27,10 +31,6 @@ switch (generated) {
     title = "SIBA Free Agents";
     file = "FA";
     break;
-  case "free-agents":
-    title = "SIBA Free Agents";
-    file = "FA";
-    break;
   case "available-coaches":
     title = "SIBA Available Coaches";
     file = "FACoach";
@@ -42,22 +42,6 @@ switch (generated) {
 }
 
 const iframeProps = { title, file, league: LEAGUE.pro };
-
-export function getStaticPaths() {
-  return [
-    { params: { league: "siba", generated: "standings" } },
-    { params: { league: "siba", generated: "leaders" } },
-    { params: { league: "siba", generated: "schedule" } },
-    { params: { league: "siba", generated: "transactions" } },
-    { params: { league: "siba", generated: "free-agents" } },
-    { params: { league: "siba", generated: "available-coaches" } },
-    { params: { league: "siba", generated: "player-index" } },
-    { params: { league: "dbl", generated: "standings" } },
-    { params: { league: "dbl", generated: "leaders" } },
-  ];
-}
 ---
 
-<Layout content={{ title: title }} fullWidth>
-  <IFrameContainer {...iframeProps} />
-</Layout>
+<IFrameContainer {...iframeProps} />

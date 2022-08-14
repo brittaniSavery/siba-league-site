@@ -72,7 +72,7 @@ export default function Nav() {
     >
       <section className="container is-max-widescreen">
         <div className="navbar-brand">
-          <a className="navbar-item" href={import.meta.env.BASE_URL}>
+          <a className="navbar-item" href={import.meta.env.SITE}>
             <img src="/images/logo-blank.svg" alt="" className="navbar-img" />
             <span className="is-family-secondary has-text-weight-bold has-text-primary ml-2 is-size-3-touch is-size-2">
               SIBA
