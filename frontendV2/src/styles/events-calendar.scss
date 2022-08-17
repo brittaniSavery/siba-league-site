@@ -1,42 +1,47 @@
-.rbc-event {
-  &.recruiting {
-    &-none {
-      background-color: black;
-      color: white;
-    }
-
-    &-quiet {
-      background-color: #2185d0;
-      color: white;
-    }
-
-    &-evaluation {
-      background-color: #f2711c;
-      color: white;
-    }
-
-    &-dead {
-      background-color: #db2828;
-      color: white;
-    }
-
-    &-contact {
-      background-color: #21ba45;
-      color: white;
-    }
-
-    &-loi {
-      background-color: #767676;
-      color: white;
-    }
+.recruiting {
+  &-none {
+    background-color: black !important;
+    color: white;
   }
 
-  &.tournament {
-    background-color: #8f6ead;
+  &-quiet {
+    background-color: #2185d0 !important;
+    color: white;
+  }
+
+  &-evaluation {
+    background-color: #f2711c !important;
+    color: white;
+  }
+
+  &-dead {
+    background-color: #db2828 !important;
+    color: white;
+  }
+
+  &-contact {
+    background-color: #21ba45 !important;
+    color: white;
+  }
+
+  &-loi {
+    background-color: #767676 !important;
     color: white;
   }
 }
 
+.tournament {
+  background-color: #8f6ead !important;
+  color: white;
+}
+
+.rbc-agenda-date-cell,
+.rbc-agenda-time-cell {
+  background-color: white;
+  color: black;
+}
+
 $event-bg: #6e93ad;
+$today-highlight-bg: #afd0e8;
 
 @import "react-big-calendar/lib/sass/styles";

@@ -263,7 +263,7 @@ const events: CollegeEvent[] = [
   {
     title: "Golden State Classic",
     start: DateTime.fromISO("2022-12-09").toJSDate(),
-    end: DateTime.fromISO("2022-12-1").toJSDate(),
+    end: DateTime.fromISO("2022-12-11").toJSDate(),
     tournament: true,
     tournamentType: TOURNAMENT_TYPE.preseason,
   },
@@ -323,7 +323,6 @@ const events: CollegeEvent[] = [
     tournament: true,
     tournamentType: TOURNAMENT_TYPE.postseason,
   },
-
   //#endregion
 ];
 

@@ -3,7 +3,13 @@ import { CollegeEvent, ProEvent } from "@lib/global";
 import "@styles/events-calendar.scss";
 import { DateTime } from "luxon";
 import { useMemo, useState } from "react";
-import { Calendar, luxonLocalizer } from "react-big-calendar";
+import {
+  Calendar,
+  DateLocalizer,
+  Formats,
+  luxonLocalizer,
+  Culture,
+} from "react-big-calendar";
 
 type EventsCalendarProps = {
   league: LEAGUE;
@@ -15,12 +21,27 @@ export default function EventsCalendar({
   events = [],
 }: EventsCalendarProps) {
   //TODO: Add api call to change date to match Slack
-  const [currentDate, setCurrentDate] = useState<Date>(new Date());
+  const [currentDate, setCurrentDate] = useState<Date>(
+    DateTime.fromISO("2022-07-04").toJSDate()
+  );
   const { localizer } = useMemo(() => {
     return {
       localizer: luxonLocalizer(DateTime),
     };
   }, []);
+
+  const formats: Formats = useMemo(
+    () => ({
+      monthHeaderFormat: (
+        date: Date,
+        culture?: Culture,
+        localizer?: DateLocalizer
+      ): string => {
+        return localizer.format(date, "LLLL");
+      },
+    }),
+    []
+  );
 
   return (
     <>
@@ -30,6 +51,7 @@ export default function EventsCalendar({
           localizer={localizer}
           date={currentDate}
           events={events}
+          formats={formats}
           eventPropGetter={(event) => {
             const collegeEvent = event as CollegeEvent;
             let className = null;
@@ -85,6 +107,7 @@ export default function EventsCalendar({
               setCurrentDate(lastDay2022.toJSDate());
             }
           }}
+          views={["month", "week"]}
         />
       </div>
     </>
