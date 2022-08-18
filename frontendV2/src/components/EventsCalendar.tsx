@@ -1,7 +1,7 @@
 import { LEAGUE, RECRUITING } from "@content/constants";
 import { CollegeEvent, ProEvent } from "@lib/global";
 import "@styles/events-calendar.scss";
-import { DateTime } from "luxon";
+import { DateTime, Settings } from "luxon";
 import { useMemo, useState } from "react";
 import {
   Calendar,
@@ -21,10 +21,11 @@ export default function EventsCalendar({
   events = [],
 }: EventsCalendarProps) {
   //TODO: Add api call to change date to match Slack
-  const [currentDate, setCurrentDate] = useState<Date>(
-    DateTime.fromISO("2022-07-04").toJSDate()
-  );
+  const currentDate = new Date("2022-07-04");
+  const [calendarDate, setCalendarDate] = useState<Date>(currentDate);
   const { localizer } = useMemo(() => {
+    Settings.defaultZone = "local";
+
     return {
       localizer: luxonLocalizer(DateTime),
     };
@@ -65,22 +66,26 @@ export default function EventsCalendar({
         <Calendar
           popup
           localizer={localizer}
-          date={currentDate}
+          date={calendarDate}
           events={events}
           formats={formats}
           views={["month", "agenda"]}
           length={7}
           min={DateTime.fromObject({ hour: 9 }).toJSDate()}
-          allDayAccessor={() => true}
+          // allDayAccessor={() => true}
           eventPropGetter={(event) => getEventClass(league, event)}
-          endAccessor={(event) => {
-            let endDate = DateTime.fromJSDate(event.end);
-            endDate = endDate.set({ hour: 23, minute: 59, second: 59 });
-            return endDate.toJSDate();
-          }}
+          // endAccessor={(event) => {
+          //   let endDate = DateTime.fromJSDate(event.end);
+          //   console.log("Old endDate", endDate.toISO());
+          //   endDate = endDate.set({ hour: 23, minute: 59, second: 59 });
+          //   console.log("New endDate", endDate.toISO());
+          //   console.log("JS Date", endDate.toJSDate());
+
+          //   return endDate.toJSDate();
+          // }}
           getNow={() => currentDate}
           onNavigate={(newDate) => {
-            setCurrentDate(newDate);
+            setCalendarDate(newDate);
           }}
           onRangeChange={(range: { start: Date; end: Date }) => {
             const endDate = DateTime.fromJSDate(range.end);
@@ -89,9 +94,9 @@ export default function EventsCalendar({
             const duration = lastDay2022.diff(endDate, "days").toObject().days;
 
             if (duration < -1) {
-              setCurrentDate(firstDay2022.toJSDate());
+              setCalendarDate(firstDay2022.toJSDate());
             } else if (duration > 360) {
-              setCurrentDate(lastDay2022.toJSDate());
+              setCalendarDate(lastDay2022.toJSDate());
             }
           }}
         />
