@@ -39,6 +39,22 @@ export default function EventsCalendar({
       ): string => {
         return localizer.format(date, "LLLL");
       },
+      agendaDateFormat: (
+        date: Date,
+        culture?: Culture,
+        localizer?: DateLocalizer
+      ): string => {
+        return localizer.format(date, "LLL dd");
+      },
+      agendaHeaderFormat: (
+        range: { start: Date; end: Date },
+        culture?: string,
+        localizer?: DateLocalizer
+      ): string => {
+        const startFormatted = localizer.format(range.start, "LLL dd");
+        const endFormatted = localizer.format(range.end, "LLL dd");
+        return `${startFormatted}–${endFormatted}`;
+      },
     }),
     []
   );
@@ -52,48 +68,19 @@ export default function EventsCalendar({
           date={currentDate}
           events={events}
           formats={formats}
-          eventPropGetter={(event) => {
-            const collegeEvent = event as CollegeEvent;
-            let className = null;
-
-            if (collegeEvent.tournament) {
-              className = "tournament";
-            } else {
-              switch (event.title) {
-                case RECRUITING.Contact:
-                  className = "recruiting-contact";
-                  break;
-                case RECRUITING.Dead:
-                  className = "recruiting-dead";
-                  break;
-                case RECRUITING.EarlyLOI:
-                case RECRUITING.LateLOI:
-                  className = "recruiting-loi";
-                  break;
-                case RECRUITING.Evaluation:
-                  className = "recruiting-evaluation";
-                  break;
-                case RECRUITING.None:
-                  className = "recruiting-none";
-                  break;
-                case RECRUITING.Quiet:
-                  className = "recruiting-quiet";
-                  break;
-              }
-            }
-
-            return { className: className };
-          }}
-          onNavigate={(newDate) => {
-            console.log("On Navigate");
-            setCurrentDate(newDate);
-          }}
+          views={["month", "agenda"]}
+          length={7}
+          min={DateTime.fromObject({ hour: 9 }).toJSDate()}
+          allDayAccessor={() => true}
+          eventPropGetter={(event) => getEventClass(league, event)}
           endAccessor={(event) => {
             let endDate = DateTime.fromJSDate(event.end);
-            if (endDate.hour !== 23) {
-              endDate = endDate.set({ hour: 23, minute: 59, second: 59 });
-            }
+            endDate = endDate.set({ hour: 23, minute: 59, second: 59 });
             return endDate.toJSDate();
+          }}
+          getNow={() => currentDate}
+          onNavigate={(newDate) => {
+            setCurrentDate(newDate);
           }}
           onRangeChange={(range: { start: Date; end: Date }) => {
             const endDate = DateTime.fromJSDate(range.end);
@@ -107,9 +94,49 @@ export default function EventsCalendar({
               setCurrentDate(lastDay2022.toJSDate());
             }
           }}
-          views={["month", "week"]}
         />
       </div>
     </>
   );
+}
+
+function getEventClass(
+  league: LEAGUE,
+  event: CollegeEvent | ProEvent
+): {
+  className: string;
+} {
+  let className: string = null;
+
+  if (league === LEAGUE.college) {
+    const collegeEvent = event as CollegeEvent;
+
+    if (collegeEvent.tournament) {
+      className = "tournament";
+    } else {
+      switch (event.title) {
+        case RECRUITING.Contact:
+          className = "recruiting-contact";
+          break;
+        case RECRUITING.Dead:
+          className = "recruiting-dead";
+          break;
+        case RECRUITING.EarlyLOI:
+        case RECRUITING.LateLOI:
+          className = "recruiting-loi";
+          break;
+        case RECRUITING.Evaluation:
+          className = "recruiting-evaluation";
+          break;
+        case RECRUITING.None:
+          className = "recruiting-none";
+          break;
+        case RECRUITING.Quiet:
+          className = "recruiting-quiet";
+          break;
+      }
+    }
+  }
+
+  return { className: className };
 }

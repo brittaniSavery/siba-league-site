@@ -35,13 +35,18 @@
   color: white;
 }
 
-.rbc-agenda-date-cell,
-.rbc-agenda-time-cell {
+.rbc-agenda-date-cell {
   background-color: white;
   color: black;
 }
 
+.rbc-month-header,
+.rbc-agenda-time-cell,
+.rbc-agenda-table th:nth-child(2) {
+  display: none !important;
+}
+
 $event-bg: #6e93ad;
-$today-highlight-bg: #afd0e8;
+$today-highlight-bg: #dff1ff;
 
 @import "react-big-calendar/lib/sass/styles";
