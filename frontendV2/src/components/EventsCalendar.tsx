@@ -24,7 +24,7 @@ export default function EventsCalendar({
   const currentDate = new Date("2022-07-04");
   const [calendarDate, setCalendarDate] = useState<Date>(currentDate);
   const { localizer } = useMemo(() => {
-    Settings.defaultZone = "local";
+    Settings.defaultZone = "UTC-5";
 
     return {
       localizer: luxonLocalizer(DateTime),
@@ -72,17 +72,13 @@ export default function EventsCalendar({
           views={["month", "agenda"]}
           length={7}
           min={DateTime.fromObject({ hour: 9 }).toJSDate()}
-          // allDayAccessor={() => true}
           eventPropGetter={(event) => getEventClass(league, event)}
-          // endAccessor={(event) => {
-          //   let endDate = DateTime.fromJSDate(event.end);
-          //   console.log("Old endDate", endDate.toISO());
-          //   endDate = endDate.set({ hour: 23, minute: 59, second: 59 });
-          //   console.log("New endDate", endDate.toISO());
-          //   console.log("JS Date", endDate.toJSDate());
+          endAccessor={(event) => {
+            let endDate = DateTime.fromJSDate(event.end);
+            endDate = endDate.set({ hour: 23, minute: 59, second: 59 });
 
-          //   return endDate.toJSDate();
-          // }}
+            return endDate.toJSDate();
+          }}
           getNow={() => currentDate}
           onNavigate={(newDate) => {
             setCalendarDate(newDate);
