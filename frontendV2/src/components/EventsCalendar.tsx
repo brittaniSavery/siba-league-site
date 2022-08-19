@@ -21,10 +21,10 @@ export default function EventsCalendar({
   events = [],
 }: EventsCalendarProps) {
   //TODO: Add api call to change date to match Slack
-  const currentDate = new Date("2022-07-04");
+  const currentDate = new Date(2022, 6, 4);
   const [calendarDate, setCalendarDate] = useState<Date>(currentDate);
   const { localizer } = useMemo(() => {
-    Settings.defaultZone = "UTC-5";
+    Settings.defaultZone = import.meta.env.TIMEZONE;
 
     return {
       localizer: luxonLocalizer(DateTime),
