@@ -48,7 +48,7 @@ email or some other method to communicate their instructions.
 
 In-Season Free Agent Signing is started by a team posting the player they wish to sign in the transactions-freeagent-signings channel. Then that player is available until the next sim or for 6 hours, whichever period is shorter, to give any other teams a chance of signing him. After the waiting period, Commissioner will use the website [True Random Number Generator](http://www.random.org/) to calculate the number. Three random numbers will be average together to get the free agent number of interest.
 
-The following are the changes to sign the free agent depending on the number of interested teams.
+The following are the chances to sign the free agent depending on the number of interested teams.
 
 1. If only one team is involved, then that team signs him.
 2. If two teams are involved, then the first team has a 85% chance of signing him and the second team has only 15%. Example: team one has from (1-85) and team two has from (86-100).
