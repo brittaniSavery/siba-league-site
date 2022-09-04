@@ -176,7 +176,7 @@ ranking,tier,school,nickname,region,probation
 106,2,Miami (FL),Hurricanes,Southeast,
 152,2,Miami (OH),Red Hawks,Midwest,
 5,1,Michigan,Wolverines,Midwest,
-11,1,Michigan State,Spartans,Midwest,No scholarships or post-season for 2 seasons
+11,1,Michigan State,Spartans,Midwest,No scholarships or post-season for 1 season
 189,2,Middle Tennessee,Blue Raiders,Southeast,
 266,3,Milwaukee,Panthers,Midwest,
 37,1,Minnesota,Golden Gophers,Midwest,
@@ -296,7 +296,7 @@ ranking,tier,school,nickname,region,probation
 304,3,Stephen F. Austin,Lumberjacks,Great Plains,
 54,2,Stetson,Hatters,Southeast,
 326,3,Stony Brook,Seawolves,Atlantic East,
-115,2,Syracuse,Orange,Atlantic East,
+115,2,Syracuse,Orange,Atlantic East,No scholarships for 2 seasons and no post-season for 1 season
 87,2,Tarleton State,Texans,Great Plains,
 174,2,Temple,Owls,Atlantic East,
 1,1,Tennessee,Volunteers,Southeast,
