@@ -1,5 +1,5 @@
 import { LEAGUE } from "src/content/constants";
-import { MemberInfo } from "@lib/global";
+import { Member } from "@lib/global";
 import { useEffect, useState } from "react";
 
 type MembersGridProps = {
@@ -7,7 +7,7 @@ type MembersGridProps = {
 };
 
 export default function MembersGrid({ league }: MembersGridProps) {
-  const [members, setMembers] = useState<MemberInfo[]>([]);
+  const [members, setMembers] = useState<Member[]>([]);
 
   useEffect(() => {
     fetch(

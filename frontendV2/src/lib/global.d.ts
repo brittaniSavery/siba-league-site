@@ -1,8 +1,7 @@
-// GENERAL TYPES
-
 import { ReactNode } from "react";
 import { LEAGUE, TOURNAMENT_TYPE } from "src/content/constants";
 
+//#region GENERAL TYPES
 declare global {
   interface Window {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -19,13 +18,29 @@ type SiteUpdate = {
   published_at: string;
 };
 
-type MemberInfo = {
+type Member = {
   team: string;
   logo: string;
   name: string;
 };
 
-// CALENDAR TYPES
+type School = {
+  ranking: number;
+  tier: 1 | 2 | 3;
+  name: string;
+  mascot: string;
+  region: string;
+  probation: "";
+};
+
+type Schools = {
+  data: School[];
+  updatedAt: Date;
+};
+
+//#endregion
+
+//#region CALENDAR TYPES
 
 type SibaEvent = {
   title: string;
@@ -47,8 +62,9 @@ type RewardPoints = {
   data: { team: string; points: number }[];
   updatedAt: Date;
 };
+//#endregion
 
-// ARTICLE TYPES
+//#region ARTICLE TYPES
 
 type Article = {
   author: Author;
@@ -81,3 +97,4 @@ type Author = {
 type Tag = {
   name: string;
 };
+//#endregion
