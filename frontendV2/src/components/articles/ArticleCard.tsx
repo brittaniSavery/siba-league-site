@@ -21,7 +21,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
       </div>
       <div className="card-content">
         <h2 className="title is-4 mb-0">
-          <a href={`/news/${slug}`}>{title}</a>
+          <a href={`/news/article/${slug}`}>{title}</a>
         </h2>
         <p className="mb-5">
           {author.name} &middot; {getFormattedDate(published_at)}
