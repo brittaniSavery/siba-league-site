@@ -1,16 +1,14 @@
 import { Article } from "@lib/global";
-import { getFormattedDate } from "@lib/utils";
-import { capitalize, sortBy } from "lodash-es";
+import { generateArticleTags, getFormattedDate } from "@lib/utils";
 
 type ArticleCardProps = {
   article: Article;
 };
 
 export default function ArticleCard({ article }: ArticleCardProps) {
-  const { title, image, slug, summary, tags, published_at, author, league } =
-    article;
+  const { title, image, slug, summary, published_at, author } = article;
 
-  const sortedTags = sortBy([...tags, { name: capitalize(league) }], ["name"]);
+  const tags = generateArticleTags(article);
 
   return (
     <div className="card is-shadowless">
@@ -30,7 +28,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
       </div>
       <div className="card-footer">
         <div className="tags card-footer-item">
-          {sortedTags.map(({ name }) => (
+          {tags.map(({ name }) => (
             <span key={`${slug}-${name}`} className="tag is-primary">
               {name}
             </span>

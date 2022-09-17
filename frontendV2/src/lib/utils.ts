@@ -1,3 +1,6 @@
+import { Article, Tag } from "./global";
+import { capitalize, sortBy } from "lodash-es";
+
 export function getFormattedDate(date: string | Date): string {
   const MONTHS = [
     "Jan",
@@ -34,4 +37,10 @@ export async function getDataFromApi<T>(url: string): Promise<T> {
     throw new Error(response.statusText);
   }
   return await (response.json() as Promise<T>);
+}
+
+export function generateArticleTags(article: Article): Tag[] {
+  const { league, tags } = article;
+  const sortedTags = sortBy([...tags, { name: capitalize(league) }], ["name"]);
+  return sortedTags;
 }
