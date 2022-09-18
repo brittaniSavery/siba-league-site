@@ -13,6 +13,10 @@ export default function ArticlePagination({
 }: ArticlePaginationProps) {
   const pages = [];
 
+  if (total === 0) {
+    return;
+  }
+
   for (let i = 1; i <= total; i++) {
     pages.push(
       <li key={`article-pagination-${i}`}>

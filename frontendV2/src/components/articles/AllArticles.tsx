@@ -2,33 +2,28 @@ import ArticleCard from "@components/articles/ArticleCard";
 import { Article, Tag } from "@lib/global";
 import { getDataFromApi } from "@lib/utils";
 import clsx from "clsx";
-import { sortBy } from "lodash-es";
 import { useEffect, useState } from "react";
 import ArticlePagination from "./ArticlePagination";
 
 const PAGE_SIZE = 6;
 
-export default function AllArticles() {
+type AllArticlesProps = {
+  tags: Tag[];
+};
+
+export default function AllArticles({ tags }: AllArticlesProps) {
   const [articles, setArticles] = useState<Article[]>([]);
-  const [tags, setTags] = useState<Tag[]>([]);
   const [selectedTag, setSelectedTag] = useState("");
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getDataFromApi<Array<Tag>>(`${import.meta.env.PUBLIC_CMS_URL}/tags`).then(
-      (data) => {
-        const leagueTags = [{ name: "Pro" }, { name: "College" }];
-        const newData = data.concat(leagueTags);
-        setTags(sortBy(newData, ["name"]));
-      }
-    );
-  }, []);
-
-  useEffect(() => {
+    setLoading(true);
     getArticles(page, selectedTag).then((info) => {
       setArticles(info.articles);
       setTotalPages(info.totalPages);
+      setLoading(false);
     });
   }, [page, selectedTag]);
 
@@ -42,7 +37,10 @@ export default function AllArticles() {
       <div className="column is-full">
         <div className="buttons">
           <button
-            className={clsx("button", selectedTag === "" && "is-primary")}
+            className={clsx(
+              "button is-small",
+              selectedTag === "" && "is-primary"
+            )}
             onClick={() => updateTag("")}
           >
             All Articles
@@ -50,7 +48,10 @@ export default function AllArticles() {
           {tags.map(({ name }) => (
             <button
               key={name}
-              className={clsx("button", selectedTag === name && "is-primary")}
+              className={clsx(
+                "button is-small",
+                selectedTag === name && "is-primary"
+              )}
               onClick={() => updateTag(name)}
             >
               {name}
@@ -63,6 +64,17 @@ export default function AllArticles() {
           <ArticleCard article={article} />
         </div>
       ))}
+      {!loading && articles.length === 0 && (
+        <div className="column is-full">
+          <p className="title is-4 has-text-centered">
+            Sorry, there are no articles available in the {selectedTag}
+            &nbsp;category.
+          </p>
+          <p className="subtitle is-6 has-text-centered">
+            Please try again later.
+          </p>
+        </div>
+      )}
       <div className="column is-full">
         <ArticlePagination
           current={page}
@@ -86,7 +98,6 @@ async function getArticles(page?: number, tag?: string) {
     page ? (page - 1) * PAGE_SIZE : 0
   }&_sort=published_at:DESC`;
   const filters = league ? `&league=${league}` : tag ? `&tags.name=${tag}` : "";
-  console.log("Filters: ", filters);
 
   const articles = await getDataFromApi<Array<Article>>(
     `${import.meta.env.PUBLIC_CMS_URL}/articles?${paging}${filters}`

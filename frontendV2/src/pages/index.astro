@@ -1,8 +1,8 @@
 ---
 import { Content as Intro } from "@content/indexIntro.md";
 import Layout from "@layouts/BaseLayout.astro";
-import type { Article,SiteUpdate } from "@lib/global";
-import { getDataFromApi,getFormattedDate } from "@lib/utils";
+import type { Article, SiteUpdate } from "@lib/global";
+import { getDataFromApi, getFormattedDate } from "@lib/utils";
 
 const updates = await getDataFromApi<SiteUpdate[]>(
   `${
@@ -25,29 +25,33 @@ const latestArticles = await getDataFromApi<Article[]>(
   <div class="columns content">
     <div class="column is-two-thirds">
       <h2>Updates</h2>
-      {updates.map((u) => (
-        <>
-          <h3>{getFormattedDate(u.published_at)}</h3>
-          <p>{u.content}</p>
-        </>
-      ))}
+      {
+        updates.map((u) => (
+          <>
+            <h3>{getFormattedDate(u.published_at)}</h3>
+            <p>{u.content}</p>
+          </>
+        ))
+      }
     </div>
     <div class="column">
       <h2>Latest Articles</h2>
-      {latestArticles.map((a) => (
-        <div class="mb-5">
-          <p>
-            <a class="is-size-5" href={`/news/${a.slug}`}>
-              {a.title}
-            </a>
-            <br />
-            <span class="is-size-7">
-              {getFormattedDate(a.published_at)} · {a.author.name}
-            </span>
-          </p>
-          <p>{a.summary}</p>
-        </div>
-      ))}
+      {
+        latestArticles.map((a) => (
+          <div class="mb-5">
+            <p>
+              <a class="is-size-5" href={`/news/article/${a.slug}`}>
+                {a.title}
+              </a>
+              <br />
+              <span class="is-size-7">
+                {getFormattedDate(a.published_at)} · {a.author.name}
+              </span>
+            </p>
+            <p>{a.summary}</p>
+          </div>
+        ))
+      }
     </div>
   </div>
 </Layout>
