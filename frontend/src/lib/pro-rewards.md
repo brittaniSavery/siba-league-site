@@ -46,4 +46,4 @@ At the end of each SIBA season, reward points are rewarded to teams based on the
 
 ### Current Team Reward Points
 
-Last updated: May 13, 2022
+Last updated: November 8, 2022
