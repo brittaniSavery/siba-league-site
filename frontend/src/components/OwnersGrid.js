@@ -1,3 +1,6 @@
+import { readString } from "react-papaparse";
+import coachesFile from "../lib/coaches.csv";
+import gmsFile from "../lib/gms.csv";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Content from "../layout/Content";
@@ -7,13 +10,31 @@ export default function OwnersGrid({ header, league }) {
   const [data, setData] = React.useState([]);
 
   React.useEffect(() => {
-    fetch(
-      `${process.env.REACT_APP_CMS_URL}/${
-        league === PRO ? "general-managers" : "coaches"
-      }?_sort=team`
-    )
-      .then((response) => response.json())
-      .then((teams) => setData(teams));
+    const fetchData = async () => {
+      const gmsFileResponse = await fetch(gmsFile);
+      const gmsData = await gmsFileResponse.text();
+      const gmsResult = readString(gmsData, {
+        header: true,
+        dynamicTyping: false,
+        transformHeader: (header) => header.toLowerCase(),
+      });
+
+      const coachesFileResponse = await fetch(coachesFile);
+      const coachesData = await coachesFileResponse.text();
+      const coachesResult = readString(coachesData, {
+        header: true,
+        dynamicTyping: false,
+        transformHeader: (header) => header.toLowerCase(),
+      });
+
+      if (league === PRO) {
+        setData(gmsResult.data);
+      } else {
+        setData(coachesResult.data);
+      }
+    };
+
+    fetchData();
   }, [league]);
 
   return (

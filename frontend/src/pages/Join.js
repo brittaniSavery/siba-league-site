@@ -10,6 +10,8 @@ import InputField from "../components/InputField";
 import Content from "../layout/Content";
 import { readString } from "react-papaparse";
 import allCollegeTeamsFile from "../lib/sicba-rankings.csv";
+import coachesFile from "../lib/coaches.csv";
+import gmsFile from "../lib/gms.csv";
 import { ERROR, SENDING, SENT, PRO_TEAMS, PRO } from "../lib/constants";
 import TeamSelectionCard from "../components/join/TeamSelectionCard";
 
@@ -27,17 +29,26 @@ export default function Join() {
     const fetchData = async () => {
       try {
         //get human (unavailable) teams
-        const proHumanTeamsFetch = await fetch(
-          `${process.env.REACT_APP_CMS_URL}/general-managers`
-        );
-        const collegeHumanTeamsFetch = await fetch(
-          `${process.env.REACT_APP_CMS_URL}/coaches`
-        );
+        const gmsFileResponse = await fetch(gmsFile);
+        const gmsData = await gmsFileResponse.text();
+        const gmsResult = readString(gmsData, {
+          header: true,
+          dynamicTyping: false,
+          transformHeader: (header) => header.toLowerCase(),
+        });
+
+        const coachesFileResponse = await fetch(coachesFile);
+        const coachesData = await coachesFileResponse.text();
+        const coachesResult = readString(coachesData, {
+          header: true,
+          dynamicTyping: false,
+          transformHeader: (header) => header.toLowerCase(),
+        });
 
         //parse college team file
-        const fileResponse = await fetch(allCollegeTeamsFile);
-        const file = await fileResponse.text();
-        const parseResult = readString(file, {
+        const allCollegeTeamsFileResponse = await fetch(allCollegeTeamsFile);
+        const allCollegeTeamsData = await allCollegeTeamsFileResponse.text();
+        const allCollegeTeamsResult = readString(allCollegeTeamsData, {
           header: true,
           dynamicTyping: false,
           transformHeader: (header) => header.toLowerCase(),
@@ -45,23 +56,19 @@ export default function Join() {
 
         //let the user know necessary data was not loaded correctly
         if (
-          parseResult.errors.length ||
-          !proHumanTeamsFetch.ok ||
-          !collegeHumanTeamsFetch
+          allCollegeTeamsResult.errors.length ||
+          gmsResult.errors.length ||
+          coachesResult.errors.length
         ) {
-          console.log(parseResult.errors);
-          console.log(await proHumanTeamsFetch.text());
-          console.log(await collegeHumanTeamsFetch.text());
+          console.log(allCollegeTeamsResult.errors);
+          console.log(gmsResult.errors);
+          console.log(coachesResult.errors);
           setPageError(true);
         } else {
           //continue filtering out unavailable human teams
-          const proHumanTeams = (await proHumanTeamsFetch.json()).map(
-            (data) => data.team
-          );
-          const collegeHumanTeams = (await collegeHumanTeamsFetch.json()).map(
-            (data) => data.team
-          );
-          const allCollegeTeams = parseResult.data.map((team) => ({
+          const proHumanTeams = gmsResult.data.map((data) => data.team);
+          const collegeHumanTeams = coachesResult.data.map((data) => data.team);
+          const allCollegeTeams = allCollegeTeamsResult.data.map((team) => ({
             tier: team.tier,
             name: `${team.school} ${team.nickname}`,
             region: team.region,
@@ -78,6 +85,7 @@ export default function Join() {
           );
         }
       } catch (error) {
+        console.log(error);
         setPageError(true);
       }
     };

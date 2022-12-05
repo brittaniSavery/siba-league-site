@@ -1,9 +1,10 @@
 import React from "react";
-import { Alert, Tabs, Tab, Table, Row, Col, Container } from "react-bootstrap";
-import Content from "../../layout/Content";
-import allTeamsFile from "../../lib/sicba-rankings.csv";
+import { Alert, Col, Container, Row, Tab, Table, Tabs } from "react-bootstrap";
 import { readString } from "react-papaparse";
 import ProbationIcon from "../../components/ProbationIcon";
+import Content from "../../layout/Content";
+import allTeamsFile from "../../lib/sicba-rankings.csv";
+import coachesFile from "../../lib/coaches.csv";
 
 export default function TeamRankings() {
   const [allTeams, setAllTeams] = React.useState([]);
@@ -26,23 +27,28 @@ export default function TeamRankings() {
         if (parseResult.errors.length) {
           errors += parseResult.errors.length;
           console.log(parseResult.errors);
+        } else {
+          setAllTeams(parseResult.data.sort((a, b) => a.ranking - b.ranking));
         }
-
-        setAllTeams(parseResult.data.sort((a, b) => a.ranking - b.ranking));
       } catch (error) {
         errors += 1;
         console.log(error);
       }
 
       try {
-        const dbResponse = await fetch(
-          `${process.env.REACT_APP_CMS_URL}/coaches`
-        );
-        if (dbResponse.ok) {
-          setHumanTeams(await dbResponse.json());
+        const coachesFileResponse = await fetch(coachesFile);
+        const coachesData = await coachesFileResponse.text();
+        const coachesResult = readString(coachesData, {
+          header: true,
+          dynamicTyping: false,
+          transformHeader: (header) => header.toLowerCase(),
+        });
+
+        if (coachesResult.errors.length) {
+          errors += coachesResult.errors.length;
+          console.log(coachesResult.errors);
         } else {
-          errors += 1;
-          console.log(await dbResponse.text());
+          setHumanTeams(coachesResult.data);
         }
       } catch (error) {
         errors += 1;

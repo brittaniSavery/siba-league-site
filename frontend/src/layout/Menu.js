@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import logoBlank from "../images/logo-blank.svg";
-import collegeLogo from "../images/sicba-logo-blank.svg";
+import collegeLogo from "../images/sicba-logo.png";
 import developmentLogo from "../images/development-logo.gif";
 
 const nav = {
