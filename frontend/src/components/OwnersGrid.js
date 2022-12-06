@@ -41,25 +41,37 @@ export default function OwnersGrid({ header, league }) {
     <Content header={header}>
       <Container>
         <Row>
-          {data.map((d) => {
-            return (
-              <Col
-                key={d.team}
-                xs={12}
-                md={league === "pro" ? 4 : 3}
-                className="center owners-grid"
-              >
-                <img
-                  src={`${process.env.PUBLIC_URL}/files/${league}/Website/images/${d.logo}`}
-                  alt={`${d.team} logo`}
-                />
-                <h2>{d.team}</h2>
-                <p>{`${league === PRO ? "Owner:" : "Head Coach:"} ${
-                  d.name
-                }`}</p>
-              </Col>
-            );
-          })}
+          {data
+            .sort((a, b) => {
+              console.log(a.team);
+              console.log(b.team);
+              if (a.team > b.team) {
+                return 1;
+              }
+              if (a.team < b.team) {
+                return -1;
+              }
+              return 0;
+            })
+            .map((d) => {
+              return (
+                <Col
+                  key={d.team}
+                  xs={12}
+                  md={league === "pro" ? 4 : 3}
+                  className="center owners-grid"
+                >
+                  <img
+                    src={`${process.env.PUBLIC_URL}/files/${league}/Website/images/${d.logo}`}
+                    alt={`${d.team} logo`}
+                  />
+                  <h2>{d.team}</h2>
+                  <p>{`${league === PRO ? "Owner:" : "Head Coach:"} ${
+                    d.name
+                  }`}</p>
+                </Col>
+              );
+            })}
         </Row>
       </Container>
     </Content>

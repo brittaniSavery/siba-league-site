@@ -104,7 +104,7 @@ export const PRO_TEAMS = [
   "Houston Stampede",
   "Indiana Express",
   "Kansas City Koyotes",
-  "Los Angeles Waves",
+  "Los Angeles Mamba",
   "Memphis Vandals",
   "Miami Sunbirds",
   "Milwaukee Wildcats",
