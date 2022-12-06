@@ -43,8 +43,6 @@ export default function OwnersGrid({ header, league }) {
         <Row>
           {data
             .sort((a, b) => {
-              console.log(a.team);
-              console.log(b.team);
               if (a.team > b.team) {
                 return 1;
               }
