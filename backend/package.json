@@ -5,7 +5,7 @@
   "author": "Brittani S. Avery <brittani.s.avery@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "aws-sdk": "^2.678.0",
+    "aws-sdk": "^2.814.0",
     "node-fetch": "^2.6.1",
     "parse5": "^6.0.0"
   },
