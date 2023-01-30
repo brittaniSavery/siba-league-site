@@ -1,5 +1,11 @@
 # Simulation Internet Basketball Association (SIBA)
 
+## Status - INACTIVE
+
+The fictional basketball league, SIBA, is still going strong! However, this repository for the website is no longer being actively developed. If you want to see the new version, please check out [version 2](https://github.com/brittaniSavery/siba-league-site-v2).
+
+## Description
+
 The Simulation Internet Basketball Association (SIBA) is a fictional basketball league created by my father and me as a way to bond over our love of basketball 🏀 and stats 👩🏾‍🔬. We have two leagues, a professional league and a college league. The pro league consists of 30 teams from around the US and Canada. Players manage their team's finances, trades, draft picks, and team strategies to make the playoffs and ultimately, win the coveted championship. In the college league, choose up to three of the 350+ Division I colleges and universities and recruit, train, and educate young men as you seek a spot in the main tournament or one of the sub-tournaments.
 
 ## Motivation
